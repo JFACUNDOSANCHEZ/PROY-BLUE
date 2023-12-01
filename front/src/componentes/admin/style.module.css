@@ -1,0 +1,22 @@
+.div{
+border: 1px solid black;
+width: 300px;
+height: 300px;
+border-radius: 13px;
+}
+.button {
+    align-items: center;
+    border-radius: 8px;
+    color: #0f2832;
+    cursor: pointer;
+    font-size: 12px;
+    font-weight: 400;
+    line-height: 19px;
+    min-height: 40px;
+    min-width: 80px;
+    padding: 6px 20px;
+    position: relative;
+    overflow: hidden;
+    transition: background-color 0.5s;
+    background-color: #efb700;
+  }

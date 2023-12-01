@@ -1,0 +1,26 @@
+.divContain{
+
+    background-color:gray ;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+
+}
+
+.contain{
+
+
+    display: flex;
+    flex-direction: column;
+}
+
+.card{
+    border: 1px solid black;
+    justify-content: center;
+    display:block
+}

@@ -1,0 +1,23 @@
+.button {
+    align-items: center;
+    border-radius: 8px;
+    color: #0f2832;
+    cursor: pointer;
+    font-size: 12px;
+    font-weight: 400;
+    line-height: 19px;
+    min-height: 40px;
+    min-width: 80px;
+    padding: 6px 20px;
+    position: relative;
+    overflow: hidden;
+    transition: background-color 0.5s;
+    background-color: #efb700;
+  }
+ .input{
+height: 200px;
+text-align:start;
+overflow: hidden; /* Oculta el texto que exceda el ancho */
+word-wrap: break-word;
+
+ }
