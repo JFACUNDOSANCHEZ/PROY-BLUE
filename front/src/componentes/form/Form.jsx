@@ -75,7 +75,7 @@ dispatch(postP(form))
     return (
         <div>
 
-<Link to={'/'}>
+<Link to={'/home'}>
                     <button>
                         👈
                     </button>

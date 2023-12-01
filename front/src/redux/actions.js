@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 export const allPasseger = () => {
-  const endpoint = 'http://localhost:3001/get'
+  const endpoint = 'get'
   return async (dispatch) => {
     try {
       const { data } = await axios(endpoint)
@@ -23,7 +23,7 @@ export const allPasseger = () => {
 
 
 export const postP = (data) => {
-  const endpoint = 'http://localhost:3001/post'
+  const endpoint = 'post'
   return async (dispatch) => {
 
     try {
@@ -49,7 +49,7 @@ export const findName = (name) => {
 
   return async (dispatch) => {
     try {
-      const endpoint = `http://localhost:3001/getDNI?name=${name}`
+      const endpoint = `getDNI?name=${name}`
       const { data } = await axios.get(endpoint)
       console.log(name);
       dispatch(
@@ -69,7 +69,7 @@ export const findName = (name) => {
 
 
 export const detail = (id) => {
-  const endpoint = `http://localhost:3001/get/${id}`
+  const endpoint = `get/${id}`
 
   return async (dispatch) => {
     try {
@@ -115,7 +115,7 @@ return (dispatch)=>{
 }
 
 export const solicitud=(user)=>{
-  const endpoint = 'http://localhost:3001/solicitud'
+  const endpoint = 'solicitud'
   return async (dispatch) => {
 
     try {
@@ -138,7 +138,7 @@ export const solicitud=(user)=>{
 
 
 export const allPosibleUser = () =>{
-  const endpoint = 'http://localhost:3001/getPosibleUser'
+  const endpoint = 'getPosibleUser'
   return async (dispatch) => {
     try {
       const { data } = await axios(endpoint)
@@ -157,7 +157,7 @@ export const allPosibleUser = () =>{
 }
 
 export const confirmacion=(user)=>{
-  const endpoint = 'http://localhost:3001/register'
+  const endpoint = 'register'
   return async (dispatch) => {
 
     try {
@@ -179,7 +179,7 @@ export const confirmacion=(user)=>{
 }
 
 export const getPosible =(token)=>{
-  const endpoint = `http://localhost:3001/confirmar-correo?token=${token}`
+  const endpoint = `confirmar-correo?token=${token}`
   return async (dispatch) => {
 
     try {
@@ -205,7 +205,7 @@ export const getPosible =(token)=>{
 
 
 export const postConfirm =(contraseña, token)=>{
-  const endpoint = `http://localhost:3001/confirmar-correo?token=${token}`
+  const endpoint = `confirmar-correo?token=${token}`
   return async (dispatch) => {
     try {
       const body = {
@@ -243,7 +243,7 @@ export const user=(id)=>{
 
 export const login = (data) => {
   console.log(data);
-  const endpoint = 'http://localhost:3001/login'
+  const endpoint = 'login'
   return async (dispatch) => {
     try {
 console.log(data);

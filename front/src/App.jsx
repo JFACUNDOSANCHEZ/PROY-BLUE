@@ -8,8 +8,8 @@ import Register from './componentes/register/Register';
 import AdminUser from './componentes/admin/AdminUser';
 import ConfirmarCorreo from './componentes/confirmar-correo/ConfirmarCorreo';
 import Login from './componentes/login/Login';
-
-
+import axios from 'axios';
+axios.defaults.baseURL = 'http://localhost:3001/'
 
 function App() {
 

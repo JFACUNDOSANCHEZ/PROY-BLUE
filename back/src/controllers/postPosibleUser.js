@@ -25,7 +25,7 @@ const postPosibleUser = async (req, res) => {
           pass: EMAIL_PASS,
         },
       });
-      const confirmacionUrl = `http://localhost:5173/confirmar-correo?token=${token}`; // URL de confirmación con el token
+      const confirmacionUrl = `https://proy-blue.vercel.app/confirmar-correo?token=${token}`; // URL de confirmación con el token
       const mailOptions = {
         from: EMAIL_USER,
         to: correoElectronico,
