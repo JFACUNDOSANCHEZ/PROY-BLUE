@@ -1,6 +1,8 @@
 import { useState } from "react"
-import { useDispatch } from "react-redux";
-import { findName } from "../../redux/actions";
+import { useDispatch,  } from "react-redux";
+import { close, findName } from "../../redux/actions";
+import style from './style.module.css'
+import { useEffect } from "react";
 
 
 
@@ -16,14 +18,20 @@ const Searchbar = () => {
             dispatch(findName(name))
         }
     }
-
+useEffect(()=>{
+    
+    if (pass === "") {
+        dispatch(close())
+    }
+    
+}, [pass])
 
 
 
     return (
         <div >
-            <div >
-                <span  >🔎Search DNI:</span>
+            <div className={style.d}>
+                <span  >🔎Search:</span>
                 <input onChange={handleChange} type='search' />
             </div>
         </div>

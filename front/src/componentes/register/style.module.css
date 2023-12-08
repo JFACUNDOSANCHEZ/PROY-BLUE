@@ -1,7 +1,11 @@
 
+.back{
+    left: 0;
+  
+top: 0;
+}
 
-
-.form button{
+.button{
 
     padding: 10px;
     border: none;

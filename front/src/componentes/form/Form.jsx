@@ -20,43 +20,48 @@ const Form = () => {
     
 
  
-    useEffect(() => {
-         const token = localStorage.getItem('token');
-        if (token) {
-      console.log(token);
+    //  useEffect(() => {
+    //       const token = localStorage.getItem('token');
+    //      if (token) {
+    //    console.log(token);
+    //    const decodedToken = jwtDecode(token); 
+    //    console.log(decodedToken);
+    //        if (decodedToken && decodedToken.nivel) {
+ 
+    //          switch (decodedToken.nivel) {
+    //              case "1":
+    //            alert('Solo puede acceder el nivel 2')
+    //              navigate('/home');
+    //              break;
+    //            case "2":
+     
+    //              navigate('/home/post');
+    //              break
+    //              case "3":
+     
+    //              navigate('/home/post');
+    //              break;
     
-      const decodedToken = jwtDecode(token); 
-      console.log(decodedToken);
-          if (decodedToken && decodedToken.nivel) {
-       
-            switch (decodedToken.nivel) {
-                case "1":
-              alert('Solo puede acceder el nivel 2')
-                navigate('/home');
-                break;
-              case "2":
-              
-                navigate('/home/post');
-                break;
-
-                case "3":
-              
-                navigate('/home/post');
-                break;
-            
-              default:
-                navigate('/');
-                break;
-            }
-          }
-        } else navigate('/')
-      }, []);
+    //            default:
+    //              navigate('/');
+    //              break;
+    //          }
+    //        }
+    //      } else navigate('/')
+    //    }, []);
     const handleChange = (event) => {
-        event.preventDefault()
+        event.preventDefault();
+        let value = event.target.value;
+    
+        // Verificar si el campo que se está modificando es 'name'
+        if (event.target.name === 'name') {
+            value = value.toUpperCase(); // Convertir el valor a mayúsculas
+        }
+    
         setForm({
             ...form,
-            [event.target.name]: event.target.value
-        })
+            [event.target.name]: value
+        });
     }
 
     const handleSubmit = (event) => {

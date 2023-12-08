@@ -1,26 +1,38 @@
 .divContain{
-
-    background-color:gray ;
+background-color: #efb700; 
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
     display: flex;
-    justify-content: space-between;
+    justify-content: space-around;
     align-items: center;
     padding: 20px;
+    height: 100px;
 
 }
 
+
 .contain{
-
-
     display: flex;
     flex-direction: column;
+}
+
+.divo{
+    display: inline-block;
+    padding-top: 10%; 
+    border-radius: 50px;
+
 }
 
 .card{
     border: 1px solid black;
     justify-content: center;
     display:block
+    
+}
+
+.d{
+    padding-top: 0px; 
+
 }

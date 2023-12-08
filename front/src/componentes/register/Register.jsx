@@ -41,12 +41,14 @@ const Register = () => {
   
   
     return (
-      <div className={style.registerContainer}>
-        <div className={style.back}>
+      <div>
+
+        <div >
           <Link to="/">
-            <button>👈</button>
+            <button className={style.back}>👈</button>
           </Link>
         </div>
+      <div className={style.registerContainer}>
   
         <form onSubmit={handleRegister} className={style.form}>
           <h1>Registro</h1>
@@ -88,7 +90,7 @@ const Register = () => {
               name="contraseña"
               value={user.contraseña}
               onChange={handleChange}
-            />
+              />
           </div>
           <button type="submit" className={style.button}>
             Cargar usuario
@@ -96,6 +98,7 @@ const Register = () => {
         {showSuccessMessage && <p>¡Usuario registrado! Recibira un mail</p>}
         </form>
       </div>
+              </div>
     );
 };
 

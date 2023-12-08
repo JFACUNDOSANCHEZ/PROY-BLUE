@@ -20,9 +20,8 @@ export const allPasseger = () => {
   }
 }
 
-
-
 export const postP = (data) => {
+
   const endpoint = 'post'
   return async (dispatch) => {
 
@@ -34,6 +33,32 @@ export const postP = (data) => {
         payload: response.data,
       })
       alert("agregado correctamente! ")
+    } catch (error) {
+      dispatch({
+        type: 'error',
+        payload: error.message,
+      });
+      console.log(error);
+    }
+
+  }
+}
+
+
+
+
+export const updateData = (data, id) => {
+  const endpoint = `get/${id}`
+  return async (dispatch) => {
+
+    try {
+      console.log(data)
+      const response = await axios.put(endpoint, data)
+      dispatch({
+        type: 'put',
+        payload: response.data,
+      })
+    
     } catch (error) {
       dispatch({
         type: 'error',
@@ -58,6 +83,25 @@ export const findName = (name) => {
           type: 'findName',
           payload: data,
         })
+    } catch (error) {
+      dispatch({
+        type: 'error',
+        payload: error.message,
+      });
+    }
+  }
+}
+
+export const deleteData =(id) => {
+  const endpoint = `get/${id}`
+  return async (dispatch) => {
+    try {
+      const { data } = await axios.delete(endpoint)
+      dispatch({
+        type: 'delet',
+        payload: data,
+      })
+      alert('Eliminado con exito')
     } catch (error) {
       dispatch({
         type: 'error',

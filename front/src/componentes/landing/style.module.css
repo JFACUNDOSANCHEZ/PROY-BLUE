@@ -17,32 +17,32 @@
   color: #0f2832;
   cursor: pointer;
   font-size: 12px;
-  font-weight: 400;
-  line-height: 19px;
+
+  font-size: 16px;
+  font: 15px Arial, sans-serif;
+  font-family: inherit;
   min-height: 40px;
-  min-width: 80px;
+  min-width: 99px;
   padding: 6px 20px;
   position: relative;
   overflow: hidden;
   transition: background-color 0.5s;
   background-color: #efb700;
+  margin: 7px;
 }
 
 .content {
-   /* background-color: aqua; */
+
   width: 50%;
-  
+    
 }
 
 .image {
    flex: 1;
    text-align: center;
-   /* background-color: blueviolet; */
    width: 1100px;
- 
-  
-      display: flex;
-   justify-content: center; /* Centrado horizontal */
+   display: flex;
+   justify-content: center; 
    align-items: center; 
    
  }

@@ -5,12 +5,15 @@ const getForName = async (req, res)=> {
  try {
         const passegers = await getAllPasseger()
 
- if (name) {
-      const passegerFind = passegers.filter((pass) => pass.dni.toLowerCase().includes(name.toLowerCase()));
-     
-      if(passegerFind.length > 0){
+        if (name) {
+            const passengerFind = passegers.filter((pass) => {
+                const dniMatch = pass.dni.toLowerCase().includes(name.toLowerCase());
+                const nameMatch = pass.name.toLowerCase().includes(name.toLowerCase());
+                return dniMatch || nameMatch;
+            });
+      if(passengerFind.length > 0){
 
-          res.status(200).json(passegerFind);
+          res.status(200).json(passengerFind);
         } else {
             res.status(444).send('No se encontro ese nombre');
         }

@@ -5,46 +5,42 @@ import style from './style.module.css';
 import { Link } from "react-router-dom";
 import { jwtDecode } from "jwt-decode";
 import { useNavigate } from 'react-router-dom';
+import Form from '../form/Form'
 
 
 const AdminUser = () => {
-  // useEffect(() => {
-  //   const token = localStorage.getItem('token');
-  //  if (token) {
-  // console.log(token);
+//    useEffect(() => {
+//      const token = localStorage.getItem('token');
+//     if (token) {
+//    console.log(token);
+//    const decodedToken = jwtDecode(token); 
+//    console.log(decodedToken);
+//       if (decodedToken && decodedToken.nivel) {
+//         switch (decodedToken.nivel) {
+//             case "1":
+//           alert('Solo puede acceder el admin')
+//             navigate('/home');
+//             break;
+//           case "2":
+//            alert('Solo puede acceder el admin')
+//            navigate('/home');
+//             break;
+//             case "3":
   
-  // const decodedToken = jwtDecode(token); 
-  // console.log(decodedToken);
-  //    if (decodedToken && decodedToken.nivel) {
-  
-  //      switch (decodedToken.nivel) {
-  //          case "1":
-  //        alert('Solo puede acceder el admin')
-  //          navigate('/home');
-  //          break;
-  
-  
-  //        case "2":
-  //         alert('Solo puede acceder el admin')
-  //         navigate('/home');
-  //          break;
-  
-  //          case "3":
-         
-  //          navigate('/admin');
-  //          break;
-       
-  //        default:
-  //          navigate('/home');
-  //          break;
-  //      }
-  //    }
-  //  }
-  // }, []);
+//             navigate('/admin');
+//             break;
+
+//           default:
+//             navigate('/home');
+//             break;
+//         }
+//       }
+//     }
+//    }, []);
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const [selectedUsers, setSelectedUsers] = useState({}); 
-  
+ 
 
 
   useEffect(() => {
@@ -114,6 +110,12 @@ const AdminUser = () => {
           </form>
         </div>
       ))}
+
+<div>
+  <Form   />
+</div>
+
+      
     </div>
   );
 };

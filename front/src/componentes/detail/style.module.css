@@ -1,7 +1,55 @@
 .div{
-border: 1px solid black;
 border-radius: 15px;
-width: 400px;
-height: 500px;
+width: 800px;
+height: 600px;
+box-shadow: rgba(14, 30, 37, 0.12) 0px 2px 4px 0px, rgba(14, 30, 37, 0.32) 0px 2px 16px 0px;
+text-align: left;
+padding: 20px;
 
+
+}
+
+.img{
+    padding: 20px;
+    margin-left: 300px;
+    text-align: center;
+}
+
+.button{
+    background-color: #efb700; 
+    padding: 10px 20px; /* Ajusta el relleno para agregar espacio alrededor del texto */
+    margin: 30px;
+    
+}
+.ed{
+    color: rgb(170, 170, 170);
+    justify-self: end;
+    margin: 7px;
+    margin-left: 50px;
+    margin-top: 20px; 
+    background-color: #0a0a0a;
+}
+
+.coso{
+    display: flex;
+    
+}
+
+.a{
+    margin-left: 40px;
+
+}
+
+.b{
+    margin-left: 160px;
+}
+
+
+.h{
+    padding-top: 0px;
+}
+
+.d{
+    display: flex;
+    justify-self: start;
 }
