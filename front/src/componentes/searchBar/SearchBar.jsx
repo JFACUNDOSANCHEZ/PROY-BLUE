@@ -31,8 +31,8 @@ useEffect(()=>{
     return (
         <div >
             <div className={style.d}>
-                <span  >🔎Search:</span>
-                <input onChange={handleChange} type='search' />
+                <span  >🔎 Buscador:</span>
+                <input className={style.i} onChange={handleChange} type='search' />
             </div>
         </div>
     )

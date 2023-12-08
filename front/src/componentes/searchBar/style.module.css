@@ -1,6 +1,12 @@
 .d{
 
     padding-top: 18px; 
- 
+ width: 900px;
 
+ margin-right:300px;
+}
+
+.i{
+    width: 80%;
+    border-radius: 30px;
 }

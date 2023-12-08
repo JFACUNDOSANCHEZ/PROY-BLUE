@@ -15,10 +15,10 @@ const Home = () => {
 
     const dispatch = useDispatch();
     const navigate = useNavigate();
-useEffect(()=>{
-     dispatch(close())
+    useEffect(() => {
+        dispatch(close())
 
-},[])
+    }, [])
 
     const handleClick = () => {
         dispatch(allPasseger())
@@ -32,39 +32,39 @@ useEffect(()=>{
 
     useEffect(() => {
         const token = localStorage.getItem('token');
-       if (token) {
-     console.log(token);
-   
-     const decodedToken = jwtDecode(token); 
-     setNivel(decodedToken.nivel)
-     console.log(decodedToken);
-         if (decodedToken && decodedToken.nivel) {
-      console.log(decodedToken.nivel);
+        if (token) {
+            console.log(token);
 
-           switch (decodedToken.nivel) {
-               case "1":
-           
-               navigate('/home');
-               break;
-             case "2":
-             
-               navigate('/home');
-               break;
+            const decodedToken = jwtDecode(token);
+            setNivel(decodedToken.nivel)
+            console.log(decodedToken);
+            if (decodedToken && decodedToken.nivel) {
+                console.log(decodedToken.nivel);
 
-               case "3":
-             
-               navigate('/home');
-               break;
-           
-             default:
-               navigate('/');
-               break;
-           }
-         }
-       } else navigate('/')
-     }, []);
-console.log(nivel);
-            
+                switch (decodedToken.nivel) {
+                    case "1":
+
+                        navigate('/home');
+                        break;
+                    case "2":
+
+                        navigate('/home');
+                        break;
+
+                    case "3":
+
+                        navigate('/home');
+                        break;
+
+                    default:
+                        navigate('/');
+                        break;
+                }
+            }
+        } else navigate('/')
+    }, []);
+    console.log(nivel);
+
     const passegers = useSelector((state) => state.passeger)
     console.log(passegers);
 
@@ -76,46 +76,46 @@ console.log(nivel);
 
             <div className={style.divContain}>
                 <div className={style.contain}>
-                 <h1>Home</h1> 
+                    <h1></h1>
                 </div>
                 {
-                    nivel == 2 ? (  
-                <div>
-                        <Link to={'/home/post'}>
-                    <button>
-                            Agregar Pasajero
-                    </button>
-                        </Link>
-                </div>
-                    ): (
+                    nivel == 2 ? (
+                        <div>
+                            <Link to={'/home/post'}>
+                                <button>
+                                    Agregar Pasajero
+                                </button>
+                            </Link>
+                        </div>
+                    ) : (
                         <div>
 
                         </div>
                     )
-                    }
-                       {
-                    nivel == 3 ? (  
-                <div>
-                        <Link to={'/admin'}>
-                    <button>
-                           admin
-                    </button>
-                        </Link>
+                }
+                    <Searchbar />
+                {
+                    nivel == 3 ? (
+                        <div>
+                            <Link to={'/admin'}>
+                                <button>
+                                    admin
+                                </button>
+                            </Link>
 
-            </div>) : (
-                <div></div>
-            )
-}
-                <Searchbar />
-                <div>
+                        </div>) : (
+                        <div></div>
+                    )
+                }
+                {/* <div>
                     <button onClick={handleClick}>  Todos los pasajeros</button>
-                </div>
-                <div>
+                </div> */}
+                {/* <div>
 
                     <button onClick={handleClose}> Cerrar todo </button>
-                </div>
-                </div>
-          
+                </div> */}
+            </div>
+
             <div className={style.divo}>
                 <Cards passegers={passegers} ></Cards>
             </div>
