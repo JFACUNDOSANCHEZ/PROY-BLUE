@@ -10,7 +10,8 @@ const { confirmarCorreo } = require('../controllers/ConfirmarCorreo');
 const { getConfirmacion } = require('../controllers/getConfirmacion');
 const { postLogin } = require('../controllers/postLogin');
 const { deletPasseger } = require('../controllers/deletPasseger')
-const { updatePasseger } = require('../controllers/putasseger')
+const { updatePasseger } = require('../controllers/putasseger');
+const { getallUser } = require('../controllers/GetUsers');
 
 
 const router = Router();
@@ -29,6 +30,7 @@ router.get('/get/:id', getPass )
 router.delete('/get/:id', deletPasseger)
 router.post('/register', postRegister );
 router.post('/solicitud', postPosibleUser );
+router.get('/user', getallUser );
 router.get('/getPosibleUser', getAllPosibleUser )
 router.post('/confirmar-correo', confirmarCorreo );
 router.get('/confirmar-correo', getConfirmacion );

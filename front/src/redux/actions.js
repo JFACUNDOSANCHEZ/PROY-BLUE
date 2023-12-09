@@ -20,6 +20,27 @@ export const allPasseger = () => {
   }
 }
 
+export const allUsers =()=>{
+  const endpoint = 'user'
+  return async (dispatch) => {
+    try {
+      const { data } = await axios(endpoint)
+      console.log(data);
+      dispatch({
+        type: 'users',
+        payload: data,
+      })
+
+    } catch (error) {
+      dispatch({
+        type: 'error',
+        payload: error.message,
+      });
+    }
+  }
+
+}
+
 export const postP = (data) => {
 
   const endpoint = 'post'

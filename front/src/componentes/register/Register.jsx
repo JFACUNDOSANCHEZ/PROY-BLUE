@@ -31,7 +31,7 @@ const Register = () => {
         alert('¡Faltan datos!');
       } else {
         dispatch(solicitud(user));
-        setShowSuccessMessage(true); // Mostrar el mensaje de éxito
+        setShowSuccessMessage(true); 
         setTimeout(() => {
           setShowSuccessMessage(false); // Ocultar el mensaje después de unos segundos
         }, 3000); // Puedes ajustar el tiempo según lo prefieras
@@ -43,11 +43,12 @@ const Register = () => {
     return (
       <div>
 
-        <div >
-          <Link to="/">
-            <button className={style.back}>👈</button>
-          </Link>
-        </div>
+       
+<div className={style.back}>
+        <Link to="/">
+          <button className={style.backButton}>Volver</button>
+        </Link>
+      </div>
       <div className={style.registerContainer}>
   
         <form onSubmit={handleRegister} className={style.form}>
@@ -97,6 +98,16 @@ const Register = () => {
           </button>
         {showSuccessMessage && <p>¡Usuario registrado! Recibira un mail</p>}
         </form>
+
+
+        <div className={style.image}>
+          <img
+            src="https://img.freepik.com/vector-premium/foro-web-herramientas-reparacion-ilustracion-plana_203633-2098.jpg"
+            alt="log"
+            width="550px"
+          />
+        </div>
+
       </div>
               </div>
     );

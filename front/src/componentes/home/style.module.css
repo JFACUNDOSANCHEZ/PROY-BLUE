@@ -1,5 +1,6 @@
-.divContain{
-background-color: #efb700; 
+
+.divContain {
+    background-color: #474747;
     position: fixed;
     top: 0;
     left: 0;
@@ -9,30 +10,27 @@ background-color: #efb700;
     align-items: center;
     padding: 20px;
     height: 100px;
-
-}
-
-
-.contain{
+    color: white;
+  }
+  
+  .contain {
     display: flex;
-    flex-direction: column;
-}
-
-.divo{
-    display: inline-block;
-    padding-top: 10%; 
-    border-radius: 50px;
-
-}
-
-.card{
-    border: 1px solid black;
+  }
+  
+  .divo {
+    display: flex;
+    flex-wrap: wrap;
     justify-content: center;
-    display:block
-    
-}
-
-.d{
-    padding-top: 0px; 
-
-}
+    padding-top: 10px;
+  }
+  
+  .card {
+    border: 1px solid black;
+    margin: 10px;
+    padding: 20px;
+    border-radius: 8px;
+  }
+  
+  .d {
+    padding-top: 0;
+  }

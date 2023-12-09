@@ -32,31 +32,36 @@ const Login = () => {
     console.log(dataUser);
 
     const token = useSelector(state => state.token)
+    console.log(token);
     useEffect(() => {
+        localStorage.setItem('token', token);
+        
         if (token) {
-    
-            localStorage.setItem('token', token);
-            const decodedToken = jwtDecode(token);
+             const decodedToken = jwtDecode(token);
 
-            if (decodedToken && decodedToken.nivel) {
+             if (decodedToken && decodedToken.nivel) {
 
-                switch (decodedToken.nivel) {
-                    case "1":
-                        navigate('/home');
-                        break;
-                    case "2":
-                        navigate('/home/');
-                        break;
-                    case "3":
-                        navigate('/home');
-                        break;
-                    default:
-                        navigate('/home');
-                        break;
-                }
-            }
-        } 
+                 switch (decodedToken.nivel) {
+                     case "1":
+                         navigate('/home');
+                         break;
+                     case "2":
+                         navigate('/home/');
+                         break;
+                     case "3":
+                         navigate('/home');
+                         break;
+                     default:
+                         navigate('/home');
+                         break;
+                 }
+             }
+         }
     }, [token, navigate]);
+
+
+
+
     const handleSubmit = async (event) => {
         try {
             event.preventDefault();
@@ -77,7 +82,7 @@ const Login = () => {
             <div className={style.back} >
                 <Link to={'/'}>
                     <button>
-                        👈
+                        Volver
                     </button>
                 </Link>
             </div>
@@ -117,6 +122,13 @@ const Login = () => {
                 </form>
 
             </div>
+            <div className={style.image}>
+        <img
+          src="https://img.freepik.com/vector-premium/nino-trabajando-pagina-web_118167-1969.jpg"
+          alt="log"
+          width='900px'
+        />
+      </div>
         </div>
     )
 }

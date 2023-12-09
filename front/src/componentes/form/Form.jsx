@@ -77,51 +77,47 @@ dispatch(postP(form))
     console.log(form);
 
 
-    return (
-        <div>
+    return (<div>
 
-<Link to={'/home'}>
-                    <button>
-                        👈
-                    </button>
-                </Link>
+        <Link to={'/home'}>
+          <button>Volver</button>
+        </Link>
+        <h1 className={style.h}>Agregar pasajero a la lista negra</h1>
+        <div className={style.formContainer}>
+  
+  
+        <form onSubmit={handleSubmit} className={style.form}>
+      <h2>Ingresar datos</h2>
+      <div className={style.div}>
+        <img
+          src="https://static.vecteezy.com/system/resources/previews/007/033/146/non_2x/profile-icon-login-head-icon-vector.jpg"
+          alt="icn"
+          width="150px"
+          className={style.img}
+        />
+      </div>
 
-            <h1>FORM</h1>
+      <div className={style.formGroup}>
+        <span>Nombre: </span>
+        <input className={style.dni} type="text" name="name" onChange={handleChange} value={form.name} />
+      </div>
 
+      <div className={style.formGroup}>
+        <span>DNI: </span>
+      </div>
+        <input className={style.dni} type="text" name="dni" onChange={handleChange} value={form.dni} />
 
+      <div className={style.formGroup}>
+        <span>Motivo: </span>
+        <input type="text" name="motivo" onChange={handleChange} value={form.motivo} className={style.largeInput} />
+      </div>
 
-            <form onSubmit={handleSubmit} >
-                <span>Nombre: </span>
-                <input type="text" name="name" onChange={handleChange} value={form.name} />
-
-                <span>DNI: </span>
-                <input type="text" name="dni" onChange={handleChange} value={form.dni}/>
-
-                <span>Motivo: </span>
-                <input  className={style.input}  type="text" name="motivo" onChange={handleChange} value={form.motivo}/>
-
-                <button 
-                   className={style.button}
-                    type="submit"> CARGAR DATOS
-                </button>
-
-            </form>
-
-
-
-
-
-
-
-        </div>
-
-
-
-    )
-
-
-
-}
+      <button type="submit" className={style.button}>CARGAR DATOS</button>
+    </form>
+      </div>
+    </div>
+    );
+  };
 
 
 export default Form

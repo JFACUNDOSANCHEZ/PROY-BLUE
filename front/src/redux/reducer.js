@@ -7,6 +7,7 @@ const inicialState = {
     user: [],
     posibleUser: [],
     getPosible: [],
+    users: []
 
 
 
@@ -53,6 +54,9 @@ const reducer = (state = inicialState, actions) => {
         case 'user':
             const posible = state.posibleUser.filter(user => user.ud !== actions.payload)
             return { ...state, posibleUser: posible }
+
+        case 'users':
+            return {...state, users : actions.payload}
         case 'token':
             return { ...state, token: actions.payload }
         default:

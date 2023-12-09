@@ -28,14 +28,19 @@ useEffect(()=>{
 
 
 
-    return (
-        <div >
-            <div className={style.d}>
-                <span  >🔎 Buscador:</span>
-                <input className={style.i} onChange={handleChange} type='search' />
-            </div>
-        </div>
-    )
-}
+return (
+    <div className={style.container}>
+      <div className={style.searchBox}>
+        <span className={style.searchIcon}>🔎</span>
+        <input
+          className={style.inputSearch}
+          onChange={handleChange}
+          type="search"
+          placeholder="Buscar..."
+        />
+      </div>
+    </div>
+  );
+};
 
 export default Searchbar;

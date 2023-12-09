@@ -11,6 +11,7 @@ import { jwtDecode } from "jwt-decode";
 
 
 
+
 const Home = () => {
 
     const dispatch = useDispatch();
@@ -20,55 +21,63 @@ const Home = () => {
 
     }, [])
 
-    const handleClick = () => {
-        dispatch(allPasseger())
-    }
-
-    const handleClose = () => {
-        dispatch(close())
-
-    }
+  
     const [nivel, setNivel] = useState('');
 
-    useEffect(() => {
-        const token = localStorage.getItem('token');
-        if (token) {
-            console.log(token);
+ useEffect(() => {
+     const token = localStorage.getItem('token');
+     console.log(token);
+     if (token) {
 
             const decodedToken = jwtDecode(token);
-            setNivel(decodedToken.nivel)
-            console.log(decodedToken);
-            if (decodedToken && decodedToken.nivel) {
-                console.log(decodedToken.nivel);
+           setNivel(decodedToken.nivel)
+    //         console.log(decodedToken);
+    //         if (decodedToken && decodedToken.nivel) {
+    //             console.log(decodedToken.nivel);
 
-                switch (decodedToken.nivel) {
-                    case "1":
+    //             switch (decodedToken.nivel) {
+    //                 case "1":
 
-                        navigate('/home');
-                        break;
-                    case "2":
+    //                     navigate('/home');
+    //                     break;
+    //                 case "2":
 
-                        navigate('/home');
-                        break;
+    //                     navigate('/home');
+    //                     break;
 
-                    case "3":
+    //                 case "3":
 
-                        navigate('/home');
-                        break;
+    //                     navigate('/home');
+    //                     break;
 
-                    default:
-                        navigate('/');
-                        break;
-                }
-            }
-        } else navigate('/')
+    //                 default:
+    //                     navigate('/');
+    //                     break;
+    //             }
+    //         }
+       } else navigate('/')
     }, []);
     console.log(nivel);
 
     const passegers = useSelector((state) => state.passeger)
     console.log(passegers);
 
+    const handleSelectChange = (e) => {
+        if (e.target.value === 'cierre') {
+          handleCerrarSesion(); 
+        }
+      };
 
+    const handleCerrarSesion = () => {
+        const token = localStorage.getItem('token');
+        console.log("Dentro del handle " + token); 
+                   if (token) {
+
+            localStorage.removeItem('token');
+
+            navigate('/');
+        }
+    }
     return (
         <div >
 
@@ -93,7 +102,13 @@ const Home = () => {
                         </div>
                     )
                 }
-                    <Searchbar />
+                <Searchbar />
+                <select name="s" onChange={handleSelectChange}>
+                    <option >-Seleccione</option>
+                    <option value="perfil"> Perfil</option>
+                    <option value="cierre">Cierre Sesión</option>
+
+                </select>
                 {
                     nivel == 3 ? (
                         <div>
@@ -107,13 +122,7 @@ const Home = () => {
                         <div></div>
                     )
                 }
-                {/* <div>
-                    <button onClick={handleClick}>  Todos los pasajeros</button>
-                </div> */}
-                {/* <div>
-
-                    <button onClick={handleClose}> Cerrar todo </button>
-                </div> */}
+         
             </div>
 
             <div className={style.divo}>

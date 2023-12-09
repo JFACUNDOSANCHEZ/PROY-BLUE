@@ -1,12 +1,29 @@
-.d{
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+  }
+  
+  .searchBox {
+    display: flex;
+    align-items: center;
 
-    padding-top: 18px; 
- width: 900px;
-
- margin-right:300px;
-}
-
-.i{
-    width: 80%;
     border-radius: 30px;
-}
+    padding: 10px 20px;
+    width: 80%; /* Ajusta el ancho según tu diseño */
+    max-width: 600px; /* Limita el ancho máximo para una mejor visualización */
+  }
+  
+  .searchIcon {
+    margin-right: 10px;
+  }
+  
+  .inputSearch {
+    width: 1000px;
+    flex: 1;
+    border: none;
+    outline: none;
+    padding: 8px;
+    border-radius: 20px;
+  }

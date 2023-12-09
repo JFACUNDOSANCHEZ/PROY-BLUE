@@ -1,23 +1,82 @@
-.button {
-    align-items: center;
-    border-radius: 8px;
-    color: #0f2832;
-    cursor: pointer;
-    font-size: 12px;
-    font-weight: 400;
-    line-height: 19px;
-    min-height: 40px;
-    min-width: 80px;
-    padding: 6px 20px;
-    position: relative;
-    overflow: hidden;
-    transition: background-color 0.5s;
-    background-color: #efb700;
-  }
- .input{
-height: 200px;
-text-align:start;
-overflow: hidden; /* Oculta el texto que exceda el ancho */
-word-wrap: break-word;
 
- }
+.form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 15px;
+  margin-top: 20px;
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
+}
+
+
+.img {
+  width: 150px;
+  border-radius: 50%;
+  border: 1px solid #ccc;
+}
+
+.formGroup {
+  display: flex;
+  flex-direction: column;
+}
+
+
+
+.largeInput {
+  width: 500px;
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 16px;
+  /* Ajustes para hacer el input más grande y alinear el texto */
+  height: 150px; /* Altura del input más grande */
+  resize: none; /* Evitar redimensionamiento del input */
+  text-align: left; /* Alinear texto a la izquierda */
+  padding-top: 10px; /* Ajustar el espacio superior del texto */
+}
+
+.dni {
+  width: 500px;
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 16px;
+  margin-bottom: 10px; /* Espacio inferior entre campos */
+}
+
+.button {
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
+  padding: 10px 20px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+  
+  /* background-color: transparent;
+  border: 1px solid #266DB6;
+  box-sizing: border-box;
+  color: #00132C;
+  font-family: "Avenir Next LT W01 Bold",sans-serif;
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 24px;
+  padding: 16px 23px;
+  position: relative;
+  text-decoration: none;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  
+   */
+  
+  
+}
+.h{
+margin-right: 100px;
+}
+
+.button:hover {
+  background-color: #0056b3;
+}
