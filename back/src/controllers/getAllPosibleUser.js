@@ -1,9 +1,9 @@
-const { PosibleUser }= require('../db.js')
+const { Posible  }= require('../db.js')
 
 
 const getAllPosibleUser = async (req, res) => {
 try {
-    const allPosibleUser = await PosibleUser.findAll()
+    const allPosibleUser = await Posible.findAll()
 
 res.status(200).json(allPosibleUser)
 

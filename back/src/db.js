@@ -28,7 +28,7 @@ modelDefiners.forEach(model => model(sequelize));
 
 
 
-const {BlackList, Passeger, User, PosibleUser  }  = sequelize.models;
+const {BlackList, Passeger, User, PosibleUser , Posible }  = sequelize.models;
 Passeger.belongsTo(BlackList);
 
 BlackList.hasMany(Passeger);
@@ -37,6 +37,7 @@ User.hasMany(Passeger)
 
 PosibleUser
 
+Posible
 
 
 module.exports = {

@@ -24,7 +24,9 @@ const postLogin = async (req, res) => {
       if (!contraseñaValida) {
         return res.status(444).json({ mensaje: 'Credenciales inválidas' });
       }
- 
+      if (!usuarioValido.activo) {
+        return res.status(403).json({ mensaje: 'El usuario está inactivo. Contacta al administrador.' });
+      }
       const token = jwt.sign({ usuarioId: usuarioValido.id, nivel: usuarioValido.nivel }, JWT_SECRET, { expiresIn: '1h' });
       console.log(token);
       res.status(200).json(token);

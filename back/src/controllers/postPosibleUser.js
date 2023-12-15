@@ -3,10 +3,11 @@ const nodemailer = require('nodemailer');
 const { EMAIL_USER, EMAIL_PASS, JWT_SECRET } = process.env;
 require('dotenv').config();
 const jwt = require('jsonwebtoken');
+const bcrypt = require('bcrypt');
 
 const generarToken = (datos) => {
-  // Genera un token con los datos proporcionados (puedes personalizar qué datos incluir)
-  return jwt.sign(datos, JWT_SECRET, { expiresIn: '1h' }); // Personaliza la duración del token según tu necesidad
+ 
+  return jwt.sign(datos, JWT_SECRET, { expiresIn: '1h' }); 
 };
 
 const postPosibleUser = async (req, res) => {
@@ -15,8 +16,9 @@ const postPosibleUser = async (req, res) => {
     if (!nombreUsuario || !correoElectronico || !nombreCompleto || !contraseña) {
       res.status(400).send('Faltan Datos');
     } else {
-      const token = generarToken({ correoElectronico }); // Genera el token usando el correo electrónico
-      const solicitud = await PosibleUser.create({ nombreUsuario, correoElectronico, nombreCompleto, contraseña, token });
+      const token = generarToken({ correoElectronico }); 
+      const hashedPassword = await bcrypt.hash(contraseña, 10);
+      const solicitud = await PosibleUser.create({ nombreUsuario, correoElectronico, nombreCompleto, contraseña: hashedPassword, token });
 
       const transporter = nodemailer.createTransport({
         service: 'Gmail',
@@ -25,7 +27,7 @@ const postPosibleUser = async (req, res) => {
           pass: EMAIL_PASS,
         },
       });
-      const confirmacionUrl = `http://localhost:5173/confirmar-correo?token=${token}`; // URL de confirmación con el token
+      const confirmacionUrl = `http://localhost:5173/confirmar-correo?token=${token}`; 
       const mailOptions = {
         from: EMAIL_USER,
         to: correoElectronico,

@@ -1,39 +1,43 @@
 const { Router } = require('express');
-const {postPasseger}= require('../controllers/postPasseger');
+const { postPasseger } = require('../controllers/postPasseger');
 const { getAllPasseger } = require('../controllers/getAllPasseger');
 const { getForName } = require('../controllers/getForName');
-const { getPass } = require('../controllers/getPass');
+const { getPass } = require('../controllers/getPassID');
 const { postRegister } = require('../controllers/postRegister');
 const { postPosibleUser } = require('../controllers/postPosibleUser');
 const { getAllPosibleUser } = require('../controllers/getAllPosibleUser');
-const { confirmarCorreo } = require('../controllers/ConfirmarCorreo');
+const { confirmarCorreo } = require('../controllers/postConfirmarCorreo');
 const { getConfirmacion } = require('../controllers/getConfirmacion');
 const { postLogin } = require('../controllers/postLogin');
 const { deletPasseger } = require('../controllers/deletPasseger')
 const { updatePasseger } = require('../controllers/putasseger');
-const { getallUser } = require('../controllers/GetUsers');
+const { getallUser } = require('../controllers/getAllUsers');
+const { getUserId } = require('../controllers/getUserID');
+const { putUser } = require('../controllers/putUser');
 
 
 const router = Router();
 
-router.post('/post', postPasseger );
-router.get('/getDNI', getForName )
-router.get('/get', async (req, res) =>{
-    try{
+router.post('/post', postPasseger);
+router.get('/getDNI', getForName)
+router.get('/get', async (req, res) => {
+    try {
         const passegers = await getAllPasseger()
         res.status(200).json(passegers)
     } catch (error) {
-        res.status(200).json({message: error.message})
+        res.status(200).json({ message: error.message })
     }
-} );
-router.get('/get/:id', getPass )
+});
+router.get('/get/:id', getPass)
 router.delete('/get/:id', deletPasseger)
-router.post('/register', postRegister );
-router.post('/solicitud', postPosibleUser );
-router.get('/user', getallUser );
-router.get('/getPosibleUser', getAllPosibleUser )
-router.post('/confirmar-correo', confirmarCorreo );
-router.get('/confirmar-correo', getConfirmacion );
-router.post('/login', postLogin );
-router.put('/get/:id', updatePasseger)
+router.post('/register', postRegister);
+router.post('/solicitud', postPosibleUser);
+router.get('/user', getallUser);
+router.get('/getPosibleUser', getAllPosibleUser)
+router.post('/confirmar-correo', confirmarCorreo);
+router.get('/confirmar-correo', getConfirmacion);
+router.post('/login', postLogin);
+router.put('/get/:id', updatePasseger);
+router.get('/user/:id', getUserId);
+router.put('/user/:id', putUser);
 module.exports = router;

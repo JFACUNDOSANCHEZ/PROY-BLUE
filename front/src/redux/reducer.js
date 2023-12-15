@@ -18,13 +18,17 @@ const reducer = (state = inicialState, actions) => {
         case 'all':
             return { ...state, passeger: actions.payload, allpasseger: actions.payload }
 
+
+            case 'userID':
+                return {...state, user: actions.payload }
         case 'post':
             return { ...state, post: actions.payload }
 
         case 'findName':
 
             return { ...state, passeger: actions.payload }
-
+case 'userPut':
+    return {...state}
 
         case 'detail':
             return { ...state, detail: actions.payload }
@@ -51,9 +55,7 @@ const reducer = (state = inicialState, actions) => {
         case 'getPosible':
             return { ...state, getPosible: actions.payload }
 
-        case 'user':
-            const posible = state.posibleUser.filter(user => user.ud !== actions.payload)
-            return { ...state, posibleUser: posible }
+      
 
         case 'users':
             return {...state, users : actions.payload}

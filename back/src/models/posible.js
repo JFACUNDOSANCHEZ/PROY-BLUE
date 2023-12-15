@@ -3,7 +3,7 @@ const { DataTypes } = require('sequelize');
 module.exports = (sequelize) => {
 
 
-  sequelize.define("User", {
+  sequelize.define("Posible", {
  
     nombreUsuario: {
         type: DataTypes.STRING,
@@ -14,23 +14,16 @@ module.exports = (sequelize) => {
         allowNull: false,
         unique: true 
     },
-    contraseña: {
+    nombreCompleto : {
         type: DataTypes.STRING,
         allowNull: false
     },
-    nivel: {
+    contraseña:{
         type: DataTypes.STRING,
         allowNull: false
+
     },
-    nombreCompleto :{
-        type: DataTypes.STRING,
-        allowNull: false
-    },
-    activo: {
-        type: DataTypes.BOOLEAN,
-        allowNull: false,
-        defaultValue: true
-    }
+
 },{timestamps: true});
 
 

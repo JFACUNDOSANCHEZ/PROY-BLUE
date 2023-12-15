@@ -20,6 +20,52 @@ export const allPasseger = () => {
   }
 }
 
+export const userPut= (data, id) =>{
+  const endpoint = `user/${id}`
+  return async (dispatch) => {
+
+    try {
+      console.log(data)
+      const response = await axios.put(endpoint,  data);
+      dispatch({
+        type: 'userPut',
+        payload: response.data,
+      })
+    
+    } catch (error) {
+      dispatch({
+        type: 'error',
+        payload: error.message,
+      });
+      console.log(error);
+    }
+
+  }
+
+
+}
+
+export const userID = (id) =>{
+
+  const endpoint = `user/${id}`
+
+  return async (dispatch) => {
+    try {
+      const { data } = await axios(endpoint)
+      dispatch({
+        type: 'userID',
+        payload: data,
+      })
+    } catch (error) {
+      dispatch({
+        type: 'error',
+        payload: error.message,
+      });
+    }
+  }
+
+}
+
 export const allUsers =()=>{
   const endpoint = 'user'
   return async (dispatch) => {

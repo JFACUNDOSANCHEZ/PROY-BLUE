@@ -23,6 +23,7 @@ const Form = () => {
     //  useEffect(() => {
     //       const token = localStorage.getItem('token');
     //      if (token) {
+    //       try{ 
     //    console.log(token);
     //    const decodedToken = jwtDecode(token); 
     //    console.log(decodedToken);
@@ -34,19 +35,22 @@ const Form = () => {
     //              navigate('/home');
     //              break;
     //            case "2":
-     
+   
     //              navigate('/home/post');
     //              break
     //              case "3":
-     
+   
     //              navigate('/home/post');
     //              break;
-    
+   
     //            default:
     //              navigate('/');
     //              break;
     //          }
-    //        }
+    //        }  } catch (error) {
+    //         console.error('Error al decodificar el token:', error);
+    //         navigate('/');
+    //     }
     //      } else navigate('/')
     //    }, []);
     const handleChange = (event) => {

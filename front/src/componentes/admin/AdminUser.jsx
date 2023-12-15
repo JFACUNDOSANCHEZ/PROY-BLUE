@@ -1,6 +1,6 @@
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect, useState } from "react";
-import { allPosibleUser, confirmacion, user, allUsers } from "../../redux/actions";
+import { allPosibleUser, confirmacion, user, allUsers, userPut } from "../../redux/actions";
 import style from './style.module.css';
 import { Link } from "react-router-dom";
 import { jwtDecode } from "jwt-decode";
@@ -9,34 +9,32 @@ import Form from '../form/Form'
 
 
 const AdminUser = () => {
-  //    useEffect(() => {
-  //      const token = localStorage.getItem('token');
-  //     if (token) {
-  //    console.log(token);
-  //    const decodedToken = jwtDecode(token); 
-  //    console.log(decodedToken);
-  //       if (decodedToken && decodedToken.nivel) {
-  //         switch (decodedToken.nivel) {
-  //             case "1":
-  //           alert('Solo puede acceder el admin')
-  //             navigate('/home');
-  //             break;
-  //           case "2":
-  //            alert('Solo puede acceder el admin')
-  //            navigate('/home');
-  //             break;
-  //             case "3":
-
-  //             navigate('/admin');
-  //             break;
-
-  //           default:
-  //             navigate('/home');
-  //             break;
-  //         }
-  //       }
-  //     }
-  //    }, []);
+  //  useEffect(() => {
+    // const token = localStorage.getItem('token');
+    // console.log(token);
+    //  if (token) {
+  //  const decodedToken = jwtDecode(token); 
+  // console.log(decodedToken);
+    //  if (decodedToken && decodedToken.nivel) {
+      //  switch (decodedToken.nivel) {
+          //  case "1":
+        //  alert('Solo puede acceder el admin')
+          //  navigate('/home');
+          //  break;
+        //  case "2":
+          // alert('Solo puede acceder el admin')
+          // navigate('/home');
+          //  break;
+          //  case "3":
+          //  navigate('/admin');
+          //  break;
+        //  default:
+          //  navigate('/home');
+          //  break;
+      //  }
+    //  }
+    //  }
+  //  }, []);
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const [selectedUsers, setSelectedUsers] = useState({});
@@ -52,17 +50,21 @@ const AdminUser = () => {
     dispatch(confirmacion(user));
     console.log(user);
   };
-  const handleClick = (e, id) => {
+  // const handleClick = (e, id) => {
 
-    dispatch(user(id))
+  //   // dispatch(user(id))
 
+//DELET
+  // }
 
-  }
-
-
-  // const fechaFormateada = fecha.toLocaleDateString();
+  const handleChange = (id) => (e) => {
+    const estado = e.target.value === 'T' ? true : false;
+    console.log(estado);
+    dispatch(userPut(estado, id));
+  };
   
-  
+
+
   const handleLevelChange = (event, userId) => {
     const selectedLevel = event.target.value;
     setSelectedUsers({ ...selectedUsers, [userId]: selectedLevel });
@@ -82,12 +84,34 @@ const AdminUser = () => {
         <div>
           <p>Aqui estan los users</p>
           {users?.map((u, index) => (
-          
-            <div key={index} className={style.div} >
-            <p>nombre: {u.nombreUsuario}</p>
-              <p>Correo: {u.correoElectronico}</p>
 
-              <p>Fecha de creación: {new Date(u.createdAt).toLocaleDateString()}</p>
+            <div key={index} className={style.div} >
+
+<div>
+<h2>Activo: {u?.activo ? 'TRUE' : 'FALSE'}</h2>
+</div>
+<select onChange={handleChange(u?.id)}>
+  <option value="F">FALSE</option>
+  <option value="T">TRUE</option>
+</select>
+              <div>
+              </div>
+                <p>Nombre completo : {u?.nombreCompleto}</p>
+
+              <p>Nombre de usuario : {u?.nombreUsuario}</p>
+              <div>
+
+                <p>Correo: {u?.correoElectronico}</p>
+              </div>
+              <div>
+
+                <p>Fecha de creación: {new Date(u?.createdAt).toLocaleDateString()}</p>
+              </div>
+              <div>
+
+                <p>Nivel: {u?.nivel}</p>
+                
+              </div>
             </div>
           ))}
 
@@ -132,10 +156,10 @@ const AdminUser = () => {
         <div>
           <Form />
         </div>
-</div>
-
       </div>
-      );
+
+    </div>
+  );
 }
 
-      export default AdminUser;
+export default AdminUser;

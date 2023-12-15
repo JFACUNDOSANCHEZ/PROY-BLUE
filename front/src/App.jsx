@@ -9,6 +9,7 @@ import AdminUser from './componentes/admin/AdminUser';
 import ConfirmarCorreo from './componentes/confirmar-correo/ConfirmarCorreo';
 import Login from './componentes/login/Login';
 import axios from 'axios';
+import UserPerfil from './componentes/user/UserPerfil';
 axios.defaults.baseURL = 'http://localhost:3001/'
 
 function App() {
@@ -17,6 +18,7 @@ function App() {
   return (
     <div>
       <Routes>
+
         <Route path='/' element={<LandingPage />} >  </Route>
         <Route path='/register' element={<Register />}></Route>
         <Route path='/home' element={<Home />} >  </Route>
@@ -25,6 +27,7 @@ function App() {
         <Route path='/admin' element={<AdminUser />} >  </Route>
         <Route path='/confirmar-correo' element={<ConfirmarCorreo />} >  </Route>
          <Route path='/login' element={<Login />} >  </Route> 
+         <Route path='/user/:id' element={ < UserPerfil/> } />
       </Routes>
     </div>
   )

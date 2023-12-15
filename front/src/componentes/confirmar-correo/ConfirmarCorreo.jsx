@@ -16,7 +16,7 @@ const ConfirmarCorreo = () => {
     useEffect(() => {
         const searchParams = new URLSearchParams(location.search);
         const token = searchParams.get('token');
-        console.log(" aca esta el token de ahora " + token );
+        console.log(" aca esta el token de ahora " + token);
         dispatch(getPosible(token))
     }, [])
     const handleChange = (event) => {
@@ -30,9 +30,9 @@ const ConfirmarCorreo = () => {
     const handleSubmit = (e) => {
         e.preventDefault()
         const contraseña = contra.pass
-const token = posible.token
-console.log(" aca esta el token en el handle" + token );
-console.log("aca esta la contraseña en el handle " + contraseña);
+        const token = posible.token
+        console.log(" aca esta el token en el handle" + token);
+        console.log("aca esta la contraseña en el handle " + contraseña);
         dispatch(postConfirm(contraseña, token))
 
         console.log(contraseña);
@@ -40,11 +40,11 @@ console.log("aca esta la contraseña en el handle " + contraseña);
     return (
         <div>
             <div>
-            <Link to={'/'}>
-    <button>
-        👈
-    </button>
-    </Link>
+                <Link to={'/'}>
+                    <button>
+                        👈
+                    </button>
+                </Link>
             </div>
             <h1>Confirmacion </h1>
             {posible && <h2>Bienvenido {posible.nombreCompleto}</h2>}
