@@ -34,31 +34,29 @@ const Login = () => {
     const token = useSelector(state => state.token)
     console.log(token);
     useEffect(() => {
-        localStorage.setItem('token', token);
         
-        if (token) {
-             const decodedToken = jwtDecode(token);
-
-             if (decodedToken && decodedToken.nivel) {
-
-                 switch (decodedToken.nivel) {
-                     case "1":
-                         navigate('/home');
-                         break;
-                     case "2":
-                         navigate('/home/');
-                         break;
-                     case "3":
-                         navigate('/home');
-                         break;
-                     default:
-                         navigate('/home');
-                         break;
-                 }
-             }
-         }
+        if (token && token.length !== 0) {
+            localStorage.setItem('token', token); 
+            const decodedToken = jwtDecode(token);
+    
+            if (decodedToken && decodedToken.nivel) {
+                switch (decodedToken.nivel) {
+                    case "1":
+                        navigate('/home');
+                        break;
+                    case "2":
+                        navigate('/home/');
+                        break;
+                    case "3":
+                        navigate('/home');
+                        break;
+                    default:
+                        navigate('/home');
+                        break;
+                }
+            }
+        }
     }, [token, navigate]);
-
 
 
 

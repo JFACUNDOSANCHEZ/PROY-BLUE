@@ -18,13 +18,17 @@ const Detail = () => {
     useEffect(() => {
 
         dispatch(detail(id))
-        setConfir(false)
-    }, [dispatch])
+    }, [dispatch, id])
     const pass = useSelector((state) => state.detail)
-    const [confir, setConfir] = useState(false);
+useEffect(()=>{
+setEditedData(pass)
+},[pass])
+
+
     const [isEditing, setIsEditing] = useState(false);
-    const [editedData, setEditedData] = useState({ ...pass });
-    console.log(confir);
+    const [editedData, setEditedData] = useState({ });
+  
+
     const fecha = new Date(pass.createdAt);
     const fechaFormateada = fecha.toLocaleDateString();
     const horaFormateada = fecha.toLocaleTimeString();
@@ -67,23 +71,7 @@ const Detail = () => {
     }, []);
 
 
-
-
-
     console.log(nivel);
-
-
-
-
-
-
-
-
-
-
-
-
-
 
     return (
         <div>
@@ -105,13 +93,12 @@ const Detail = () => {
                         <div className={style.d}>
                             <button onClick={handleDeletClick}>Eliminar pasajero</button>
                             <button onClick={handleEditClick} className={style.ed}>
-                                <img src="https://cdn.icon-icons.com/icons2/1155/PNG/512/1486564724-pencil_81530.png" alt="ed" width='28px' />
-                            </button>
+                          <p>EDITAR</p>     </button>
                         </div>
                     ) : (
                         <div>
-                    
-                      
+
+
                         </div>
                     )
                 }
@@ -167,9 +154,9 @@ const Detail = () => {
                 ) : (
 
                     <div>
-                        <h2 className={style.a}>Nombre: {pass?.name}</h2>
-                        <h2 className={style.a}>DNI: {pass?.dni}</h2>
-                        <h2 className={style.a}>Motivo: {pass?.motivo}</h2>
+                        <h2 className={style.a}>Nombre: {editedData?.name}</h2>
+                        <h2 className={style.a}>DNI: {editedData?.dni}</h2>
+                        <h2 className={style.a}>Motivo: {editedData?.motivo}</h2>
                     </div>
                 )}
             </div>

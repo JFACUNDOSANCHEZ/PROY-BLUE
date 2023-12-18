@@ -32,7 +32,15 @@ const postPosibleUser = async (req, res) => {
         from: EMAIL_USER,
         to: correoElectronico,
         subject: 'Confirmación de correo electrónico',
-        text: `Por favor, haz clic en este enlace para confirmar tu correo electrónico: ${confirmacionUrl}`,
+        html: `
+        <h2>Hola ${nombreUsuario} </h2>
+        <p>Por favor, haz clic en el botón de abajo para confirmar tu correo electrónico:</p>
+        <a href="${confirmacionUrl}">
+          <button style="background-color: #4CAF50; border: none; color: white; padding: 15px 32px; text-align: center; text-decoration: none; display: inline-block; font-size: 16px; margin: 4px 2px; cursor: pointer;">
+            Confirmar correo electrónico
+          </button>
+        </a>
+      `,
       };
 
       await transporter.sendMail(mailOptions);

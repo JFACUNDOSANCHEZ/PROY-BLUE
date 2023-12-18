@@ -15,7 +15,7 @@ const putUser = async (req, res) => {
     if (activo) {
       usuario.activo = activo;
     }
-
+    console.log(usuario.activo+  " aca esta el activo por config   "+activo);
     if (nombreCompleto) {
       usuario.nombreCompleto = nombreCompleto;
     }

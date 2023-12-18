@@ -28,16 +28,18 @@ router.get('/get', async (req, res) => {
         res.status(200).json({ message: error.message })
     }
 });
+//Passeger
 router.get('/get/:id', getPass)
 router.delete('/get/:id', deletPasseger)
-router.post('/register', postRegister);
-router.post('/solicitud', postPosibleUser);
-router.get('/user', getallUser);
-router.get('/getPosibleUser', getAllPosibleUser)
-router.post('/confirmar-correo', confirmarCorreo);
-router.get('/confirmar-correo', getConfirmacion);
-router.post('/login', postLogin);
 router.put('/get/:id', updatePasseger);
+router.post('/solicitud', postPosibleUser);
+// USERs
+router.get('/confirmar-correo', getConfirmacion);
+router.post('/confirmar-correo', confirmarCorreo);
+router.post('/login', postLogin);
+router.get('/getPosibleUser', getAllPosibleUser)
+router.post('/register', postRegister);
 router.get('/user/:id', getUserId);
 router.put('/user/:id', putUser);
+router.get('/user', getallUser);
 module.exports = router;

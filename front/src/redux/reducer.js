@@ -7,7 +7,8 @@ const inicialState = {
     user: [],
     posibleUser: [],
     getPosible: [],
-    users: []
+    users: [],
+    
 
 
 
@@ -15,6 +16,9 @@ const inicialState = {
 }
 const reducer = (state = inicialState, actions) => {
     switch (actions.type) {
+        case 'borrarToken':
+            return {...state, token : []}
+
         case 'all':
             return { ...state, passeger: actions.payload, allpasseger: actions.payload }
 
@@ -28,7 +32,7 @@ const reducer = (state = inicialState, actions) => {
 
             return { ...state, passeger: actions.payload }
 case 'userPut':
-    return {...state}
+    return {...state, user: actions.payload}
 
         case 'detail':
             return { ...state, detail: actions.payload }

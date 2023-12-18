@@ -1,5 +1,5 @@
-import axios from 'axios';
 
+import axios from 'axios';
 export const allPasseger = () => {
   const endpoint = 'get'
   return async (dispatch) => {
@@ -20,13 +20,29 @@ export const allPasseger = () => {
   }
 }
 
+export const borrarT =()=>{
+  
+  return (dispatch) => {
+    try {
+      dispatch({
+        type: 'borrarToken',
+      })
+    } catch (error) {
+      dispatch({
+        type: 'error',
+        payload: error.message,
+      });
+    }
+  }
+}
+
 export const userPut= (data, id) =>{
   const endpoint = `user/${id}`
   return async (dispatch) => {
 
     try {
-      console.log(data)
       const response = await axios.put(endpoint,  data);
+      console.log(response)
       dispatch({
         type: 'userPut',
         payload: response.data,
@@ -366,6 +382,7 @@ console.log(data);
       })
     
     } catch (error) {
+      alert('Posible error en el mail/password verifique que los datos sean correctos')
       dispatch({
         type: 'error',
         payload: error.message,
