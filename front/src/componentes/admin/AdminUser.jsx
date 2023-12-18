@@ -15,24 +15,24 @@ const AdminUser = () => {
    if (token) {
    const decodedToken = jwtDecode(token); 
   console.log(decodedToken);
-   if (decodedToken && decodedToken.nivel) {
-   switch (decodedToken.nivel) {
-   case "1":
-     navigate('/home');
-    //  alert('Solo puede acceder el admin')
-   break;
-   case "2":
-     navigate('/home');
-    //  alert('Solo puede acceder el admin')
-   break;
-   case "3":
-   navigate('/admin');
-   break;
-   default:
-   navigate('/home');
-   break;
-   }
-   }
+  //  if (decodedToken && decodedToken.nivel) {
+  //  switch (decodedToken.nivel) {
+  //  case "1":
+  //    navigate('/home');
+  
+  //  break;
+  //  case "2":
+  //    navigate('/home');
+ 
+  //  break;
+  //  case "3":
+  //  navigate('/admin');
+  //  break;
+  //  default:
+  //  navigate('/home');
+  //  break;
+  //  }
+  //  }
    }
    }, []);
   const navigate = useNavigate();

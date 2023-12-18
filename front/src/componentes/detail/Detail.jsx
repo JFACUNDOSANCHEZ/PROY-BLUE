@@ -27,6 +27,7 @@ setEditedData(pass)
 
     const [isEditing, setIsEditing] = useState(false);
     const [editedData, setEditedData] = useState({ });
+  const [iduser, setIduser] = useState('')  
   
 
     const fecha = new Date(pass.createdAt);
@@ -54,7 +55,7 @@ setEditedData(pass)
         setConfir(true)
 
     };
-    console.log(pass);
+    console.log('aca esta el userCreador  ' + pass.userId);
     const handleInputChange = (e) => {
         const { name, value } = e.target;
         setEditedData({
@@ -67,7 +68,9 @@ setEditedData(pass)
     useEffect(() => {
         const token = localStorage.getItem('token');
         const decodedToken = jwtDecode(token);
+        console.log('aca esta el id del user  ' +decodedToken.usuarioId);
         setNivel(decodedToken.nivel)
+        setIduser(decodedToken.usuarioId)
     }, []);
 
 
@@ -89,7 +92,7 @@ setEditedData(pass)
                     className={style.img}
                 />
                 {
-                    nivel == 3 ? (
+                    nivel == 3 || iduser == pass.id ? (
                         <div className={style.d}>
                             <button onClick={handleDeletClick}>Eliminar pasajero</button>
                             <button onClick={handleEditClick} className={style.ed}>
@@ -156,7 +159,10 @@ setEditedData(pass)
                     <div>
                         <h2 className={style.a}>Nombre: {editedData?.name}</h2>
                         <h2 className={style.a}>DNI: {editedData?.dni}</h2>
+                        <div className={style.motiv}>
+
                         <h2 className={style.a}>Motivo: {editedData?.motivo}</h2>
+                        </div>
                     </div>
                 )}
             </div>

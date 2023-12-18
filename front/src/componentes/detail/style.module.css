@@ -16,18 +16,14 @@ padding: 20px;
 }
 
 .button{
-    background-color: #efb700; 
+ 
     padding: 10px 20px; /* Ajusta el relleno para agregar espacio alrededor del texto */
     margin: 30px;
     
 }
 .ed{
-    color: rgb(170, 170, 170);
-    justify-self: end;
-    margin: 7px;
-    margin-left: 50px;
-    margin-top: 20px; 
-    background-color: #0a0a0a;
+
+
 }
 
 .coso{
@@ -38,6 +34,11 @@ padding: 20px;
 .a{
     margin-left: 40px;
 
+}
+.motiv{
+    border-radius: 13px;
+    height: 8rem;
+    background-color: #d2dae2;
 }
 
 .b{
@@ -52,4 +53,6 @@ padding: 20px;
 .d{
     display: flex;
     justify-self: start;
+    width: 3rem;
+    height: 3rem;
 }

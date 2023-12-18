@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom"
 import { useState, useEffect } from "react"
 import { useDispatch, useSelector } from "react-redux"
-import { postP } from "../../redux/actions";
+import { postP, userID } from "../../redux/actions";
 import { useNavigate } from 'react-router-dom';
 import { jwtDecode } from "jwt-decode";
 import style from './style.module.css'
@@ -22,9 +22,10 @@ const Form = () => {
 
   useEffect(() => {
     const token = localStorage.getItem('token');
+    console.log('aca esta eltoken '+token);
+    
     if (token) {
       try {
-        console.log(token);
         const decodedToken = jwtDecode(token);
         console.log(decodedToken);
         if (decodedToken && decodedToken.nivel) {
@@ -33,35 +34,33 @@ const Form = () => {
             case "1":
               alert('Solo puede acceder el nivel 2')
               navigate('/home');
-            //       break;
+         
             case "2":
 
               navigate('/home/post');
               break
-            //       case "3":
-
-            //       navigate('/home/post');
-            //       break;
+        
 
             default:
               navigate('/');
               break;
 
           }
+          dispatch(userID(decodedToken.usuarioId))
         } else { navigate('/') }
 
       } catch (error) {
         console.error('Error al decodificar el token:', error);
         navigate('/');
       }
-    }}, []);
+    }}, [dispatch]);
   const handleChange = (event) => {
     event.preventDefault();
     let value = event.target.value;
 
-    // Verificar si el campo que se está modificando es 'name'
+
     if (event.target.name === 'name') {
-      value = value.toUpperCase(); // Convertir el valor a mayúsculas
+      value = value.toUpperCase(); 
     }
 
     setForm({
@@ -70,12 +69,18 @@ const Form = () => {
     });
   }
 
+  const usuario = useSelector(state => state.user)
+  console.log(usuario);
+
+
+  
   const handleSubmit = (event) => {
     event.preventDefault()
     if (!form.name || !form.dni || !form.motivo) {
       alert('Faltan Datos!')
     } else {
-      dispatch(postP(form))
+      const data = {...form, uId: usuario.id}
+      dispatch(postP(data))
     }
 
   }
@@ -88,12 +93,12 @@ const Form = () => {
     <Link to={'/home'}>
       <button>Volver</button>
     </Link>
-    <h1 className={style.h}>Agregar pasajero a la lista negra</h1>
+    
     <div className={style.formContainer}>
 
 
       <form onSubmit={handleSubmit} className={style.form}>
-        <h2>Ingresar datos</h2>
+        <h2>Ingresar datos del pasajero</h2>
         <div className={style.div}>
           <img
             src="https://static.vecteezy.com/system/resources/previews/007/033/146/non_2x/profile-icon-login-head-icon-vector.jpg"

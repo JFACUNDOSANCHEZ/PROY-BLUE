@@ -2,11 +2,11 @@ const { BlackList, Passeger } = require('../db.js')
 
 const postPasseger = async (req, res) => {
     try {
-        const { name, dni, motivo } = req.body
+        const { name, dni, motivo, uId } = req.body
         if (!name || !dni || !motivo) {
             res.status(400).send('Faltan Datos')
         } else {
-            const passegerCrated = await Passeger.create({ name, dni, motivo });
+            const passegerCrated = await Passeger.create({ name, dni, motivo,  userId: uId  });
           
 
             const [blackListRecord, created] = await BlackList.findOrCreate({
@@ -15,7 +15,7 @@ const postPasseger = async (req, res) => {
                     dni: dni, 
                     motivo: motivo,
                     name: name,
-                    
+                  
                 }
             });
 

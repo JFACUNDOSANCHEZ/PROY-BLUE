@@ -18,7 +18,7 @@ const Home = () => {
     const navigate = useNavigate();
 
 
-  
+
     const [nivel, setNivel] = useState('');
 
     useEffect(() => {
@@ -29,7 +29,7 @@ const Home = () => {
 
             const decodedToken = jwtDecode(token);
             setNivel(decodedToken.nivel)
-       dispatch(userID(decodedToken.usuarioId))
+            dispatch(userID(decodedToken.usuarioId))
         } else navigate('/')
     }, []);
     console.log(nivel);
@@ -62,7 +62,7 @@ const Home = () => {
     }
 
 
-  
+
     const usuario = useSelector(state => state.user)
     console.log(usuario);
 
@@ -75,6 +75,7 @@ const Home = () => {
                 <div className={style.contain}>
                     <h2>Welcome {usuario.nombreUsuario}!</h2>
                 </div>
+                <Searchbar />
                 {
                     nivel == 2 ? (
                         <div>
@@ -90,13 +91,6 @@ const Home = () => {
                         </div>
                     )
                 }
-                <Searchbar />
-                <select name="s" onChange={handleSelectChange}>
-                    <option >-Seleccione</option>
-                    <option value="perfil"> Perfil</option>
-                    <option value="cierre">Cierre Sesión</option>
-
-                </select>
                 {
                     nivel == 3 ? (
                         <div>
@@ -110,6 +104,11 @@ const Home = () => {
                         <div></div>
                     )
                 }
+                <select name="s" onChange={handleSelectChange} className={style.selectBox}>
+                    <option className={style.optionStyle}>-Seleccione</option>
+                    <option value="perfil" className={style.optionStyle}>Perfil</option>
+                    <option value="cierre" className={style.optionStyle}>Cierre Sesión</option>
+                </select>
 
             </div>
 

@@ -31,12 +31,12 @@ useEffect(()=>{
 return (
     <div className={style.container}>
       <div className={style.searchBox}>
-        <span className={style.searchIcon}>🔎</span>
+        <span className={style.searchIcon}></span>
         <input
           className={style.inputSearch}
           onChange={handleChange}
           type="search"
-          placeholder="Buscar..."
+          placeholder="🔎Buscar..."
         />
       </div>
     </div>

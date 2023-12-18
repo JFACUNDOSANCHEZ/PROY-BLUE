@@ -32,6 +32,7 @@ const {BlackList, Passeger, User, PosibleUser , Posible }  = sequelize.models;
 Passeger.belongsTo(BlackList);
 
 BlackList.hasMany(Passeger);
+Passeger.belongsTo(User);
 
 User.hasMany(Passeger)
 

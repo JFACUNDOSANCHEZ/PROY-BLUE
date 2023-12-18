@@ -69,14 +69,15 @@ console.log(editedData);
                 </Link>
             </div>
 
-            <h1>DETAIL USUARIO</h1>
+            <h1>Mi perfil </h1>
+<div className={style.div}> 
 
             <img
                 src="https://static.vecteezy.com/system/resources/previews/007/033/146/non_2x/profile-icon-login-head-icon-vector.jpg"
                 alt="icn"
                 width="150px"
-
-            />
+                
+                />
 
             <h2>Activo: {usuario?.activo ? 'TRUE' : 'FALSE'}</h2>
 
@@ -90,7 +91,7 @@ console.log(editedData);
                         name="nombreUsuario"
                         value={editedData.nombreUsuario}
                         onChange={handleInputChange}
-                    />
+                        />
                 </div>
                 <div>
 
@@ -100,7 +101,7 @@ console.log(editedData);
                         name="nombreCompleto"
                         value={editedData.nombreCompleto}
                         onChange={handleInputChange}
-                    />
+                        />
 
                 </div>
                 <h2>Nivel: {usuario?.nivel}</h2>
@@ -110,7 +111,7 @@ console.log(editedData);
                     cancelar
                 </button>
 
-                <button onClick={handleSaveClick}>Guardar</button>
+                <button onClick={handleSaveClick} >Guardar</button>
 
             </div>) : (
                 <div>
@@ -122,6 +123,7 @@ console.log(editedData);
                     <h2>Correo: {editedData?.correoElectronico}</h2>
                 </div>
             )}
+            </div>
 
         </div>
     )
