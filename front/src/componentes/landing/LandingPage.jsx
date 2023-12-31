@@ -42,9 +42,10 @@ const closeModal = () => {
 
           <p className={style.boldText}>Seguridad en tus manos</p>
             <Login className={style.loginComponent} />
+            <br />
             <div>
       {/* Tu contenido existente */}
-      <button onClick={openModal}>Register</button>
+      <button onClick={openModal}>Crear cuenta nueva</button>
 
       {/* Renderiza el modal si showModal es verdadero */}
       {showModal && (
