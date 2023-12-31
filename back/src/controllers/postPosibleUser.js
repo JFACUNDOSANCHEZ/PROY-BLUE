@@ -44,7 +44,7 @@ const postPosibleUser = async (req, res) => {
       };
 
       await transporter.sendMail(mailOptions);
-      res.status(201).json({ message: 'Mensaje enviado correctamente' });
+      res.status(201).json({ message: 'Mensaje de regustro enviado correctamente' });
     }
   } catch (error) {
     res.status(404).json({ message: error.message });
