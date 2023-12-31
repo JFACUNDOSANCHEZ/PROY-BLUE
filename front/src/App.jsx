@@ -10,7 +10,7 @@ import ConfirmarCorreo from './componentes/confirmar-correo/ConfirmarCorreo';
 import Login from './componentes/login/Login';
 import axios from 'axios';
 import UserPerfil from './componentes/user/UserPerfil';
-axios.defaults.baseURL = 'https://zeussistemas.dyndns.org:30001/'
+axios.defaults.baseURL = 'http://zeussistemas.dyndns.org:30001/'
 
 function App() {
 
