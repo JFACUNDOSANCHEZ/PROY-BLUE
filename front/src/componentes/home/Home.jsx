@@ -10,7 +10,7 @@ import Modal from "../modal/Modal";
 import Form from "../form/Form"
 import UserPerfil from '../user/UserPerfil'
 import pf from '../../../public/pf.svg'
-import allUsers from "../users/allUsers";
+import AllUsers from "../allusers/AllUsers";
 import PosiblesUsers from "../posibleUsers/PosibleUsers";
 
 
@@ -153,7 +153,7 @@ const Home = () => {
 
     {showModal3 && (
         <Modal closeModal={closeModal3}>
-            <allUsers></allUsers>
+            <AllUsers></AllUsers>
         </Modal>
     )}
 

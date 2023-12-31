@@ -3,7 +3,7 @@ import { allPosibleUser, confirmacion, user, allUsers, userPut } from "../../red
 import { useEffect, useState } from "react";
 import style from './style.module.css';
 
-const allUsers = () =>{
+const AllUsers = () =>{
     const dispatch = useDispatch();
     useEffect(() => {
         dispatch(allPosibleUser());
@@ -54,4 +54,4 @@ const allUsers = () =>{
       );
     }
 
-export default allUsers
+export default AllUsers
