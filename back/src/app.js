@@ -32,10 +32,6 @@ server.use('/', routes);
 
 
 
-http.createServer(server).listen(80);
-
-https.createServer(server).listen(443);
-
 
 server.use((err, req, res, next) => { // eslint-disable-line no-unused-vars
   const status = err.status || 500;
