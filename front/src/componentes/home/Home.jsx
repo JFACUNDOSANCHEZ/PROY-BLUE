@@ -1,5 +1,5 @@
 import { useDispatch, useSelector } from "react-redux";
-import { allPasseger, close, borrarT, userID } from "../../redux/actions";
+import { borrarT, userID } from "../../redux/actions";
 import style from './style.module.css'
 import Searchbar from "../searchBar/SearchBar";
 import { Link } from "react-router-dom";
@@ -7,8 +7,12 @@ import Cards from "../cards/Cards";
 import { useEffect, useState } from "react";
 import { useNavigate } from 'react-router-dom';
 import { jwtDecode } from "jwt-decode";
-
-
+import Modal from "../modal/Modal";
+import Form from "../form/Form"
+import UserPerfil from '../user/UserPerfil'
+import pf from '../../../public/pf.svg'
+import AllUsers from "../users/allUsers";
+import PosiblesUsers from "../posibleUsers/PosibleUsers";
 
 
 
@@ -16,6 +20,54 @@ const Home = () => {
 
     const dispatch = useDispatch();
     const navigate = useNavigate();
+
+    const [showModal, setShowModal] = useState(false);
+
+    const openModal = () => {
+        setShowModal(true);
+    };
+
+    const closeModal = () => {
+        setShowModal(false);
+
+
+
+
+
+    };
+    const [showModal2, setShowModal2] = useState(false);
+    const openModal2 = () => {
+        setShowModal2(true);
+    };
+
+    const closeModal2 = () => {
+        setShowModal2(false);
+    };
+
+
+    const [showModal3, setShowModal3] = useState(false);
+    const openModal3 = () => {
+        setShowModal3(true);
+    };
+
+    const closeModal3 = () => {
+        setShowModal3(false);
+    };
+
+
+    const [showModal4, setShowModal4] = useState(false);
+    const openModal4 = () => {
+        setShowModal4(true);
+    };
+
+    const closeModal4 = () => {
+        setShowModal4(false);
+    };
+
+
+
+
+
 
 
 
@@ -37,29 +89,8 @@ const Home = () => {
     const passegers = useSelector((state) => state.passeger)
     console.log(passegers);
 
-    const handleSelectChange = (e) => {
-        if (e.target.value === 'cierre') {
-            handleCerrarSesion();
-        }
-        if (e.target.value === 'perfil') {
-            const token = localStorage.getItem('token');
-            if (token) {
-                const decodedToken = jwtDecode(token);
-                navigate(`/user/${decodedToken.usuarioId}`);
-            }
-        };
-    }
-    const handleCerrarSesion = () => {
-        const token = localStorage.getItem('token');
-        console.log("Dentro del handle " + token);
-        if (token) {
 
-            localStorage.removeItem("token");
-            dispatch(borrarT())
 
-            navigate('/login');
-        }
-    }
 
 
 
@@ -72,19 +103,35 @@ const Home = () => {
 
 
             <div className={style.divContain}>
+
                 <div className={style.contain}>
-                    <h2>Welcome {usuario.nombreUsuario}!</h2>
+                    <h1>
+                        <span className={`${style.letter1}`}>B</span>
+                        <span className={`${style.letter2}`}>L</span>
+                        <span className={`${style.letter3}`}>U</span>
+                    </h1>
                 </div>
                 <Searchbar />
                 {
                     nivel == 2 ? (
-                        <div>
-                            <Link to={'/home/post'}>
-                                <button>
-                                    Agregar Pasajero
-                                </button>
-                            </Link>
+                        <div className={style.contain}>
+
+                            <button onClick={openModal} className={style.mas} title="Agregar a la lista negra">+</button>
+
+                            {showModal && (
+                                <Modal closeModal={closeModal}>
+                                    <Form></Form>
+                                </Modal>
+                            )}
+
+                           
+                           
+
+                           
+
                         </div>
+
+
                     ) : (
                         <div>
 
@@ -93,29 +140,72 @@ const Home = () => {
                 }
                 {
                     nivel == 3 ? (
-                        <div>
-                            <Link to={'/admin'}>
-                                <button>
-                                    admin
-                                </button>
-                            </Link>
+                        <div className={style.d}>
+                              <button onClick={openModal} className={style.mas} title="Agregar a la lista negra">+</button>
 
-                        </div>) : (
+{showModal && (
+    <Modal closeModal={closeModal}>
+        <Form></Form>
+    </Modal>
+)}
+
+
+    <button onClick={openModal3} className={style.mas} title="users">Usuarios</button>
+
+    {showModal3 && (
+        <Modal closeModal={closeModal3}>
+            <AllUsers></AllUsers>
+        </Modal>
+    )}
+
+
+
+    <button onClick={openModal4} className={style.mas} title="Solicitudes de Usuarios">Solicitudes</button>
+
+    {showModal4 && (
+        <Modal closeModal={closeModal4}>
+            <PosiblesUsers></PosiblesUsers>
+        </Modal>
+    )}
+                        </div>
+                        ) : (
                         <div></div>
                     )
                 }
-                <select name="s" onChange={handleSelectChange} className={style.selectBox}>
-                    <option className={style.optionStyle}>-Seleccione</option>
-                    <option value="perfil" className={style.optionStyle}>Perfil</option>
-                    <option value="cierre" className={style.optionStyle}>Cierre Sesión</option>
-                </select>
 
+                <div className={style.d}>
+
+                    <img
+                        src={pf}
+                        alt="co" width='56px' onClick={openModal2}
+                        className={style.img} title=" Mi Perfil"
+                    />
+                    <div>
+
+
+                    </div>
+                </div>
+
+
+
+                {showModal2 && (
+                    <div>
+
+
+
+                        {showModal2 && (
+                            <Modal closeModal={closeModal2}>
+                                <UserPerfil />
+
+                            </Modal>
+                        )}
+                    </div>
+                )}
             </div>
 
             <div className={style.divo}>
-                <Cards passegers={passegers} ></Cards>
+                <Cards passegers={passegers} usuario={usuario} ></Cards>
             </div>
-
 
         </div>
 

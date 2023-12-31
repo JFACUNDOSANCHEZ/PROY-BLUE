@@ -28,26 +28,7 @@ const Form = () => {
       try {
         const decodedToken = jwtDecode(token);
         console.log(decodedToken);
-        if (decodedToken && decodedToken.nivel) {
-
-          switch (decodedToken.nivel) {
-            case "1":
-              alert('Solo puede acceder el nivel 2')
-              navigate('/home');
-         
-            case "2":
-
-              navigate('/home/post');
-              break
-        
-
-            default:
-              navigate('/');
-              break;
-
-          }
-          dispatch(userID(decodedToken.usuarioId))
-        } else { navigate('/') }
+      
 
       } catch (error) {
         console.error('Error al decodificar el token:', error);
@@ -88,17 +69,13 @@ const Form = () => {
   console.log(form);
 
 
-  return (<div>
-
-    <Link to={'/home'}>
-      <button>Volver</button>
-    </Link>
-    
+  return ( 
+  
+  <div>
     <div className={style.formContainer}>
-
+          <h2>Ingresar datos del pasajero</h2>
 
       <form onSubmit={handleSubmit} className={style.form}>
-        <h2>Ingresar datos del pasajero</h2>
         <div className={style.div}>
           <img
             src="https://static.vecteezy.com/system/resources/previews/007/033/146/non_2x/profile-icon-login-head-icon-vector.jpg"
@@ -109,22 +86,25 @@ const Form = () => {
         </div>
 
         <div className={style.formGroup}>
-          <span>Nombre: </span>
+          <h3>Nombre: </h3>
           <input className={style.dni} type="text" name="name" onChange={handleChange} value={form.name} />
         </div>
 
         <div className={style.formGroup}>
-          <span>DNI: </span>
+          <h3>
+            DNI: 
+            </h3>
+          <input className={style.dni} type="text" name="dni" onChange={handleChange} value={form.dni} />
         </div>
-        <input className={style.dni} type="text" name="dni" onChange={handleChange} value={form.dni} />
 
         <div className={style.formGroup}>
-          <span>Motivo: </span>
+          <h3>Motivo: </h3>
           <input type="text" name="motivo" onChange={handleChange} value={form.motivo} className={style.largeInput} />
         </div>
 
         <button type="submit" className={style.button}>CARGAR DATOS</button>
       </form>
+
     </div>
   </div>
   );

@@ -19,7 +19,9 @@
   margin-right: 20px;
 }
 .div {
-
+  border: 1px solid #ccc;
+  padding: 20px;
+  margin-bottom: 20px;
   align-items: center;
   border: 1px solid #ccc;
   padding: 10px;
@@ -35,6 +37,11 @@
   border: 1px solid #ccc;
   padding: 15px;
   margin-bottom: 15px;
+}
+.info{
+  display: flex;
+  flex-direction: column;
+  
 }
 
 /* Estilos de los botones del formulario */

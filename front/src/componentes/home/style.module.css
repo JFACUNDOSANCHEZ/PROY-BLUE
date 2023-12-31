@@ -1,6 +1,6 @@
 
 .divContain {
-    background-color: #2c3e50;
+    background-color: #ececec;
     position: fixed;
     top: 0;
     left: 0;
@@ -9,13 +9,25 @@
     justify-content: space-around;
     align-items: center;
     padding: 20px;
-    height: 10rem;
-    color: white;
+    height: 6rem;
+
+  }
+  .d{
+    /* margin-left: 20rem; */
   }
   
   .contain {
     display: flex;
+    justify-content: space-around; /* Ajusta el espacio entre los botones */
+     /* Margen inferior opcional */
   }
+  
+  .mas {
+    padding: 8px 16px;
+    margin: 0 5px; /* Espacio horizontal entre botones */
+    /* Otros estilos para el botón */
+  }
+  
   .selectBox {
     /* Estilos para el select */
     /* Por ejemplo: */
@@ -25,7 +37,35 @@
     border-radius: 4px;
     background-color: #f5f5f5;
   }
+  .mas{
+    border-radius: 190px;
+    font-size: 20px;
+    margin-top: 10px;
+  }
   
+ .letter1 {
+    color: #faa307; /* Estilo para la primera letra */
+    font-size: 90px; /* Tamaño más grande para la primera letra */
+    font-weight: 400; /* Hacerla más delgada */
+    animation: moveLetter1 1s infinite;
+  }
+  
+ .letter2 {
+    color: #f48c06;
+    font-size: 90px; /* Tamaño más grande para la primera letra */
+    font-weight: 400; 
+    animation: moveLetter1 1s infinite;/* Estilo para la segunda letra */
+    /* Otros estilos para la segunda letra si es necesario */
+  }
+  
+  
+ .letter3 {
+    color: rgb(255, 218, 6);
+    font-size: 90px; /* Tamaño más grande para la primera letra */
+    font-weight: 400;
+    animation: moveLetter1 1s infinite; /* Estilo para la tercera letra */
+    /* Otros estilos para la tercera letra si es necesario */
+  }
   /* Estilos para las opciones */
   .optionStyle {
     /* Estilos para las opciones */
@@ -50,3 +90,9 @@
   .d {
     padding-top: 0;
   }
+  
+  .img{
+    border-radius: 180px;
+    width:56px;
+    margin-top: 20px;
+    }

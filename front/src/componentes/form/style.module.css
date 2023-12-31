@@ -1,83 +1,61 @@
-
-.form {
-width: 60rem;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 15px;
-  margin-top: 20px;
-  box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
+.formContainer {
+  padding: 20px;
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  width: 40rem;
 }
 
 
-.img {
-  width: 150px;
-  border-radius: 50%;
-  border: 1px solid #ccc;
+.formContainer h3 {
+  color: #000;
+  /* Estilos específicos para el encabezado h3 */
 }
 
+/* Estilos para el título del formulario */
+.formContainer h2 {
+  color: #000;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+/* Estilos para los grupos de elementos del formulario */
 .formGroup {
-  display: flex;
-  flex-direction: column;
+  margin-bottom: 15px;
 }
 
-
-
+/* Estilos para los inputs de texto */
+.dni,
 .largeInput {
-  width: 500px;
+  width: calc(100% - 10px);
   padding: 8px;
   border: 1px solid #ccc;
   border-radius: 5px;
-  font-size: 16px;
-  /* Ajustes para hacer el input más grande y alinear el texto */
-  height: 150px; /* Altura del input más grande */
-  resize: none; /* Evitar redimensionamiento del input */
-  text-align: left; /* Alinear texto a la izquierda */
-  padding-top: 10px; /* Ajustar el espacio superior del texto */
 }
 
-.dni {
-  width: 500px;
-  padding: 8px;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-  font-size: 16px;
-  margin-bottom: 10px; /* Espacio inferior entre campos */
+/* Estilos para el input más grande (motivo) */
+.largeInput {
+  height: 100px;
+  resize: vertical;
 }
 
+/* Estilos para el botón */
 .button {
-  box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
-  padding: 10px 20px;
-  background-color: #007bff;
-  color: white;
+  color: #000;
+  display: block;
+  width: 100%;
+  padding: 10px;
   border: none;
   border-radius: 5px;
+
+
   cursor: pointer;
-  font-size: 16px;
-  
-  /* background-color: transparent;
-  border: 1px solid #266DB6;
-  box-sizing: border-box;
-  color: #00132C;
-  font-family: "Avenir Next LT W01 Bold",sans-serif;
-  font-size: 16px;
-  font-weight: 700;
-  line-height: 24px;
-  padding: 16px 23px;
-  position: relative;
-  text-decoration: none;
-  user-select: none;
-  -webkit-user-select: none;
-  touch-action: manipulation;
-  
-   */
-  
-  
-}
-.h{
-margin-right: 100px;
 }
 
-.button:hover {
-  background-color: #0056b3;
+/* Estilos para la imagen */
+.img {
+  display: block;
+  margin: 0 auto;
+  border-radius: 50%;
+  box-shadow: 0 0 8px rgba(0, 0, 0, 0.2);
 }

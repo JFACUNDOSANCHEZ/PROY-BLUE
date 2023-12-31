@@ -1,6 +1,7 @@
 
 const inicialState = {
     passeger: [],
+    noEncontrado: false,
     allpasseger: [],
     detail: [],
     post: [],
@@ -29,8 +30,12 @@ const reducer = (state = inicialState, actions) => {
             return { ...state, post: actions.payload }
 
         case 'findName':
-
-            return { ...state, passeger: actions.payload }
+console.log(actions.payload.found);
+        return {
+            ...state,
+            passeger: actions.payload.data,
+            noEncontrado: actions.payload.found, // Actualiza el estado de noEncontrado
+          };
 case 'userPut':
     return {...state, user: actions.payload}
 

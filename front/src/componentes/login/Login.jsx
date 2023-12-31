@@ -6,6 +6,8 @@ import { useNavigate } from 'react-router-dom';
 import style from './style.module.css'
 import { Link } from "react-router-dom";
 import { jwtDecode } from "jwt-decode";
+import Authgoogle from "../authGoogle/Authgoogle";
+
 
 
 const Login = () => {
@@ -76,58 +78,41 @@ const Login = () => {
 
 
     return (
-        <div className={style.container}>
-            <div className={style.back} >
-                <Link to={'/'}>
-                    <button>
-                        Volver
-                    </button>
-                </Link>
-            </div>
-            <div className={style.div} >
+        <div className={style.formContainer}>
+        <h2>LOGIN</h2>
+        <form onSubmit={handleSubmit}>
+          <div>
+            <span>Correo electrónico:</span>
+            <input
+              type="email"
+              name="correoElectronico"
+              value={dataUser.correoElectronico}
+              onChange={handlechange}
+              className={style.textInput}
+            />
+            {errors.email && <p>{errors.email}</p>}
+          </div>
+          <div>
+            <span>Contraseña:</span>
+            <input
+              type="password"
+              name="contraseña"
+              value={dataUser.password}
+              onChange={handlechange}
+              className={style.textInput}
+            />
+            {errors.password && <p>{errors.password}</p>}
+          </div>
+          <button type="submit" className={style.button}>Ingresar</button>
+          <br /><br />
+          <Authgoogle></Authgoogle>
+       
+  
 
-
-                <h1>LOGIN</h1>
-
-                <form onSubmit={handleSubmit}  >
-                    <span> Correo electronico: </span>
-                    <input
-                        type="email"
-                        name="correoElectronico"
-                        value={dataUser.correoElectronico}
-                        onChange={handlechange}
-                    />
-
-
-                    {errors.email && <p>{errors.email}</p>}
-
-                    <br />
-
-                    <span>Contraseña</span>
-                    <input
-                        type="password"
-                        name="contraseña"
-                        value={dataUser.password}
-                        onChange={handlechange}
-                    />
-                    <br />
-
-                    {errors.password && <p>{errors.password}</p>}
-
-                    <button type="submit" className={style.button} >Submit</button>
-
-
-                </form>
-
-            </div>
-            <div className={style.image}>
-        <img
-          src="https://img.freepik.com/vector-premium/nino-trabajando-pagina-web_118167-1969.jpg"
-          alt="log"
-          width='900px'
-        />
+        </form>
       </div>
-        </div>
-    )
-}
+    );
+  };
+    
+
 export default Login

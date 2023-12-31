@@ -34,12 +34,12 @@ router.delete('/get/:id', deletPasseger)
 router.put('/get/:id', updatePasseger);
 router.post('/solicitud', postPosibleUser);
 // USERs
-router.get('/confirmar-correo', getConfirmacion);
 router.post('/confirmar-correo', confirmarCorreo);
 router.post('/login', postLogin);
-router.get('/getPosibleUser', getAllPosibleUser)
 router.post('/register', postRegister);
+router.get('/confirmar-correo', getConfirmacion);
+router.get('/getPosibleUser', getAllPosibleUser)
 router.get('/user/:id', getUserId);
-router.put('/user/:id', putUser);
 router.get('/user', getallUser);
+router.put('/user/:id', putUser);
 module.exports = router;

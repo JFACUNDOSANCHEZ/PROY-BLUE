@@ -3,7 +3,7 @@ import { useState } from "react"
 import { useDispatch, useSelector } from "react-redux"
 import { solicitud} from '../../redux/actions'
 import style from './style.module.css'
-
+import Authgoogle from "../authGoogle/Authgoogle"
 
 
 const Register = () => {
@@ -16,7 +16,7 @@ const Register = () => {
       contraseña: ''
     });
     console.log(user);
-    const [showSuccessMessage, setShowSuccessMessage] = useState(false);
+  
   
     const handleChange = (event) => {
       setUser({
@@ -31,10 +31,7 @@ const Register = () => {
         alert('¡Faltan datos!');
       } else {
         dispatch(solicitud(user));
-        setShowSuccessMessage(true); 
-        setTimeout(() => {
-          setShowSuccessMessage(false); // Ocultar el mensaje después de unos segundos
-        }, 3000); // Puedes ajustar el tiempo según lo prefieras
+   // Puedes ajustar el tiempo según lo prefieras
       }
     };
   
@@ -44,11 +41,7 @@ const Register = () => {
       <div>
 
        
-<div className={style.back}>
-        <Link to="/">
-          <button className={style.backButton}>Volver</button>
-        </Link>
-      </div>
+
       <div className={style.registerContainer}>
   
         <form onSubmit={handleRegister} className={style.form}>
@@ -96,18 +89,17 @@ const Register = () => {
           <button type="submit" className={style.button}>
             Cargar usuario
           </button>
-        {showSuccessMessage && <p>¡Usuario registrado! Recibira un mail</p>}
+          <br />
+          <br />
+          <div>
+
+          <Authgoogle />
+          </div>
+      
         </form>
 
 
-        <div className={style.image}>
-          <img
-            src="https://img.freepik.com/vector-premium/foro-web-herramientas-reparacion-ilustracion-plana_203633-2098.jpg"
-            alt="log"
-            width="550px"
-          />
-        </div>
-
+    
       </div>
               </div>
     );

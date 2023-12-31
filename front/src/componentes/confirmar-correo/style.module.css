@@ -16,3 +16,20 @@
   }
 
   
+.container {
+  
+  display: flex;
+  align-items: center; /* Para centrar verticalmente */
+  justify-content: center; /* Para centrar horizontalmente */
+  height: 10vh; /* O ajusta el tamaño según tu diseño */
+}
+
+.content {
+  text-align: center;
+  max-width: 400px;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  background-color: #f9f9f9;
+}
+

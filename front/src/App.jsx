@@ -22,11 +22,8 @@ function App() {
         <Route path='/' element={<LandingPage />} >  </Route>
         <Route path='/register' element={<Register />}></Route>
         <Route path='/home' element={<Home />} >  </Route>
-        <Route path='/home/post' element={<Form />} >  </Route>
-        <Route path='/home/detail/:id' element={<Detail />} >  </Route>
         <Route path='/admin' element={<AdminUser />} >  </Route>
         <Route path='/confirmar-correo' element={<ConfirmarCorreo />} >  </Route>
-         <Route path='/login' element={<Login />} >  </Route> 
          <Route path='/user/:id' element={ < UserPerfil/> } />
       </Routes>
     </div>

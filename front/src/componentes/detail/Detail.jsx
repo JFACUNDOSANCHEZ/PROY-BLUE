@@ -10,16 +10,17 @@ import { jwtDecode } from "jwt-decode";
 
 
 
-const Detail = () => {
+const Detail = ({id}) => {
     const navigate = useNavigate();
     const dispatch = useDispatch();
-    const { id } = useParams();
+    console.log('ACA ESTA EL ID' +id);
 
     useEffect(() => {
 
         dispatch(detail(id))
     }, [dispatch, id])
     const pass = useSelector((state) => state.detail)
+    console.log('aca esta el passs'+ pass.userId);
 useEffect(()=>{
 setEditedData(pass)
 },[pass])
@@ -67,6 +68,7 @@ setEditedData(pass)
 
     useEffect(() => {
         const token = localStorage.getItem('token');
+        console.log(token);
         const decodedToken = jwtDecode(token);
         console.log('aca esta el id del user  ' +decodedToken.usuarioId);
         setNivel(decodedToken.nivel)
@@ -79,11 +81,11 @@ setEditedData(pass)
     return (
         <div>
 
-            <div>
+            {/* <div>
                 <Link to={"/home"}>
                     <button className={style.button}>Volver</button>
                 </Link>
-            </div>
+            </div> */}
             <div className={style.div}>
                 <img
                     src="https://static.vecteezy.com/system/resources/previews/007/033/146/non_2x/profile-icon-login-head-icon-vector.jpg"
@@ -92,7 +94,7 @@ setEditedData(pass)
                     className={style.img}
                 />
                 {
-                    nivel == 3 || iduser == pass.id ? (
+                    nivel == 3 || iduser == pass.userId ? (
                         <div className={style.d}>
                             <button onClick={handleDeletClick}>Eliminar pasajero</button>
                             <button onClick={handleEditClick} className={style.ed}>

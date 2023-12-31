@@ -1,7 +1,10 @@
 import { Link } from "react-router-dom";
 import style from './style.module.css'
-import { useEffect } from "react";
-
+import { useEffect, useState } from "react";
+import Login from '../login/Login'
+import lg from '../../../public/lg.svg'
+import Modal from "../modal/Modal";
+import Register from "../register/Register"
 
 const LandingPage = () => { 
     
@@ -13,38 +16,59 @@ const LandingPage = () => {
   
     
 }, []);
-    
-    return (
-    <div className={style.container}>
-      <div className={style.navButtons}>
-        <Link to={'/register'}>
-          <button>Register</button>
-        </Link>
+const [showModal, setShowModal] = useState(false);
 
-        <Link to={'/login'}>
-          <button>Login</button>
-        </Link>
-      </div>
+const openModal = () => {
+  setShowModal(true);
+};
 
-      <div className={style.content}>
+const closeModal = () => {
+  setShowModal(false);
+};
+
+
+
+
+      return (
+        <div className={style.container}>
+        <div className={style.content}>
         <div className={style.text}>
-          <h1>BLU</h1>
-          <p>Black List / Undesirables</p>
-          <p>
-            Seguridad en tus manos. Crea una lista negra para identificar y gestionar pasajeros indeseados con facilidad. Protege la integridad de tu establecimiento y ofrece una experiencia hotelera más segura para todos.
-          </p>
-        </div>
 
+        <h1>
+            <span className={`${style.letter1}`}>B</span>
+            <span className={`${style.letter2}`}>L</span>
+            <span className={`${style.letter3}`}>U</span>
+          </h1>
+
+          <p className={style.boldText}>Seguridad en tus manos</p>
+            <Login className={style.loginComponent} />
+            <div>
+      {/* Tu contenido existente */}
+      <button onClick={openModal}>Register</button>
+
+      {/* Renderiza el modal si showModal es verdadero */}
+      {showModal && (
+        <Modal closeModal={closeModal}>
+          {/* Contenido del modal */}
+        <Register></Register>
+          {/* ... Otros elementos dentro del modal */}
+        </Modal>
+      )}
+    </div>
+        </div>
+        
+        </div>
         <div className={style.image}>
           <img
-            src="https://img.freepik.com/vector-premium/seleccion-recursos-internet-mujer-eligiendo-sitios-web-mujer-dibujos-animados-buscando-paginas-web-chica-linda-que-busca-servicios-noticias-globales-e-informacion-analitica-grafica-concepto-vectorial_176411-4193.jpg"
+            src={lg}
             alt="log"
-            width="550px"
+          
           />
         </div>
       </div>
-    </div>
-  );
-};
+      );
+    };
+    
+    
 
 export default LandingPage

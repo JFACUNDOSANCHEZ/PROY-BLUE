@@ -1,5 +1,8 @@
-
+import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
+
+
+
 export const allPasseger = () => {
   const endpoint = 'get'
   return async (dispatch) => {
@@ -160,12 +163,14 @@ export const findName = (name) => {
       const endpoint = `getDNI?name=${name}`
       const { data } = await axios.get(endpoint)
       console.log(name);
-      dispatch(
-
-        {
-          type: 'findName',
-          payload: data,
-        })
+      console.log(data.length);
+      dispatch({
+        type: 'findName',
+        payload: {
+          data,
+          found: data.length > 0 ? false : true, 
+        },
+      });
     } catch (error) {
       dispatch({
         type: 'error',
@@ -242,6 +247,7 @@ return (dispatch)=>{
 }
 
 export const solicitud=(user)=>{
+
   const endpoint = 'solicitud'
   return async (dispatch) => {
 
@@ -253,12 +259,14 @@ export const solicitud=(user)=>{
         payload: response.data,
       })
       alert("Registrado enviado correctamente! Le enviaremos un correo al mail registrado ")
+ 
     } catch (error) {
+      console.log(error);
+      alert(`El mail ingresado ya esta registrado o es invalido ¡Prueba otro!`)
       dispatch({
         type: 'error',
         payload: error.message,
       });
-      console.log(error);
     }
   }
 }

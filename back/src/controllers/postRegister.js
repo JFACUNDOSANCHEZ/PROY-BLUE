@@ -17,7 +17,7 @@ const postRegister = async (req, res) => {
                 contraseña: contraseña,
                 correoElectronico: correoElectronico,
                 nombreUsuario: nombreUsuario,
-                nombreCompleto :nombreCompleto ,
+                nombreCompleto: nombreCompleto,
             nivel: nivel,
             activo: true
             })

@@ -2,18 +2,26 @@ import style from './style.module.css'
 import { Link } from 'react-router-dom'
 import { delet } from '../../redux/actions'
 import { useDispatch } from 'react-redux'
+import { useState } from 'react'
+import Modal from '../modal/Modal'
+import Detail from '../detail/Detail'
 
 
 const Card = (pas) => {
 
-    const dispatch = useDispatch();
-    const handleClick = () => {
+   
 
-        dispatch(delet(pas.id))
+    const [showModal, setShowModal] = useState(false);
 
-    }
-
-
+    const openModal = () => {
+      setShowModal(true);
+    };
+    
+    const closeModal = () => {
+      setShowModal(false);
+   
+    };
+    
     console.log(pas);
     return (
 
@@ -36,15 +44,19 @@ const Card = (pas) => {
                 </div>
 
                 </div>
-                <div  className={style.nav} >
-                    <Link to={`/home/detail/${pas?.id}`}>
-                        <button className={style.ver}>
-                            VER MAS
-                        </button>
-                    </Link>
-                    {/* <button
-                        onClick={handleClick} className={style.button} >x</button> */}
-                </div>
+                <div>
+                        {/* Tu contenido existente */}
+                        <button onClick={openModal} className={style.ver}>Ver mas</button>
+                  
+                        {/* Renderiza el modal si showModal es verdadero */}
+                        {showModal && (
+                          <Modal closeModal={closeModal}>
+                            {/* Contenido del modal */}
+                <Detail id= {pas?.id}></Detail>
+                            {/* ... Otros elementos dentro del modal */}
+                          </Modal>
+                        )}
+                      </div>
             </div>
 
         </div>

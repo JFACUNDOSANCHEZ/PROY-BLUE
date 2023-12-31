@@ -38,29 +38,39 @@ const ConfirmarCorreo = () => {
         console.log(contraseña);
     }
     return (
-        <div>
-            <div>
-                <Link to={'/'}>
-                    <button>
-                        👈
-                    </button>
-                </Link>
-            </div>
-            <h1>Confirmacion </h1>
-            {posible && <h2>Bienvenido {posible.nombreCompleto}</h2>}
-            {posible && <h3>Hemos confirmado el correo {posible.correoElectronico}</h3>}
-            <form onSubmit={handleSubmit}>
-                <div>
-                    <span>Confirma la contraseña: </span>
-                    <input type="password" name="pass" value={contra.pass} onChange={handleChange} />
-                </div>
-                <div>
-                    {/* <span> Repite la contraseña:</span> */}
-                    {/* <input type="password" value={contraseña.pass} name="pass" onChange={handleChange} /> */}
-                </div>
-                <button type="submit" className={style.button}>Confirmar</button>
-            </form>
-        </div>
+<div className={style.container}>
+      <div className={style.content}>
+        
+        <h1 className={style.title}>Confirmacion</h1>
+        {posible && <h2>Bienvenido {posible.nombreCompleto}</h2>}
+        <br />
+        {posible && <h3>Hemos confirmado el correo {posible.correoElectronico}</h3>}
+        <form onSubmit={handleSubmit}>
+         <br />
+          <div className={style.inputWrapper}>
+            <span>Confirma la contraseña:</span>
+         
+            <input
+              type="password"
+              name="pass"
+              value={contra.pass}
+              onChange={handleChange}
+              className={style.input}
+            />
+          </div>
+         
+         <br /><br />
+         
+          {/* Otros campos del formulario si los tienes */}
+          <button type="submit" className={style.button}>
+            Confirmar
+          </button>
+        </form>
+        <Link to={'/'}>
+          <button>Ir al login</button>
+        </Link>
+      </div>
+    </div>
     )
 }
 export default ConfirmarCorreo

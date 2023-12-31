@@ -1,3 +1,32 @@
 .h{
     color: rgb(161, 161, 161);
 }
+
+.b{
+    color: rgb(97, 97, 97);
+
+}
+
+.letter1 {
+    color: #faa307; /* Estilo para la primera letra */
+    font-size: 120px; /* Tamaño más grande para la primera letra */
+    font-weight: 400; /* Hacerla más delgada */
+    animation: moveLetter1 1s infinite;
+  }
+  
+.letter2 {
+    color: #f48c06;
+    font-size: 120px; /* Tamaño más grande para la primera letra */
+    font-weight: 400; 
+    animation: moveLetter1 1s infinite;/* Estilo para la segunda letra */
+    /* Otros estilos para la segunda letra si es necesario */
+  }
+  
+
+.letter3 {
+    color: rgb(255, 218, 6);
+     font-size: 120px; /* Tamaño más grande para la primera letra */
+    font-weight: 400;
+    animation: moveLetter1 1s infinite; /* Estilo para la tercera letra */
+    /* Otros estilos para la tercera letra si es necesario */
+  }

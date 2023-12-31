@@ -1,6 +1,31 @@
-.div{
-    border: 1px solid black;
-    border-radius: 14px;
+.div {
+    /* Estilos para el contenedor principal */
+    margin: 20px;
+    padding: 20px;
+    
     width: 50rem;
-    height: 40rem;
-}
+    height: 30rem;
+  }
+  
+  .ed {
+    /* Estilos para el botón "Editar" */
+
+    color: black;
+    padding: 8px 16px;
+    border: none;
+    cursor: pointer;
+    margin-bottom: 10px;
+  }
+  
+  .userInfo {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    /* Alineación y márgenes generales */
+  }
+  
+  .userInfoItem {
+    display: flex;
+    justify-content: space-between;
+    /* Para alinear nombre a la izquierda y valor a la derecha */
+  }

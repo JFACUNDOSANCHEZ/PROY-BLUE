@@ -24,12 +24,10 @@
     font-weight: bold;
   }
 
-  .back {
-    margin-bottom: 20px; /* Agrega espacio entre el botón y el contenido */
-  }
+
   
   .form input {
-    width: 100%;
+    width: 30rem;
     padding: 8px;
     border-radius: 4px;
     border: 1px solid #ccc;
@@ -38,8 +36,8 @@
   .form button {
     width: 100%;
     padding: 10px;
-    background-color: #007bff;
-    color: white;
+    background-color: #ffc400;
+    color: black;
     border: none;
     border-radius: 4px;
     cursor: pointer;
@@ -47,7 +45,7 @@
   }
   
   .form button:hover {
-    background-color: #0056b3;
+    background-color: #f5cc48;
   }
   
   .image {
