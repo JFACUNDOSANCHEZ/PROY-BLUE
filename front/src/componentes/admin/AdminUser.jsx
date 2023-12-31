@@ -7,7 +7,7 @@ import { jwtDecode } from "jwt-decode";
 import { useNavigate } from 'react-router-dom';
 import Form from '../form/Form'
 import PosibleUsers from '../posibleUsers/PosibleUsers'
-import AllUsers from '../users/AllUsers'
+import AllUsers from "../allusers/AllUsers";
 
 
 const AdminUser = () => {
