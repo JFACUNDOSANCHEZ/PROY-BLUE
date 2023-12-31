@@ -6,7 +6,7 @@ import { useNavigate } from 'react-router-dom';
 import style from './style.module.css'
 import { Link } from "react-router-dom";
 import { jwtDecode } from "jwt-decode";
-import Authgoogle from "../authGoogle/Authgoogle";
+
 
 
 
@@ -105,7 +105,7 @@ const Login = () => {
           </div>
           <button type="submit" className={style.button}>Ingresar</button>
           <br /><br />
-          <Authgoogle></Authgoogle>
+
        
   
 

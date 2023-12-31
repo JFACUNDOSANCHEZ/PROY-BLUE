@@ -3,7 +3,6 @@ import { useState } from "react"
 import { useDispatch, useSelector } from "react-redux"
 import { solicitud} from '../../redux/actions'
 import style from './style.module.css'
-import Authgoogle from "../authGoogle/Authgoogle"
 
 
 const Register = () => {
@@ -93,7 +92,7 @@ const Register = () => {
           <br />
           <div>
 
-          <Authgoogle />
+   
           </div>
       
         </form>
