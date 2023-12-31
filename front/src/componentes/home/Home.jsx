@@ -1,8 +1,7 @@
 import { useDispatch, useSelector } from "react-redux";
-import { borrarT, userID } from "../../redux/actions";
+import { userID } from "../../redux/actions";
 import style from './style.module.css'
 import Searchbar from "../searchBar/SearchBar";
-import { Link } from "react-router-dom";
 import Cards from "../cards/Cards";
 import { useEffect, useState } from "react";
 import { useNavigate } from 'react-router-dom';
