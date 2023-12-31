@@ -104,12 +104,15 @@ const Login = () => {
             {errors.password && <p>{errors.password}</p>}
           </div>
           <button type="submit" className={style.button}>Ingresar</button>
-          <br /><br />
+    
 
-       
   
 
         </form>
+<div className={style.div}>
+
+       <p className={style.olvido}>¿Has olvidado tu contraseña?</p>
+</div>
       </div>
     );
   };
