@@ -104,13 +104,13 @@ const Home = () => {
             <div className={style.divContain}>
 
                 <div className={style.contain}>
-                    <h1>
+                    {/* <h1>
                         <span className={`${style.letter1}`}>B</span>
                         <span className={`${style.letter2}`}>L</span>
                         <span className={`${style.letter3}`}>U</span>
-                    </h1>
+                    </h1> */}
                 </div>
-                <Searchbar />
+                {/* <Searchbar /> */}
                 {
                     nivel == 2 ? (
                         <div className={style.contain}>

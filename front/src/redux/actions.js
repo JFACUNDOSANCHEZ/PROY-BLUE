@@ -247,7 +247,7 @@ return (dispatch)=>{
 }
 
 export const solicitud=(user)=>{
-
+console.log(user);
   const endpoint = 'solicitud'
   return async (dispatch) => {
 

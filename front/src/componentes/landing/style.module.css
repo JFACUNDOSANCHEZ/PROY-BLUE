@@ -15,7 +15,7 @@
 }
 
 .text {
-  margin-right: 20px; /* Ajusta el margen según sea necesario */
+  margin-right: 2rempx; /* Ajusta el margen según sea necesario */
 }
 
 .navButtons {
@@ -24,7 +24,7 @@
 }
 
 .image img {
-  width: 500px;
+  width: 40rem;
   margin-left:100px;
   /* Estilos adicionales para la imagen */
 }

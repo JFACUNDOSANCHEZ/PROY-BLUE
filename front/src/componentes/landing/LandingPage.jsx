@@ -44,7 +44,7 @@ const closeModal = () => {
             <Login className={style.loginComponent} />
             <br />
             <div>
-      {/* Tu contenido existente */}
+
       <button onClick={openModal}>Crear cuenta nueva</button>
 
       {/* Renderiza el modal si showModal es verdadero */}

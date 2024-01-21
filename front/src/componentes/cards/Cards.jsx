@@ -4,7 +4,7 @@ import hm from '../../../public/hm.svg'
 import ne from '../../../public/ne.svg'
 import {  useSelector } from "react-redux/es/hooks/useSelector"
 import { useEffect } from "react"
-
+import SearchBar from "../searchBar/SearchBar"
 const Cards = ({ passegers, usuario }) => {
     
     
@@ -46,9 +46,10 @@ className={style.h}
             <span className={`${style.letter1}`}>B</span>
             <span className={`${style.letter2}`}>L</span>
             <span className={`${style.letter3}`}>U</span>
+            <SearchBar></SearchBar>
           </h1>
-                <h2 className={style.h}>Ingresa el nombre o dni/pasaporte del pasajero..</h2>
-                <img src={hm} alt="lg" width='400px' />
+                {/* <h2 className={style.h}>Ingresa el nombre o dni/pasaporte del pasajero..</h2>
+                <img src={hm} alt="lg" width='400px' /> */}
             </div>
         )
     }
