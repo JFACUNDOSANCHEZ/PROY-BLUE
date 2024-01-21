@@ -30,7 +30,7 @@ const Register = () => {
         alert('¡Faltan datos!');
       } else {
         dispatch(confirmacion(user));
-   // Puedes ajustar el tiempo según lo prefieras
+  
       }
     };
   
