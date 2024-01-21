@@ -15,7 +15,7 @@ const User = () => {
     const { id } = useParams();
     const dispatch = useDispatch()
     
-    
+    console.log(id);
     useEffect(() => {
 
         dispatch(userID(id))
@@ -23,6 +23,7 @@ const User = () => {
     }, [])
     
     const usuario = useSelector(state => state.user)
+    console.log(usuario);
     useEffect(() => {
         setEditedData({ ...usuario });
 
