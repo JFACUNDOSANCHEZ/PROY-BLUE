@@ -68,7 +68,7 @@ const Login = () => {
         correoElectronico: "",
         contraseña: ""
     });
-    const [errors, setErrors] = useState({});
+    // const [errors, setErrors] = useState({});
 
     const handlechange = (event) => {
         setDataUser({
@@ -76,40 +76,19 @@ const Login = () => {
             [event.target.name]: event.target.value
         })
     }
-    useEffect(() => {
-        if (dataUser.correoElectronico !== "" || dataUser.contraseña !== "") {
-            const validacion = validation(dataUser);
-            setErrors(validacion)
-        }
-    }, [dataUser])
+    // useEffect(() => {
+    //     if (dataUser.correoElectronico !== "" || dataUser.contraseña !== "") {
+    //         const validacion = validation(dataUser);
+    //         setErrors(validacion)
+    //     }
+    // }, [dataUser])
     console.log(dataUser);
 
     const token = useSelector(state => state.token)
     console.log(token);
-    useEffect(() => {
-        
-        if (token && token.length !== 0) {
-            localStorage.setItem('token', token); 
-            const decodedToken = jwtDecode(token);
-    
-            if (decodedToken && decodedToken.nivel) {
-                switch (decodedToken.nivel) {
-                    case "1":
-                        navigate('/home');
-                        break;
-                    case "2":
-                        navigate('/home/');
-                        break;
-                    case "3":
-                        navigate('/home');
-                        break;
-                    default:
-                        navigate('/home');
-                        break;
-                }
-            }
-        }
-    }, [token, navigate]);
+if (token) {
+  navigate('/home')
+}
 
 
 
