@@ -12,7 +12,7 @@ import UserPerfil from '../user/UserPerfil'
 import pf from '../../../public/pf.svg'
 import AllUsers from "../allusers/AllUsers";
 import PosiblesUsers from "../posibleUsers/PosibleUsers";
-
+import { Link } from "react-router-dom";
 
 
 const Home = () => {
@@ -123,10 +123,10 @@ const Home = () => {
                                 </Modal>
                             )}
 
-                           
-                           
 
-                           
+
+
+
 
                         </div>
 
@@ -140,45 +140,49 @@ const Home = () => {
                 {
                     nivel == 3 ? (
                         <div className={style.d}>
-                              <button onClick={openModal} className={style.mas} title="Agregar a la lista negra">+</button>
+                            <button onClick={openModal} className={style.mas} title="Agregar a la lista negra">+</button>
 
-{showModal && (
-    <Modal closeModal={closeModal}>
-        <Form></Form>
-    </Modal>
-)}
-
-
-    <button onClick={openModal3} className={style.mas} title="users">Usuarios</button>
-
-    {showModal3 && (
-        <Modal closeModal={closeModal3}>
-            <AllUsers></AllUsers>
-        </Modal>
-    )}
+                            {showModal && (
+                                <Modal closeModal={closeModal}>
+                                    <Form></Form>
+                                </Modal>
+                            )}
 
 
+                            <button onClick={openModal3} className={style.mas} title="users">Usuarios</button>
 
-    <button onClick={openModal4} className={style.mas} title="Solicitudes de Usuarios">Solicitudes</button>
+                            {showModal3 && (
+                                <Modal closeModal={closeModal3}>
+                                    <AllUsers></AllUsers>
+                                </Modal>
+                            )}
 
-    {showModal4 && (
-        <Modal closeModal={closeModal4}>
-            <PosiblesUsers></PosiblesUsers>
-        </Modal>
-    )}
+
+
+                            <button onClick={openModal4} className={style.mas} title="Solicitudes de Usuarios">Solicitudes</button>
+
+                            {showModal4 && (
+                                <Modal closeModal={closeModal4}>
+                                    <PosiblesUsers></PosiblesUsers>
+                                </Modal>
+                            )}
                         </div>
-                        ) : (
+                    ) : (
                         <div></div>
                     )
                 }
 
                 <div className={style.d}>
-
+<button >
+    <Link to={`/user/${usuario.id}`}>
                     <img
-                        src={pf}
-                        alt="co" width='56px' onClick={openModal2}
-                        className={style.img} title=" Mi Perfil"
-                    />
+
+src={pf}
+alt="co" width='56px' onClick={openModal2}
+className={style.img} title=" Mi Perfil"
+/>
+</Link>
+                        </button>
                     <div>
 
 
@@ -187,19 +191,7 @@ const Home = () => {
 
 
 
-                {showModal2 && (
-                    <div>
-
-
-
-                        {showModal2 && (
-                            <Modal closeModal={closeModal2}>
-                                <UserPerfil />
-
-                            </Modal>
-                        )}
-                    </div>
-                )}
+                
             </div>
 
             <div className={style.divo}>
