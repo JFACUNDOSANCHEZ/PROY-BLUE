@@ -22,6 +22,7 @@ function App() {
         <Route path='/' element={<LandingPage />} >  </Route>
         <Route path='/register' element={<Register />}></Route>
         <Route path='/home' element={<Home />} >  </Route>
+        <Route path='/form' element={<Form />}></Route>
         <Route path='/admin' element={<AdminUser />} >  </Route>
         <Route path='/confirmar-correo' element={<ConfirmarCorreo />} >  </Route>
          <Route path='/user/:id' element={ < UserPerfil/> } />

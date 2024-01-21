@@ -140,13 +140,11 @@ const Home = () => {
                 {
                     nivel == 3 ? (
                         <div className={style.d}>
+                            <Link to={'/form'}>
                             <button onClick={openModal} className={style.mas} title="Agregar a la lista negra">+</button>
+                            </Link>
 
-                            {showModal && (
-                                <Modal closeModal={closeModal}>
-                                    <Form></Form>
-                                </Modal>
-                            )}
+                          
 
 
                             <button onClick={openModal3} className={style.mas} title="users">Usuarios</button>
