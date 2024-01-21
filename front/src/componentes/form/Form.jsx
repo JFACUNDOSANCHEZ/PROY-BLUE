@@ -81,7 +81,7 @@ const Form = () => {
     <div>
       <div className={style.formContainer}>
         <h2>Ingresar datos del pasajero</h2>
-      <button onClick={authGoogle}>click</button>
+   
 
         <form onSubmit={handleSubmit} className={style.form}>
           <div className={style.div}>
