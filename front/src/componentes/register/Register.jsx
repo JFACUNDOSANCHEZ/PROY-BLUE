@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom"
 import { useState } from "react"
 import { useDispatch, useSelector } from "react-redux"
-import { solicitud, confirmacion} from '../../redux/actions'
+import { solicitud} from '../../redux/actions'
 import style from './style.module.css'
 
 
@@ -29,8 +29,8 @@ const Register = () => {
       if (!user.nombreUsuario || !user.correoElectronico || !user.nombreCompleto || !user.contraseña) {
         alert('¡Faltan datos!');
       } else {
-        dispatch(confirmacion(user));
-  
+        dispatch(solicitud(user));
+   // Puedes ajustar el tiempo según lo prefieras
       }
     };
   
