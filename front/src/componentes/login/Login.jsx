@@ -120,7 +120,7 @@ if (token) {
               onChange={handlechange}
               className={style.textInput}
             />
-            {errors.email && <p>{errors.email}</p>}
+   
           </div>
           <div>
             <span>Contraseña:</span>
@@ -131,7 +131,7 @@ if (token) {
               onChange={handlechange}
               className={style.textInput}
             />
-            {errors.password && <p>{errors.password}</p>}
+          
           </div>
           <button type="submit" className={style.button}>Ingresar</button>
     
