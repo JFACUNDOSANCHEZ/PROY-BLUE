@@ -34,7 +34,7 @@ const User = () => {
 
 
 console.log(editedData);
-
+console.log(editedData);
     console.log(usuario);
 
     const handleEditClick = () => {
