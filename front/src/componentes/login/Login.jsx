@@ -78,10 +78,14 @@ const Login = () => {
     }
 
     console.log(dataUser);
+    const token = useSelector(state => state.token);
 
-    const token = useSelector(state => state.token)
+    // Verifica que el token tenga un valor antes de guardarlo
+    if (token) {
+      localStorage.setItem('token', token);
+    }
+    
     console.log(token);
-
 
 
     const handleSubmit = async (event) => {
