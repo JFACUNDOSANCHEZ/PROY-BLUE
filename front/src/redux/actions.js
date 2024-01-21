@@ -376,7 +376,7 @@ export const user=(id)=>{
 }
 
 
-export const login = (data) => {
+export const login = (data, navigate) => {
   console.log(data);
   const endpoint = 'login'
   return async (dispatch) => {
@@ -388,6 +388,7 @@ console.log(data);
         type: 'token',
         payload: response.data,
       })
+      navigate('/home')
     
     } catch (error) {
       alert('Posible error en el mail/password verifique que los datos sean correctos')

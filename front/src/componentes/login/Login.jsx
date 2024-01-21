@@ -68,7 +68,7 @@ const Login = () => {
         correoElectronico: "",
         contraseña: ""
     });
-    // const [errors, setErrors] = useState({});
+
 
     const handlechange = (event) => {
         setDataUser({
@@ -76,19 +76,11 @@ const Login = () => {
             [event.target.name]: event.target.value
         })
     }
-    // useEffect(() => {
-    //     if (dataUser.correoElectronico !== "" || dataUser.contraseña !== "") {
-    //         const validacion = validation(dataUser);
-    //         setErrors(validacion)
-    //     }
-    // }, [dataUser])
+
     console.log(dataUser);
 
     const token = useSelector(state => state.token)
     console.log(token);
-if (token) {
-  navigate('/home')
-}
 
 
 
@@ -96,7 +88,7 @@ if (token) {
         try {
             event.preventDefault();
             console.log(dataUser);
-            dispatch(login(dataUser))
+            dispatch(login(dataUser, navigate))
         } catch (error) {
             console.error(error);
             alert('Contraseña / Correo incorrecto' + error)
