@@ -13,7 +13,7 @@ import { jwtDecode } from "jwt-decode";
 const Detail = ({id}) => {
     const navigate = useNavigate();
     const dispatch = useDispatch();
-    console.log('ACA ESTA EL ID' +id);
+    console.log('ACA ESTA EL ID' +   id);
 
     useEffect(() => {
 

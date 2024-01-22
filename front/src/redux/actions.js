@@ -388,7 +388,7 @@ console.log(data);
         type: 'token',
         payload: response.data,
       })
-      navigate('/home')
+       navigate('/home')
     
     } catch (error) {
       alert('Posible error en el mail/password verifique que los datos sean correctos')

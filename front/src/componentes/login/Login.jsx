@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react"
 import validation from "./validation";
-import { login , solicitud } from "../../redux/actions";
+import { confirmacion, login , solicitud } from "../../redux/actions";
 import { useDispatch, useSelector } from 'react-redux'
 import { useNavigate } from 'react-router-dom';
 import style from './style.module.css'
@@ -15,7 +15,8 @@ const provider = new GoogleAuthProvider();
 
 
 const Login = () => {
-    
+  
+  const navigate = useNavigate();
     const dispatch = useDispatch()
     const firebaseConfig = {
         apiKey: "AIzaSyCEae_iFGpst8mtdi1uAf7xPrLOzCLF-4A",
@@ -46,8 +47,8 @@ const Login = () => {
                 
             }
             console.log(userAuth);
-            dispatch(solicitud(userAuth));
-           
+            dispatch(confirmacion(userAuth, navigate));
+          
          
           }).catch((error) => {
           
@@ -63,7 +64,6 @@ const Login = () => {
 
 
 
-    const navigate = useNavigate();
     const [dataUser, setDataUser] = useState({
         correoElectronico: "",
         contraseña: ""
