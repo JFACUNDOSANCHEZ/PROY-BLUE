@@ -6,8 +6,11 @@ import lg from '../../../public/lg.svg'
 import Modal from "../modal/Modal";
 import Register from "../register/Register"
 
+
 const LandingPage = () => { 
-    
+
+  
+  const [estado, setEstado] = useState('Login')
   useEffect(() => {
     const token = localStorage.getItem('token');
     
@@ -26,7 +29,15 @@ const closeModal = () => {
   setShowModal(false);
 };
 
+const handleEstado = () =>{
 
+  if (estado === 'Login') {
+    setEstado('Registro')
+  }
+  if (estado === 'Registro') {
+setEstado('Login')    
+  }
+}
 
 
       return (
@@ -41,11 +52,22 @@ const closeModal = () => {
           </h1>
 
           <p className={style.boldText}>Seguridad en tus manos</p>
-            <Login className={style.loginComponent} />
+
+          {estado === 'Login' ? (
+  <>
+    <Login className={style.loginComponent} />
+    <button onClick={handleEstado}>Crear cuenta nueva</button>
+  </>
+) : (
+  <>
+    <Register className={style.loginComponent} />
+    <button onClick={handleEstado}>Ir al login</button>
+  </>
+)}
             <br />
             <div>
 
-      <button onClick={openModal}>Crear cuenta nueva</button>
+
 
       {/* Renderiza el modal si showModal es verdadero */}
       {showModal && (
@@ -55,6 +77,7 @@ const closeModal = () => {
           {/* ... Otros elementos dentro del modal */}
         </Modal>
       )}
+      
     </div>
         </div>
         

@@ -47,7 +47,7 @@ const Login = () => {
                 
             }
             console.log(userAuth);
-            dispatch(confirmacion(userAuth, navigate));
+            dispatch(login(userAuth, navigate));
           
          
           }).catch((error) => {
