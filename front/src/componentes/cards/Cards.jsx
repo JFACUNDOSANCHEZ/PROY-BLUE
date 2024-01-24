@@ -43,13 +43,10 @@ className={style.h}
                 <br />
                   
                         <h1>
-            <span className={`${style.letter1}`}>B</span>
-            <span className={`${style.letter2}`}>L</span>
-            <span className={`${style.letter3}`}>U22</span>
-            <SearchBar></SearchBar>
+     
+           
           </h1>
-                {/* <h2 className={style.h}>Ingresa el nombre o dni/pasaporte del pasajero..</h2>
-                <img src={hm} alt="lg" width='400px' /> */}
+               
             </div>
         )
     }

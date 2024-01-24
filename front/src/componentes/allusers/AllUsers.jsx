@@ -36,6 +36,11 @@ const AllUsers = () =>{
               <p>Correo: {u?.correoElectronico}</p>
               <p>Fecha de creación: {new Date(u?.createdAt).toLocaleDateString()}</p>
               <p>Nivel: {u?.nivel}</p>
+              <select >
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+              </select>
             </div>
           </div>
               <div className={style.centerSelect}>

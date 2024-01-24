@@ -1,14 +1,36 @@
 .container { 
+  /* background: radial-gradient(103.88% 58.43% at 56.74% 50%, #0085FF 0%, #003465 100%); */
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
+  height: 100vh;
+  background-size: cover;
+
+ 
 }
 
-.content {
-  display: flex; 
-  margin-top: 0px;
 
-} 
+.containerRegister{
+  display: flex;
+  flex-direction: row; 
+  align-items: center; 
+  justify-content: center;
+}
+
+.loginComponent{
+  
+}
+
+.reg{
+  color: #29525c;
+  font-family: Roboto;
+  font-size: 1.7rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 1.375rem;
+  letter-spacing: 0.02813rem;
+}
+ 
 .text p {
   font-weight:lighter; /* Hacer el texto en negrita */
   font-size: 2em; /* Aumentar ligeramente el tamaño del texto */

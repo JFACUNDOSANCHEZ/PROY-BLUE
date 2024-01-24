@@ -99,7 +99,24 @@ const Home = () => {
     return (
         <div >
 
-
+            <div>
+                <span className={`${style.letter1}`}>B</span>
+                <span className={`${style.letter2}`}>L</span>
+                <span className={`${style.letter3}`}>U22</span>
+          
+                <p >
+                    Nos ayuda a registrar información relevante para proteger la integridad de nuestra comunidad hotelera.
+                    <br />
+                     Contribuye denunciando cualquier actividad sospechosa.
+                </p>
+                <br />
+            <br /><br /><br /><br /><br />
+            <Searchbar></Searchbar>
+            <button onClick={openModal} className={style.mas} title="Agregar a la lista negra">Agregar a la lista negra  </button>
+            <div className={style.divo}>
+                <Cards passegers={passegers} usuario={usuario} ></Cards>
+            </div>
+            </div>
 
             <div className={style.divContain}>
 
@@ -112,39 +129,13 @@ const Home = () => {
                 </div>
                 {/* <Searchbar /> */}
                 {
-                    nivel == 2 ? (
-                        <div className={style.contain}>
-
-                            <button onClick={openModal} className={style.mas} title="Agregar a la lista negra">+</button>
-
-                            {showModal && (
-                                <Modal closeModal={closeModal}>
-                                    <Form></Form>
-                                </Modal>
-                            )}
-
-
-
-
-
-
-                        </div>
-
-
-                    ) : (
-                        <div>
-
-                        </div>
-                    )
-                }
-                {
                     nivel == 3 ? (
                         <div className={style.d}>
                             <Link to={'/form'}>
-                            <button onClick={openModal} className={style.mas} title="Agregar a la lista negra">+</button>
+                                <button onClick={openModal} className={style.mas} title="Agregar a la lista negra">+</button>
                             </Link>
 
-                          
+
 
 
                             <button onClick={openModal3} className={style.mas} title="users">Usuarios</button>
@@ -171,16 +162,16 @@ const Home = () => {
                 }
 
                 <div className={style.d}>
-<button >
-    <Link to={`/user/${usuario.id}`}>
-                    <img
 
-src={pf}
-alt="co" width='56px' onClick={openModal2}
-className={style.img} title=" Mi Perfil"
-/>
-</Link>
-                        </button>
+                    <Link to={`/user/${usuario.id}`}>
+                        <img
+
+                            src='https://static.vecteezy.com/system/resources/previews/020/911/737/non_2x/user-profile-icon-profile-avatar-user-icon-male-icon-face-icon-profile-icon-free-png.png'
+                            alt="co" width='56px' onClick={openModal2}
+                            className='{style.img}' title=" Mi Perfil"
+                        />
+                    </Link>
+
                     <div>
 
 
@@ -189,12 +180,35 @@ className={style.img} title=" Mi Perfil"
 
 
 
-                
-            </div>
 
-            <div className={style.divo}>
-                <Cards passegers={passegers} usuario={usuario} ></Cards>
             </div>
+    
+            {
+                nivel == 2 ? (
+                    <div className={style.contain}>
+
+                        {/* <button onClick={openModal} className={style.mas} title="Agregar a la lista negra">Agregar a la lista negra  </button> */}
+
+                        {showModal && (
+                            <Modal closeModal={closeModal}>
+                                <Form></Form>
+                            </Modal>
+                        )}
+
+
+
+
+
+
+                    </div>
+
+
+                ) : (
+                    <div>
+
+                    </div>
+                )
+            }
 
         </div>
 

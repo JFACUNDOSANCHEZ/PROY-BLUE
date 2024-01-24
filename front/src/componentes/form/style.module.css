@@ -1,13 +1,15 @@
 .formContainer {
   padding: 20px;
-  background-color: #fff;
+  background-color: #fdfdfd;
   border-radius: 8px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
   width: 40rem;
 }
 
-
+.form{
+}
 .formContainer h3 {
+  display: flex;
   color: #000;
   /* Estilos específicos para el encabezado h3 */
 }
@@ -27,10 +29,21 @@
 /* Estilos para los inputs de texto */
 .dni,
 .largeInput {
-  width: calc(100% - 10px);
-  padding: 8px;
-  border: 1px solid #ccc;
-  border-radius: 5px;
+  width: 50%;
+  padding: 5px;
+  border-radius:1.2rem;
+  border: 1px solid #D4D7E3;
+  background: #F7FBFF;
+  color: #8897AD;
+  font-feature-settings: 'clig' off, 'liga' off;
+  font-family: Roboto;
+  font-size: 0.83331rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 100%; /* 0.83331rem */
+  letter-spacing: 0.00831rem;
+  width: 250px;
+  height: 30px;
 }
 
 /* Estilos para el input más grande (motivo) */
@@ -41,15 +54,14 @@
 
 /* Estilos para el botón */
 .button {
-  color: #000;
-  display: block;
-  width: 100%;
-  padding: 10px;
-  border: none;
-  border-radius: 5px;
-
-
-  cursor: pointer;
+  background-color: #375345;
+    color: white;
+    padding: 10px;
+    cursor: pointer;
+    border-radius: 3rem;
+    width: 250px;
+    
+    margin-bottom: 1rem;
 }
 
 /* Estilos para la imagen */

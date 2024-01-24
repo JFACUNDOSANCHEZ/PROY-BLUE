@@ -36,7 +36,7 @@ return (
           className={style.inputSearch}
           onChange={handleChange}
           type="search"
-          placeholder="🔎Ingresa el nombre o dni/pasaporte del pasajero.."
+          placeholder="Busca por el nombre o dni/pasaporte.."
         />
       </div>
     </div>

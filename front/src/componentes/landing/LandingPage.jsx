@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 import style from './style.module.css'
 import { useEffect, useState } from "react";
 import Login from '../login/Login'
-import lg from '../../../public/lg.svg'
+import lg from '../../../public/lg.png'
 import Modal from "../modal/Modal";
 import Register from "../register/Register"
 
@@ -45,23 +45,32 @@ setEstado('Login')
         <div className={style.content}>
         <div className={style.text}>
 
-        <h1>
+        {/* <h1>
             <span className={`${style.letter1}`}>B</span>
             <span className={`${style.letter2}`}>L</span>
             <span className={`${style.letter3}`}>U</span>
-          </h1>
+          </h1> */}
 
-          <p className={style.boldText}>Seguridad en tus manos</p>
+          {/* <p className={style.boldText}>Seguridad en tus manos</p> */}
+<br /><br />
 
           {estado === 'Login' ? (
   <>
+  
     <Login className={style.loginComponent} />
-    <button onClick={handleEstado}>Crear cuenta nueva</button>
+  <div className={style.containerRegister}>
+    <h2 className={style.sinCuenta}>¿Todavia no tienes cuenta?  </h2> 
+    <button 
+    onClick={handleEstado}
+    className={style.reg}
+    >Registro</button>
+    </div>
   </>
 ) : (
   <>
+
     <Register className={style.loginComponent} />
-    <button onClick={handleEstado}>Ir al login</button>
+    <button onClick={handleEstado}  className={style.reg}>Ir al login</button>
   </>
 )}
             <br />
@@ -83,11 +92,11 @@ setEstado('Login')
         
         </div>
         <div className={style.image}>
-          <img
+          {/* <img
             src={lg}
             alt="log"
           
-          />
+          /> */}
         </div>
       </div>
       );

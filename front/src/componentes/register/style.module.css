@@ -1,22 +1,43 @@
 .registerContainer {
-    display: flex;
-    align-items: center; /* Centra verticalmente los elementos */
+  border-radius: 40px;
+  border: 3px solid rgba(255, 255, 255, 0.49);
+ 
+  backdrop-filter: blur(12.5px);
+  width: 690px;
+  height: 690px;
+  flex-shrink: 0;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
   }
   
   .form {
-    flex: 1;
-    padding-right: 20px; /* Agrega espaciado entre el formulario y la imagen */
+    width: 400px;
+    margin: auto;
+    padding: 20px;
+   
+    border-radius: 10px;
+
+      border-radius: 40px;
+ 
+ 
+  backdrop-filter: blur(12.5px);
+  width: 690px;
+  height: 690px;
+  flex-shrink: 0;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center; /* Agrega espaciado entre el formulario y la imagen */
   }
   
   /* Estilos para cada sección del formulario */
-  .form h1 {
-    font-size: 24px;
-    margin-bottom: 20px;
-  }
   
-  .form > div {
-    margin-bottom: 15px;
-  }
+  
+
   
   .form span {
     display: block;
@@ -24,31 +45,95 @@
     font-weight: bold;
   }
 
+  .title{
+    color: #000000;
+    margin-right: 19rem;
+    font-family: Gilroy;
+    font-size: 38px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+
+  }
+
+
+  .linea {
+    width: 300px;
+    height: 0.2px;
+    background-color: #000; /* Puedes cambiar el color según tus preferencias */
+    margin-top: 1.7rem;
+    justify-content: center;
+  } 
+  
+  .input {
+    border-radius: 10px;
+  border: 1px solid #BCBEC0;
+  width: 500px;
+height: 50px;
+flex-shrink: 0;
+  background: #FFF;
+  }
+
+  .googimg{
+    margin-right: 0.3rem;
+  
+  }
+  
+  .button{
+    background-color: #4F886B;
+    color: #FFFFFF;
+    /* Color del texto */
+    font-feature-settings: 'clig' off, 'liga' off;
+    font-family: 'Arial', sans-serif;
+    font-size: 0.83331rem;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 100%;
+    letter-spacing: 0.00831rem;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 0.925rem;
+    letter-spacing: 0.00831rem;
+    width: 270px;
+    height: 40px;
+    margin-top: 0.8rem;
+    cursor: pointer;
+    box-shadow: 0 2px rgba(0, 0, 0, 0.418);
+    /* Efecto de transición */
+  }
 
   
-  .form input {
-    width: 30rem;
-    padding: 8px;
-    border-radius: 4px;
-    border: 1px solid #ccc;
-  }
-  
-  .form button {
-    width: 100%;
-    padding: 10px;
-    background-color: #ffc400;
-    color: black;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-    transition: background-color 0.3s;
-  }
-  
-  .form button:hover {
-    background-color: #f5cc48;
+  .button:hover {
+    background-color: #2e692e;
   }
   
   .image {
     flex: 1;
   }
-  
+  .goog {
+    display: flex;
+    align-items: center;
+    /* Centra verticalmente los elementos */
+    justify-content: center;
+    /* Centra horizontalmente los elementos */
+    background-color: #cecdcd56;
+    color: #000000;
+    /* Color del texto */
+    font-feature-settings: 'clig' off, 'liga' off;
+    font-family: 'Arial', sans-serif;
+    font-size: 0.83331rem;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 100%;
+    letter-spacing: 0.00831rem;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 0.925rem;
+    letter-spacing: 0.00831rem;
+    width: 270px;
+    height: 40px;
+    margin-top: 0.8rem;
+    margin-left: 1rem;
+    cursor: pointer;
+    box-shadow: 0 1.5px rgba(0, 0, 0, 0.418);
+  }

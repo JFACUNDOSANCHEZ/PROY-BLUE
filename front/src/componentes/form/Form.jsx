@@ -80,34 +80,37 @@ const Form = () => {
 
     <div>
       <div className={style.formContainer}>
-        <h2>Ingresar datos del pasajero</h2>
    
 
         <form onSubmit={handleSubmit} className={style.form}>
+          <div>
+
           <div className={style.div}>
             <img
               src="https://static.vecteezy.com/system/resources/previews/007/033/146/non_2x/profile-icon-login-head-icon-vector.jpg"
               alt="icn"
               width="150px"
               className={style.img}
-            />
+              />
           </div>
+              </div>
+              <h2>Ingresar datos del pasajero</h2>
 
           <div className={style.formGroup}>
             <h3>Nombre: </h3>
-            <input className={style.dni} type="text" name="name" onChange={handleChange} value={form.name} />
+            <input placeholder="Pepe Argento" className={style.dni} type="text" name="name" onChange={handleChange} value={form.name} />
           </div>
 
           <div className={style.formGroup}>
             <h3>
               DNI:
             </h3>
-            <input className={style.dni} type="text" name="dni" onChange={handleChange} value={form.dni} />
+            <input placeholder="33.333.333" className={style.dni} type="text" name="dni" onChange={handleChange} value={form.dni} />
           </div>
 
           <div className={style.formGroup}>
             <h3>Motivo: </h3>
-            <input type="text" name="motivo" onChange={handleChange} value={form.motivo} className={style.largeInput} />
+            <input placeholder="Agregar una breve descripcion sobre el huesped" type="text" name="motivo" onChange={handleChange} value={form.motivo} className={style.largeInput} />
           </div>
 
           <button type="submit" className={style.button}>CARGAR DATOS</button>

@@ -291,7 +291,7 @@ export const allPosibleUser = () =>{
 
 }
 
-export const confirmacion=(user)=>{
+export const confirmacion=(user, navigate)=>{
   const endpoint = 'register'
   return async (dispatch) => {
 
@@ -303,12 +303,14 @@ export const confirmacion=(user)=>{
         payload: response.data,
       })
       alert("Registrado correctamente! ")
+      
     } catch (error) {
       dispatch({
         type: 'error',
         payload: error.message,
       });
       console.log(error);
+      alert('El email ya esta registrado')
     }
   }
 }

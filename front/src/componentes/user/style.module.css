@@ -2,7 +2,7 @@
     /* Estilos para el contenedor principal */
     margin: 20px;
     padding: 20px;
-    
+    display: flex;
     width: 50rem;
     height: 30rem;
   }

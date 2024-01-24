@@ -76,19 +76,25 @@ console.log(editedData);
 
     return (
         <div>
-          <h1>Mi perfil</h1>
+          <h1>Perfil</h1>
           <div className={style.div}>
+<div className={style.izq}>
+
             <img src={pf} alt="icn" width="150px" />
             <br />
             <br />
             <div>
               <button onClick={handleEditClick} className={style.ed}>
-                <p>EDITAR</p>
+                <p>Editar perfil</p>
               </button>
             </div>
+              <button onClick={handleCerrarSesion}>Cierre de sesión</button>
+</div>
+            <div>
+
             {isEditing ? (
               <div className={style.userInfo}>
-                <div className={style.userInfoItem}>
+                <div className={style.userInfoItem} >
                   <span>Nombre usuario: </span>
                   <input
                     type="text"
@@ -104,7 +110,7 @@ console.log(editedData);
                     name="nombreCompleto"
                     value={editedData.nombreCompleto}
                     onChange={handleInputChange}
-                  />
+                    />
                 </div>
                 <div className={style.userInfoItem}>
                   <span>Nivel: </span>
@@ -113,7 +119,7 @@ console.log(editedData);
                     name="nivel"
                     value={editedData.nivel}
                     onChange={handleInputChange}
-                  />
+                    />
                 </div>
                 <div className={style.userInfoItem}>
                   <span>Correo: </span>
@@ -122,7 +128,7 @@ console.log(editedData);
                     name="correoElectronico"
                     value={editedData.correoElectronico}
                     onChange={handleInputChange}
-                  />
+                    />
                 </div>
                 <button onClick={handleEditClickNeg}>Cancelar</button>
                 <button onClick={handleSaveClick}>Guardar</button>
@@ -135,6 +141,8 @@ console.log(editedData);
                 </div>
                 <div className={style.userInfoItem}>
                   <span>Nombre completo: </span>
+                  <br />
+                  
                   <span>{editedData?.nombreCompleto}</span>
                 </div>
                 <div className={style.userInfoItem}>
@@ -145,12 +153,11 @@ console.log(editedData);
                   <span>Correo: </span>
                   <span>{editedData?.correoElectronico}</span>
                 </div>
-                <div>
-                  <button onClick={handleCerrarSesion}>Cierre de sesión</button>
-                </div>
+                
               </div>
             )}
           </div>
+            </div>
         </div>
       );
     };

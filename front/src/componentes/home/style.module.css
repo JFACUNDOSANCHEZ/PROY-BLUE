@@ -1,6 +1,6 @@
 
 .divContain {
-    background-color: #ffffff;
+    background-color: rgba(255, 255, 255, 0.205);
     position: fixed;
     top: 0;
     left: 0;
@@ -9,11 +9,38 @@
     justify-content: space-around;
     align-items: center;
     padding: 20px;
-    height: 2rem;
+    height: 1.2rem;
 
   }
+
+  .letter1 {
+    color: #faa307; /* Estilo para la primera letra */
+    font-size: 120px; /* Tamaño más grande para la primera letra */
+    font-weight: 400; /* Hacerla más delgada */
+    animation: moveLetter1 1s infinite;
+  }
+  
+.letter2 {
+    color: #f48c06;
+    font-size: 120px; /* Tamaño más grande para la primera letra */
+    font-weight: 400; 
+    animation: moveLetter1 1s infinite;/* Estilo para la segunda letra */
+    /* Otros estilos para la segunda letra si es necesario */
+  }
+  
+
+.letter3 {
+    color: rgb(255, 218, 6);
+     font-size: 120px; /* Tamaño más grande para la primera letra */
+    font-weight: 400;
+    animation: moveLetter1 1s infinite; /* Estilo para la tercera letra */
+    /* Otros estilos para la tercera letra si es necesario */
+  }
+
+
   .d{
-    /* margin-left: 20rem; */
+    margin-top: 0px;
+    margin-left: 1000px;
   }
   
   .contain {
