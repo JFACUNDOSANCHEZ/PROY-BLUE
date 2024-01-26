@@ -45,35 +45,17 @@ const AdminUser = () => {
 
   const users = useSelector(state => state.users)
   useEffect(() => {
-    dispatch(allPosibleUser());
+
     dispatch(allUsers())
   }, []);
 
-  const handleRegister = (user) => {
-    dispatch(confirmacion(user));
-    console.log(user);
-  };
 
 
-  const handleChange = (id) => (e) => {
-    const activo = e.target.value === 'T' ? "true" : "false";
-    const data = { activo: activo }
-    dispatch(userPut(data, id));
-
-  };
-
-
-
-  const handleLevelChange = (event, userId) => {
-    const selectedLevel = event.target.value;
-    setSelectedUsers({ ...selectedUsers, [userId]: selectedLevel });
-  };
   const posiblesUsers = useSelector(state => state.posibleUser);
   console.log(users);
   return (
     <div>
-      <Form></Form>
-      <PosibleUsers></PosibleUsers>
+    
    <AllUsers></AllUsers>
     </div>
   );
