@@ -26,7 +26,7 @@ const AllUsers = () => {
     const selectedLevel = event.target.value;
     console.log(selectedLevel);
     setSelectedUsers({nivel: selectedLevel});
-    dispatch(userPut(selectedUsers, userId))
+    dispatch(userPut({nivel: selectedLevel}, userId))
   };
 
   console.log(selectedUsers );

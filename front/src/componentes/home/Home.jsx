@@ -114,20 +114,17 @@ const Home = () => {
             <Searchbar></Searchbar>
             <button onClick={openModal} className={style.mas} title="Agregar a la lista negra">Agregar a la lista negra  </button>
             <div className={style.divo}>
+
+
+                
                 <Cards passegers={passegers} usuario={usuario} ></Cards>
             </div>
             </div>
 
             <div className={style.divContain}>
 
-                <div className={style.contain}>
-                    {/* <h1>
-                        <span className={`${style.letter1}`}>B</span>
-                        <span className={`${style.letter2}`}>L</span>
-                        <span className={`${style.letter3}`}>U</span>
-                    </h1> */}
-                </div>
-                {/* <Searchbar /> */}
+               
+             
                 {
                     nivel == 3 ? (
                         <div className={style.d}>

@@ -105,64 +105,71 @@ const Login = () => {
 
 
   return (
-    <div className={style.formContainer}>
-      <h2 className={style.login}>LOGIN</h2>
 
-      <form onSubmit={handleSubmit}>
-        <div>
-          <span>Correo electrónico:</span>
-          <input
-            type="email"
-            name="correoElectronico"
-            value={dataUser.correoElectronico}
-            onChange={handlechange}
-            className={style.textInput}
-            placeholder='ejemplo@hotmail.com'
-          />
 
+    <div className={style.divContainer}>
+      <img className={style.imgLogin} src="https://images.homify.com/v1512601972/p/photo/image/2350734/DSC_0453-Editar-Editar.jpg" alt="" />
+
+      <div className={style.formContainer}>
+        <form onSubmit={handleSubmit}>
+          <h2 className={style.login}>LOGIN</h2>
+          <div>
+            <span>Correo electrónico:</span>
+            <input
+              type="email"
+              name="correoElectronico"
+              value={dataUser.correoElectronico}
+              onChange={handlechange}
+              className={style.textInput}
+              placeholder='ejemplo@hotmail.com'
+            />
+
+          </div>
+          <br />
+
+          <div>
+            <span>Contraseña:</span>
+            <input
+              type="password"
+              name="contraseña"
+              value={dataUser.password}
+              onChange={handlechange}
+              className={style.textInput}
+              placeholder='Al menos 6 caracteres'
+            />
+
+          </div>
+          <br />
+          <button type="submit" className={style.button}>Ingresar</button>
+
+
+
+
+        </form>
+        <div className={style.linea}></div>
+        <div className={style.div}>
+          <br />
+
+          <button
+            className={style.goog}
+            onClick={authGoogle} >
+
+            <img
+              className={style.googimg}
+              src="https://cdn.icon-icons.com/icons2/1584/PNG/512/3721671-google_108054.png"
+              width='50px'
+            />
+
+
+            Iniciar con Google
+          </button>
+          <br />
+          <p className={style.olvido}>¿Has olvidado tu contraseña?</p>
+
+<Link to='/register'> Aun no tengo cuenta</Link>
         </div>
-        <br />
-
-        <div>
-          <span>Contraseña:</span>
-          <input
-            type="password"
-            name="contraseña"
-            value={dataUser.password}
-            onChange={handlechange}
-            className={style.textInput}
-            placeholder='Al menos 6 caracteres'
-          />
-
-        </div>
-        <br />
-        <button type="submit" className={style.button}>Ingresar</button>
-
-
-
-
-      </form>
-      <div className={style.linea}></div>
-      <div className={style.div}>
-        <br />
-        
-        <button
-          className={style.goog}
-          onClick={authGoogle} >
-
-          <img
-            className={style.googimg}
-            src="https://cdn.icon-icons.com/icons2/1584/PNG/512/3721671-google_108054.png"
-            width='50px'
-          />
-
-
-          Iniciar con Google
-        </button>
-        <br />
-        <p className={style.olvido}>¿Has olvidado tu contraseña?</p>
-
       </div>
+
     </div>
   );
 };

@@ -95,11 +95,11 @@ const Register = () => {
 
 
   return (
-    <div>
+    <div className={style.divContainer}>
 
 
-
-      <div className={style.form}>
+<img src="https://www.natania.com.ar/wp-content/uploads/2020/12/01.png" alt="1" className={style.imgLogin}/>
+      <div className={style.formContainer}>
 
         <form onSubmit={handleRegister} >
           <h1 className={style.title}>Registro</h1>

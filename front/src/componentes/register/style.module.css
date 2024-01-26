@@ -12,7 +12,33 @@
   align-items: center;
   justify-content: center;
   }
+
+  .imgLogin {
+    height: 85%;
+    width: 100%;
+    margin-top: 4rem;
+    margin-left: 6rem;
+    border-radius: 2rem;
+    object-fit: cover;
+  }
+  .divContainer {
+    display: flex;
+    height: 80vh;
+    background-color: #d8d8d838;
+    margin: 4rem;
+    border-radius: 3rem;
+    margin-left: 25rem;
+    margin-right: 25rem;
+    box-shadow: 0 2px rgba(0, 0, 0, 0.418);
+  }
   
+  .formContainer {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
   .form {
     width: 400px;
     margin: auto;

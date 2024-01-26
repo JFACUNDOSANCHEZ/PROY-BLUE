@@ -3,9 +3,9 @@ import { useDispatch, useSelector } from "react-redux";
 import { useParams, useNavigate } from "react-router-dom";
 import { Link } from "react-router-dom";
 import style from './style.module.css';
-import { userID, userPut , borrarT} from "../../redux/actions";
+import { userID, userPut , borrarT, user} from "../../redux/actions";
 import pf from '../../../public/pf.svg'
-
+import Perfil from "../navBar/Perfil";
 
 const User = () => {
     
@@ -76,7 +76,7 @@ console.log(editedData);
 
     return (
         <div>
-          <h1>Perfil</h1>
+          {/* <h1>Perfil</h1>
           <div className={style.div}>
 <div className={style.izq}>
 
@@ -156,9 +156,11 @@ console.log(editedData);
                 
               </div>
             )}
-          </div>
+          </div> */}
+          <Perfil user={usuario}/>
+          
             </div>
-        </div>
+        // </div>
       );
     };
     
