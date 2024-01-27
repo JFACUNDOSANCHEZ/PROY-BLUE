@@ -124,7 +124,7 @@ const Login = () => {
   return (
 
     <div className={style.navBar}>
-    <Nav/>
+
     <div className={style.divContainer}>
       <div className={style.imgLogin} >
 

@@ -6,13 +6,7 @@ import Cards from "../cards/Cards";
 import { useEffect, useState } from "react";
 import { useNavigate } from 'react-router-dom';
 import { jwtDecode } from "jwt-decode";
-import Modal from "../modal/Modal";
-import Form from "../form/Form"
-import UserPerfil from '../user/UserPerfil'
-import pf from '../../../public/pf.svg'
-import AllUsers from "../allusers/AllUsers";
-import PosiblesUsers from "../posibleUsers/PosibleUsers";
-import { Link } from "react-router-dom";
+
 import Nav from "../nav/Nav";
 
 

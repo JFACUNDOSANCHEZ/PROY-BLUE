@@ -2,10 +2,12 @@ import { useDispatch, useSelector } from "react-redux";
 import { allPosibleUser, confirmacion, user, allUsers, userPut } from "../../redux/actions";
 import { useEffect, useState } from "react";
 import styles from './style.module.css';
+import PasForUser from "../pasForUser/PasForUser";
+
 
 const AllUsers = () => {
   const dispatch = useDispatch();
-
+const [idPasforUser, setIdPasforUser] = useState('')
   const [selectedUsers, setSelectedUsers] = useState({});
   useEffect(() => {
     // dispatch(allPosibleUser());
@@ -30,7 +32,7 @@ const AllUsers = () => {
   };
 
   console.log(selectedUsers );
-
+console.log(idPasforUser);
 
 
   return (
@@ -89,7 +91,7 @@ const AllUsers = () => {
   
 
 
-                  <button className={styles.viewButton}>Ver Publicaciónes</button>
+                  <button className={styles.viewButton} onClick={()=>{setIdPasforUser(user.id)}}  >Ver Publicaciónes</button>
                 </td>
               </tr>
             })}
@@ -97,6 +99,8 @@ const AllUsers = () => {
           </tbody>
         </table>
       </div>
+<PasForUser id={idPasforUser}></PasForUser>
+
     </div>
   );
 };
