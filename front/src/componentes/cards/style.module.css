@@ -12,6 +12,10 @@
 
 }
 
+.thMotivo{
+width: 20rem;
+}
+
 .img{
   width: 90px;
   height: 70px;
@@ -159,6 +163,29 @@
   text-align: center; /* Centra el contenido de las celdas */
 }
 
+.viewButtonEliminar {
+  background-color: #cd2a2a;
+  color: rgba(0, 0, 0, 0.76);
+
+  box-shadow: 0 1.5px rgba(0, 0, 0, 0.288);
+  margin-left: 10px;
+  width: 171.49px;
+  height: 35px;
+  top: 174px;
+  left: 886px;
+  border-radius: 6px;
+  border: none ;
+  cursor: pointer;
+
+
+  font-feature-settings: 'clig' off, 'liga' off;
+  font-family: 'Arial', sans-serif; 
+  font-size: 0.83331rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 100%;
+  letter-spacing: 0.00831rem;
+}
 .viewButton {
   background-color: #C9F7F5;
   color: rgba(0, 0, 0, 0.76);

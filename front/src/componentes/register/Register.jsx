@@ -97,8 +97,10 @@ const Register = () => {
   return (
     <div className={style.divContainer}>
 
+      <div className={style.imgLogin}>
 
-<img src="https://www.natania.com.ar/wp-content/uploads/2020/12/01.png" alt="1" className={style.imgLogin}/>
+        <img src="https://media.admagazine.com/photos/6467b71e70d3fa4f8a2aa26c/16:9/w_2560%2Cc_limit/FedeC-LowRes7463.jpg" alt="1" className={style.imgLogin} />
+      </div>
       <div className={style.formContainer}>
 
         <form onSubmit={handleRegister} >
@@ -138,32 +140,36 @@ const Register = () => {
           </div>
 
           <div>
-            <button type="submit" className={style.button}>
+            <button type="submit" className={style.btnIniciarSesion}>
               Cargar usuario
             </button>
-              </div>
+          </div>
 
-            </form>
-            <div>
-              <div className={style.linea}></div>
-              <br />
-              <button
-                className={style.goog}
-                onClick={authGoogle} >
+        </form>
+        <div>
+          <div className={style.linea}></div>
+          <br />
+          <button
+            className={style.goog}
+            onClick={authGoogle} >
 
-                <img
-                  className={style.googimg}
-                  src="https://cdn.icon-icons.com/icons2/1584/PNG/512/3721671-google_108054.png"
-                  width='50px'
-                />
+            <img
+              className={style.googimg}
+              src="https://cdn.icon-icons.com/icons2/1584/PNG/512/3721671-google_108054.png"
+              width='50px'
+            />
 
 
-                Registarse con Google
-              </button>
-            </div>
-
+            Registarse con Google
+          </button>
+        </div>
 
         <br />
+        <Link to={'/'}>
+        <p>
+¿Ya tienes cuenta ?
+        </p>
+        </Link>
 
 
 

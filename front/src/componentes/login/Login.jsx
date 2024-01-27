@@ -12,6 +12,7 @@ import { GoogleAuthProvider, getAuth, signInWithPopup, } from "firebase/auth";
 import GoogleButton from 'react-google-button';
 import { getStorage, uploadBytes, getDownloadURL , ref} from "firebase/storage";
 import {v4} from 'uuid'
+import Nav from "../nav/Nav";
 
 
 
@@ -122,9 +123,13 @@ const Login = () => {
 
   return (
 
+    <div className={style.navBar}>
 
     <div className={style.divContainer}>
-      <img className={style.imgLogin} src="https://images.homify.com/v1512601972/p/photo/image/2350734/DSC_0453-Editar-Editar.jpg" alt="" />
+      <div className={style.imgLogin} >
+
+      <img src="https://images.homify.com/v1512601972/p/photo/image/2350734/DSC_0453-Editar-Editar.jpg"  alt="" />
+      </div>
 
       <div className={style.formContainer}>
         <form onSubmit={handleSubmit}>
@@ -185,7 +190,7 @@ const Login = () => {
 <Link to='/register'> Aun no tengo cuenta</Link>
         </div>
       </div>
-
+</div>
     </div>
   );
 };

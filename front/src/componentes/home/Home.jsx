@@ -52,12 +52,12 @@ const Home = () => {
         <div className={style.contentContainer} >
 
             <div  className={style.navBar}>
-                <span className={`${style.letter1}`}></span>
+            
                 <span className={`${style.letter2}`}>.</span>
                 <Nav></Nav>
                
           
-            <br /><br /><br /><br /><br />
+            <br />
             <Searchbar></Searchbar>
 
             <div  className={ style.contentCards }>
