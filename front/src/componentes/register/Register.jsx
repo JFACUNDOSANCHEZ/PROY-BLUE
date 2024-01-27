@@ -95,12 +95,13 @@ const Register = () => {
 
 
   return (
+    <div className={style.navBar}>
     <div className={style.divContainer}>
 
-      <div className={style.imgLogin}>
+<div className={style.imgLogin}  >
 
-        <img src="https://media.admagazine.com/photos/6467b71e70d3fa4f8a2aa26c/16:9/w_2560%2Cc_limit/FedeC-LowRes7463.jpg" alt="1" className={style.imgLogin} />
-      </div>
+      <img src="https://media.admagazine.com/photos/6467b71e70d3fa4f8a2aa26c/16:9/w_2560%2Cc_limit/FedeC-LowRes7463.jpg" alt="1"  />
+</div>
       <div className={style.formContainer}>
 
         <form onSubmit={handleRegister} >
@@ -112,7 +113,7 @@ const Register = () => {
               name="nombreCompleto"
               value={user.nombreCompleto}
               onChange={handleChange}
-              className={style.input}
+              className={style.textInput}
               placeholder='Armando Barreda'
             />
           </div>
@@ -123,14 +124,14 @@ const Register = () => {
               name="correoElectronico"
               value={user.correoElectronico}
               onChange={handleChange}
-              className={style.input}
+              className={style.textInput}
               placeholder='ejemplo@hotmail.com'
             />
           </div>
           <div>
             <span>Contraseña</span>
             <input
-              className={style.input}
+             className={style.textInput}
               type="password"
               name="contraseña"
               value={user.contraseña}
@@ -140,7 +141,7 @@ const Register = () => {
           </div>
 
           <div>
-            <button type="submit" className={style.btnIniciarSesion}>
+            <button type="submit" className={style.button}>
               Cargar usuario
             </button>
           </div>
@@ -148,6 +149,7 @@ const Register = () => {
         </form>
         <div>
           <div className={style.linea}></div>
+          <div className={style.div}>
           <br />
           <button
             className={style.goog}
@@ -165,17 +167,16 @@ const Register = () => {
         </div>
 
         <br />
+
         <Link to={'/'}>
-        <p>
-¿Ya tienes cuenta ?
-        </p>
+          <p>¿Ya tienes cuenta?</p>
         </Link>
+</div>
 
 
 
 
-
-
+</div>
       </div>
     </div>
   );

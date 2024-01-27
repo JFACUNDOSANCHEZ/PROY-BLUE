@@ -16,7 +16,6 @@
   margin-right: 25rem;
   box-shadow: 0 2px rgba(0, 0, 0, 0.418);
 }
-
 .imgLogin {
   height: 85%;
   width: 100%;
@@ -70,20 +69,14 @@
 }
 
 
-.formContainer {
-  border-radius: 40px;
 
-  backdrop-filter: blur(12.5px);
-  width: 690px;
-  height: 690px;
-  flex-shrink: 0;
+.formContainer {
   flex: 1;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
 }
-
 .div p {
   font-size: 1.2rem;
 }

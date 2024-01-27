@@ -124,16 +124,16 @@ const Login = () => {
   return (
 
     <div className={style.navBar}>
-
+    <Nav/>
     <div className={style.divContainer}>
       <div className={style.imgLogin} >
 
-      <img src="https://images.homify.com/v1512601972/p/photo/image/2350734/DSC_0453-Editar-Editar.jpg"  alt="" />
+      <img src="https://images.homify.com/v1512601972/p/photo/image/2350734/DSC_0453-Editar-Editar.jpg" alt="3" />
       </div>
 
       <div className={style.formContainer}>
         <form onSubmit={handleSubmit}>
-          <h2 className={style.login}>LOGIN</h2>
+          <h2 className={style.title}>LOGIN</h2>
           <div>
             <span>Correo electrónico:</span>
             <input
@@ -161,7 +161,7 @@ const Login = () => {
 
           </div>
           <br />
-          <button type="submit" className={style.button}>Ingresar</button>
+          <button type="submit" className={style.button} >Ingresar</button>
 
 
 
