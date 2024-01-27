@@ -22,6 +22,7 @@ const Form = () => {
     name: '',
     dni: '',
     motivo: '',
+    nacionalidad: ''
   })
 
 
@@ -96,10 +97,17 @@ const Form = () => {
   <h3>Imagen:</h3>
   <input type="file" onChange={ e => setFile(e.target.files[0])} />
 </div>
-
+<div>
+  <h3>Nacionalidad</h3>
+  <input type="text" value={form.nacionalidad} name="nacionalidad" onChange={handleChange}/>
+</div>
           <div className={style.formGroup}>
             <h3>Nombre: </h3>
-            <input placeholder="Pepe Argento" className={style.dni} type="text" name="name" onChange={handleChange} value={form.name} />
+            <input 
+            placeholder="Pepe Argento"
+             className={style.dni} 
+             type="text"
+              name="name" onChange={handleChange} value={form.name} />
           </div>
 
           <div className={style.formGroup}>

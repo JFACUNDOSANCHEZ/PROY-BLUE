@@ -12,8 +12,18 @@ console.log(passegers);
     const noEncontrado = useSelector((state) => state.noEncontrado)
     useEffect(() => {
 
-
+        
     }, [noEncontrado])
+    const handleEditClick = () => {
+    
+    };
+    const handleEditClickNeg = () => {
+ 
+
+    }
+    const handleDeletClick = async () => {
+  
+    }
 
 console.log(noEncontrado);
 
@@ -38,11 +48,11 @@ console.log(noEncontrado);
                     <thead>
                         <tr className={style.tableHeaderRow}>
                         <th>img</th>
-                            <th>id</th>
+                            <th>Nacionalidad</th>
                             <th>DNI</th>
                             <th>Nombre</th>
                             <th>Motivo</th>
-                            <th>Creado</th>
+                            <th>Hora y Fecha</th>
                             <th></th>
                             <th>{/* Espacio para los botones*/}</th>
                         </tr>
@@ -50,23 +60,42 @@ console.log(noEncontrado);
                     <tbody>  {noEncontrado ? (
               <h2>No encontrado</h2>
             ) : (
-              passegers.map((pas) => {
-                return (
-                  <tr key={pas?.id}>
-                    <td>
-                      <img className={style.img} src={pas?.img} alt={pas?.img} />
-                    </td>
-                    <td>{pas?.id}</td>
-                    <td>{pas?.dni}</td>
-                    <td>{pas?.name}</td>
-                    <td>{pas?.motivo}</td>
-                    <td>{pas?.updatedAt}</td>
-                    <td></td>
-                    <td>
-                      <button className={style.viewButton}>Ver Publicaciónes</button>
-                    </td>
-                  </tr>
-                );
+                passegers.map((pas) => {
+                    const fecha = new Date(pas.createdAt);
+                    const fechaFormateada = fecha.toLocaleDateString();
+                    const horaFormateada = fecha.toLocaleTimeString();
+                  
+                    return (
+                      <tr key={pas?.id}>
+                        <td>
+                          <img className={style.img} src={pas?.img} alt={pas?.img} />
+                        </td>
+                        <td>{pas?.nacionalidad}</td>
+                        <td>{pas?.dni}</td>
+                        <td>{pas?.name}</td>
+                        <td>{pas?.motivo}</td>
+                        <td>{fechaFormateada} {horaFormateada}</td>
+                        <td></td>
+                        <td>
+                        {
+                    usuario.nivel == 3 || usuario.id == pas.userId ? (
+                        <div className={style.d}>
+                            <button onClick={handleDeletClick}>Eliminar pasajero</button>
+                            <button onClick={handleEditClick} className={style.ed}>
+                          <p>EDITAR</p>     </button>
+                        </div>
+                    ) : (
+                        <div>
+
+
+                        </div>
+                    )
+                }
+                          <button className={style.viewButton}>Ver Publicacion</button>
+                        </td>
+                      </tr>
+                    );
+                  
               })
             )}
 

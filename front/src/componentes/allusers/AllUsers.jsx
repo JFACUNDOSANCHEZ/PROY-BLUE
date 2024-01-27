@@ -52,19 +52,25 @@ const AllUsers = () => {
               <th>Activo/Inactivo</th>
               <th>ROL</th>
               <th>CORREO</th>
+              <th>Fecha de alta</th>
+              <th>Cancelar/ Activar</th>
+              <th>Cambiar rol</th>
               <th>{/* Espacio para los botones*/}</th>
             </tr>
           </thead>
           <tbody>
             {users.map((user) => {
+              const fecha = new Date(user.createdAt);
+              const fechaFormateada = fecha.toLocaleDateString();
+              const horaFormateada = fecha.toLocaleTimeString();
               return <tr key={user.id}>
                 <td>{user.nombreCompleto}</td>
                 <td>{user.activo ? "Activo" : "Inactivo"}</td>
-                <td>{user.nivel}</td>
+                <td>{user.nivel === '3' ? 'Super Admin' : user.nivel === '2'? 'Admin' : 'Usuario' }</td>
                 <td>{user.correoElectronico}</td>
-                <td>{user.updatedAt}</td>
+                <td>{fechaFormateada} <br /> {horaFormateada}hs</td>
                 <td>        <select onChange={handleChange(user?.id)} >
-//               <option>ESTADO</option>
+//               <option>--</option>
 //               <option value="F">Cancelar usuario</option>
 //               <option value="T">Habilitar cuenta</option>
 //             </select>
@@ -73,9 +79,9 @@ const AllUsers = () => {
 
                 <select onChange={(e) => handleLevelChange(e, user.id)}>
                 <option  >--</option>
-                    <option value="1" >nivel 1</option>
-                    <option value="2">nivel 2</option>
-                    <option value="3">nivel 3</option>
+                    <option value="1" >Usuario</option>
+                    <option value="2">Admin</option>
+                    <option value="3">Super admin</option>
                   </select>
                   
 </td>

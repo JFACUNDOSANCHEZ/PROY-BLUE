@@ -67,7 +67,7 @@ const Nav = () => {
                         <div className={style.hamburgerMenu}>
                             {!usuario ? (
                                 <>
-                                    <Link to="/login" className={style.menuItem}>Iniciar Sesión</Link>
+                                    <Link to="/" className={style.menuItem}>Iniciar Sesión</Link>
                                     <Link to="/register" className={style.menuItem}> Registrarse</Link>
                                 </>
                             )
