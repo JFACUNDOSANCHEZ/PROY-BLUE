@@ -5,6 +5,7 @@ import { postP, userID } from "../../redux/actions";
 import { useNavigate } from 'react-router-dom';
 import { jwtDecode } from "jwt-decode";
 import style from './style.module.css'
+import { uploadFile } from "../../firebase/config";
 
 
 
@@ -16,6 +17,7 @@ const Form = () => {
 
 
   const dispatch = useDispatch();
+  const [file , setFile ] = useState(null )
   const [form, setForm] = useState({
     name: '',
     dni: '',
@@ -62,13 +64,17 @@ const Form = () => {
 
 
 
-  const handleSubmit = (event) => {
+  const handleSubmit =async (event) => {
     event.preventDefault()
     if (!form.name || !form.dni || !form.motivo) {
       alert('Faltan Datos!')
     } else {
-      const data = { ...form, uId: usuario.id }
+      const result = await uploadFile(file);
+     
+      console.log(result);
+      const data = { ...form, uId: usuario.id, img: result}
       dispatch(postP(data))
+      console.log(data);
     }
 
   }
@@ -83,18 +89,13 @@ const Form = () => {
    
 <Link to={'/home'}>Back</Link>
         <form onSubmit={handleSubmit} className={style.form}>
-          <div>
-
-          <div className={style.div}>
-            <img
-              src="https://static.vecteezy.com/system/resources/previews/007/033/146/non_2x/profile-icon-login-head-icon-vector.jpg"
-              alt="icn"
-              width="150px"
-              className={style.img}
-              />
-          </div>
-              </div>
+     
               <h2>Ingresar datos del pasajero</h2>
+
+<div>
+  <h3>Imagen:</h3>
+  <input type="file" onChange={ e => setFile(e.target.files[0])} />
+</div>
 
           <div className={style.formGroup}>
             <h3>Nombre: </h3>
