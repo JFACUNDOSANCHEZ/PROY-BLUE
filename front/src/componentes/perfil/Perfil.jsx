@@ -1,11 +1,14 @@
 import { useEffect } from 'react';
 import './perfil.css'; 
+import { Link } from 'react-router-dom';
 
 const Perfil = ({user}) => {
 
-  const userStorage = localStorage.getItem( "user" );
- 
-  console.log(user)
+
+
+
+  const level = user?.nivel === '3' ? 'superAdmin' : 'admin' 
+  console.log(level)
 
   useEffect(() => {
     const handleClick = (e) => {
@@ -30,6 +33,7 @@ const Perfil = ({user}) => {
 
   return (
     <div className="container">
+      <Link to={'/Home'}>Back</Link>
       <div className="card card--front">
         <div className="logo">
 
@@ -37,10 +41,10 @@ const Perfil = ({user}) => {
         <div className="text">
           <header className="head">
             <h1 className="head__name">
-              <b className="name__fn">{user.nombreCompleto}</b>
+              <b className="name__fn">{user?.nombreCompleto}</b>
     
             </h1>
-            <p className="head__subtitle"><p> {user.correoElectronico}</p></p>
+            <p className="head__subtitle"><p> {user?.correoElectronico}</p></p>
           </header>
         </div>
       </div>
@@ -48,10 +52,10 @@ const Perfil = ({user}) => {
       <div className="card card--back">
         <div className="card__content">
           <ul className="contact">       
-            <li><p>Email: {user.correoElectronico}</p></li>
-            <li><p>Nombre: {user.nombreCompleto}</p></li> 
-            <li><p>Activo: {user.activo ? 'Sí' : 'No'}</p></li>
-            <li><p>Rol: {user.nivel}</p></li>
+            <li><p>Email: {user?.correoElectronico}</p></li>
+            <li><p>Nombre: {user?.nombreCompleto}</p></li> 
+            <li><p>Activo: {user?.activo ? 'Sí' : 'No'}</p></li>
+            <li><p>Rol: {level}</p></li>
           </ul>
         </div>
       </div>

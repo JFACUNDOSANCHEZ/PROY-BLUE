@@ -27,7 +27,7 @@ className={style.h}
 <br />
 <br />
 <br />
-<img src={ne} alt='coso' width='400px' />
+<img src='https://www.downgraf.com/wp-content/uploads/2019/05/Loader-animation-principle-freebie.gif' alt='coso' width='250px' />
 
         </div>
     )    

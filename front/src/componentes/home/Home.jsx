@@ -13,61 +13,13 @@ import pf from '../../../public/pf.svg'
 import AllUsers from "../allusers/AllUsers";
 import PosiblesUsers from "../posibleUsers/PosibleUsers";
 import { Link } from "react-router-dom";
+import Nav from "../nav/Nav";
 
 
 const Home = () => {
 
     const dispatch = useDispatch();
     const navigate = useNavigate();
-
-    const [showModal, setShowModal] = useState(false);
-
-    const openModal = () => {
-        setShowModal(true);
-    };
-
-    const closeModal = () => {
-        setShowModal(false);
-
-
-
-
-
-    };
-    const [showModal2, setShowModal2] = useState(false);
-    const openModal2 = () => {
-        setShowModal2(true);
-    };
-
-    const closeModal2 = () => {
-        setShowModal2(false);
-    };
-
-
-    const [showModal3, setShowModal3] = useState(false);
-    const openModal3 = () => {
-        setShowModal3(true);
-    };
-
-    const closeModal3 = () => {
-        setShowModal3(false);
-    };
-
-
-    const [showModal4, setShowModal4] = useState(false);
-    const openModal4 = () => {
-        setShowModal4(true);
-    };
-
-    const closeModal4 = () => {
-        setShowModal4(false);
-    };
-
-
-
-
-
-
 
 
     const [nivel, setNivel] = useState('');
@@ -97,115 +49,24 @@ const Home = () => {
     console.log(usuario);
 
     return (
-        <div >
+        <div className={style.contentContainer} >
 
-            <div>
-                <span className={`${style.letter1}`}>B</span>
-                <span className={`${style.letter2}`}>L</span>
-                <span className={`${style.letter3}`}>U22</span>
+            <div  className={style.navBar}>
+                <span className={`${style.letter1}`}></span>
+                <span className={`${style.letter2}`}>.</span>
+                <Nav></Nav>
+               
           
-                <p >
-                    Nos ayuda a registrar información relevante para proteger la integridad de nuestra comunidad hotelera.
-                    <br />
-                     Contribuye denunciando cualquier actividad sospechosa.
-                </p>
-                <br />
             <br /><br /><br /><br /><br />
             <Searchbar></Searchbar>
-            <button onClick={openModal} className={style.mas} title="Agregar a la lista negra">Agregar a la lista negra  </button>
-            <div className={style.divo}>
 
-
-                
+            <div  className={ style.contentCards }>
                 <Cards passegers={passegers} usuario={usuario} ></Cards>
             </div>
             </div>
 
-            <div className={style.divContain}>
-
-               
-             
-                {
-                    nivel == 3 ? (
-                        <div className={style.d}>
-                            <Link to={'/form'}>
-                                <button onClick={openModal} className={style.mas} title="Agregar a la lista negra">+</button>
-                            </Link>
-
-
-
-
-                            <button onClick={openModal3} className={style.mas} title="users">Usuarios</button>
-
-                            {showModal3 && (
-                                <Modal closeModal={closeModal3}>
-                                    <AllUsers></AllUsers>
-                                </Modal>
-                            )}
-
-
-
-                            <button onClick={openModal4} className={style.mas} title="Solicitudes de Usuarios">Solicitudes</button>
-
-                            {showModal4 && (
-                                <Modal closeModal={closeModal4}>
-                                    <PosiblesUsers></PosiblesUsers>
-                                </Modal>
-                            )}
-                        </div>
-                    ) : (
-                        <div></div>
-                    )
-                }
-
-                <div className={style.d}>
-
-                    <Link to={`/user/${usuario.id}`}>
-                        <img
-
-                            src='https://static.vecteezy.com/system/resources/previews/020/911/737/non_2x/user-profile-icon-profile-avatar-user-icon-male-icon-face-icon-profile-icon-free-png.png'
-                            alt="co" width='56px' onClick={openModal2}
-                            className='{style.img}' title=" Mi Perfil"
-                        />
-                    </Link>
-
-                    <div>
-
-
-                    </div>
-                </div>
-
-
-
-
-            </div>
-    
-            {
-                nivel == 2 ? (
-                    <div className={style.contain}>
-
-                        {/* <button onClick={openModal} className={style.mas} title="Agregar a la lista negra">Agregar a la lista negra  </button> */}
-
-                        {showModal && (
-                            <Modal closeModal={closeModal}>
-                                <Form></Form>
-                            </Modal>
-                        )}
-
-
-
-
-
-
-                    </div>
-
-
-                ) : (
-                    <div>
-
-                    </div>
-                )
-            }
+            
+        
 
         </div>
 

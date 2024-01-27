@@ -1,17 +1,43 @@
 
 .divContain {
-    background-color: rgba(255, 255, 255, 0.205);
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    padding: 20px;
-    height: 1.2rem;
+  width: 100%;
+  height: 4rem;
+  flex-shrink: 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #e9e9e9;
+  padding: 0 20px; 
+  position: fixed;
+  margin-top: -7rem;
 
   }
+
+
+  .searchButton {
+    width: 190px;
+    height: 40px;
+    border: none;
+    margin-top: 0.6rem;
+    background-color: rgba(255, 255, 255, 0.205);
+    padding: 0 15px;
+    border-radius: 0.72731rem;
+    background: rgba(0, 0, 0, 0.027);
+    box-shadow: 0px 2.327px 2.327px 0px rgba(0, 0, 0, 0.322);
+
+    position: absolute;
+    top: 5px;
+    left: calc(66% + 175px);
+
+    /* Estilos cuando el usuario hace clic */
+    &:active {
+        background: rgba(0, 0, 0, 0.1);
+        box-shadow: 0px 1px 1px 0px rgba(0, 0, 0, 0.2);
+        transform: translateY(1px);
+    }
+}
+
+
 
   .letter1 {
     color: #faa307; /* Estilo para la primera letra */

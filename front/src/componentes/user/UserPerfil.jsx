@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 import style from './style.module.css';
 import { userID, userPut , borrarT, user} from "../../redux/actions";
 import pf from '../../../public/pf.svg'
-import Perfil from "../navBar/Perfil";
+import Perfil from "../perfil/Perfil";
 
 const User = () => {
     

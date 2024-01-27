@@ -81,7 +81,7 @@ const Form = () => {
     <div>
       <div className={style.formContainer}>
    
-
+<Link to={'/home'}>Back</Link>
         <form onSubmit={handleSubmit} className={style.form}>
           <div>
 
