@@ -2,76 +2,79 @@ import Card from "../card/Card"
 import style from './style.module.css'
 import hm from '../../../public/hm.svg'
 import ne from '../../../public/ne.svg'
-import {  useSelector } from "react-redux/es/hooks/useSelector"
+import { useSelector } from "react-redux/es/hooks/useSelector"
 import { useEffect } from "react"
 import SearchBar from "../searchBar/SearchBar"
 const Cards = ({ passegers, usuario }) => {
-    
-    
-    
+
+
+
     const noEncontrado = useSelector((state) => state.noEncontrado)
-    useEffect(()=>{
-        
-        
+    useEffect(() => {
+
+
     }, [noEncontrado])
 
+console.log(noEncontrado);
 
-    
-    if(noEncontrado){
-        return(
-            <div>
 
-<h2 
-className={style.h}
->Pasajero No Encontrado</h2>
-<br />
-<br />
-<br />
-<img src='https://www.downgraf.com/wp-content/uploads/2019/05/Loader-animation-principle-freebie.gif' alt='coso' width='250px' />
-
-        </div>
-    )    
-    
-}else{
-    
-    
-    if (passegers.length == 0) {
-        return(
-            <div className={style.b}>
-                <br />
-                <br />
-                <br />
-                  
-                        <h1>
-     
-           
-          </h1>
-               
-            </div>
-        )
-    }
     return (
-        
-        <div>
+        <div className={style.homeContainer}>
+            <div className={style.navBar}>
 
-            {passegers.map((pas) => {
-                return (
-                    <Card
-                    key={pas.id}
-                    id={pas.id}
-                    dni={pas.dni}
-                    name={pas.name}
-                    motivo={pas.motivo}
-                    />
-                    )
-                    
-                    
-                })}
-        </div>
+            </div>
+            <div className={style.contetTitle}>
+                <h1 className={style.title}></h1>
+            </div>
+            {noEncontrado === 'true'? (<>
+            <p>No encontrado</p>
+            </>) :
 
-)
+                <div className={style.contentTable}>
+                <div className={style.tableHeader}>
+                    <h2>INFORMAMACION DE LOS PASAJEROS </h2>
+                </div>
+                <table className={style.userTable}>
+                    <thead>
+                        <tr className={style.tableHeaderRow}>
+                            <th>id</th>
+                            <th>DNI</th>
+                            <th>Nombre</th>
+                            <th>Motivo</th>
+                            <th>Creado</th>
+                            <th></th>
+                            <th>{/* Espacio para los botones*/}</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {passegers.map((pas) => {
+                            return <tr key={pas?.id}>
+                                <td>{pas?.id}</td>
+                                <td>{pas?.dni}</td>
+                                <td>{pas?.name}</td>
+                                <td>{pas?.motivo}</td>
+                                <td>{pas?.updatedAt}</td>
 
+                                <td>
+
+                                </td>
+                                <td>
+
+
+
+                                    <button className={style.viewButton}>Ver Publicaciónes</button>
+                                </td>
+                            </tr>
+                        })}
+
+                    </tbody>
+                </table>
+            </div>
 }
+        </div>
+    );
+
+
 }
 
 

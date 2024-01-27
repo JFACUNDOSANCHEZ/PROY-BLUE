@@ -47,11 +47,11 @@ const Nav = () => {
     return (
 
         <div className={style.navBarContainer}>
-            <Link to="/home" >
+           
                 <div className={style.logoContainer}>
                     <h2>BLU</h2>
                 </div>
-            </Link>
+            
             {/* <Searchbar></Searchbar> */}
 
 
@@ -78,9 +78,9 @@ const Nav = () => {
                                         { usuario.nivel == "2" && (
                                               <>
                                             <Link to="/form" >
-                                                <button className={style.searchButton}>
-                                                    + Crear publicación
-                                                </button>
+                                          
+                                                     Crear publicación
+                                            
                                             </Link>
                                             </>
                                         )}

@@ -47,7 +47,7 @@
   }
   
 .letter2 {
-    color: #f48c06;
+    color: #ffffff;
     font-size: 120px; /* Tamaño más grande para la primera letra */
     font-weight: 400; 
     animation: moveLetter1 1s infinite;/* Estilo para la segunda letra */
