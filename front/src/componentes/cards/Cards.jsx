@@ -47,27 +47,28 @@ console.log(noEncontrado);
                             <th>{/* Espacio para los botones*/}</th>
                         </tr>
                     </thead>
-                    <tbody>
-                        {passegers.map((pas) => {
-                            return <tr key={pas?.id}>
-                                <td><img src={pas?.img} alt={pas?.img} /></td>
-                                <td>{pas?.id}</td>
-                                <td>{pas?.dni}</td>
-                                <td>{pas?.name}</td>
-                                <td>{pas?.motivo}</td>
-                                <td>{pas?.updatedAt}</td>
-
-                                <td>
-
-                                </td>
-                                <td>
-
-
-
-                                    <button className={style.viewButton}>Ver Publicaciónes</button>
-                                </td>
-                            </tr>
-                        })}
+                    <tbody>  {noEncontrado ? (
+              <h2>No encontrado</h2>
+            ) : (
+              passegers.map((pas) => {
+                return (
+                  <tr key={pas?.id}>
+                    <td>
+                      <img className={style.img} src={pas?.img} alt={pas?.img} />
+                    </td>
+                    <td>{pas?.id}</td>
+                    <td>{pas?.dni}</td>
+                    <td>{pas?.name}</td>
+                    <td>{pas?.motivo}</td>
+                    <td>{pas?.updatedAt}</td>
+                    <td></td>
+                    <td>
+                      <button className={style.viewButton}>Ver Publicaciónes</button>
+                    </td>
+                  </tr>
+                );
+              })
+            )}
 
                     </tbody>
                 </table>
