@@ -4,6 +4,11 @@ import { GoogleAuthProvider, getAuth, signInWithPopup, } from "firebase/auth";
 import GoogleButton from 'react-google-button';
 import { getStorage, uploadBytes, getDownloadURL , ref} from "firebase/storage";
 import {v4} from 'uuid'
+import { useDispatch } from "react-redux";
+import { useNavigate } from "react-router-dom";
+import { login } from "../redux/actions";
+
+
 const provider = new GoogleAuthProvider();
 
 

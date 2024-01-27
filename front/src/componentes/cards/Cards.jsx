@@ -8,7 +8,7 @@ import SearchBar from "../searchBar/SearchBar"
 const Cards = ({ passegers, usuario }) => {
 
 
-
+console.log(passegers);
     const noEncontrado = useSelector((state) => state.noEncontrado)
     useEffect(() => {
 
@@ -32,11 +32,12 @@ console.log(noEncontrado);
 
                 <div className={style.contentTable}>
                 <div className={style.tableHeader}>
-                    <h2>INFORMAMACION DE LOS PASAJEROS </h2>
+                    <h2>LISTA NEGRA DE INDESEABLAS </h2>
                 </div>
                 <table className={style.userTable}>
                     <thead>
                         <tr className={style.tableHeaderRow}>
+                        <th>img</th>
                             <th>id</th>
                             <th>DNI</th>
                             <th>Nombre</th>
@@ -49,6 +50,7 @@ console.log(noEncontrado);
                     <tbody>
                         {passegers.map((pas) => {
                             return <tr key={pas?.id}>
+                                <td><img src={pas?.img} alt={pas?.img} /></td>
                                 <td>{pas?.id}</td>
                                 <td>{pas?.dni}</td>
                                 <td>{pas?.name}</td>
