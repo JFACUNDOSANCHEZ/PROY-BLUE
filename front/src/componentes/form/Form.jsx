@@ -6,7 +6,7 @@ import { useNavigate } from 'react-router-dom';
 import { jwtDecode } from "jwt-decode";
 import style from './style.module.css'
 import { uploadFile } from "../../firebase/config";
-
+import Nav from "../nav/Nav";
 
 
 const Form = () => {
@@ -15,7 +15,7 @@ const Form = () => {
 
 
 
-
+const navigate = useNavigate()
   const dispatch = useDispatch();
   const [file , setFile ] = useState(null )
   const [form, setForm] = useState({
@@ -66,15 +66,22 @@ const Form = () => {
 
 
   const handleSubmit =async (event) => {
+    let result;
     event.preventDefault()
     if (!form.name || !form.dni || !form.motivo) {
       alert('Faltan Datos!')
     } else {
-      const result = await uploadFile(file);
      
-      console.log(result);
+      if (file) {
+        result = await uploadFile(file);
+        console.log(result);
+      } else {
+        // Si no hay un archivo nuevo, podrías usar el valor actual de img o proporcionar un valor predeterminado
+        result = form.img || 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRkrLqEKuEDoPVnaHf0u81pB0UrOvynZFDquA&usqp=CAU';
+      }
+
       const data = { ...form, uId: usuario.id, img: result}
-      dispatch(postP(data))
+      dispatch(postP(data, navigate))
       console.log(data);
     }
 
@@ -92,6 +99,7 @@ const Form = () => {
         <form onSubmit={handleSubmit} className={style.form}>
      
               <h2>Ingresar datos del pasajero</h2>
+      <Nav></Nav>
 
 <div>
   <h3>Imagen:</h3>

@@ -56,14 +56,15 @@ const AdminUser = () => {
   console.log(users);
   return (
     <div>
-      <div  className={style.navBar}>
             
             <span className={`${style.letter2}`}>.</span>
             <Nav></Nav>
-           </div>
+        
     
-        <Nav></Nav>
    <AllUsers></AllUsers>
+      <div  className={style.navBar}>
+        <Nav></Nav>
+    </div>
     </div>
   );
 }

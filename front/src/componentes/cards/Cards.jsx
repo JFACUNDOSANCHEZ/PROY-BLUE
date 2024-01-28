@@ -6,7 +6,7 @@ import { useSelector } from "react-redux/es/hooks/useSelector"
 import { useEffect, useState } from "react"
 import SearchBar from "../searchBar/SearchBar"
 import { useDispatch } from "react-redux"
-import { detail, updateData } from "../../redux/actions"
+import { detail, updateData, deleteData } from "../../redux/actions"
 const Cards = ({ passegers, usuario }) => {
 
 
@@ -36,8 +36,10 @@ const Cards = ({ passegers, usuario }) => {
         }));
     };
 
-    const handleDeletClick = async () => {
+    const handleDeletClick  = async (id) => {
 
+        dispatch(deleteData(id));
+    
     }
     const [edit, setEdit] = useState(null)
     const [editId, setEditId] = useState('')
@@ -144,7 +146,7 @@ const Cards = ({ passegers, usuario }) => {
                                                 usuario.nivel == 3 || usuario.id == pas.userId ? (
                                                     <>
                                                         <div className={style.d}>
-                                                            <button className={style.viewButtonEliminar} onClick={handleDeletClick}>Eliminar pasajero</button>
+                                                            <button className={style.viewButtonEliminar} onClick={()=>{handleDeletClick(pas.id)}}>Eliminar pasajero</button>
                                                         </div>
                                                         <br />
                                                         <div>

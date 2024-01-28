@@ -49,7 +49,9 @@ const Nav = () => {
         <div className={style.navBarContainer}>
            
                 <div className={style.logoContainer}>
-                    <h2>BLU</h2>
+                    <Link to={'/home'}>
+                  <img src="https://i.pinimg.com/originals/f4/7f/d1/f47fd1fdc887f5cec9f3f2318c3c8313.png" alt="8" title="Home" width={'45rem'} />
+                    </Link>
                 </div>
             
             {/* <Searchbar></Searchbar> */}
@@ -77,11 +79,7 @@ const Nav = () => {
                                         <Link to="/" onClick={handleLogout} className={style.menuItem} >Cerrar sesion</Link>
                                         { usuario.nivel == "2" && (
                                               <>
-                                            <Link to="/form" >
-                                          
-                                                     Crear publicación
-                                            
-                                            </Link>
+                                            <Link to="/form" className={style.menuItem}>Agregar pasajero</Link>
                                             </>
                                         )}
                                         {usuario.nivel == "3" && (

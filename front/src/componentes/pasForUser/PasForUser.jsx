@@ -17,17 +17,17 @@ const PasForUser = ({id}) =>{
         dispatch(allPasseger())
     },[])
 
-    useEffect(() => {
+    // useEffect(() => {
 
-        const token = localStorage.getItem('token');
-        console.log(token);
-        if (token) {
+    //     const token = localStorage.getItem('token');
+    //     console.log(token);
+    //     if (token) {
 
-            const decodedToken = jwtDecode(token);
-            setNivel(decodedToken.nivel)
-            dispatch(userID(decodedToken.usuarioId))
-        } else navigate('/')
-    }, []);
+    //         const decodedToken = jwtDecode(token);
+    //         setNivel(decodedToken.nivel)
+    //         dispatch(userID(decodedToken.usuarioId))
+    //     } else navigate('/')
+    // }, []);
  
     const usuario = useSelector(state => state.user)
     const passegers = useSelector((state) => state.allpasseger)

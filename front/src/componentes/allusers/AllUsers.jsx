@@ -3,7 +3,7 @@ import { allPosibleUser, confirmacion, user, allUsers, userPut } from "../../red
 import { useEffect, useState } from "react";
 import styles from './style.module.css';
 import PasForUser from "../pasForUser/PasForUser";
-
+import Nav from "../nav/Nav";
 
 const AllUsers = () => {
   const dispatch = useDispatch();
@@ -37,6 +37,7 @@ const AllUsers = () => {
 
   return (
     <div className={styles.homeContainer}>
+      <Nav></Nav>
       <div className={styles.navBar}>
 
       </div>

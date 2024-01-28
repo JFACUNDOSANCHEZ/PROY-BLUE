@@ -6,6 +6,7 @@ import style from './style.module.css';
 import { userID, userPut , borrarT, user} from "../../redux/actions";
 import pf from '../../../public/pf.svg'
 import Perfil from "../perfil/Perfil";
+import Nav from "../nav/Nav";
 
 const User = () => {
     
@@ -45,17 +46,7 @@ console.log(editedData);
         setIsEditing(false);
     }
 
-    const handleCerrarSesion = () => {
-        const token = localStorage.getItem('token');
-        console.log("Dentro del handle " + token);
-        if (token) {
-
-            localStorage.removeItem("token");
-            dispatch(borrarT())
-
-            navigate('/');
-        }
-    }
+  
 
     const handleSaveClick = () => {
 
@@ -76,92 +67,12 @@ console.log(editedData);
 
     return (
         <div>
-          {/* <h1>Perfil</h1>
-          <div className={style.div}>
-<div className={style.izq}>
-
-            <img src={pf} alt="icn" width="150px" />
-            <br />
-            <br />
-            <div>
-              <button onClick={handleEditClick} className={style.ed}>
-                <p>Editar perfil</p>
-              </button>
-            </div>
-              <button onClick={handleCerrarSesion}>Cierre de sesión</button>
-</div>
-            <div>
-
-            {isEditing ? (
-              <div className={style.userInfo}>
-                <div className={style.userInfoItem} >
-                  <span>Nombre usuario: </span>
-                  <input
-                    type="text"
-                    name="nombreUsuario"
-                    value={editedData.nombreUsuario}
-                    onChange={handleInputChange}
-                  />
-                </div>
-                <div className={style.userInfoItem}>
-                  <span>Nombre completo: </span>
-                  <input
-                    type="text"
-                    name="nombreCompleto"
-                    value={editedData.nombreCompleto}
-                    onChange={handleInputChange}
-                    />
-                </div>
-                <div className={style.userInfoItem}>
-                  <span>Nivel: </span>
-                  <input
-                    type="text"
-                    name="nivel"
-                    value={editedData.nivel}
-                    onChange={handleInputChange}
-                    />
-                </div>
-                <div className={style.userInfoItem}>
-                  <span>Correo: </span>
-                  <input
-                    type="text"
-                    name="correoElectronico"
-                    value={editedData.correoElectronico}
-                    onChange={handleInputChange}
-                    />
-                </div>
-                <button onClick={handleEditClickNeg}>Cancelar</button>
-                <button onClick={handleSaveClick}>Guardar</button>
-              </div>
-            ) : (
-              <div className={style.userInfo}>
-                <div className={style.userInfoItem}>
-                  <span>Nombre usuario: </span>
-                  <span>{editedData?.nombreUsuario}</span>
-                </div>
-                <div className={style.userInfoItem}>
-                  <span>Nombre completo: </span>
-                  <br />
-                  
-                  <span>{editedData?.nombreCompleto}</span>
-                </div>
-                <div className={style.userInfoItem}>
-                  <span>Nivel: </span>
-                  <span>{editedData?.nivel}</span>
-                </div>
-                <div className={style.userInfoItem}>
-                  <span>Correo: </span>
-                  <span>{editedData?.correoElectronico}</span>
-                </div>
-                
-              </div>
-            )}
-          </div> */}
+       
           <Perfil user={usuario}/>
           
             </div>
         // </div>
-      );
-    };
+        );
+      };
     
     export default User;

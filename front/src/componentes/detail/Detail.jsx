@@ -46,7 +46,7 @@ setEditedData(pass)
     }
     const handleDeletClick = async () => {
         dispatch(deleteData(id));
-        navigate('/home');
+    
     }
 
     const handleSaveClick = () => {

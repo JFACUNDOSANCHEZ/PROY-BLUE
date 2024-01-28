@@ -106,7 +106,7 @@ export const allUsers =()=>{
 
 }
 
-export const postP = (data) => {
+export const postP = (data, navigate) => {
 
   const endpoint = 'post'
   return async (dispatch) => {
@@ -119,6 +119,7 @@ export const postP = (data) => {
         payload: response.data,
       })
       alert("agregado correctamente! ")
+      navigate('/home')
     } catch (error) {
       dispatch({
         type: 'error',
@@ -181,6 +182,7 @@ export const findName = (name) => {
 }
 
 export const deleteData =(id) => {
+  alert('Eliminando...')
   const endpoint = `get/${id}`
   return async (dispatch) => {
     try {
@@ -250,6 +252,7 @@ export const solicitud=(user)=>{
 console.log(user);
   const endpoint = 'solicitud'
   return async (dispatch) => {
+    
 
     try {
     
@@ -296,14 +299,14 @@ export const confirmacion=(user, navigate)=>{
   return async (dispatch) => {
 
     try {
-    
+    alert('Cargando...')
       const response = await axios.post(endpoint, user)
       dispatch({
         type: 'confir',
         payload: response.data,
       })
       alert("Registrado correctamente! ")
-      
+      navigate('/')
     } catch (error) {
       dispatch({
         type: 'error',
@@ -379,6 +382,7 @@ export const user=(id)=>{
 
 
 export const login = (data, navigate) => {
+  alert('Cargando...')
   console.log(data);
   const endpoint = 'login'
   return async (dispatch) => {
