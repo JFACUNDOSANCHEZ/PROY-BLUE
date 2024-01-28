@@ -8,6 +8,7 @@ import { useNavigate } from 'react-router-dom';
 import Form from '../form/Form'
 import PosibleUsers from '../posibleUsers/PosibleUsers'
 import AllUsers from "../allusers/AllUsers";
+import Nav from '../../componentes/nav/Nav'
 
 
 const AdminUser = () => {
@@ -55,7 +56,13 @@ const AdminUser = () => {
   console.log(users);
   return (
     <div>
+      <div  className={style.navBar}>
+            
+            <span className={`${style.letter2}`}>.</span>
+            <Nav></Nav>
+           </div>
     
+        <Nav></Nav>
    <AllUsers></AllUsers>
     </div>
   );

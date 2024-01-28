@@ -7,10 +7,10 @@ import PasForUser from "../pasForUser/PasForUser";
 
 const AllUsers = () => {
   const dispatch = useDispatch();
-const [idPasforUser, setIdPasforUser] = useState('')
+  const [idPasforUser, setIdPasforUser] = useState('')
   const [selectedUsers, setSelectedUsers] = useState({});
   useEffect(() => {
-    // dispatch(allPosibleUser());
+
     dispatch(allUsers())
   }, []);
 
@@ -27,12 +27,12 @@ const [idPasforUser, setIdPasforUser] = useState('')
   const handleLevelChange = (event, userId) => {
     const selectedLevel = event.target.value;
     console.log(selectedLevel);
-    setSelectedUsers({nivel: selectedLevel});
-    dispatch(userPut({nivel: selectedLevel}, userId))
+    setSelectedUsers({ nivel: selectedLevel });
+    dispatch(userPut({ nivel: selectedLevel }, userId))
   };
 
-  console.log(selectedUsers );
-console.log(idPasforUser);
+  console.log(selectedUsers);
+  console.log(idPasforUser);
 
 
   return (
@@ -68,7 +68,7 @@ console.log(idPasforUser);
               return <tr key={user.id}>
                 <td>{user.nombreCompleto}</td>
                 <td>{user.activo ? "Activo" : "Inactivo"}</td>
-                <td>{user.nivel === '3' ? 'Super Admin' : user.nivel === '2'? 'Admin' : 'Usuario' }</td>
+                <td>{user.nivel === '3' ? 'Super Admin' : user.nivel === '2' ? 'Admin' : 'Usuario'}</td>
                 <td>{user.correoElectronico}</td>
                 <td>{fechaFormateada} <br /> {horaFormateada}hs</td>
                 <td>        <select onChange={handleChange(user?.id)} >
@@ -79,19 +79,19 @@ console.log(idPasforUser);
                 </td>
                 <td>
 
-                <select onChange={(e) => handleLevelChange(e, user.id)}>
-                <option  >--</option>
+                  <select onChange={(e) => handleLevelChange(e, user.id)}>
+                    <option  >--</option>
                     <option value="1" >Usuario</option>
                     <option value="2">Admin</option>
                     <option value="3">Super admin</option>
                   </select>
-                  
-</td>
-<td>
-  
+
+                </td>
+                <td>
 
 
-                  <button className={styles.viewButton} onClick={()=>{setIdPasforUser(user.id)}}  >Ver Publicaciónes</button>
+
+                  <button className={styles.viewButton} onClick={() => { setIdPasforUser(user.id) }}  >Ver Publicaciónes</button>
                 </td>
               </tr>
             })}
@@ -99,7 +99,7 @@ console.log(idPasforUser);
           </tbody>
         </table>
       </div>
-<PasForUser id={idPasforUser}></PasForUser>
+      <PasForUser  id={idPasforUser}></PasForUser>
 
     </div>
   );

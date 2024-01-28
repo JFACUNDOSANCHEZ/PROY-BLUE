@@ -44,6 +44,18 @@
   
 }
 
+.navBar{
+  margin-top: 7rem;
+}
+.letter2 {
+  color: #f48c06;
+  font-size: 90px; /* Tamaño más grande para la primera letra */
+  font-weight: 400; 
+  animation: moveLetter1 1s infinite;/* Estilo para la segunda letra */
+  /* Otros estilos para la segunda letra si es necesario */
+}
+
+
 /* Estilos de los botones del formulario */
 .user-form button {
   margin-right: 10px;
