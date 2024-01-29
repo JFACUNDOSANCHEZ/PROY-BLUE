@@ -9,6 +9,7 @@ const inicialState = {
     posibleUser: [],
     getPosible: [],
     users: [],
+
     
 
 
@@ -22,6 +23,8 @@ const reducer = (state = inicialState, actions) => {
 
         case 'all':
             return { ...state, passeger: actions.payload, allpasseger: actions.payload }
+    case 'findNUserName':
+            return { ...state, users: actions.payload, allpasseger: actions.payload }
 
 
             case 'userID':

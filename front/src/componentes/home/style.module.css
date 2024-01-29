@@ -40,7 +40,7 @@
 
 
   .letter1 {
-    color: #faa307; /* Estilo para la primera letra */
+    color: #d3d3d3; /* Estilo para la primera letra */
     font-size: 120px; /* Tamaño más grande para la primera letra */
     font-weight: 400; /* Hacerla más delgada */
     animation: moveLetter1 1s infinite;
@@ -56,7 +56,7 @@
   
 
 .letter3 {
-    color: rgb(255, 218, 6);
+    color: rgb(255, 255, 253);
      font-size: 120px; /* Tamaño más grande para la primera letra */
     font-weight: 400;
     animation: moveLetter1 1s infinite; /* Estilo para la tercera letra */

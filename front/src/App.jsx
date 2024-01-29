@@ -29,6 +29,7 @@ function App() {
         <Route path='/admin' element={<AllUsers />} >  </Route>
         <Route path='/confirmar-correo' element={<ConfirmarCorreo />} >  </Route>
          <Route path='/user/:id' element={ < UserPerfil/> } />
+         <Route path='/pasforuser/:id' element={<PasForUser />} >  </Route>
       </Routes>
     </div>
   )

@@ -47,7 +47,7 @@ const Home = () => {
 
             <div  className={style.navBar}>
             
-                <span className={`${style.letter2}`}>.</span>
+                <span className={style.letter2}></span>
                 <Nav></Nav>
                
           

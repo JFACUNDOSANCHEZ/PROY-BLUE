@@ -1,28 +1,28 @@
 import { useDispatch, useSelector } from "react-redux";
-import { allPosibleUser, confirmacion, user, allUsers, userPut } from "../../redux/actions";
+import {  findUserName, user, allUsers, userPut } from "../../redux/actions";
 import { useEffect, useState } from "react";
 import styles from './style.module.css';
 import PasForUser from "../pasForUser/PasForUser";
 import Nav from "../nav/Nav";
+import { Link } from "react-router-dom";
 
 const AllUsers = () => {
   const dispatch = useDispatch();
-  const [idPasforUser, setIdPasforUser] = useState('')
+
   const [selectedUsers, setSelectedUsers] = useState({});
   useEffect(() => {
 
     dispatch(allUsers())
   }, []);
 
-  const users = useSelector(state => state.users)
-
+  
   const handleChange = (id) => (e) => {
     const activo = e.target.value === 'T' ? "true" : "false";
     const data = { activo: activo }
     dispatch(userPut(data, id));
     console.log(data);
     console.log(id);
-
+    
   };
   const handleLevelChange = (event, userId) => {
     const selectedLevel = event.target.value;
@@ -30,12 +30,25 @@ const AllUsers = () => {
     setSelectedUsers({ nivel: selectedLevel });
     dispatch(userPut({ nivel: selectedLevel }, userId))
   };
-
+  
   console.log(selectedUsers);
-  console.log(idPasforUser);
-
-
-  return (
+  
+  const [pass, setPass] = useState("");
+  const Users = useSelector(state => state.users)
+  const users = pass
+  ? Users.filter((u) => {
+      const nombreMatch = u.nombreCompleto.toLowerCase().includes(pass.toLowerCase());
+      const correoMatch = u.correoElectronico.toLowerCase().includes(pass.toLowerCase());
+      return nombreMatch || correoMatch;
+    })
+  : Users;
+  const handleFind = (event) => {
+    const name = event.target.value
+    setPass(name)
+    
+  }
+    
+    return (
     <div className={styles.homeContainer}>
       <Nav></Nav>
       <div className={styles.navBar}>
@@ -47,6 +60,15 @@ const AllUsers = () => {
       <div className={styles.contentTable}>
         <div className={styles.tableHeader}>
           <h2>Tabla de Usuarios</h2>
+          <div className={styles.searchBox}>
+        <span className={styles.searchIcon}></span>
+        <input
+          className={styles.inputSearch}
+          onChange={handleFind}
+          type="search"
+          placeholder="Busca por el nombre o dni/pasaporte.."
+        />
+      </div>
         </div>
         <table className={styles.userTable}>
           <thead>
@@ -62,15 +84,15 @@ const AllUsers = () => {
             </tr>
           </thead>
           <tbody>
-            {users.map((user) => {
-              const fecha = new Date(user.createdAt);
+            {users?.map((user) => {
+              const fecha = new Date(user?.createdAt);
               const fechaFormateada = fecha.toLocaleDateString();
               const horaFormateada = fecha.toLocaleTimeString();
               return <tr key={user.id}>
-                <td>{user.nombreCompleto}</td>
-                <td>{user.activo ? "Activo" : "Inactivo"}</td>
-                <td>{user.nivel === '3' ? 'Super Admin' : user.nivel === '2' ? 'Admin' : 'Usuario'}</td>
-                <td>{user.correoElectronico}</td>
+                <td>{user?.nombreCompleto}</td>
+                <td>{user?.activo ? "Activo" : "Inactivo"}</td>
+                <td>{user?.nivel === '3' ? 'Super Admin' : user?.nivel === '2' ? 'Admin' : 'Usuario'}</td>
+                <td>{user?.correoElectronico}</td>
                 <td>{fechaFormateada} <br /> {horaFormateada}hs</td>
                 <td>        <select onChange={handleChange(user?.id)} >
 //               <option>--</option>
@@ -80,7 +102,7 @@ const AllUsers = () => {
                 </td>
                 <td>
 
-                  <select onChange={(e) => handleLevelChange(e, user.id)}>
+                  <select onChange={(e) => handleLevelChange(e, user?.id)}>
                     <option  >--</option>
                     <option value="1" >Usuario</option>
                     <option value="2">Admin</option>
@@ -91,8 +113,9 @@ const AllUsers = () => {
                 <td>
 
 
-
-                  <button className={styles.viewButton} onClick={() => { setIdPasforUser(user.id) }}  >Ver Publicaciónes</button>
+<Link to={`/pasforuser/${user?.id}`}>
+                  <button className={styles.viewButton}   >Ver Publicaciónes</button>
+</Link>
                 </td>
               </tr>
             })}
@@ -100,7 +123,7 @@ const AllUsers = () => {
           </tbody>
         </table>
       </div>
-      <PasForUser  id={idPasforUser}></PasForUser>
+
 
     </div>
   );

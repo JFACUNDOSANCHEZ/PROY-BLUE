@@ -181,6 +181,33 @@ export const findName = (name) => {
   }
 }
 
+
+export const findUserName = (name) => {
+
+  return async (dispatch) => {
+    try {
+      console.log(name);
+      const endpoint = `getUser?name=${name}`
+      const { data } = await axios.get(endpoint)
+      console.log(name);
+      console.log(data.length);
+      dispatch({
+        type: 'findNUserName',
+        payload: {
+          data,
+          found: data.length > 0 ? false : true, 
+        },
+      });
+    } catch (error) {
+      dispatch({
+        type: 'error',
+        payload: error.message,
+      });
+    }
+  }
+}
+
+
 export const deleteData =(id) => {
   alert('Eliminando...')
   const endpoint = `get/${id}`
