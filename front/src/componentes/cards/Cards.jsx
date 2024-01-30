@@ -55,7 +55,19 @@ const Cards = ({ passegers, usuario }) => {
 
     };
     console.log(editId);
+const [zoom, setZoom] = useState(false)
+    const handleZoom =(img)=>{
+if (img) {
+    setZoom(img)
+}   
+ 
+    }
 
+const closeZoom =()=>{
+    
+        setZoom(null)
+    
+}
 
     return (
         <div className={style.homeContainer}>
@@ -103,8 +115,11 @@ const Cards = ({ passegers, usuario }) => {
                                 return (
                                     <tr key={pas?.id}>
                                         <td>
-                                            <img className={style.img} src={pas?.img} alt={pas?.img} />
+                                           
+                                            <img src={pas.img} alt="z1" onClick={()=>{handleZoom(pas.img)}} className={style.img} />
+                                        
                                         </td>
+                                     
                                         <td>{pas?.nacionalidad}</td>
                                         <td>{edit && editId === pas?.id ? (
                                             <input
@@ -170,6 +185,13 @@ const Cards = ({ passegers, usuario }) => {
                     </table>
                 </div>
             }
+               {zoom && 
+                                      <div className={style.overlay} >
+
+                                        <img onClick={closeZoom} className={style.imagenEnGrandeContainer} width={'50%'} src={zoom} alt={zoom} />
+                                      </div>  
+                                    
+                                    }
         </div>
     );
 

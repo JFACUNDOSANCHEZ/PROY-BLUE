@@ -218,6 +218,7 @@ export const deleteData =(id) => {
         type: 'delet',
         payload: data,
       })
+      window.location.reload();
       alert('Eliminado con exito')
     } catch (error) {
       dispatch({
@@ -239,6 +240,7 @@ export const detail = (id) => {
         type: 'detail',
         payload: data,
       })
+      
     } catch (error) {
       dispatch({
         type: 'error',

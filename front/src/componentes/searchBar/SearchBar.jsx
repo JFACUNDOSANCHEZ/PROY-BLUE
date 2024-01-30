@@ -20,11 +20,9 @@ const Searchbar = () => {
     }
 useEffect(()=>{
     
-    if (pass === "") {
-        dispatch(close())
-    }
+
     
-}, [pass])
+}, [])
 
 
 

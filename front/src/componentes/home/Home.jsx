@@ -1,5 +1,5 @@
 import { useDispatch, useSelector } from "react-redux";
-import { userID } from "../../redux/actions";
+import { allPasseger, userID } from "../../redux/actions";
 import style from './style.module.css'
 import Searchbar from "../searchBar/SearchBar";
 import Cards from "../cards/Cards";
@@ -19,7 +19,7 @@ const Home = () => {
     const [nivel, setNivel] = useState('');
 
     useEffect(() => {
-
+dispatch(allPasseger())
         const token = localStorage.getItem('token');
         console.log(token);
         if (token) {
