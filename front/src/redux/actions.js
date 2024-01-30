@@ -1,5 +1,6 @@
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
+import Swal from 'sweetalert2'
 
 
 
@@ -107,7 +108,26 @@ export const allUsers =()=>{
 }
 
 export const postP = (data, navigate) => {
-
+  Swal.fire({
+    title: 'Eliminando...',
+    text: 'Espere por favor',
+    onBeforeOpen: () => {
+        Swal.showLoading();
+    },
+    onClose: () => {
+        // Aquí puedes realizar la operación asincrónica, por ejemplo, una petición AJAX
+        setTimeout(() => {
+            // Simulando una operación que toma tiempo (puedes reemplazar esto con tu lógica real)
+            Swal.hideLoading();
+            Swal.fire({
+                title: 'Operación completada',
+                text: 'La operación ha finalizado con éxito.',
+                icon: 'success',
+                confirmButtonText: '¡Entendido!'
+            });
+        }, 2000); // Simulación de una operación que tarda 2 segundos
+    }
+});
   const endpoint = 'post'
   return async (dispatch) => {
 
@@ -118,7 +138,11 @@ export const postP = (data, navigate) => {
         type: 'post',
         payload: response.data,
       })
-      alert("agregado correctamente! ")
+      Swal.fire({
+        icon: 'success',
+        title: `¡Pasajero agregado!`,
+        text: 'Se agrego a la lista con exito.',
+       });
       navigate('/home')
     } catch (error) {
       dispatch({
@@ -209,7 +233,26 @@ export const findUserName = (name) => {
 
 
 export const deleteData =(id) => {
-  alert('Eliminando...')
+  Swal.fire({
+    title: 'Eliminando...',
+    text: 'Espere por favor',
+    onBeforeOpen: () => {
+        Swal.showLoading();
+    },
+    onClose: () => {
+        // Aquí puedes realizar la operación asincrónica, por ejemplo, una petición AJAX
+        setTimeout(() => {
+            // Simulando una operación que toma tiempo (puedes reemplazar esto con tu lógica real)
+            Swal.hideLoading();
+            Swal.fire({
+                title: 'Operación completada',
+                text: 'La operación ha finalizado con éxito.',
+                icon: 'success',
+                confirmButtonText: '¡Entendido!'
+            });
+        }, 2000); // Simulación de una operación que tarda 2 segundos
+    }
+});
   const endpoint = `get/${id}`
   return async (dispatch) => {
     try {
@@ -218,8 +261,12 @@ export const deleteData =(id) => {
         type: 'delet',
         payload: data,
       })
-      window.location.reload();
-      alert('Eliminado con exito')
+      // window.location.reload();
+      Swal.fire({
+        icon: 'success',
+        title: `¡Eliminado con exitoso!`,
+        text: 'completo el registro con exito.',
+       });
     } catch (error) {
       dispatch({
         type: 'error',
@@ -325,16 +372,40 @@ export const allPosibleUser = () =>{
 
 export const confirmacion=(user, navigate)=>{
   const endpoint = 'register'
+  Swal.fire({
+    title: 'Cargando...',
+    text: 'Espere por favor',
+    onBeforeOpen: () => {
+        Swal.showLoading();
+    },
+    onClose: () => {
+        // Aquí puedes realizar la operación asincrónica, por ejemplo, una petición AJAX
+        setTimeout(() => {
+            // Simulando una operación que toma tiempo (puedes reemplazar esto con tu lógica real)
+            Swal.hideLoading();
+            Swal.fire({
+                title: 'Operación completada',
+                text: 'La operación ha finalizado con éxito.',
+                icon: 'success',
+                confirmButtonText: '¡Entendido!'
+            });
+        }, 2000); // Simulación de una operación que tarda 2 segundos
+    }
+});
   return async (dispatch) => {
 
     try {
-    alert('Cargando...')
+
       const response = await axios.post(endpoint, user)
       dispatch({
         type: 'confir',
         payload: response.data,
       })
-      alert("Registrado correctamente! ")
+      Swal.fire({
+        icon: 'success',
+        title: `¡Registro exitoso!`,
+        text: 'completo el registro con exito.',
+       });
       navigate('/')
     } catch (error) {
       dispatch({
@@ -342,7 +413,11 @@ export const confirmacion=(user, navigate)=>{
         payload: error.message,
       });
       console.log(error);
-      alert('El email ya esta registrado')
+      Swal.fire({
+        icon: 'warning',
+        title: `¡Error!`,
+        text: 'El mail ya esta registrado',
+       });
     }
   }
 }
@@ -411,25 +486,52 @@ export const user=(id)=>{
 
 
 export const login = (data, navigate) => {
-  alert('Cargando...')
+  Swal.fire({
+    title: 'Cargando...',
+    text: 'Espere por favor',
+    onBeforeOpen: () => {
+        Swal.showLoading();
+    },
+    onClose: () => {
+        // Aquí puedes realizar la operación asincrónica, por ejemplo, una petición AJAX
+        setTimeout(() => {
+            // Simulando una operación que toma tiempo (puedes reemplazar esto con tu lógica real)
+            Swal.hideLoading();
+            Swal.fire({
+                title: 'Operación completada',
+                text: 'La operación ha finalizado con éxito.',
+                icon: 'success',
+                confirmButtonText: '¡Entendido!'
+            });
+        }, 2000); // Simulación de una operación que tarda 2 segundos
+    }
+});
   console.log(data);
   const endpoint = 'login'
   return async (dispatch) => {
     try {
-console.log(data);
+      console.log(data);
       const response = await axios.post(endpoint, data)
       console.log(response)
       dispatch({
         type: 'token',
         payload: response.data,
       })
-       navigate('/home')
-    
+      navigate('/home')
+      Swal.fire({
+       icon: 'success',
+       title: `¡Bienvenido!`,
+       text: 'Inicio de sesión exitoso.',
+      });
     } catch (error) {
-      alert('Posible error en el mail/password verifique que los datos sean correctos')
       dispatch({
         type: 'error',
         payload: error.message,
+      });
+      Swal.fire({
+        icon: 'warning',
+        title: 'Credenciales invalidades',
+        text: 'El usuario no tiene permisos para ingresar.',
       });
       console.log(error);
     }

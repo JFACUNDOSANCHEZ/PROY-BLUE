@@ -13,7 +13,7 @@ import GoogleButton from 'react-google-button';
 import { getStorage, uploadBytes, getDownloadURL , ref} from "firebase/storage";
 import {v4} from 'uuid'
 import Nav from "../nav/Nav";
-
+import Swal from 'sweetalert2'
 
 
 

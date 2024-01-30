@@ -7,7 +7,7 @@ import { jwtDecode } from "jwt-decode";
 import style from './style.module.css'
 import { uploadFile } from "../../firebase/config";
 import Nav from "../nav/Nav";
-
+import Swal from 'sweetalert2'
 
 const Form = () => {
 
@@ -69,7 +69,14 @@ const navigate = useNavigate()
     let result;
     event.preventDefault()
     if (!form.name || !form.dni || !form.motivo) {
-      alert('Faltan Datos!')
+
+            Swal.fire({
+                title: 'Faltan datos',
+                text: 'Complete todos los campos.',
+                icon: 'warning',
+                confirmButtonText: '¡Entendido!'
+            });
+    
     } else {
      
       if (file) {
