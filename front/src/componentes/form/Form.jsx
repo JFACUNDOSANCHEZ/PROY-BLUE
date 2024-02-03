@@ -8,10 +8,15 @@ import style from './style.module.css'
 import { uploadFile } from "../../firebase/config";
 import Nav from "../nav/Nav";
 import Swal from 'sweetalert2'
+import countryList from 'country-list';
+
 
 const Form = () => {
 
 
+  const nationalities = countryList.getNames();
+
+console.log(nationalities);
 
 
 
@@ -112,12 +117,24 @@ const navigate = useNavigate()
   <h3>Imagen:</h3>
   <input type="file" onChange={ e => setFile(e.target.files[0])} />
 </div>
-<div>
-  <h3>Nacionalidad</h3>
-  <input type="text" value={form.nacionalidad} name="nacionalidad" onChange={handleChange}/>
-</div>
+      <div>
+            <h3>Nacionalidad</h3>
+            <select
+              name="nacionalidad"
+              value={form.nacionalidad}
+              onChange={handleChange}
+            >
+              {countryList.getNames().map((country, index) => (
+                <option key={index} value={country}>
+                  {country}
+                </option>
+              ))}
+            </select>
+          </div>
+
+
           <div className={style.formGroup}>
-            <h3>Nombre: </h3>
+            <h3>Apellido y Nombre: </h3>
             <input 
             placeholder="Pepe Argento"
              className={style.dni} 
@@ -127,13 +144,13 @@ const navigate = useNavigate()
 
           <div className={style.formGroup}>
             <h3>
-              DNI:
+              DNI / PASAPORTE:
             </h3>
             <input placeholder="33.333.333" className={style.dni} type="text" name="dni" onChange={handleChange} value={form.dni} />
           </div>
 
           <div className={style.formGroup}>
-            <h3>Motivo: </h3>
+            <h3>Motivo / Descripcion: </h3>
             <input placeholder="Agregar una breve descripcion sobre el huesped" type="text" name="motivo" onChange={handleChange} value={form.motivo} className={style.largeInput} />
           </div>
 

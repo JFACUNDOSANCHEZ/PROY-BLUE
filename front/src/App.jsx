@@ -1,4 +1,4 @@
-import LandingPage from './componentes/landing/LandingPage';
+import Landing from './componentes/landing/Landing';
 import Home from './componentes/home/Home';
 import { Routes, Route } from 'react-router-dom';
 import './App.css'
@@ -21,7 +21,7 @@ function App() {
     <div>
       <Routes>
 
-        <Route path='/' element={<Login />} >  </Route>
+        <Route path='/' element={<Landing />} >  </Route>
         <Route path='/register' element={<Register />}></Route>
         <Route path='/home' element={<Home />} >  </Route>
         <Route path='/pasxuser' element={<PasForUser />} >  </Route>

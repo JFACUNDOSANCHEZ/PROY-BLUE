@@ -1,6 +1,6 @@
 import { useState } from "react"
 import { useDispatch,  } from "react-redux";
-import { close, findName } from "../../redux/actions";
+import { allPasseger, close, findName } from "../../redux/actions";
 import style from './style.module.css'
 import { useEffect } from "react";
 
@@ -12,17 +12,22 @@ const Searchbar = () => {
     const [pass, setPass] = useState("");
 
     const handleChange = (event) => {
-        const name = event.target.value
-        setPass(name)
-        if (name) {
-            dispatch(findName(name))
-        }
-    }
-useEffect(()=>{
+      const name = event.target.value;
+      setPass(name);
+  
+      if (name.trim() === "") {
     
+        dispatch(allPasseger());
+      } else {
 
-    
-}, [])
+        dispatch(findName(name));
+      }
+    };
+  
+
+
+
+
 
 
 

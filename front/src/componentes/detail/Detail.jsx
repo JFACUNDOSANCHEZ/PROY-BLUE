@@ -5,31 +5,30 @@ import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import style from './style.module.css';
 import { useState } from "react";
-import { jwtDecode } from "jwt-decode";
+import { jwtDecode } from "jwt-decode"
 
 
-
-
-const Detail = ({id}) => {
+const Detail = () => {
     const navigate = useNavigate();
     const dispatch = useDispatch();
-    console.log('ACA ESTA EL ID' +   id);
+
+    const { id } = useParams();
 
     useEffect(() => {
 
         dispatch(detail(id))
     }, [dispatch, id])
     const pass = useSelector((state) => state.detail)
-    console.log('aca esta el passs'+ pass.userId);
-useEffect(()=>{
-setEditedData(pass)
-},[pass])
+    console.log('aca esta el passs' + pass.userId);
+    useEffect(() => {
+        setEditedData(pass)
+    }, [pass])
 
 
     const [isEditing, setIsEditing] = useState(false);
-    const [editedData, setEditedData] = useState({ });
-  const [iduser, setIduser] = useState('')  
-  
+    const [editedData, setEditedData] = useState({});
+    const [iduser, setIduser] = useState('')
+
 
     const fecha = new Date(pass.createdAt);
     const fechaFormateada = fecha.toLocaleDateString();
@@ -46,7 +45,7 @@ setEditedData(pass)
     }
     const handleDeletClick = async () => {
         dispatch(deleteData(id));
-    
+
     }
 
     const handleSaveClick = () => {
@@ -70,7 +69,7 @@ setEditedData(pass)
         const token = localStorage.getItem('token');
         console.log(token);
         const decodedToken = jwtDecode(token);
-        console.log('aca esta el id del user  ' +decodedToken.usuarioId);
+        console.log('aca esta el id del user  ' + decodedToken.usuarioId);
         setNivel(decodedToken.nivel)
         setIduser(decodedToken.usuarioId)
     }, []);
@@ -81,11 +80,11 @@ setEditedData(pass)
     return (
         <div>
 
-            {/* <div>
+            <div>
                 <Link to={"/home"}>
                     <button className={style.button}>Volver</button>
                 </Link>
-            </div> */}
+            </div> 
             <div className={style.div}>
                 <img
                     src="https://static.vecteezy.com/system/resources/previews/007/033/146/non_2x/profile-icon-login-head-icon-vector.jpg"
@@ -98,7 +97,7 @@ setEditedData(pass)
                         <div className={style.d}>
                             <button onClick={handleDeletClick}>Eliminar pasajero</button>
                             <button onClick={handleEditClick} className={style.ed}>
-                          <p>EDITAR</p>     </button>
+                                <p>EDITAR</p>     </button>
                         </div>
                     ) : (
                         <div>
@@ -163,7 +162,7 @@ setEditedData(pass)
                         <h2 className={style.a}>DNI: {editedData?.dni}</h2>
                         <div className={style.motiv}>
 
-                        <h2 className={style.a}>Motivo: {editedData?.motivo}</h2>
+                            <h2 className={style.a}>Motivo: {editedData?.motivo}</h2>
                         </div>
                     </div>
                 )}

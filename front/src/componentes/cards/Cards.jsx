@@ -6,22 +6,19 @@ import { useSelector } from "react-redux/es/hooks/useSelector"
 import { useEffect, useState } from "react"
 import SearchBar from "../searchBar/SearchBar"
 import { useDispatch } from "react-redux"
-import Paginacion from '../paginacion/Paginacion'
 import { detail, updateData, deleteData } from "../../redux/actions"
-
-
+import Paginacion from "../paginacion/Paginacion"
+import { Link } from "react-router-dom"
 
 const Cards = ({ passegers, usuario }) => {
+
     const [pagina, setPagina] = useState(1);
     const [porPagina, setPorPagina] = useState(3)
    
     const maximo = passegers.length / porPagina
-   
-
     console.log(passegers);
+
     const noEncontrado = useSelector((state) => state.noEncontrado)
-    useEffect(() => {
-    }, [noEncontrado])
 
 
     const dispatch = useDispatch()
@@ -52,14 +49,15 @@ const Cards = ({ passegers, usuario }) => {
     const [edit, setEdit] = useState(null)
     const [editId, setEditId] = useState('')
 
-    const handleEdit = (pasajeroId) => {
+    const handleEdit = (pasajero) => {
         console.log(edit);
-        console.log(pasajeroId);
+        console.log(pasajero);
         setEdit(!edit);
-        setEditId(pasajeroId);
-        if (dataInput) {
-            dispatch(detail(updateData(dataInput, pasajeroId)))
-        }
+
+        setEditId(edit ? null : pasajero.id);
+        setDataInput({...pasajero})
+            dispatch(updateData(dataInput, pasajero.id))
+            setDataInput({});
 
     };
     console.log(editId);
@@ -99,10 +97,11 @@ const closeZoom =()=>{
                     <table className={style.userTable}>
                         <thead>
                             <tr className={style.tableHeaderRow}>
-                                <th>img</th>
+                                <th></th>
                                 <th>Nacionalidad</th>
-                                <th>DNI</th>
-                                <th>Nombre</th>
+                                <th>DNI / PASAPORTE</th>
+                                <th>Nombre Y Apellido</th>
+
 
                                 <th className={style.thMotivo}>{
                                     !ojo ?
@@ -111,20 +110,23 @@ const closeZoom =()=>{
                                         <img onClick={handleOjo} width={'30px'} src="https://cdn-icons-png.flaticon.com/512/15/15031.png" alt="jo" />
                                 }Motivo</th>
                                 <th>Hora y Fecha</th>
-
+<th></th>
                                 <th>{/* Espacio para los botones*/}</th>
                             </tr>
                         </thead>
                         <tbody>  {noEncontrado ? (
                             <h2>No encontrado</h2>
                         ) : (
-                            passegers.slice((pagina - 1) * porPagina, (pagina - 1) * porPagina + porPagina).map((pas) => {
+                            passegers?.slice((pagina - 1) * porPagina, (pagina - 1) * porPagina + porPagina).map((pas) => {
                                 const fecha = new Date(pas.createdAt);
                                 const fechaFormateada = fecha.toLocaleDateString();
                                 const horaFormateada = fecha.toLocaleTimeString();
 
+                           
                                 return (
-                                    <tr key={pas?.id}>
+                           
+                           
+                           <tr key={pas?.id}>
                                         <td>
                                            
                                             <img src={pas.img} alt="z1" onClick={()=>{handleZoom(pas.img)}} className={style.img} />
@@ -136,7 +138,7 @@ const closeZoom =()=>{
                                             <input
                                                 type="text"
                                                 name="dni"
-                                                value={dataInput.dni || pas?.dni}
+                                                value={dataInput.dni}
                                                 onChange={handleData}
                                             />
                                         ) : (
@@ -148,7 +150,7 @@ const closeZoom =()=>{
                                               <input
                                               type="text"
                                               name="name"
-                                              value={dataInput.name || pas?.name}
+                                              value={dataInput.name }
                                               onChange={handleData}
                                               />
                                               ) : (
@@ -159,7 +161,7 @@ const closeZoom =()=>{
                                             <input
                                                 type="text"
                                                 name="motivo"
-                                                value={dataInput.motivo || pas?.motivo}
+                                                value={dataInput.motivo }
                                                 onChange={handleData}
                                             />
                                         ) : (
@@ -172,11 +174,11 @@ const closeZoom =()=>{
                                                 usuario.nivel == 3 || usuario.id == pas.userId ? (
                                                     <>
                                                         <div className={style.d}>
-                                                            <button className={style.viewButtonEliminar} onClick={()=>{handleDeletClick(pas.id)}}>Eliminar pasajero</button>
+                                                            <button className={style.viewButton} onClick={()=>{handleDeletClick(pas.id)}}>Eliminar pasajero</button>
                                                         </div>
                                                         <br />
                                                         <div>
-                                                            <button className={style.viewButton} onClick={() => { handleEdit(pas.id) }}>{!edit ? 'Editar': 'Guardar'}   </button>
+                                                            <button className={style.viewButton} onClick={() => { handleEdit(pas) }}>{!edit ? 'Editar': 'Guardar'}   </button>
                                                         </div>
                                                     </>
                                                 ) : (
@@ -185,6 +187,13 @@ const closeZoom =()=>{
                                             }
                                             <br />
                                          
+                                        </td>
+                                        <td>
+                                            <Link to={`/detail/${pas.id}`} >
+                                           <button className={style.viewButton}>
+                                             DETALLE
+                                            </button>
+                                            </Link>
                                         </td>
                                     </tr>
                                 );

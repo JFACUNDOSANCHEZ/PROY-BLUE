@@ -50,8 +50,8 @@ dispatch(allPasseger())
                 <span className={style.letter2}></span>
                 <Nav></Nav>
                
-          
             <br />
+          <h2>Bienvenido {usuario.nombreCompleto} </h2>
             <Searchbar></Searchbar>
 
             <div  className={ style.contentCards }>
