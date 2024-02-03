@@ -53,7 +53,8 @@ const Register = () => {
           correoElectronico: user.email,
           nombreCompleto: user.displayName,
           contraseña: user.uid,
-          nivel: '2'
+          nivel: '2',
+          img: user.photoURL
 
         }
         console.log(userAuth);

@@ -53,12 +53,13 @@ const Login = () => {
           const token = credential.accessToken;
   
           const user = result.user;
-  
+  console.log(user);
           const userAuth = {
             nombreUsuario: user.displayName,
             correoElectronico: user.email,
             nombreCompleto: user.displayName,
-            contraseña: user.uid
+            contraseña: user.uid,
+            img: user.photoURL
   
           }
           console.log(userAuth);
