@@ -77,9 +77,7 @@ const closeZoom =()=>{
 
     return (
         <div className={style.homeContainer}>
-            <div className={style.navBar}>
-
-            </div>
+        
             <div className={style.contetTitle}>
                 <h1 className={style.title}></h1>
             </div>
@@ -99,7 +97,7 @@ const closeZoom =()=>{
                             <tr className={style.tableHeaderRow}>
                                 <th></th>
                                 <th>Nacionalidad</th>
-                                <th>DNI / PASAPORTE</th>
+                                <th className={style.Dnitd}>DNI / PASAPORTE</th>
                                 <th>Nombre Y Apellido</th>
 
 
