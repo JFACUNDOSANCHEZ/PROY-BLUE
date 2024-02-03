@@ -1,0 +1,33 @@
+.paginationContainer {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+  }
+  
+
+  .paginationControls {
+    display: flex;
+    align-items: center;
+    
+  }
+  
+
+  .leftButton,
+  .rightButton {
+ 
+    border: none;
+    border-radius: 3px;
+    padding: 8px 12px;
+    margin: 0 5px;
+    cursor: pointer;
+  }
+  
+ 
+  .input {
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    margin: 0 5px;
+    width: 20px;
+ 
+  }

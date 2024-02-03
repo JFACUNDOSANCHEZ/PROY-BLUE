@@ -6,9 +6,17 @@ import { useSelector } from "react-redux/es/hooks/useSelector"
 import { useEffect, useState } from "react"
 import SearchBar from "../searchBar/SearchBar"
 import { useDispatch } from "react-redux"
+import Paginacion from '../paginacion/Paginacion'
 import { detail, updateData, deleteData } from "../../redux/actions"
-const Cards = ({ passegers, usuario }) => {
 
+
+
+const Cards = ({ passegers, usuario }) => {
+    const [pagina, setPagina] = useState(1);
+    const [porPagina, setPorPagina] = useState(3)
+   
+    const maximo = passegers.length / porPagina
+   
 
     console.log(passegers);
     const noEncontrado = useSelector((state) => state.noEncontrado)
@@ -85,6 +93,9 @@ const closeZoom =()=>{
                     <div className={style.tableHeader}>
                         <h2>LISTA DE PASAJEROS </h2>
                     </div>
+                    <div className={style.pag}>
+             <Paginacion pagina={pagina} setPagina={setPagina} maximo={maximo} />
+             </div>
                     <table className={style.userTable}>
                         <thead>
                             <tr className={style.tableHeaderRow}>
@@ -107,7 +118,7 @@ const closeZoom =()=>{
                         <tbody>  {noEncontrado ? (
                             <h2>No encontrado</h2>
                         ) : (
-                            passegers.map((pas) => {
+                            passegers.slice((pagina - 1) * porPagina, (pagina - 1) * porPagina + porPagina).map((pas) => {
                                 const fecha = new Date(pas.createdAt);
                                 const fechaFormateada = fecha.toLocaleDateString();
                                 const horaFormateada = fecha.toLocaleTimeString();
