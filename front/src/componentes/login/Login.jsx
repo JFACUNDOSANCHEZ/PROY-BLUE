@@ -184,7 +184,7 @@ const Login = () => {
             Iniciar con Google
           </button>
           <br />
-          <p className={style.olvido}>¿Has olvidado tu contraseña?</p>
+          {/* <p className={style.olvido}>¿Has olvidado tu contraseña?</p> */}
 
 <Link to='/register'> Aun no tengo cuenta</Link>
         </div>

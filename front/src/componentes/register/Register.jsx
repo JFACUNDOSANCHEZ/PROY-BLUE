@@ -99,16 +99,14 @@ const Register = () => {
     <div className={style.navBar}>
     <div className={style.divContainer}>
 
-<div className={style.imgLogin}  >
 
-      <img src="https://media.admagazine.com/photos/6467b71e70d3fa4f8a2aa26c/16:9/w_2560%2Cc_limit/FedeC-LowRes7463.jpg" alt="1"  />
-</div>
       <div className={style.formContainer}>
 
         <form onSubmit={handleRegister} >
-          <h1 className={style.title}>Registro</h1>
+          <h2 className={style.title}>REGISTRO</h2>
           <div>
             <span>Nombre completo</span>
+            <br />
             <input
               type="text"
               name="nombreCompleto"
@@ -120,6 +118,7 @@ const Register = () => {
           </div>
           <div>
             <span>Correo electronico: </span>
+            <br />
             <input
               type="text"
               name="correoElectronico"
@@ -131,6 +130,7 @@ const Register = () => {
           </div>
           <div>
             <span>Contraseña</span>
+            <br />
             <input
              className={style.textInput}
               type="password"
@@ -169,9 +169,7 @@ const Register = () => {
 
         <br />
 
-        <Link to={'/'}>
-          <p>¿Ya tienes cuenta?</p>
-        </Link>
+        
 </div>
 
 

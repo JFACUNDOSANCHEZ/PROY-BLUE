@@ -2,72 +2,21 @@ import { useEffect, useState } from 'react';
 import styles from './Landing.module.css';
 import Login from '../login/Login';
 import { Link } from 'react-router-dom';
-
+import Register from '../register/Register'
 import { handleClose, handleLogout, handleNewReview } from './functions/functions';
 import { useDispatch, useSelector } from 'react-redux';
 // import { getReviews, nextPageCommentAction, prevPageCommentaction } from '../../redux/actions';
 
 
 const Landing = () => {
-    const [inputValue, setInputValue] = useState('');
-    const [isSearchFocused, setIsSearchFocused] = useState(false);
-    const [isMenuOpen, setIsMenuOpen] = useState(false);
-    const [debounceTimeout, setDebounceTimeout] = useState(null);
-
-
-
+   const [estado , setEstado] = useState(null)
     const dispatch = useDispatch();
-    // const comments = useSelector( (state) => state.comment.reviews );
-    // const paginate = useSelector( (state) => state.comment.paginado );
 
 
-    // useEffect(()=>{
-    //     dispatch( getReviews( paginate.pageActual ) );
-    // }, [ paginate.pageActual ]);
+const handleEstado =()=> {
+setEstado(!estado)
 
-    // const handleChangePage = ( event ) => {
-    //     if (debounceTimeout) {
-    //         // Si hay un timeout activo, cancelarlo
-    //         clearTimeout(debounceTimeout);
-    //     }
-
-    //     if( event.target.name === 'next' && paginate.pageActual < paginate.totalPages ){
-    //         // dispatch( nextPageCommentAction );
-    //         const timeout = setTimeout(() => {
-    //             dispatch(nextPageCommentAction);
-    //         }, 300);
-
-    //         setDebounceTimeout(timeout);
-    //     }
-    //     if( event.target.name === 'back' && paginate.pageActual > 1 ){
-    //         // dispatch( prevPageCommentaction );
-    //         const timeout = setTimeout(() => {
-    //             dispatch(prevPageCommentaction);
-    //         }, 300);
-
-    //         setDebounceTimeout(timeout);
-    //     }
-    // }
-
-    const handleInputChange = (e) => {
-        const value = e.target.value;
-        setInputValue(value);
-        // document.getElementById('searchInput').style.color = value ? 'white' : '';
-    };
-
-    const handleInputFocus = () => {
-        setIsSearchFocused(true);
-    };
-
-    const handleInputBlur = () => {
-        setIsSearchFocused(false);
-    };
-
-    const handleMenuToggle = () => {
-        setIsMenuOpen(!isMenuOpen);
-    };
-
-
+}
     return (
         <>
     
@@ -77,11 +26,20 @@ const Landing = () => {
                     <div className={styles.searchBar}>
 
                         <div className={styles.searchHeader}>
-                           
-                        <Login></Login>
+                           {
+!estado ? 
+                               <Login ></Login>
+          : <Register></Register>
+                            }
                         
                         </div>
-                 
+                 <button onClick={handleEstado}>
+
+                 {!estado ?
+                 <p>Aun no tienes cuenta ?</p>
+                : <p> Ir al Login</p>           
+                 }
+                 </button>
                           
                             <div>
                                

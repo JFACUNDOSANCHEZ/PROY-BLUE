@@ -6,6 +6,11 @@
  width: 10%;
    /* Ajusta el ancho de la tabla según sea necesario */
 }
+.motitd{
+
+  width: 10%;
+    /* Ajusta el ancho de la tabla según sea necesario */
+ }
 
 .userTable th, .userTable td {
   border: none; /* Elimina los bordes en las celdas */
@@ -14,8 +19,8 @@
 
 .userTable th {
   
-  background-color: #344d6b;
-  color: rgb(0, 0, 0);
+  background-color: #555b6e;
+  color: rgb(232, 232, 232);
 }
 .overlay {
     position: fixed;
@@ -64,8 +69,8 @@ width: 20rem;
   transform: scale(1.2);
 }
 .img{
-  width: 90px;
-  height: 70px;
+  width: 70px;
+  height: 60px;
   border-radius: 100%;
   margin: auto;
 
@@ -148,6 +153,7 @@ width: 20rem;
 
 /*tabla*/
 .tableHeader {
+  
   display: flex;
   justify-content: space-between;
   padding: 10px;
@@ -182,6 +188,7 @@ width: 20rem;
 
 
 .userTable {
+  
   width: 98%;
   border-collapse: collapse;
   margin-top: 10px; 
@@ -193,14 +200,21 @@ width: 20rem;
 
 
 .userTable td, .userTable th {
-  border: 1px solid #f5eeee63;
+  border-bottom: 1px solid #dddddd; /* Añade una línea de separación inferior */
+  padding: 8px; 
+
   text-align: left;
   padding: 8px;
 }
 
 .userTable td {
+  height: 1px;
   text-align: center; /* Centra el contenido de las celdas */
+  background-color: #99999910;
+  color: rgb(0, 0, 0);
+  border-top: 1px solid #dddddd; 
 }
+
 
 
 .viewButton {
