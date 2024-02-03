@@ -103,7 +103,7 @@ const Register = () => {
       <div className={style.formContainer}>
 
         <form onSubmit={handleRegister} >
-          <h2 className={style.title}>REGISTRO</h2>
+          <h2 className={style.login}>REGISTRO</h2>
           <div>
             <span>Nombre completo</span>
             <br />

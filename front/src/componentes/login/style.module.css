@@ -1,8 +1,9 @@
 
 .textInput {
+  display: flex;
   border-radius: 10px;
   border: 1px solid #bcbec0;
-  width: 10rem; /* Ajusta el ancho al 100% para ocupar todo el espacio disponible */
+  width: 70%; /* Ajusta el ancho al 100% para ocupar todo el espacio disponible */
   height: 2.5rem;
   flex-shrink: 0;
   background: #FFF;
@@ -12,7 +13,7 @@
   display: flex;
   
   height: 100%;
-  width: 100%;
+  width: 70%;
   background-color: #d8d8d8a3;
   margin: 4rem;
   border-radius: 3rem;
@@ -56,14 +57,6 @@
   
 }
 
-.imgLogin img {
-  height: 85%;
-  width: 100%;
-  margin-top: 4rem;
-  margin-left: 6rem;
-  border-radius: 2rem;
-  object-fit: cover;
-}
 
 
 
@@ -125,7 +118,7 @@
   font-family: Gilroy;
   font-size: 38px;
   font-style: normal;
-  font-weight: 700;
+
   line-height: normal;
 }
 

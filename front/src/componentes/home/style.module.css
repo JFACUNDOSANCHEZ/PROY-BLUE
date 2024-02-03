@@ -12,7 +12,14 @@
   margin-top: -7rem;
 
   }
-
+  h2 {
+    color: #344E41; /* Cambia el color según tus preferencias */
+    font-family: "IBM Plex Mono", monospace;
+    font-size: 2rem; /* Ajusta el tamaño según tus preferencias */
+    font-weight: 600; /* Ajusta el grosor según tus preferencias */
+    text-align: center; /* Centra el texto horizontalmente */
+    margin-top: 1rem; /* Ajusta el margen superior según tus preferencias */
+  }
 
   .searchButton {
     width: 190px;

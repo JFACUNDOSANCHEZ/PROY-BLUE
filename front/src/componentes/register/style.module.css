@@ -1,17 +1,30 @@
 .textInput {
   border-radius: 10px;
   border: 1px solid #bcbec0;
-  width: 10rem; /* Ajusta el ancho al 100% para ocupar todo el espacio disponible */
+  width: 70%; /* Ajusta el ancho al 100% para ocupar todo el espacio disponible */
   height: 2.5rem;
   flex-shrink: 0;
   background: #FFF;
   margin-bottom: 1rem;
 }
+.div p {
+  font-size: 1.2rem;
+}
+.login {
+  color: #000000;
+  margin-right: 19rem;
+  font-family: Gilroy;
+  font-size: 38px;
+  font-style: normal;
+
+  line-height: normal;
+}
+
 .divContainer {
   display: flex;
   
   height: 100%;
-  width: 100%;
+  width: 70%;
   background-color: #d8d8d8a3;
   margin: 4rem;
   border-radius: 3rem;
@@ -25,6 +38,7 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  padding: 1rem;
 }
 
 .button {
