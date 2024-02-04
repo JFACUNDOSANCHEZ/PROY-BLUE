@@ -1,48 +1,43 @@
+
 .textInput {
-  border-radius: 10px;
+  font-size: 1.4rem;
+  display: flex;
+  border-radius: 20px;
   border: 1px solid #bcbec0;
   width: 70%; /* Ajusta el ancho al 100% para ocupar todo el espacio disponible */
   height: 2.5rem;
   flex-shrink: 0;
   background: #FFF;
   margin-bottom: 1rem;
+  margin-left: 10%;
 }
-.div p {
-  font-size: 1.2rem;
+.formContainer span {
+  font-size: 2.2rem;
 }
-.login {
-  color: #000000;
-  margin-right: 19rem;
-  font-family: Gilroy;
-  font-size: 38px;
-  font-style: normal;
-
-  line-height: normal;
-}
-
 .divContainer {
   display: flex;
   
   height: 100%;
-  width: 70%;
-  background-color: #d8d8d8a3;
+  width: 80%;
+  background-color: #d8d8d867;
   margin: 4rem;
   border-radius: 3rem;
 
   box-shadow: 0 2px rgba(0, 0, 0, 0.418);
 }
-
-.formContainer {
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  padding: 1rem;
+.imgLogin {
+  height: 85%;
+  width: 100%;
+  margin-top: 4rem;
+  margin-left: 6rem;
+  border-radius: 2rem;
+  object-fit: cover;
 }
 
+
 .button {
-  background-color: #4F886B;
+  margin-left: 14%;
+  background-color: #142555ec;
   color: #FFFFFF;
   font-feature-settings: 'clig' off, 'liga' off;
   font-family: 'Arial', sans-serif;
@@ -60,23 +55,26 @@
   margin-top: 0.8rem;
   cursor: pointer;
   box-shadow: 0 2px rgba(0, 0, 0, 0.418);
-
+  
 }
 
 .button:hover {
-  background-color: #2e692e;
- 
+  background-color: #203763;
+  
 }
 
 
 
 
 .formContainer {
+ 
   flex: 1;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  padding: 1rem;
+  
 }
 .div p {
   font-size: 1.2rem;
@@ -84,7 +82,7 @@
 
 .googimg {
   margin-right: 0.3rem;
-
+  
 }
 
 .linea {
@@ -123,16 +121,17 @@
 .login {
   color: #000000;
   margin-right: 19rem;
-  font-family: Gilroy;
-  font-size: 38px;
+  /* font-family: Gilroy; */
+  font-size: 3rem;
+  margin-left: 20%;
   font-style: normal;
-  font-weight: 700;
+
   line-height: normal;
 }
 
 
 .olvido {
-
+  
   font-size: 16%;
   color: #8d8d8d;
 }

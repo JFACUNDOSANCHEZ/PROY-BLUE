@@ -1,20 +1,25 @@
 
 .textInput {
+  font-size: 1.4rem;
   display: flex;
-  border-radius: 10px;
+  border-radius: 20px;
   border: 1px solid #bcbec0;
   width: 70%; /* Ajusta el ancho al 100% para ocupar todo el espacio disponible */
   height: 2.5rem;
   flex-shrink: 0;
   background: #FFF;
   margin-bottom: 1rem;
+  margin-left: 10%;
+}
+.formContainer span {
+  font-size: 2.2rem;
 }
 .divContainer {
   display: flex;
   
   height: 100%;
-  width: 70%;
-  background-color: #d8d8d8a3;
+  width: 80%;
+  background-color: #d8d8d867;
   margin: 4rem;
   border-radius: 3rem;
 
@@ -31,7 +36,8 @@
 
 
 .button {
-  background-color: #4F886B;
+  margin-left: 14%;
+  background-color: #142555ec;
   color: #FFFFFF;
   font-feature-settings: 'clig' off, 'liga' off;
   font-family: 'Arial', sans-serif;
@@ -53,7 +59,7 @@
 }
 
 .button:hover {
-  background-color: #2e692e;
+  background-color: #203763;
   
 }
 
@@ -115,8 +121,9 @@
 .login {
   color: #000000;
   margin-right: 19rem;
-  font-family: Gilroy;
-  font-size: 38px;
+  /* font-family: Gilroy; */
+  font-size: 3rem;
+  margin-left: 20%;
   font-style: normal;
 
   line-height: normal;

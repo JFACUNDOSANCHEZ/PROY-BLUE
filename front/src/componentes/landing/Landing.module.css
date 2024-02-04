@@ -67,7 +67,12 @@
     margin-bottom: 110px;
     margin-right: 1em;
   }
-  
+  .icono {
+    width: 80px; /* Ajusta según sea necesario */
+    height: 80px; /* Ajusta según sea necesario */
+    background-color: transparent;
+    border: none;
+  }
   
     .descriptionContainer p {
     font-size: 1.2em;
@@ -87,7 +92,7 @@
     width: 45%; /* Ajusta según sea necesario */
    left: 1rem;
    position: absolute;
-   top: 200px;
+   
  /* background-color: #d8d8d8a3; */
      
    border-radius: 1rem;

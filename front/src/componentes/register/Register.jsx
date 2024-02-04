@@ -105,7 +105,7 @@ const Register = () => {
         <form onSubmit={handleRegister} >
           <h2 className={style.login}>REGISTRO</h2>
           <div>
-            <span>Nombre completo</span>
+            <span>Nombre completo:</span>
             <br />
             <input
               type="text"
@@ -129,7 +129,7 @@ const Register = () => {
             />
           </div>
           <div>
-            <span>Contraseña</span>
+            <span>Contraseña:</span>
             <br />
             <input
              className={style.textInput}
