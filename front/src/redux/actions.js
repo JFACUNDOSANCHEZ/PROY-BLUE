@@ -252,6 +252,7 @@ export const deleteData =(id) => {
             });
         }, 2000); // Simulación de una operación que tarda 2 segundos
     }
+   
 });
   const endpoint = `get/${id}`
   return async (dispatch) => {
@@ -273,6 +274,7 @@ export const deleteData =(id) => {
         payload: error.message,
       });
     }
+    window.location.reload()
   }
 }
 

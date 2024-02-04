@@ -6,45 +6,62 @@ import { useSelector } from "react-redux/es/hooks/useSelector"
 import { useEffect, useState } from "react"
 import SearchBar from "../searchBar/SearchBar"
 import { useDispatch } from "react-redux"
-import { detail, updateData, deleteData } from "../../redux/actions"
+import { detail, updateData, deleteData, allPasseger } from "../../redux/actions"
 import Paginacion from "../paginacion/Paginacion"
 import { Link } from "react-router-dom"
 
 const Cards = ({ passegers, usuario }) => {
 
     const [pagina, setPagina] = useState(1);
-    const [porPagina, setPorPagina] = useState(3)
-
-    const maximo = passegers.length / porPagina
+    const [porPagina, setPorPagina] = useState(4)
+    const maximo = Math.ceil(passegers.length / porPagina);
     console.log(passegers);
-
+    
     const noEncontrado = useSelector((state) => state.noEncontrado)
-
-
+    
+    
     const dispatch = useDispatch()
     const [ojo, setOjo] = useState(null)
-
+    
     const handleOjo = () => {
         setOjo(!ojo)
-
+        
     }
-
+    
     const [dataInput, setDataInput] = useState({})
-
+    
     const handleData = (e) => {
         const valor = e.target.value;
         const clave = e.target.name;
-
+        
         setDataInput((prevDataInput) => ({
             ...prevDataInput,
             [clave]: valor,
         }));
     };
-
-    const handleDeletClick = async (id) => {
-
-        dispatch(deleteData(id));
-
+    const [confirmDelete, setConfirmDelete] = useState(false);
+    useEffect(()=>{
+        dispatch(allPasseger())
+    },[confirmDelete])
+    const [pasajeroIdToDelete, setPasajeroIdToDelete] = useState(null);
+  
+    const handleDeleteClick = (id) => {
+      // Mostrar el cuadro de diálogo de confirmación
+      setPasajeroIdToDelete(id);
+      setConfirmDelete(true);
+    }
+  
+    const handleConfirmDelete = () => {
+      // Realizar la eliminación solo si el usuario confirma
+      dispatch(deleteData(pasajeroIdToDelete));
+      setPasajeroIdToDelete(null);
+      setConfirmDelete(false);
+    }
+  
+    const handleCancelDelete = () => {
+      // Cancelar la eliminación y cerrar el cuadro de diálogo
+      setPasajeroIdToDelete(null);
+      setConfirmDelete(false);
     }
     const [edit, setEdit] = useState(null)
     const [editId, setEditId] = useState('')
@@ -157,11 +174,11 @@ const Cards = ({ passegers, usuario }) => {
                                                 <input
                                                     type="text"
                                                     name="name"
-                                                    value={dataInput.name}
+                                                    value={dataInput.nacionalidad}
                                                     onChange={handleData}
                                                 />
                                             ) : (
-                                                pas?.name
+                                                pas?.nacionalidad
                                             )}
                                         </td>
                                         {!ojo ? <td> - - </td> : <td> {edit && editId === pas?.id ? (
@@ -180,9 +197,11 @@ const Cards = ({ passegers, usuario }) => {
                                             {
                                                 usuario.nivel == 3 || usuario.id == pas.userId ? (
                                                     <>
-                                                        <div className={style.d}>
-                                                            <button className={style.viewButton} onClick={() => { handleDeletClick(pas.id) }}>Eliminar pasajero</button>
-                                                        </div>
+                                                      <div className={style.d}>
+                                                      <button className={style.viewButton} onClick={() => handleDeleteClick(pas.id)}>Eliminar pasajero</button>
+
+ 
+    </div>
                                                         <br />
                                                         <div>
                                                             <button className={style.viewButton} onClick={() => { handleEdit(pas) }}>{!edit ? 'Editar' : 'Guardar'}   </button>
@@ -206,6 +225,15 @@ const Cards = ({ passegers, usuario }) => {
                     </table>
                 </div>
             }
+            {confirmDelete && (
+        <div className={style.overla}>
+        <div className={style.overlayContent}>
+          <p>¿Estás seguro de que deseas eliminar este pasajero?</p>
+          <button onClick={handleConfirmDelete}>Confirmar</button>
+          <button onClick={handleCancelDelete}>Cancelar</button>
+        </div>
+      </div>
+      )}
             {zoom &&
                 <div className={style.overlay} >
 

@@ -20,6 +20,47 @@
     text-align: center; /* Centra el texto horizontalmente */
     margin-top: 1rem; /* Ajusta el margen superior según tus preferencias */
   }
+  .overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5); /* Fondo semitransparente */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000; /* Asegura que esté en la parte superior */
+  }
+  
+  .overlayContent {
+    background-color: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    text-align: center;
+  }
+  
+  .overlayContent p {
+    margin-bottom: 20px;
+  }
+  
+  .overlayContent button {
+    background-color: #4F886B;
+    color: #FFFFFF;
+    font-family: 'Arial', sans-serif;
+    font-size: 1rem;
+    font-weight: 600;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-right: 10px;
+  }
+  
+  .overlayContent button:hover {
+    background-color: #2e692e;
+  }
 
   .searchButton {
     width: 190px;

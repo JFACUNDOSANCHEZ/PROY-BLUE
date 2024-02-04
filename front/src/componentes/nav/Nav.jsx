@@ -76,9 +76,8 @@ const Nav = () => {
                                 : (
                                     <>
                                         <Link to={`/user/${usuario.id}`} className={style.menuItem}>Perfil</Link>
-                                        <Link to="/" onClick={handleLogout} className={style.menuItem} >Cerrar sesion</Link>
                                         { usuario.nivel == "2" && (
-                                              <>
+                                            <>
                                             <Link to="/form" className={style.menuItem}>Agregar pasajero</Link>
                                             </>
                                         )}
@@ -90,6 +89,7 @@ const Nav = () => {
                                                 <Link to="/form" className={style.menuItem}>Agregar pasajero</Link>
                                             </>
                                         )}
+                                        <Link to="/" onClick={handleLogout} className={style.menuItem} >Cerrar sesion</Link>
                                     </>
                                 )}
                         </div>
