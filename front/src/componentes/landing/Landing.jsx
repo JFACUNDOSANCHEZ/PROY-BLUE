@@ -25,8 +25,16 @@ return (
           <div className={styles.loginRegisterContainer}>
             <div className={styles.searchBar}>
               {!estado ? <Login /> : <Register />}
-              <button onClick={handleEstado}>
-                {!estado ? <p>Aún no tienes cuenta?</p> : <p>Ir al Login</p>}
+              <button onClick={handleEstado} className={styles.goog}>
+                {!estado ? 
+                
+
+                 <p>
+
+                   Aún no tienes cuenta? 
+                 </p> 
+                
+                : <p>Ir al Login</p>}
               </button>
             </div>
           <div className={styles.descriptionContainer}>

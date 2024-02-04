@@ -115,7 +115,7 @@ const Cards = ({ passegers, usuario }) => {
                                 <th className={style.motitd}></th>
                                 <th className={style.motitd}>Nombre Apellido</th>
                                 <th className={style.Dnitd}>DNI / PASAPORTE</th>
-                                <th>Nacionalidad</th>
+                                <th className={style.Dnitd}>Nacionalidad</th>
 
 
                                 <th className={style.thMotivo}>{

@@ -42,6 +42,17 @@
    
     font-size: 1.3rem;
   }
+
+  .goog {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #142555ec;
+    color: white;
+    border-radius: 14px;
+    font-size: 1.3rem;
+ 
+  }
   
   .featureList strong {
     font-size: 1.2em;
