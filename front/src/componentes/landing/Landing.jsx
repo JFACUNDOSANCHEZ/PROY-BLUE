@@ -21,6 +21,7 @@ return (
     <>
       <div className={styles.landingContainer}>
         <div className={styles.contentContainer}>
+           <h1 className={styles.ELh1}>BLU. <br /> </h1>
           <div className={styles.loginRegisterContainer}>
             <div className={styles.searchBar}>
               {!estado ? <Login /> : <Register />}
@@ -29,7 +30,6 @@ return (
               </button>
             </div>
           <div className={styles.descriptionContainer}>
-           <h1>BLU <br /> </h1>
           
           <ul className={styles.featureList}>
             <li>

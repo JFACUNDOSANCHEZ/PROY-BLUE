@@ -17,7 +17,7 @@
     position: absolute;
     width: 551px;
     height: 55px;
-    top: 20%;
+    top: 26%;
     left: 80%;
     transform: translateX(-50%);
      display: flex;
@@ -54,12 +54,15 @@
     text-align: left;
     font-family: 'Lato', sans-serif; /* Reemplaza 'TuTipoDeLetra' con el nombre de tu tipo de letra preferido */
   }
-  .descriptionContainer h1 {
+  .ELh1{
+    margin-top: 22rem;
+    margin-left: 45%;
     color: rgb(241, 236, 236);
-    font-size: 7em;
+    font-size: 9em;
     margin-bottom: 110px;
     margin-right: 1em; 
-    font-family: 'Open Sans', sans-serif;
+    font-family: 'Arial', sans-serif;
+    
   }  
 .descriptionContainer h2 {
     color: rgb(241, 236, 236);
@@ -83,6 +86,7 @@
     text-align: start;
     width: 100%;
     text-align: center;
+    margin-top: 15%;
     padding: 20px;
     font-family: 'Open Sans', sans-serif;
       border-radius: 10px;
