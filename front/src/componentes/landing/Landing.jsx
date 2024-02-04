@@ -29,8 +29,7 @@ return (
               </button>
             </div>
           <div className={styles.descriptionContainer}>
-          <h1>BLU  Gestión de Lista Negra </h1>
-      
+           <h1>BLU <br /> </h1>
           
           <ul className={styles.featureList}>
             <li>

@@ -54,12 +54,18 @@
     text-align: left;
     font-family: 'Lato', sans-serif; /* Reemplaza 'TuTipoDeLetra' con el nombre de tu tipo de letra preferido */
   }
-  
-.descriptionContainer h1 {
+  .descriptionContainer h1 {
+    color: rgb(241, 236, 236);
+    font-size: 7em;
+    margin-bottom: 110px;
+    margin-right: 1em; 
+    font-family: 'Open Sans', sans-serif;
+  }  
+.descriptionContainer h2 {
     color: rgb(241, 236, 236);
     font-size: 3em;
     margin-bottom: 110px;
-    margin-right: 10em;
+    margin-right: 1em;
   }
   
   
@@ -73,11 +79,11 @@
     width: 100%;
     text-align: center;
     padding: 20px;
-    font-family: 'Roboto', sans-serif;
+    font-family: 'Open Sans', sans-serif;
       border-radius: 10px;
     /* box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); */
    
-    top: 20%;
+    top: 10%;
     width: 45%; /* Ajusta según sea necesario */
    left: 1rem;
    position: absolute;
