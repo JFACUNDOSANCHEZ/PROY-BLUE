@@ -35,7 +35,7 @@ return (
           <ul className={styles.featureList}>
             <li>
             
-              <p>Accede a nuestra base de datos con rapidez para verificar su estatus en la lista negra.</p>
+              <p>Accede a nuestra base de datos con rapidez para consultar la lista negra.</p>
             </li>
             <li>
 
@@ -43,7 +43,7 @@ return (
             </li>
             <li>
               
-              <p>Trabaja de manera colaborativa con tu comunidad para mantener la lista negra  siempre actualizada y precisa.</p>
+              <p>Trabaja de manera colaborativa con tu comunidad para mantener la lista negra actualizada.</p>
             </li>
           </ul>
 
