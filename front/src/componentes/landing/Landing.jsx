@@ -29,23 +29,21 @@ return (
               </button>
             </div>
           <div className={styles.descriptionContainer}>
-          <h1>Bienvenido a Blu - Gestión de Lista Negra de Alojamientos</h1>
-          <p>
-            Blu simplifica el proceso de mantener un registro actualizado y efectivo, permitiéndote realizar consultas y agregar pasajeros a la lista negra con facilidad.
-          </p>
+          <h1>BLU  Gestión de Lista Negra </h1>
+      
           
           <ul className={styles.featureList}>
             <li>
-              <strong>Consulta Rápida:</strong>
-              <p>Accede a nuestra base de datos de alojamientos con rapidez para verificar su estatus en la lista negra.</p>
+            
+              <p>Accede a nuestra base de datos con rapidez para verificar su estatus en la lista negra.</p>
             </li>
             <li>
-              <strong>Agrega Pasajeros Fácilmente:</strong>
-              <p>Registra incidentes y agrega información relevante de pasajeros problemáticos con unos pocos clics.</p>
+
+              <p>Registra incidentes y agrega información relevante de pasajeros problemáticos  con unos pocos clics.</p>
             </li>
             <li>
-              <strong>Colaboración en Tiempo Real:</strong>
-              <p>Trabaja de manera colaborativa con tu equipo para mantener la lista negra siempre actualizada y precisa.</p>
+              
+              <p>Trabaja de manera colaborativa con tu comunidad para mantener la lista negra  siempre actualizada y precisa.</p>
             </li>
           </ul>
 

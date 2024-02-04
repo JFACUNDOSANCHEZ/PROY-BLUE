@@ -17,7 +17,7 @@
     position: absolute;
     width: 551px;
     height: 55px;
-    top: 200px;
+    top: 20%;
     left: 80%;
     transform: translateX(-50%);
      display: flex;
@@ -35,54 +35,62 @@
   }
   
   .featureList li {
-    margin-bottom: 20px;
+    margin-bottom: 20px; /* Ajusta según sea necesario para el espacio entre elementos */
+    border-bottom: 1px solid #ddd;
+    padding-bottom: 10px;
+   
+    font-size: 1.3rem;
   }
   
   .featureList strong {
     font-size: 1.2em;
-    color: #123044; /* Color de texto azul (puedes ajustar según tu preferencia) */
+    color: #f8fcff; /* Color de texto azul (puedes ajustar según tu preferencia) */
   }
   
   .featureList p {
-    font-size: 1em;
-    color: #555;
+    font-size: 1.4em;
+    color: #ffffff;
+    text-align: left;
+    font-family: 'Lato', sans-serif; /* Reemplaza 'TuTipoDeLetra' con el nombre de tu tipo de letra preferido */
   }
   
 .descriptionContainer h1 {
-    color: rgb(63, 59, 59);
-    font-size: 2em;
-    margin-bottom: 10px;
+    color: rgb(241, 236, 236);
+    font-size: 3em;
+    margin-bottom: 110px;
+    margin-right: 10em;
   }
   
   
     .descriptionContainer p {
     font-size: 1.2em;
-    line-height: 1.4;
+    
   }
   
 .descriptionContainer {
+    text-align: start;
     width: 100%;
     text-align: center;
     padding: 20px;
     font-family: 'Roboto', sans-serif;
       border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    /* box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); */
    
     top: 200px;
     width: 45%; /* Ajusta según sea necesario */
-   left: 10%;
+   left: 1rem;
    position: absolute;
    top: 200px;
- background-color: #d8d8d8a3;
-   margin: 4rem;  
+ /* background-color: #d8d8d8a3; */
+     
    border-radius: 1rem;
-   box-shadow: 0 2px rgba(0, 0, 0, 0.418);
+   /* box-shadow: 0 2px rgba(0, 0, 0, 0.418); */
    
 }
 
 
 .landingContainer {
-    background-image: url("https://img3.wallspic.com/crops/7/5/1/0/30157/30157-la_seguridad_de_la_informacin-seguridad_hacker-3840x2160.jpg");
+    background-image: url("https://wallpapermemory.com/uploads/550/mount-everest-background-4k-349361.jpg");
     background-size: cover;
     background-position: center;
     height: 100vh;
