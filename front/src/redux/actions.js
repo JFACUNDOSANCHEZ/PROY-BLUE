@@ -177,7 +177,7 @@ export const updateData = (data, id) => {
       });
       console.log(error);
     }
-
+    window.location.reload()
   }
 }
 
