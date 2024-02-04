@@ -1,13 +1,88 @@
-.fondoFalso{
-    display: none;
-    position: absolute;
-    width: 100vw;
-    height: 100vh;
-    backdrop-filter: blur(4px);
+
+
+
+.contentContainer {
+    display: flex;
+    justify-content: space-between;
+    width: 80%; /* Ajusta según sea necesario */
 }
 
+.loginRegisterContainer {
+    width: 45%; /* Ajusta según sea necesario */
+}
+
+
+
+.searchBar {
+    position: absolute;
+    width: 551px;
+    height: 55px;
+    top: 200px;
+    left: 80%;
+    transform: translateX(-50%);
+     display: flex;
+    flex-direction: column;
+    align-items: center;
+ 
+    padding: 0 15px;
+    border-radius: 0.72731rem;
+  
+    
+}
+.featureList {
+    list-style-type: none;
+    padding: 0;
+  }
+  
+  .featureList li {
+    margin-bottom: 20px;
+  }
+  
+  .featureList strong {
+    font-size: 1.2em;
+    color: #123044; /* Color de texto azul (puedes ajustar según tu preferencia) */
+  }
+  
+  .featureList p {
+    font-size: 1em;
+    color: #555;
+  }
+  
+.descriptionContainer h1 {
+    color: rgb(63, 59, 59);
+    font-size: 2em;
+    margin-bottom: 10px;
+  }
+  
+  
+    .descriptionContainer p {
+    font-size: 1.2em;
+    line-height: 1.4;
+  }
+  
+.descriptionContainer {
+    width: 100%;
+    text-align: center;
+    padding: 20px;
+    font-family: 'Roboto', sans-serif;
+      border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+   
+    top: 200px;
+    width: 45%; /* Ajusta según sea necesario */
+   left: 10%;
+   position: absolute;
+   top: 200px;
+ background-color: #d8d8d8a3;
+   margin: 4rem;  
+   border-radius: 1rem;
+   box-shadow: 0 2px rgba(0, 0, 0, 0.418);
+   
+}
+
+
 .landingContainer {
-    background-image: url("https://www.wallpapertip.com/wmimgs/41-411648_sea-wallpaper-4k.jpg");
+    background-image: url("https://img3.wallspic.com/crops/7/5/1/0/30157/30157-la_seguridad_de_la_informacin-seguridad_hacker-3840x2160.jpg");
     background-size: cover;
     background-position: center;
     height: 100vh;
@@ -17,211 +92,4 @@
     align-items: flex-start;
 }
 
-.buttonLogin{
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    background-color: aliceblue;
-}
-
-/*naBar*/
-.navBar {
-    width: 100%;
-    height: 90px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center; 
-}
-
-.navBarLeft {
-    margin-top: 4rem;
-    margin-left: 7rem;
-    background: url("../../assets/cloudinary/casaIconoLanding.svg");
-    background-repeat: no-repeat;
-    background-size: contain; 
-    height: 110px;                                                                     
-    width: 120px; 
-}
-
-.navBarRigth {
-    display: flex;
-    align-items: center;
-}
-
-.customPlusIcon {
-    font-size: 15px;
-}
-
-.userContainer {
-    margin-top: 4rem;
-}
-
-
-
-/* Ajustes para el menú hamburguesa */
-.hamburgerMenuContainer {
-    margin-right: 6.8rem;
-    position: absolute;
-    top: 80px; 
-    right: 0; 
-    background-color: white;
-    border: 1px solid #ddd;
-    border-radius: 11px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-    z-index: 1;
-
-    border-radius: 0.6875rem;
-    background: rgba(0, 0, 0, 0.336);
-    backdrop-filter: blur(1px);
-    border: 2px #f8fffb ;
-}
-
-.hamburgerMenu {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start; 
-    padding: 10px;
-    
-}
-
-.menuItem {
-    width: 150px;
-    padding: 12px 45px;
-    border-radius: 5px;
-    margin-bottom: 8px;
-    text-decoration: none;
-    transition: background-color 0.3s;
-    font-family: 'Arial', sans-serif; 
-    font-weight: normal; 
-    color: #ddd;
-}
-
-.menuItem:hover {
-    color: #ffffff;
-    transition: background-color 0.3s;
-    backdrop-filter: blur(5px); 
-}
-
-.customUserIcon {
-    color: aliceblue;
-    font-size: 30px;
-    margin-right: 6rem;
-}
-
-.customUserIcon:hover {
-    color: rgb(192, 192, 192);
-    font-size: 35px;
-}
-
-
-
-/* SearchBar */
-
-.searchBar {
-    position: absolute;
-    width: 551px;
-    height: 55px;
-    top: 200px;
-    left: 50%;
-    transform: translateX(-50%);
-    /* box-shadow: 0px 2.3273494243621826px 2.3273494243621826px 0px hsla(0, 0%, 100%, 0.185); */
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    /* background-color: rgba(255, 255, 255, 0.171); */
-    padding: 0 15px;
-    border-radius: 0.72731rem;
-    /* background: rgba(217, 217, 217, 0.08); */
-    /* box-shadow: 0px 2.327px 2.327px 0px rgba(0, 0, 0, 0.25); */
-}
-
-
-
-.searchHeader {
-    width: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-}
-
-
-.searchInput {
-    margin-top: 10px;
-    width: 250px;
-    height: 100%;
-    border: none;
-    outline: none;
-    font-size: 22px;
-    background: transparent;
-    color: rgba(0, 0, 0, 0.867);
-    border:none ;
-}
-
-.searchInput::placeholder {
-    color: rgba(255, 255, 255, 0.767);
-}
-
-.circle {
-    margin-top: 10px;
-    width: 40px;
-    height: 40px;
-    background-color: #375345;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border:none ;
-}
-
-.search-icon {
-    font-size: 1rem;
-    color: rgba(255, 255, 255, 0.76) !important;
-}
-
-.bottonDownSearchBar {
-    height: 40px;
-    line-height: 40px;
-    color: white;
-    margin-top: 4rem;
-    width: 190px;
-    border-radius: 0.6875rem;
-    background: rgba(255, 255, 255, 0.11);
-    backdrop-filter: blur(1px);
-    border: 2px #f8fffb ;
-    cursor: pointer;
-}
-
-.bottonDownSearchBar:hover{
-    background: rgba(0, 0, 0, 0.37);
-    color: #f8fffb;
-
-}
-
-.bottomLanding {
-    position: fixed;
-    left: 0;
-    bottom: 0;
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    margin-bottom: 2rem;
-}
-
-.addReview{
-    position: absolute;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 3.2rem;
-    width: 3.2rem;
-    background-color: #4F886B;
-    border-radius: 50%;
-    border: transparent;
-    cursor: pointer;
-    color: wheat;
-    font-family: Helvetica, sans-serif;
-    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
-    top: 35rem;
-    right: 50rem;
-}
+  
