@@ -17,7 +17,7 @@
     position: absolute;
     width: 55rem;
     height: 55px;
-    top: 26%;
+    top: 20%;
     left: 80%;
     transform: translateX(-50%);
      display: flex;
@@ -97,7 +97,7 @@
     text-align: start;
     width: 100%;
     text-align: center;
-    margin-top: 15%;
+    margin-top: 10%;
     padding: 20px;
     font-family: 'Open Sans', sans-serif;
       border-radius: 10px;
