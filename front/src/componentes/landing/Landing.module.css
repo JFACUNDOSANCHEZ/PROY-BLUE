@@ -55,18 +55,18 @@
   }
   
   .featureList strong {
-    font-size: 1.2em;
+    font-size: 1em;
     color: #f8fcff; /* Color de texto azul (puedes ajustar según tu preferencia) */
   }
   
   .featureList p {
-    font-size: 1.4em;
+    font-size: 1em;
     color: #ffffff;
     text-align: left;
     font-family: 'Lato', sans-serif; /* Reemplaza 'TuTipoDeLetra' con el nombre de tu tipo de letra preferido */
   }
   .ELh1{
-    margin-top: 10rem;
+    margin-top: 5rem;
     margin-left: 50%;
     color: rgb(241, 236, 236);
     font-size: 6rem;
