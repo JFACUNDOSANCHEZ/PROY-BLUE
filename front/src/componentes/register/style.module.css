@@ -5,7 +5,7 @@
   border-radius: 20px;
   border: 1px solid #bcbec0;
   width: 70%; /* Ajusta el ancho al 100% para ocupar todo el espacio disponible */
-  height: 2.5rem;
+  height: 2rem;
   flex-shrink: 0;
   background: #FFF;
   margin-bottom: 1rem;
@@ -16,7 +16,6 @@
 }
 .divContainer {
   display: flex;
-  
   height: 100%;
   width: 80%;
   background-color: #d8d8d867;

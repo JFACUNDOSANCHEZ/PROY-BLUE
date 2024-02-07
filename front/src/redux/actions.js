@@ -491,6 +491,7 @@ export const login = (data, navigate) => {
   Swal.fire({
     title: 'Cargando...',
     text: 'Espere por favor',
+    allowOutsideClick: false, // Evita que el usuario haga clic fuera del modal
     onBeforeOpen: () => {
         Swal.showLoading();
     },
@@ -507,6 +508,7 @@ export const login = (data, navigate) => {
             });
         }, 2000); // Simulación de una operación que tarda 2 segundos
     }
+
 });
   console.log(data);
   const endpoint = 'login'
@@ -519,12 +521,8 @@ export const login = (data, navigate) => {
         type: 'token',
         payload: response.data,
       })
-      navigate('/home')
-      Swal.fire({
-       icon: 'success',
-       title: `¡Bienvenido!`,
-       text: 'Inicio de sesión exitoso.',
-      });
+      navigate('/info')
+ 
     } catch (error) {
       dispatch({
         type: 'error',

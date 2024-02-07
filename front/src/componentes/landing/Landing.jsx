@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react';
+// import {lan} from '../../../public/lan.jpg'
 import styles from './Landing.module.css';
 import Login from '../login/Login';
 import { Link } from 'react-router-dom';
@@ -21,7 +22,9 @@ return (
     <>
       <div className={styles.landingContainer}>
         <div className={styles.contentContainer}>
-           <h1 className={styles.ELh1}>BLU. <br /> </h1>
+        <h1  className={styles.ELh1}>Welcome to
+          <br />
+          BLU</h1>
           <div className={styles.loginRegisterContainer}>
             <div className={styles.searchBar}>
               {!estado ? <Login /> : <Register />}
@@ -37,25 +40,11 @@ return (
                 : <p>Ir al Login</p>}
               </button>
             </div>
-          <div className={styles.descriptionContainer}>
-          
-          <ul className={styles.featureList}>
-            <li>
-            <img src="https://cdn-icons-png.flaticon.com/512/76/76037.png" alt="" className={styles.icono} />
-              <p>Accede a nuestra base de datos con rapidez para consultar la lista negra.</p>
-            </li>
-            <li>
-                <img src="https://cdn-icons-png.flaticon.com/512/3201/3201052.png" alt="" className={styles.icono}/>
+       
+      
+        
 
-              <p>Registra incidentes y agrega información relevante de pasajeros problemáticos  con unos pocos clics.</p>
-            </li>
-            <li>
-            <img src="https://cdn.icon-icons.com/icons2/3249/PNG/512/people_community_filled_icon_200428.png" className={styles.icono}  alt="" />  
-              <p>Trabaja de manera colaborativa con tu comunidad para mantener la lista actualizada.</p>
-            </li>
-          </ul>
-
-          </div>
+      
           </div>
         </div>
       </div>
