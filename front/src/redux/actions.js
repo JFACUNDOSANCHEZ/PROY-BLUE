@@ -408,7 +408,10 @@ export const confirmacion=(user, navigate)=>{
         title: `¡Registro exitoso!`,
         text: 'completo el registro con exito.',
        });
-      navigate('/')
+    
+       window.location.reload();
+
+       dispatch(login())
     } catch (error) {
       dispatch({
         type: 'error',
