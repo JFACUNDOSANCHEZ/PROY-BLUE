@@ -12,7 +12,7 @@
   margin-left: 10%;
 }
 .formContainer span {
-  font-size: 1rem;
+  font-size: 1.2rem;
 }
 .divContainer {
   display: flex;
@@ -35,8 +35,8 @@
 
 
 .button {
-  margin-left: 14%;
-  background-color: #142555ec;
+  margin-left: 3%;
+  background-color: #14553bec;
   color: #FFFFFF;
   font-feature-settings: 'clig' off, 'liga' off;
   font-family: 'Arial', sans-serif;
@@ -56,12 +56,10 @@
   box-shadow: 0 2px rgba(0, 0, 0, 0.418);
   
 }
-
 .button:hover {
-  background-color: #203763;
+  background-color: #2d4f3f;
   
 }
-
 
 
 

@@ -12,14 +12,14 @@
   margin-left: 10%;
 }
 .formContainer span {
-  font-size: 1rem;
+  font-size: 1.2rem;
 }
 .divContainer {
   display: flex;
   
   height: 100%;
   width: 80%;
-  background-color: hsla(0, 0%, 85%, 0.541);
+  background-color: hsla(0, 0%, 85%, 0.375);
   margin: 4rem;
   border-radius: 3rem;
 
@@ -36,8 +36,8 @@
 
 
 .button {
-  margin-left: 14%;
-  background-color: #142555ec;
+  margin-left: 7%;
+  background-color: #14553bec;
   color: #FFFFFF;
   font-feature-settings: 'clig' off, 'liga' off;
   font-family: 'Arial', sans-serif;
@@ -59,7 +59,7 @@
 }
 
 .button:hover {
-  background-color: #203763;
+  background-color: #2d4f3f;
   
 }
 
@@ -123,7 +123,7 @@
   margin-right: 19rem;
   /* font-family: Gilroy; */
   font-size: 2rem;
-  margin-left: 20%;
+  margin-left: 0%;
   font-style: normal;
 
   line-height: normal;

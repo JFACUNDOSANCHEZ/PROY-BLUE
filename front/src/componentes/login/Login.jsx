@@ -131,7 +131,7 @@ const Login = () => {
 
       <div className={style.formContainer}>
         <form onSubmit={handleSubmit}>
-          <h2 className={style.login}>LOGIN</h2>
+          <h2 className={style.login}></h2>
           <div>
             <span>Correo electrónico:</span>
             <br />
