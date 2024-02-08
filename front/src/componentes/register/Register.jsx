@@ -8,6 +8,7 @@ import { getAnalytics } from "firebase/analytics";
 import { GoogleAuthProvider, getAuth, signInWithPopup, } from "firebase/auth";
 import { useNavigate } from 'react-router-dom';
 import GoogleButton from 'react-google-button';
+import Swal from 'sweetalert2'
 
 
 const Register = () => {
@@ -85,7 +86,15 @@ const Register = () => {
   const handleRegister = (event) => {
     event.preventDefault();
     if (!user.correoElectronico || !user.nombreCompleto || !user.contraseña) {
-      alert('¡Faltan datos!');
+      Swal.fire({
+        title: 'Faltan Datos',
+        text: 'Complete todos los campos.',
+        icon: 'warning',
+        confirmButtonText: '¡Entendido!',
+        onClose: () => {
+            location.reload(); // Esto recargará la página después de que se muestre el mensaje de éxito
+        }
+    });
 
     } else {
       dispatch(confirmacion(user, navigate));

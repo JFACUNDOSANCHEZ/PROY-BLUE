@@ -12,6 +12,21 @@
   margin-top: -7rem;
 
   }
+
+  .divPregunta {
+    margin-left: 37%;
+    font-size: 1.3rem;
+  }
+  .divPreguntas {
+    margin-left: 42%;
+    font-size: 1.3rem;
+  }
+  .divPr {
+    margin-left: 45%;
+     background-color: #295f41; 
+    height: 2rem;
+    color: white;
+  }
   h2 {
     color: #344E41; /* Cambia el color según tus preferencias */
     font-family: "IBM Plex Mono", monospace;

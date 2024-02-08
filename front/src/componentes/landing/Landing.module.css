@@ -118,15 +118,17 @@
 }
 
 
-.landingContainer {
+
+  .landingContainer {
     background-image: url("https://images.unsplash.com/photo-1682695799561-033f55f75b25?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDF8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D");
     background-size: cover;
     background-position: center;
-    height: 100vh;
+    min-height: 100vh; /* Altura mínima de la ventana gráfica visible */
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
     align-items: flex-start;
 }
+
 
   

@@ -377,13 +377,11 @@ export const confirmacion=(user, navigate)=>{
   Swal.fire({
     title: 'Cargando...',
     text: 'Espere por favor',
-    onBeforeOpen: () => {
-        Swal.showLoading();
-    },
+  
     onClose: () => {
-        // Aquí puedes realizar la operación asincrónica, por ejemplo, una petición AJAX
+      
         setTimeout(() => {
-            // Simulando una operación que toma tiempo (puedes reemplazar esto con tu lógica real)
+          
             Swal.hideLoading();
             Swal.fire({
                 title: 'Operación completada',
@@ -391,7 +389,7 @@ export const confirmacion=(user, navigate)=>{
                 icon: 'success',
                 confirmButtonText: '¡Entendido!'
             });
-        }, 2000); // Simulación de una operación que tarda 2 segundos
+        }, 2000); 
     }
 });
   return async (dispatch) => {

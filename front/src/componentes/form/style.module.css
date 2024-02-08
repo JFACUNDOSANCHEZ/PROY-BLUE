@@ -4,15 +4,32 @@
   border-radius: 8px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
   width: 40rem;
+  margin-left: 33%;
+  margin-top: 5%;
 }
+
+.formContainer input {
+margin-left: 16%;
+width: 400px;
+}
+.formContainer button {
+  margin-left: 16%;
+  width: 400px;
+  }
+  .formContainer select {
+    margin-left: 16%;
+    width: 400px;
+    }
+.formContainer h3 {
+  margin-left: 30%;
+  width: 400px;
+  color: #384f6f;
+  }
+
 
 .form{
 }
-.formContainer h3 {
-  display: flex;
-  color: #000;
-  /* Estilos específicos para el encabezado h3 */
-}
+
 
 /* Estilos para el título del formulario */
 .formContainer h2 {

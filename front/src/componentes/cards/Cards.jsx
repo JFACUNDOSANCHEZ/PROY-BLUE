@@ -104,7 +104,7 @@ const Cards = ({ passegers, usuario }) => {
 
                 <div className={style.contentTable}>
                     <div className={style.tableHeader}>
-                        <h2>LISTA DE PASAJEROS </h2>
+                   
                     </div>
                     <div className={style.pag}>
                         <Paginacion pagina={pagina} setPagina={setPagina} maximo={maximo} />

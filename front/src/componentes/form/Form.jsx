@@ -110,8 +110,8 @@ const navigate = useNavigate()
 <Link to={'/home'}>Back</Link>
         <form onSubmit={handleSubmit} className={style.form}>
      
-              <h2>Ingresar datos del pasajero</h2>
-      <Nav></Nav>
+              <h2>Datos del pasajero</h2>
+   
 
 <div>
   <h3>Imagen:</h3>
