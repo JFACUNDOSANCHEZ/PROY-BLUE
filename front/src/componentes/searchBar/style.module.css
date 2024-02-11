@@ -13,8 +13,8 @@ height: 15rem;
 height: 5rem;
     border-radius: 30px;
     padding: 0%;
-    width: 100%; /* Ajusta el ancho según tu diseño */
-    max-width: 600px; /* Limita el ancho máximo para una mejor visualización */
+    width: 80%; /* Ajusta el ancho según tu diseño */
+    max-width: 1100px; /* Limita el ancho máximo para una mejor visualización */
   }
   
   .searchIcon {
@@ -27,7 +27,7 @@ height: 5rem;
   .inputSearch {
     box-shadow: rgb(17, 44, 23) 0px 0px 0.25em, rgba(46, 97, 102, 0.719) 0px 0.25em 1em;
     height: 3rem;
-    width: 80%;
+    width: 90%;
     flex: 1;
     border: none;
     outline: none;

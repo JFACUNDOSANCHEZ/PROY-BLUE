@@ -105,7 +105,10 @@ const navigate = useNavigate()
   return (
 
     <div>
+      <div className={style.nav}>
+
       <Nav></Nav>
+      </div>
       <div className={style.formContainer}>
    
 

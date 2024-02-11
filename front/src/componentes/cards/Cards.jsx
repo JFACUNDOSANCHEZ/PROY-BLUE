@@ -13,7 +13,7 @@ import { Link } from "react-router-dom"
 const Cards = ({ passegers, usuario }) => {
 
     const [pagina, setPagina] = useState(1);
-    const [porPagina, setPorPagina] = useState(4)
+    const [porPagina, setPorPagina] = useState(2)
     const maximo = Math.ceil(passegers.length / porPagina);
     console.log(passegers);
     
@@ -118,7 +118,7 @@ const Cards = ({ passegers, usuario }) => {
                     <table className={style.userTable}>
                         <thead>
                         <tr className={style.tableHeaderRow}>
-                                <th className={style.motitd}>img</th>
+                                <th className={style.imge}>img</th>
                                 <th className={style.motitd}>Nombre Apellido</th>
                                 <th className={style.Dnitd}>DNI / Pasaporte</th>
                                 <th className={style.Dnitd}>Nacionalidad</th>

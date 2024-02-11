@@ -42,7 +42,7 @@ const Searchbar = () => {
             className={style.inputSearch}
             onChange={handleChange}
             type="search"
-            placeholder="Busca por el nombre o dni/pasaporte.."
+            placeholder="Busca en la base dedatos por nombre o dni/pasaporte.."
           />
         </div>
       </div>

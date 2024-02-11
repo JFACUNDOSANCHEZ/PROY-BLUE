@@ -22,11 +22,13 @@
   display: flex;
   justify-content: center;
   align-items: center;
- width: 10%;
+ width: 22%;
   height: 2rem;
   background-color: #344E41; 
   border-radius: 35px;
   color: white;
+  min-width: 200px;
+  max-width: 400px;
 }
 .overlayContent {
   background-color: white;
@@ -60,9 +62,14 @@
 .overlayContent button:hover {
   background-color: #2e692e;
 }
-.motitd{
+.imge{
 
   width: 10%;
+    /* Ajusta el ancho de la tabla según sea necesario */
+ }
+.motitd{
+
+  width: 13%;
     /* Ajusta el ancho de la tabla según sea necesario */
  }
 
