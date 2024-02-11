@@ -60,8 +60,6 @@ const Nav = () => {
                   <img src="https://i.pinimg.com/originals/f4/7f/d1/f47fd1fdc887f5cec9f3f2318c3c8313.png" alt="8" title="Home" width={'45rem'} />
                     </Link>
                 </div>
-            
-            {/* <Searchbar></Searchbar> */}
 
 
             <div className={style.userContainer}>

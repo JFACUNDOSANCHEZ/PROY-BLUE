@@ -106,6 +106,12 @@ const Cards = ({ passegers, usuario }) => {
                     <div className={style.tableHeader}>
                    
                     </div>
+                    <Link to={'/form'}>
+                        <button className={style.divPr}>
+
+                        Agrega pasajero +
+                        </button>
+                        </Link>
                     <div className={style.pag}>
                         <Paginacion pagina={pagina} setPagina={setPagina} maximo={maximo} />
                     </div>

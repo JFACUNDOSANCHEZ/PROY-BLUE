@@ -3,7 +3,7 @@ import { useDispatch,  } from "react-redux";
 import { allPasseger, close, findName } from "../../redux/actions";
 import style from './style.module.css'
 import { useEffect } from "react";
-
+import { useSelector} from "react-redux";
 
 
 const Searchbar = () => {
@@ -25,25 +25,28 @@ const Searchbar = () => {
     };
   
 
+    const usuario = useSelector(state => state.user)
+    console.log(usuario);
 
 
 
 
 
-
-return (
-    <div className={style.container}>
-      <div className={style.searchBox}>
-        <span className={style.searchIcon}></span>
-        <input
-          className={style.inputSearch}
-          onChange={handleChange}
-          type="search"
-          placeholder="Busca por el nombre o dni/pasaporte.."
-        />
+    return (
+      <div className={style.container}>
+        <div>
+          <h2>Bienvenido {usuario.nombreCompleto}</h2>
+        </div>
+        <div className={style.searchBox}>
+          <input
+            className={style.inputSearch}
+            onChange={handleChange}
+            type="search"
+            placeholder="Busca por el nombre o dni/pasaporte.."
+          />
+        </div>
       </div>
-    </div>
-  );
+    );
 };
 
 export default Searchbar;

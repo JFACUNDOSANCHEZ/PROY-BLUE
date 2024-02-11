@@ -18,7 +18,16 @@
   align-items: center;
   z-index: 1000; /* Asegura que esté en la parte superior */
 }
-
+.divPr {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+ width: 10%;
+  height: 2rem;
+  background-color: #344E41; 
+  border-radius: 35px;
+  color: white;
+}
 .overlayContent {
   background-color: white;
   padding: 20px;

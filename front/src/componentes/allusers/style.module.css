@@ -11,6 +11,15 @@
   float: left;
 
 }
+.activo {
+  color: green; /* Color verde para usuarios activos */
+}
+.pendiente {
+  color: rgb(15, 108, 131);
+}
+.inactivo {
+  color: red; /* Color rojo para usuarios inactivos */
+}
 
 .contetTitle{
   margin: 7rem;
@@ -28,6 +37,27 @@
   margin-bottom: -3rem;
 }
 
+.solicitudCount {
+  display: inline-block; /* Hace que el elemento se comporte como un bloque pero siga siendo en línea */
+  width: 20px; /* Ancho del círculo */
+  height: 20px; /* Altura del círculo */
+  border-radius: 50%; /* Hace que los bordes sean redondeados, creando un círculo */
+  background-color: rgb(2, 2, 2); /* Color de fondo del círculo */
+  text-align: center; /* Alinea el texto en el centro del círculo */
+  line-height: 20px; /* Altura de línea igual al tamaño del círculo */
+  color: white; /* Color del texto */
+  font-weight: bold;
+}
+.buttonWithCount {
+  /* Agrega estilos según tus preferencias */
+  background-color: #007bff; /* Color de fondo azul */
+  color: #fff; /* Texto en color blanco */
+  padding: 10px 20px; /* Espaciado interno */
+  border: none; /* Sin borde */
+  border-radius: 5px; /* Bordes redondeados */
+  cursor: pointer; /* Cambia el cursor al pasar sobre el botón */
+  margin-right: 10px; /* Margen a la derecha */
+}
 .contentTable{
   height: 30rem;
   width: 90%;

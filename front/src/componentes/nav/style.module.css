@@ -8,14 +8,28 @@
     background-color: #ffffff;
     padding: 0 20px; 
     position: fixed;
-    margin-top: -7rem;
+    margin-top: -6rem;
 }
 
 .logoContainer{
-    margin-left: 8rem;
+    margin-left: 1rem;
 }
 
-
+.divPreguntas {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+  }
+  .divPr {
+    display: flex;
+ border-left: 10%;
+    align-items: center;
+    padding: 20px;
+    background-color: #344E41; 
+    border-radius: 35px;
+    color: white;
+  }
 /* Estilos de la barra de búsqueda */
 .searchBar {
     position: absolute;

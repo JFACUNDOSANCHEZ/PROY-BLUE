@@ -67,6 +67,14 @@ export const userPut= (data, id) =>{
     try {
       const response = await axios.put(endpoint,  data);
       console.log(response)
+      Swal.fire({
+        icon: 'success',
+        title: '¡Éxito!',
+        text: 'El usuario se ha editado correctamente.',
+      }).then(() => {
+        // Recargar la página después de cerrar el SweetAlert
+        window.location.reload();
+      });
       dispatch({
         type: 'userPut',
         payload: response.data,
@@ -206,7 +214,7 @@ export const updateData = (data, id) => {
       });
       console.log(error);
     }
-    // window.location.reload()
+    window.location.reload()
   }
 }
 
@@ -291,7 +299,7 @@ export const deleteData =(id) => {
         type: 'delet',
         payload: data,
       })
-      // window.location.reload();
+       window.location.reload();
       Swal.fire({
         icon: 'success',
         title: `¡Eliminado con exitoso!`,
@@ -355,31 +363,7 @@ return (dispatch)=>{
 
 }
 
-export const solicitud=(user)=>{
-console.log(user);
-  const endpoint = 'solicitud'
-  return async (dispatch) => {
-    
 
-    try {
-    
-      const response = await axios.post(endpoint, user)
-      dispatch({
-        type: 'register',
-        payload: response.data,
-      })
-      alert("Registrado enviado correctamente! Le enviaremos un correo al mail registrado ")
- 
-    } catch (error) {
-      console.log(error);
-      alert(`El mail ingresado ya esta registrado o es invalido ¡Prueba otro!`)
-      dispatch({
-        type: 'error',
-        payload: error.message,
-      });
-    }
-  }
-}
 
 
 export const allPosibleUser = () =>{
@@ -430,15 +414,22 @@ export const confirmacion=(user, navigate)=>{
         type: 'confir',
         payload: response.data,
       })
-      Swal.fire({
-        icon: 'success',
-        title: `¡Registro exitoso!`,
-        text: 'Espere la confirmacion de Administracion.',
-       });
+   
+        Swal.fire({
+          icon: 'info',
+          title: 'El registro está al 50%',
+          text: 'Espere la confirmarcion de su cuenta, recibira un mail de la administracion',
+          confirmButtonText: 'Entendido'
+        });
+   
     
-    
+       
 
-    } catch (error) {
+
+      }
+    
+    
+    catch (error) {
       dispatch({
         type: 'error',
         payload: error.message,

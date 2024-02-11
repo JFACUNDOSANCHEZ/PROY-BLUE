@@ -57,34 +57,25 @@ const Home = () => {
                  <Nav></Nav>
 
                 <br />
-                <h2>Bienvenido {usuario.nombreCompleto} </h2>
-                <br />
+              
+                
 
-                <p className={style.divPregunta}>
-                    ¿Quieres agregar un pasajero a la lista?
-                </p>
-
-
-                <Link to="/form">
-                    <button className={style.divPr}>
-
-
-                        Agregar pasajero
-                    </button>
-                </Link>
-
-
-
-
-                <br />
-                <br /><br /><br /><br />
                 <div className={style.divPreguntas}>
+      
 
-                    Busca en la lista negra
+
+             
+                <Searchbar ></Searchbar>
+              
+                
+                
+
+                 
                 </div>
-                <Searchbar></Searchbar>
+           
 
                 <div className={style.contentCards}>
+
                     <Cards passegers={passegers} usuario={usuario} ></Cards>
                 </div>
             </div>

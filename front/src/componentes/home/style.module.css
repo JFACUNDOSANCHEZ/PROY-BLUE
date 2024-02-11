@@ -12,19 +12,32 @@
   margin-top: -7rem;
 
   }
+  .span{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+  }
 
   .divPregunta {
-    margin-left: 37%;
-    font-size: 1.3rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
   }
   .divPreguntas {
-    margin-left: 42%;
-    font-size: 1.3rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
   }
   .divPr {
-    margin-left: 45%;
-     background-color: #295f41; 
-    height: 2rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    background-color: #344E41; 
+    border-radius: 35px;
     color: white;
   }
   h2 {

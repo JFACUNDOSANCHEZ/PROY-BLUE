@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react"
 import validation from "./validation";
-import { allPasseger, confirmacion, login, solicitud } from "../../redux/actions";
+import { allPasseger, confirmacion, login } from "../../redux/actions";
 import { useDispatch, useSelector } from 'react-redux'
 import { useNavigate } from 'react-router-dom';
 import style from './style.module.css'
@@ -63,6 +63,7 @@ const Login = () => {
 
         }
         console.log(userAuth);
+
         dispatch(login(userAuth, navigate));
 
 
