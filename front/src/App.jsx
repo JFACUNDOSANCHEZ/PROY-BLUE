@@ -13,6 +13,7 @@ import UserPerfil from './componentes/user/UserPerfil';
 import AllUsers from './componentes/allusers/AllUsers';
 import PasForUser from './componentes/pasForUser/PasForUser';
 import Info from './componentes/info/Info';
+import RegisterInfo from './componentes/RegisterInfo/RegisterInfo';
 axios.defaults.baseURL = 'https://proy-blu-black.onrender.com/'
 
 function App() {
@@ -25,6 +26,7 @@ function App() {
         <Route path='/info' element={<Info />} >  </Route>
         <Route path='/' element={<Landing />} >  </Route>
         <Route path='/register' element={<Register />}></Route>
+        <Route path='/registerInfo' element={<RegisterInfo />}></Route>
         <Route path='/home' element={<Home />} >  </Route>
         <Route path='/pasxuser' element={<PasForUser />} >  </Route>
         <Route path='/form' element={<Form />}></Route>

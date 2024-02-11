@@ -418,10 +418,14 @@ export const confirmacion=(user, navigate)=>{
         Swal.fire({
           icon: 'info',
           title: 'El registro está al 50%',
-          text: 'Espere la confirmarcion de su cuenta, recibira un mail de la administracion',
+          text: 'Recibira un mail de la administracion',
           confirmButtonText: 'Entendido'
         });
-   
+
+        localStorage.setItem('user', JSON.stringify(user.nombreCompleto));
+
+        // Redirige al componente RegisterInfo
+        navigate('/RegisterInfo');
     
        
 
