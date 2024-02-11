@@ -38,15 +38,45 @@
 }
 
 .solicitudCount {
-  display: inline-block; /* Hace que el elemento se comporte como un bloque pero siga siendo en línea */
-  width: 20px; /* Ancho del círculo */
-  height: 20px; /* Altura del círculo */
-  border-radius: 50%; /* Hace que los bordes sean redondeados, creando un círculo */
-  background-color: rgb(2, 2, 2); /* Color de fondo del círculo */
-  text-align: center; /* Alinea el texto en el centro del círculo */
-  line-height: 20px; /* Altura de línea igual al tamaño del círculo */
-  color: white; /* Color del texto */
-  font-weight: bold;
+  position: relative; /* Establece la posición relativa para que el ::before se posicione correctamente */
+  background-color: #000000; /* Color de fondo para el círculo */
+  color: #fdfdfd; /* Color del texto */
+  padding: 2px 6px; /* Espaciado dentro del círculo */
+  border-radius: 50%; /* Hace que el círculo sea redondeado */
+  font-size: 12px; /* Tamaño de fuente del número */
+}
+.inputSearch {
+  width: 350px; /* Ajusta el ancho según tu diseño */
+  height: 30px;
+  padding: 5px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  margin-right: 10px; /* Agrega espacio entre el campo de búsqueda y los botones */
+}
+.estado{
+  width: 13%;
+}
+.rol{
+  width: 10%;
+}
+
+.correo{
+  width: 23%;
+}
+.users{
+  width: 13%;
+}
+.button {
+  background-color: #6e7676;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  padding: 8px 16px;
+  margin-right: 10px; /* Agrega espacio entre los botones */
+  cursor: pointer;
+}
+.button:hover {
+  background-color: #2e2e2e; /* Cambia el color de fondo al pasar el mouse */
 }
 .buttonWithCount {
   /* Agrega estilos según tus preferencias */
@@ -59,7 +89,7 @@
   margin-right: 10px; /* Margen a la derecha */
 }
 .contentTable{
-  height: 30rem;
+  height: 100%;
   width: 90%;
   margin-left: auto;
   background-color: #d4d4d42c;
@@ -162,6 +192,7 @@
 
 .userTable {
   width: 98%;
+  height: 70%;
   border-collapse: collapse;
   margin-top: 10px; 
   margin-left: 1rem;

@@ -52,6 +52,10 @@
   cursor: pointer;
   margin-right: 10px;
 }
+.tableHeaderRow th {
+  text-align: center; /* Centra el contenido horizontalmente */
+  vertical-align: middle; /* Centra el contenido verticalmente */
+}
 
 .overlayContent button:hover {
   background-color: #2e692e;
@@ -62,12 +66,9 @@
     /* Ajusta el ancho de la tabla según sea necesario */
  }
 
-.userTable th, .userTable td {
-  border: none; /* Elimina los bordes en las celdas */
-  padding: 8px; /* Ajusta el relleno de las celdas según sea necesario */
-}
 
 .userTable th {
+  text-align: center; /* Ajusta el relleno de las celdas según sea necesario */
   
   background-color: #555b6e;
   color: rgb(232, 232, 232);
@@ -144,7 +145,7 @@ width: 20rem;
 
 .contentTable{
   
-  height: 30rem;
+  height: 100%;
   width: 90%;
   margin-left: auto;
   background-color: white;
@@ -154,7 +155,7 @@ width: 20rem;
 }
 
 .paginateButton {
-  background-color: #4f886b;
+  background-color: #000000;
   color: white;
   padding: 0.5rem 1rem;
   border: none;
@@ -216,7 +217,10 @@ width: 20rem;
   line-height: normal;
   margin-left: 4rem;
 }
-
+.tableHeaderRow th {
+  text-align: center; /* Centra el contenido horizontalmente */
+  vertical-align: middle; /* Centra el contenido verticalmente */
+}
 .tableActions {
   display: flex;
   justify-content: flex-end;

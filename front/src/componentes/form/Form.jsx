@@ -105,9 +105,10 @@ const navigate = useNavigate()
   return (
 
     <div>
+      <Nav></Nav>
       <div className={style.formContainer}>
    
-<Link to={'/home'}>Back</Link>
+
         <form onSubmit={handleSubmit} className={style.form}>
      
               <h2>Datos del pasajero</h2>

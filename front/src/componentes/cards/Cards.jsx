@@ -109,7 +109,7 @@ const Cards = ({ passegers, usuario }) => {
                     <Link to={'/form'}>
                         <button className={style.divPr}>
 
-                        Agrega pasajero +
+                        Agrega pasajero
                         </button>
                         </Link>
                     <div className={style.pag}>
@@ -117,20 +117,24 @@ const Cards = ({ passegers, usuario }) => {
                     </div>
                     <table className={style.userTable}>
                         <thead>
-                            <tr className={style.tableHeaderRow}>
-                                <th className={style.motitd}></th>
+                        <tr className={style.tableHeaderRow}>
+                                <th className={style.motitd}>img</th>
                                 <th className={style.motitd}>Nombre Apellido</th>
-                                <th className={style.Dnitd}>DNI / PASAPORTE</th>
+                                <th className={style.Dnitd}>DNI / Pasaporte</th>
                                 <th className={style.Dnitd}>Nacionalidad</th>
 
 
-                                <th className={style.thMotivo}>{
-                                    !ojo ?
-                                        <img onClick={handleOjo} width={'30px'} src="https://cdn-icons-png.flaticon.com/512/94/94674.png" alt="oj" /> :
-
-                                        <img onClick={handleOjo} width={'30px'} src="https://cdn-icons-png.flaticon.com/512/15/15031.png" alt="jo" />
-                                }Motivo</th>
-                                <th>Fecha</th>
+                                <th className={style.thMotivo}>
+    <div style={{ display: 'flex', alignItems: 'center' }}>
+        <span style={{ marginRight: '5px' }}>Motivo</span>
+        {!ojo ? (
+            <img onClick={handleOjo} width={'30px'} src="https://cdn-icons-png.flaticon.com/512/94/94674.png" alt="oj" />
+        ) : (
+            <img onClick={handleOjo} width={'30px'} src="https://cdn-icons-png.flaticon.com/512/15/15031.png" alt="jo" />
+        )}
+    </div>
+</th>
+                               <th className={style.Dnitd}>Fecha</th>
                                 <th className={style.motitd}></th>
 
                             </tr>

@@ -63,7 +63,7 @@ const AllUsers = () => {
     setFilter(filtro);
   };
   const [pagina, setPagina] = useState(1);
-  const [porPagina, setPorPagina] = useState(6)
+  const [porPagina, setPorPagina] = useState(10)
   const maximo = Math.ceil(users.length / porPagina);
   
   
@@ -75,35 +75,35 @@ const AllUsers = () => {
       <div className={styles.contetTitle}>
         <h1 className={styles.title}>Admin DashBoard</h1>
       </div>
+          <h2>Tabla de Usuarios</h2>
       <div className={styles.contentTable}>
         <div className={styles.tableHeader}>
-          <h2>Tabla de Usuarios</h2>
-          <Paginacion pagina={pagina} setPagina={setPagina} maximo={maximo} />
           <div className={styles.searchBox}>
-      <button onClick={()=>{handleFilter('Todos')}}>Todos</button>
-      <button onClick={()=>{handleFilter('Solicitud')}}>Solicitudes{soli.length ? <span className={styles.solicitudCount}>{soli.length }</span>:''}</button>
-     <button onClick={()=>{handleFilter('Activo')}}>Activos</button>
-     <button onClick={()=>{handleFilter('Inactivo')}}>Inactivos</button>
-        <span className={styles.searchIcon}></span>
-        <input
-          className={styles.inputSearch}
-          onChange={handleFind}
-          type="search"
-          placeholder="Busca por el nombre o dni/pasaporte.."
-        />
-      </div>
+  <button className={styles.button} onClick={() => handleFilter('Todos')}>Todos</button>
+  <button className={styles.button} onClick={() => handleFilter('Solicitud')}>Solicitudes<span className={styles.solicitudCount}>{soli.length}</span></button>
+  <button className={styles.button} onClick={() => handleFilter('Activo')}>Activos</button>
+  <button className={styles.button} onClick={() => handleFilter('Inactivo')}>Inactivos</button>
+</div>
+  <input
+    className={styles.inputSearch}
+    onChange={handleFind}
+    type="search"
+    placeholder="Busca por el nombre o mail.."
+  />
+          
+      
         </div>
         <table className={styles.userTable}>
           <thead>
             <tr className={styles.tableHeaderRow}>
-              <th>Users</th>
-              <th>Activo/Inactivo</th>
-              <th>ROL</th>
-              <th>CORREO</th>
-              <th>Fecha de alta</th>
-              <th>Cancelar / Activar usuario</th>
-              <th>Cambiar rol</th>
-              <th>{/* Espacio para los botones*/}</th>
+              <th className={styles.users}>Users</th>
+              <th className={styles.estado}>Estado</th>
+              <th className={styles.rol}>Rol</th>
+              <th className={styles.rol}>Email</th>
+              <th className={styles.rol}>Fecha de alta</th>
+              <th className={styles.rol}>Cancelar / Activar usuario</th>
+              <th className={styles.rol}>Cambiar rol</th>
+              <th className={styles.rol}>   {/* Espacio para los botones*/}</th>
             </tr>
           </thead>
           <tbody>
@@ -114,10 +114,10 @@ const AllUsers = () => {
               return <tr key={user.id}>
                 <td>{user?.nombreCompleto}</td>
                 <td className={
-  user.activo === "true"? styles.activo : 
-  user.activo === "false" ? styles.inactivo :
-  styles.pendiente
-}>
+                  user.activo === "true"? styles.activo : 
+                  user.activo === "false" ? styles.inactivo :
+                  styles.pendiente
+                }>
                    {user?.activo === "true" ? 'Activo' : user?.activo === "false" ? 'Inactivo' : 'Pendiente'}</td>
                 <td>{user?.nivel === '3' ? 'Administrador' : user?.nivel === '2' ? 'Usuario' : 'Usuario'}</td>
                 <td>{user?.correoElectronico}</td>
@@ -147,6 +147,7 @@ const AllUsers = () => {
           </tbody>
         </table>
       </div>
+<Paginacion pagina={pagina} setPagina={setPagina} maximo={maximo} />
     </div>
   );
 };
