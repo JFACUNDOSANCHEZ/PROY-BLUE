@@ -16,18 +16,25 @@ const Nav = () => {
     const [nivel, setNivel] = useState('');
     const dispatch = useDispatch();
     const navigate = useNavigate();
-
     useEffect(() => {
-        const token = localStorage.getItem('token');
-        console.log(token);
-        if (token) {
-            const decodedToken = jwtDecode(token);
-            setNivel(decodedToken.nivel);
-            dispatch(userID(decodedToken.usuarioId));
-        } else {
-            navigate('/');
+        try {
+
+            const tokenString = localStorage.getItem('token');
+            if (tokenString) {
+                const token = JSON.parse(tokenString);
+                console.log(token);
+                const decodedToken = jwtDecode(token);
+                setNivel(decodedToken.nivel);
+      
+                dispatch(userID(decodedToken.usuarioId));
+            } else {
+                throw new Error('El token no está presente en el objeto respuesta');
+            }
+        } catch (error) {
+            console.error('Error al obtener datos:', error);
         }
     }, []);
+    console.log(nivel);
     const handleMenuToggle = () => {
         setIsMenuOpen(!isMenuOpen);
     };

@@ -50,6 +50,7 @@ const Register = () => {
         const user = result.user;
 
         const userAuth = {
+          activo:'pendiente',
           nombreUsuario: user.displayName,
           correoElectronico: user.email,
           nombreCompleto: user.displayName,

@@ -9,8 +9,8 @@ const inicialState = {
     posibleUser: [],
     getPosible: [],
     users: [],
+    token: null,
 
-    
 
 
 
@@ -19,28 +19,37 @@ const inicialState = {
 const reducer = (state = inicialState, actions) => {
     switch (actions.type) {
         case 'borrarToken':
-            return {...state, token : []}
+            return { ...state, token: [] }
 
         case 'all':
             return { ...state, passeger: actions.payload, allpasseger: actions.payload }
-    case 'findNUserName':
+        case 'findNUserName':
             return { ...state, users: actions.payload, allpasseger: actions.payload }
 
 
-            case 'userID':
-                return {...state, user: actions.payload }
+        case 'userID':
+            return { ...state, user: actions.payload }
         case 'post':
             return { ...state, post: actions.payload }
 
+
+
+
+        case 'guardarToken':
+            return { ...state, token: actions.payload }
+
+
+
+
         case 'findName':
-console.log(actions.payload.found);
-        return {
-            ...state,
-            passeger: actions.payload.data,
-            noEncontrado: actions.payload.found, // Actualiza el estado de noEncontrado
-          };
-case 'userPut':
-    return {...state, user: actions.payload}
+            console.log(actions.payload.found);
+            return {
+                ...state,
+                passeger: actions.payload.data,
+                noEncontrado: actions.payload.found, // Actualiza el estado de noEncontrado
+            };
+        case 'userPut':
+            return { ...state, user: actions.payload }
 
         case 'detail':
             return { ...state, detail: actions.payload }
@@ -52,7 +61,7 @@ case 'userPut':
             return { ...state, passeger: [] }
 
         case 'delete':
-         
+
             return { ...state };
 
         case 'register':
@@ -67,12 +76,12 @@ case 'userPut':
         case 'getPosible':
             return { ...state, getPosible: actions.payload }
 
-      
+
 
         case 'users':
-            return {...state, users : actions.payload}
+            return { ...state, users: actions.payload }
         case 'token':
-            return { ...state, token: actions.payload }
+            return { ...state, token: actions.payload.token }
         default:
             return state
     }

@@ -4,11 +4,15 @@ import Swal from 'sweetalert2'
 
 
 
-export const allPasseger = () => {
+export const allPasseger = (token) => {
   const endpoint = 'get'
   return async (dispatch) => {
     try {
-      const { data } = await axios(endpoint)
+      const { data } = await axios.get(endpoint, {
+        headers: {
+          Authorization: `Bearer ${token}`
+        }
+      })
       console.log(data);
       dispatch({
         type: 'all',
@@ -23,6 +27,22 @@ export const allPasseger = () => {
     }
   }
 }
+export const guardarToken =(token)=>{
+  
+  return (dispatch) => {
+    try {
+      dispatch({
+        type: 'guardarToken',
+        payload: token
+      })
+    } catch (error) {
+      dispatch({
+        type: 'error',
+        payload: error.message,
+      });
+    }
+  }
+} 
 
 export const borrarT =()=>{
   
@@ -65,13 +85,18 @@ export const userPut= (data, id) =>{
 
 }
 
-export const userID = (id) =>{
+export const userID = (id, token) =>{
 
   const endpoint = `user/${id}`
 
   return async (dispatch) => {
     try {
-      const { data } = await axios(endpoint)
+      const { data } = await axios.get(endpoint, {
+        headers: {
+          Authorization: `Bearer ${token}`
+        }
+      })
+      console.log(data);
       dispatch({
         type: 'userID',
         payload: data,
@@ -86,11 +111,15 @@ export const userID = (id) =>{
 
 }
 
-export const allUsers =()=>{
+export const allUsers =(token)=>{
   const endpoint = 'user'
   return async (dispatch) => {
     try {
-      const { data } = await axios(endpoint)
+      const { data } = await axios.get(endpoint, {
+        headers: {
+          Authorization: `Bearer ${token}`
+        }
+      });
       console.log(data);
       dispatch({
         type: 'users',
@@ -404,12 +433,11 @@ export const confirmacion=(user, navigate)=>{
       Swal.fire({
         icon: 'success',
         title: `¡Registro exitoso!`,
-        text: 'completo el registro con exito.',
+        text: 'Espere la confirmacion de Administracion.',
        });
     
-       window.location.reload();
+    
 
-       dispatch(login())
     } catch (error) {
       dispatch({
         type: 'error',

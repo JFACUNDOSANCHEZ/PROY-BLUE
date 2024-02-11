@@ -1,5 +1,5 @@
 import { useDispatch, useSelector } from "react-redux";
-import { allPasseger, userID } from "../../redux/actions";
+import { allPasseger, guardarToken, userID } from "../../redux/actions";
 import style from './style.module.css'
 import Searchbar from "../searchBar/SearchBar";
 import Cards from "../cards/Cards";
@@ -14,77 +14,83 @@ const Home = () => {
 
     const dispatch = useDispatch();
     const navigate = useNavigate();
-
-
     const [nivel, setNivel] = useState('');
-
+    
     useEffect(() => {
-dispatch(allPasseger())
-        const token = localStorage.getItem('token');
-        console.log(token);
-        if (token) {
-
-            const decodedToken = jwtDecode(token);
-            setNivel(decodedToken.nivel)
-            dispatch(userID(decodedToken.usuarioId))
-        } else navigate('/')
+        try {
+            
+            const tokenString = localStorage.getItem('token');
+            if (tokenString) {
+                const token = JSON.parse(tokenString);
+                dispatch(allPasseger(token));
+                dispatch(userID(decodedToken.usuarioId, token));
+                console.log(token);
+                const decodedToken = jwtDecode(token);
+                setNivel(decodedToken.nivel);
+            } else {
+                throw new Error('El token no está presente en el objeto respuesta');
+            }
+        } catch (error) {
+            console.error('Error al obtener datos:', error);
+        }
     }, []);
     console.log(nivel);
 
+
     const passegers = useSelector((state) => state.passeger)
     console.log(passegers);
-
-
-
-
-
-
+    
     const usuario = useSelector(state => state.user)
     console.log(usuario);
+
+
+
+
+
 
     return (
         <div className={style.contentContainer} >
 
-            <div  className={style.navBar}>
-            
+            <div className={style.navBar}>
+
                 <span className={style.letter2}></span>
-                <Nav></Nav>
-               
-            <br />
-          <h2>Bienvenido {usuario.nombreCompleto} </h2>
-<br />
+                 <Nav></Nav>
 
-<p className={style.divPregunta}>
-                ¿Quieres agregar un pasajero a la lista?
-    </p>
-       
+                <br />
+                <h2>Bienvenido {usuario.nombreCompleto} </h2>
+                <br />
 
-            <Link to="/form">
-                <button className={style.divPr}>
-                
+                <p className={style.divPregunta}>
+                    ¿Quieres agregar un pasajero a la lista?
+                </p>
 
-                Agregar pasajero
-                </button>
+
+                <Link to="/form">
+                    <button className={style.divPr}>
+
+
+                        Agregar pasajero
+                    </button>
                 </Link>
-            
 
 
 
-            <br />
-            <br /><br /><br /><br />
-            <div className={style.divPreguntas}>
 
-            Busca en la lista negra
+                <br />
+                <br /><br /><br /><br />
+                <div className={style.divPreguntas}>
+
+                    Busca en la lista negra
+                </div>
+                <Searchbar></Searchbar>
+
+                <div className={style.contentCards}>
+                    <Cards passegers={passegers} usuario={usuario} ></Cards>
+                </div>
             </div>
-            <Searchbar></Searchbar>
 
-            <div  className={ style.contentCards }>
-                <Cards passegers={passegers} usuario={usuario} ></Cards>
-            </div>
-            </div>
 
-            
-        
+
 
         </div>
 
