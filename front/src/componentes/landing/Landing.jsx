@@ -19,33 +19,54 @@ setEstado(!estado)
 
 }
 return (
-    <>
-      <div className={styles.landingContainer}>
-        <div className={styles.contentContainer}>
-        <h1  className={styles.ELh1}>Welcome to
-          <br />
-          BLU</h1>
-          <div className={styles.loginRegisterContainer}>
-            <div className={styles.searchBar}>
-              {!estado ? <Login /> : <Register />}
-              <button onClick={handleEstado} className={styles.goog}>
-                {!estado ? 
+  <>
+    <div className={styles.landingContainer}>
+      <div className={styles.contentContainer}>
+      <h1 className={styles.ELh1}>Welcome to<br />BLU</h1>
+        <div className={styles.loginRegisterContainer}>
+         
+            
+          <div className={styles.flipCard}>
+            <div className={`${styles.flipCardInner} ${estado ? styles.flipped : ''}`}>
+              <div className={`${styles.cardContainer} ${styles.flipCardFront}`}>
+                <Login />
                 
+            <button onClick={handleEstado} className={styles.goog}>
+              {!estado ? 
+              
 
-                 <p>
+               <p>
 
-                   Aún no tienes cuenta? 
-                 </p> 
-                
-                : <p>Ir al Login</p>}
-              </button>
+                 Aún no tienes cuenta? 
+               </p> 
+              
+              : <p>Ir al Login</p>}
+            </button>
+              </div>
+              <div className={`${styles.cardContainer} ${styles.flipCardBack}`}>
+                <Register />
+         
+            <button onClick={handleEstado} className={styles.goog}>
+              {!estado ? 
+              
+
+               <p>
+
+                 Aún no tienes cuenta? 
+               </p> 
+              
+              : <p>Ir al Login</p>}
+            </button>
+              </div>
             </div>
-       
+          </div>
+
+          </div>
+     
       
         
 
       
-          </div>
         </div>
       </div>
     </>
