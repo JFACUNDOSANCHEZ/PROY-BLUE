@@ -68,8 +68,8 @@
     font-family: 'Lato', sans-serif; /* Reemplaza 'TuTipoDeLetra' con el nombre de tu tipo de letra preferido */
   }
   .ELh1{
-    margin-top: 30%;
-    margin-left: 0%;
+    margin-top: 25%;
+    margin-left: 5%;
     color: rgb(241, 236, 236);
     font-size: 6rem;
     margin-bottom: 110px;
@@ -120,7 +120,7 @@
 
 
   .landingContainer {
-    background-image: url("https://images.unsplash.com/photo-1682695799561-033f55f75b25?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDF8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D");
+    background-image: url("https://images.unsplash.com/photo-1682685797736-dabb341dc7de?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDF8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D");
     background-size: cover;
     background-position: center;
     min-height: 100vh; /* Altura mínima de la ventana gráfica visible */
