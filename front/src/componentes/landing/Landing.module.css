@@ -12,10 +12,10 @@
 
 .flipCard {
   position: absolute;
-  width: 35rem;
-  height: 55px;
-  top: 20%;
-  left: 70%;
+  width: 35%; /* Cambia el ancho según tus necesidades */
+  height: 55%; /* Cambia la altura según tus necesidades */
+  top: 20%; /* Cambia la posición vertical según tus necesidades */
+  left: 50%; /* Centra horizontalmente */
   transform: translateX(-50%);
   display: flex;
   flex-direction: column;
@@ -62,8 +62,8 @@
 
 .searchBar {
   position: absolute;
-  width: 55rem;
-  height: 55px;
+  width: 55%;
+  height: 55%;
   top: 20%;
 
   transform: translateX(-50%);
