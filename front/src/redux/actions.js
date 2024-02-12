@@ -422,17 +422,11 @@ export const confirmacion=(user, navigate)=>{
           confirmButtonText: 'Entendido'
         });
 
-        localStorage.setItem('user', JSON.stringify(user.nombreCompleto));
+        localStorage.setItem('user', JSON.stringify(user.correoElectronico));
 
         // Redirige al componente RegisterInfo
         navigate('/RegisterInfo');
-    
-       
-
-
-      }
-    
-    
+      }  
     catch (error) {
       dispatch({
         type: 'error',
@@ -474,20 +468,17 @@ export const getPosible =(token)=>{
 }
 
 
-export const postConfirm =(contraseña, token)=>{
-  const endpoint = `confirmar-correo?token=${token}`
+export const postConfirm =(code, user)=>{
+  const endpoint = `confirmar`
   return async (dispatch) => {
     try {
       const body = {
-        contraseña: contraseña
+        code: code,
+        user: user
       };
-      console.log("este es el endpoint con el token " + endpoint);
-      console.log("este es el token de axios" + token + "token");
-      console.log("este es la contra de action" + contraseña);
       const response = await axios.post(endpoint,  body);
-      alert('Finalizando el registro!, esperar alta del usuario por mail')
       dispatch({
-        type: 'postConfirm',
+        type: 'confirm',
         payload: response.data,
       });
     } catch (error) {

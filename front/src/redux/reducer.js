@@ -10,7 +10,7 @@ const inicialState = {
     getPosible: [],
     users: [],
     token: null,
-
+ codigo: ''
 
 
 
@@ -70,8 +70,8 @@ const reducer = (state = inicialState, actions) => {
         case 'allPosible':
             return { ...state, posibleUser: actions.payload }
 
-        case 'confir':
-            return { ...state, user: actions.payload }
+        case 'confirm':
+            return { ...state, codigo: actions.payload }
 
         case 'getPosible':
             return { ...state, getPosible: actions.payload }
