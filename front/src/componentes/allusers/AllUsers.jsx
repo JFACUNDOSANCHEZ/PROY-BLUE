@@ -6,6 +6,7 @@ import PasForUser from "../pasForUser/PasForUser";
 import Nav from "../nav/Nav";
 import { Link } from "react-router-dom";
 import Paginacion from "../paginacion/Paginacion"
+import Footer from '../footer/Footer'
 
 
 const AllUsers = () => {
@@ -148,6 +149,7 @@ const AllUsers = () => {
         </table>
       </div>
 <Paginacion pagina={pagina} setPagina={setPagina} maximo={maximo} />
+<Footer></Footer>
     </div>
   );
 };

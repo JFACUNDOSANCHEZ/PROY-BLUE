@@ -9,6 +9,7 @@ import Form from '../form/Form'
 import PosibleUsers from '../posibleUsers/PosibleUsers'
 import AllUsers from "../allusers/AllUsers";
 import Nav from '../../componentes/nav/Nav'
+import Footer from '../footer/Footer'
 
 
 const AdminUser = () => {
@@ -61,9 +62,10 @@ const AdminUser = () => {
             <Nav></Nav>
         
     
+        <Footer></Footer>
    <AllUsers></AllUsers>
       <div  className={style.navBar}>
-        <Nav></Nav>
+      
     </div>
     </div>
   );

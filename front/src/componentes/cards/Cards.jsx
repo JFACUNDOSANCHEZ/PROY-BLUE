@@ -105,7 +105,10 @@ if (dataInput) {
 
                 <div className={style.contentTable}>
                     <div className={style.tableHeader}>
-                   
+                    <div>
+       
+
+     </div>
                     </div>
                     <Link to={'/form'}>
                         <button className={style.divPr}>

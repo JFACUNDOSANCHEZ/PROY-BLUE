@@ -54,20 +54,21 @@ const Home = () => {
         <div className={style.contentContainer} >
 
             <div className={style.navBar}>
-
                 <span className={style.letter2}></span>
+
                  <Nav></Nav>
 
         
-              
+                 <div>
+       <br /><br /><br /><br /><br /><br />
+     </div>
                 
 
                 <div className={style.divPreguntas}>
       
 
 
-             
-                <Searchbar ></Searchbar>
+           
               
                 
                 
@@ -75,6 +76,7 @@ const Home = () => {
                  
                 </div>
            
+     
 
                 <div className={style.contentCards}>
 

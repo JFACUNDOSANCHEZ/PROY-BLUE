@@ -49,7 +49,7 @@ const Nav = () => {
 
 
 
-
+let rol
     const usuario = useSelector(state => state.user);
     return (
 
@@ -59,16 +59,20 @@ const Nav = () => {
                     <Link to={'/home'}>
                   <img src="https://i.pinimg.com/originals/f4/7f/d1/f47fd1fdc887f5cec9f3f2318c3c8313.png" alt="8" title="Home" width={'45rem'} />
                     </Link>
+                
                 </div>
-
-
+<Searchbar></Searchbar>
+       <p>Bienvenido {rol = usuario?.nivel === '2' ? 'Usuario' : usuario?.nivel === '3' ?'Admin': ''} {usuario.nombreCompleto}</p>
             <div className={style.userContainer}>
+     
+       
+     
                 <Link to="#" className={style.customUserIcon} onClick={handleMenuToggle}>               <img
 
-                    src='https://static.vecteezy.com/system/resources/previews/020/911/737/non_2x/user-profile-icon-profile-avatar-user-icon-male-icon-face-icon-profile-icon-free-png.png'
-                    alt="co" width='56px'
-                    className='{style.img}' title=" Mi Perfil"
-                /></Link>
+src='https://static.vecteezy.com/system/resources/previews/020/911/737/non_2x/user-profile-icon-profile-avatar-user-icon-male-icon-face-icon-profile-icon-free-png.png'
+alt="co" width='56px'
+className='{style.img}' title=" Mi Perfil"
+/></Link>
                 {isMenuOpen && (
                     <div className={style.hamburgerMenuContainer}>
                         <div className={style.hamburgerMenu}>

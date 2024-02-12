@@ -29,21 +29,20 @@ const Searchbar = () => {
     console.log(usuario);
 
 
+let rol
 
 
 
     return (
       <div className={style.container}>
-        <div>
-          <h2>Bienvenido {usuario.nombreCompleto}</h2>
-        </div>
+
         <div className={style.searchBox}>
           <input
             className={style.inputSearch}
             onChange={handleChange}
             type="search"
             placeholder="Busca en la base dedatos por nombre o dni/pasaporte.."
-          />
+            />
         </div>
       </div>
     );
