@@ -37,7 +37,7 @@ useEffect(()=>{
   const handleSubmit=()=>{
     if (code === codigo) {
       Swal.fire({
-        title: 'Espere la confirmacion de la administracion',
+        title: 'Recibimos tu registro, espere confirmacion',
         text: 'Recibira un mail de confirmacion.',
         icon: 'success',
         confirmButtonText: '¡Entendido!',
