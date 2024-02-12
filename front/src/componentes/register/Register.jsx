@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom"
 import { useState } from "react"
 import { useDispatch, useSelector } from "react-redux"
-import { confirmacion, } from '../../redux/actions'
+import { confirmacion, guardarUser, } from '../../redux/actions'
 import style from './style.module.css'
 import { initializeApp } from "firebase/app";
 import { getAnalytics } from "firebase/analytics";
@@ -60,8 +60,8 @@ const Register = () => {
 
         }
         console.log(userAuth);
-        dispatch(confirmacion(userAuth, navigate));
-
+        localStorage.setItem('user', JSON.stringify(userAuth));
+        navigate('/RegisterInfo')
 
       }).catch((error) => {
 
@@ -98,7 +98,8 @@ const Register = () => {
     });
 
     } else {
-      dispatch(confirmacion(user, navigate));
+      localStorage.setItem('user', JSON.stringify(user));
+      navigate('/RegisterInfo')
 
     }
   };

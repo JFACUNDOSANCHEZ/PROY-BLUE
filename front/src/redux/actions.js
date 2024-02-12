@@ -59,6 +59,35 @@ export const borrarT =()=>{
     }
   }
 }
+export const guardarUser =(user, navigate)=>{
+    Swal.fire({
+    title: 'Cargando...',
+    text: 'Espere por favor',
+  
+});
+console.log(user);
+  return (dispatch) => {
+    try {
+      dispatch({
+        type: 'guardarUser',
+        payload: user
+      })
+      navigate('/RegisterInfo')
+      Swal.fire({
+        icon: 'info',
+        title: 'Continue con el registro',
+    
+        confirmButtonText: 'Entendido'
+      });
+
+    } catch (error) {
+      dispatch({
+        type: 'error',
+        payload: error.message,
+      });
+    }
+  }
+}
 
 export const userPut= (data, id) =>{
   const endpoint = `user/${id}`
@@ -398,19 +427,6 @@ export const confirmacion=(user, navigate)=>{
     title: 'Cargando...',
     text: 'Espere por favor',
   
-    onClose: () => {
-      
-        setTimeout(() => {
-          
-            Swal.hideLoading();
-            Swal.fire({
-                title: 'Operación completada',
-                text: 'La operación ha finalizado con éxito.',
-                icon: 'success',
-                confirmButtonText: '¡Entendido!'
-            });
-        }, 2000); 
-    }
 });
   return async (dispatch) => {
 
@@ -424,15 +440,15 @@ export const confirmacion=(user, navigate)=>{
    
         Swal.fire({
           icon: 'info',
-          title: 'El registro está al 50%',
-          text: 'Recibira un mail de la administracion',
+          title: 'Espere la confirmacion de usuario',
+          text: 'Recibira un mail de confirmacion',
           confirmButtonText: 'Entendido'
         });
 
-        localStorage.setItem('user', JSON.stringify(user.correoElectronico));
+        
 
         // Redirige al componente RegisterInfo
-        navigate('/RegisterInfo');
+        navigate('/');
       }  
     catch (error) {
       dispatch({
@@ -443,7 +459,7 @@ export const confirmacion=(user, navigate)=>{
       Swal.fire({
         icon: 'warning',
         title: `¡Error!`,
-        text: 'El mail ya esta registrado',
+        text: 'El mail esta registrado en otro usuario',
        });
     }
   }

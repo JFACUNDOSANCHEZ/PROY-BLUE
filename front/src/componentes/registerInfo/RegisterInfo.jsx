@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
-import { getPosible, postConfirm } from '../../redux/actions';
+import { confirmacion, getPosible, postConfirm } from '../../redux/actions';
 import { useDispatch, useSelector } from 'react-redux';
 import RegisterStyle from './RegisterStyle.module.css'
 import { Link } from 'react-router-dom';
@@ -10,14 +10,9 @@ const RegisterInfo=()=>{
 
 const navigate = useNavigate()
 const dispatch = useDispatch()
-    const [user, setUser] = useState(null);
-    useEffect(() => {
-      const userEmail = localStorage.getItem('user');
-      if (userEmail) {
-        const userData = JSON.parse(userEmail);
-        setUser(userData);
-      }
-    }, []);
+
+
+
     
     const [code, setCode] =useState('')
     const [codigo, setCodigo]= useState('')
@@ -33,21 +28,22 @@ const dispatch = useDispatch()
       setCode(value); // Actualiza el estado code con el nuevo valor ingresado por el usuario
       
     };
-
+    
+    const usuario  = JSON.parse(localStorage.getItem('user'));
+    console.log(usuario);
     const handleSendCode = () => {
-      const userEmail = localStorage.getItem('user');
       const code = Math.random().toString(36).substring(2, 8); // Genera un código de 6 caracteres alfanuméricos
       setCodigo(code)
-      if (code && userEmail) {
-        console.log('dispatchhhh'+ code, userEmail);
-          console.log('Enviando código:', code, userEmail);
-          dispatch(postConfirm(code, userEmail));
+      if (code && usuario.correoElectronico) {
+       
+          dispatch(postConfirm(code,  usuario.correoElectronico));
       
         }
   };
 
   const handleSubmit=()=>{
     if (code === codigo) {
+      dispatch(confirmacion(usuario, navigate))
       Swal.fire({
         title: 'Recibimos tu registro, espere confirmacion',
         text: 'Recibira un mail de confirmacion.',
@@ -68,7 +64,7 @@ const dispatch = useDispatch()
 
   }
 
-  console.log(user);
+
   console.log(codigo);
 
 const codig = useSelector((state)=> state.codigo)
@@ -80,7 +76,7 @@ return (
         <h2>Bienvenido a BLU</h2>
         <p>¡Somos una herramienta de seguridad para nuestra comunidad hotelera!</p>
         <br />
-        <p>Vamos a enviar un código de confirmación a tu correo electrónico {user} para confirmar tu identidad.</p>
+        <p>Vamos a enviar un código de confirmación a tu correo electrónico {usuario?.correoElectronico} para confirmar tu identidad.</p>
         <button onClick={handleSendCode} className={RegisterStyle.buttonG}>Enviar Código</button>
         <form onSubmit={handleSubmit}>
 <br />
