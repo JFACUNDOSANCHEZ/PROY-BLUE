@@ -35,7 +35,7 @@ const Searchbar = () => {
     return (
       <div className={style.container}>
         <div>
-          <h2>Bienvenido {usuario.nombreCompleto} 👋</h2>
+          <h2>Bienvenido {usuario.nombreCompleto}</h2>
         </div>
         <div className={style.searchBox}>
           <input

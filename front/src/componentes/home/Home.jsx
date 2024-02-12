@@ -8,7 +8,7 @@ import { useNavigate } from 'react-router-dom';
 import { jwtDecode } from "jwt-decode";
 import { Link } from "react-router-dom";
 import Nav from "../nav/Nav";
-
+import Footer from "../footer/Footer";
 
 const Home = () => {
 
@@ -79,7 +79,7 @@ const Home = () => {
                     <Cards passegers={passegers} usuario={usuario} ></Cards>
                 </div>
             </div>
-
+<Footer></Footer>
 
 
 

@@ -13,7 +13,7 @@ import { Link } from "react-router-dom"
 const Cards = ({ passegers, usuario }) => {
 
     const [pagina, setPagina] = useState(1);
-    const [porPagina, setPorPagina] = useState(2)
+    const [porPagina, setPorPagina] = useState(5)
     const maximo = Math.ceil(passegers.length / porPagina);
     console.log(passegers);
     
