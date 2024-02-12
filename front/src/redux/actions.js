@@ -480,8 +480,8 @@ export const postConfirm =(code, user)=>{
   return async (dispatch) => {
     try {
       const body = {
-        code: code,
-        user: user
+         code,
+         user
       };
       const response = await axios.post(endpoint,  body);
       dispatch({

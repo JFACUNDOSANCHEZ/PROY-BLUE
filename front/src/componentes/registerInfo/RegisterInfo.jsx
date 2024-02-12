@@ -21,18 +21,22 @@ const dispatch = useDispatch()
     
     const [code, setCode] =useState('')
     const [codigo, setCodigo]= useState('')
-useEffect(()=>{
-
-    const code = Math.random().toString(36).substring(2, 8); // Genera un código de 6 caracteres alfanuméricos
-   setCodigo(code)
-   
-  },[])
-  
-  const handleCodeChange = (event) => {
-    const { value } = event.target;
-    setCode(value); // Actualiza el estado code con el nuevo valor ingresado por el usuario
-
-  };
+    useEffect(()=>{
+      
+      const code = Math.random().toString(36).substring(2, 8); // Genera un código de 6 caracteres alfanuméricos
+      setCodigo(code)
+      
+    },[])
+    
+    const handleCodeChange = (event) => {
+      const { value } = event.target;
+      setCode(value); // Actualiza el estado code con el nuevo valor ingresado por el usuario
+      
+    };
+    useEffect(() => {
+ console.log('dentro del useefect' + codigo, user);
+      dispatch(postConfirm(codigo, user));
+    }, []);
 
   const handleSubmit=()=>{
     if (code === codigo) {
@@ -55,9 +59,6 @@ useEffect(()=>{
     }
 
   }
-  useEffect(() => {
-    dispatch(postConfirm(codigo, user));
-  }, []);
 
   console.log(user);
   console.log(codigo);
