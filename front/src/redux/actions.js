@@ -476,6 +476,7 @@ export const getPosible =(token)=>{
 
 
 export const postConfirm =(code, user)=>{
+  console.log('dentro del actionsss' + code, user);
   const endpoint = `confirmar`
   return async (dispatch) => {
     try {
@@ -488,6 +489,7 @@ export const postConfirm =(code, user)=>{
         type: 'confirm',
         payload: response.data,
       });
+      console.log('dentro del actionsss' +response.data);
     } catch (error) {
       dispatch({
         type: 'error',

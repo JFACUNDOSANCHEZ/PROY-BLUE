@@ -33,13 +33,17 @@ const dispatch = useDispatch()
       setCode(value); // Actualiza el estado code con el nuevo valor ingresado por el usuario
       
     };
-    useEffect(() => {
- console.log('dentro del useefect' + codigo, user);
- if (code && user) {
-  
-   dispatch(postConfirm(codigo, user));
-  }
-}, [code, user]);
+
+    const handleSendCode = () => {
+      const userEmail = localStorage.getItem('user');
+      const code = Math.random().toString(36).substring(2, 8); // Genera un código de 6 caracteres alfanuméricos
+      setCodigo(code)
+      if (code && userEmail) {
+        console.log('dispatchhhh'+ code, userEmail);
+          console.log('Enviando código:', code, userEmail);
+          dispatch(postConfirm(code, userEmail));
+      }
+  };
 
   const handleSubmit=()=>{
     if (code === codigo) {
@@ -75,8 +79,8 @@ return (
         <h2>Bienvenido a BLU</h2>
         <p>¡Somos una herramienta de seguridad para nuestra comunidad hotelera!</p>
         <br />
-        <p>Hemos enviado un código de confirmación a tu correo electrónico {user} para confirmar tu identidad.</p>
-
+        <p>Vamos a enviar un código de confirmación a tu correo electrónico {user} para confirmar tu identidad.</p>
+        <button onClick={handleSendCode}>Enviar Código</button>
         <form onSubmit={handleSubmit}>
 <br />
           <div className={RegisterStyle.inputWrapper}>
