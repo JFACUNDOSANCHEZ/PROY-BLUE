@@ -119,17 +119,18 @@ const navigate = useNavigate()
 
 <div>
   <h3>Imagen:</h3>
-  <input type="file" onChange={ e => setFile(e.target.files[0])} />
+  <input type="file"   className={style.fileInput} onChange={ e => setFile(e.target.files[0])} />
 </div>
       <div>
-            <h3>Nacionalidad</h3>
+            <h3>Nacionalidad:</h3>
             <select
               name="nacionalidad"
               value={form.nacionalidad}
               onChange={handleChange}
+              className={style.selectContainer}
             >
               {countryList.getNames().map((country, index) => (
-                <option key={index} value={country}>
+                <option key={index} value={country}   className={style.selectOption}>
                   {country}
                 </option>
               ))}
@@ -148,7 +149,7 @@ const navigate = useNavigate()
 
           <div className={style.formGroup}>
             <h3>
-              DNI / PASAPORTE:
+              DNI / Pasaporte:
             </h3>
             <input placeholder="33.333.333" className={style.dni} type="text" name="dni" onChange={handleChange} value={form.dni} />
           </div>

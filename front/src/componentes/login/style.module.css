@@ -16,7 +16,7 @@
 }
 .divContainer {
   display: flex;
-  
+  color: white;
   height: 100%;
   width: 80%;
   background-color: hsla(0, 0%, 85%, 0.375);

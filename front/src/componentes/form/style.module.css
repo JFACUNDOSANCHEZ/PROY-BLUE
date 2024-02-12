@@ -16,6 +16,54 @@
 margin-left: 16%;
 width: 400px;
 }
+.fileInput {
+  /* Estilos personalizados para el input de archivo */
+  padding: 0.5rem;
+  font-size: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  background-color: #fff;
+  cursor: pointer; /* Cambia el cursor al pasar por encima para indicar que es interactivo */
+}
+
+/* Estilo para el texto del nombre del archivo seleccionado */
+.fileInput::file-selector-button {
+  /* Estilos personalizados para el texto del nombre del archivo seleccionado */
+  font-size: 0.9rem;
+  color: #333;
+}
+
+/* Estilo para el input cuando está enfocado */
+.fileInput:focus {
+  /* Estilos personalizados cuando el input está enfocado */
+  outline: none;
+  border-color: #007bff;
+}
+
+/* Estilo para el input cuando se pasa el mouse por encima */
+.fileInput:hover {
+  /* Estilos personalizados cuando el mouse está sobre el input */
+  background-color: #f0f0f0;
+}
+.selectContainer {
+  width: 100%; /* Ancho completo */
+  padding: 0.5rem; /* Espaciado interno */
+  font-size: 1rem; /* Tamaño de fuente */
+  border: 1px solid #ccc; /* Borde */
+  border-radius: 4px; /* Radio de borde */
+  background-color: #fff; /* Color de fondo */
+}
+
+/* Estilo cuando el select está enfocado */
+.selectContainer:focus {
+  outline: none; /* Quita el borde al enfocar */
+  border-color: #007bff; /* Cambia el color del borde al enfocar */
+}
+
+/* Estilo para las opciones dentro del select */
+.selectOption {
+  font-size: 1rem; /* Tamaño de fuente */
+}
 .formContainer button {
   margin-left: 16%;
   width: 400px;
@@ -30,9 +78,6 @@ width: 400px;
   color: #384f6f;
   }
 
-
-.form{
-}
 
 
 /* Estilos para el título del formulario */
@@ -52,7 +97,7 @@ width: 400px;
 .largeInput {
   width: 50%;
   padding: 5px;
-  border-radius:1.2rem;
+  border-radius:0.3rem;
   border: 1px solid #D4D7E3;
   background: #F7FBFF;
   color: #8897AD;
