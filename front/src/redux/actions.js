@@ -489,6 +489,12 @@ export const postConfirm =(code, user)=>{
         type: 'confirm',
         payload: response.data,
       });
+      Swal.fire({
+        icon: 'info',
+        title: 'Codigo enviado correctamente',
+        text: 'Recibira un codigo de 6 digitos',
+        confirmButtonText: 'Entendido'
+      });
       console.log('dentro del actionsss' +response.data);
     } catch (error) {
       dispatch({

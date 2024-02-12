@@ -42,7 +42,8 @@ const dispatch = useDispatch()
         console.log('dispatchhhh'+ code, userEmail);
           console.log('Enviando código:', code, userEmail);
           dispatch(postConfirm(code, userEmail));
-      }
+      
+        }
   };
 
   const handleSubmit=()=>{
@@ -80,7 +81,7 @@ return (
         <p>¡Somos una herramienta de seguridad para nuestra comunidad hotelera!</p>
         <br />
         <p>Vamos a enviar un código de confirmación a tu correo electrónico {user} para confirmar tu identidad.</p>
-        <button onClick={handleSendCode}>Enviar Código</button>
+        <button onClick={handleSendCode} className={RegisterStyle.buttonG}>Enviar Código</button>
         <form onSubmit={handleSubmit}>
 <br />
           <div className={RegisterStyle.inputWrapper}>
