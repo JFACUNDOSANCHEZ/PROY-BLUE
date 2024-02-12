@@ -56,7 +56,7 @@ const Home = () => {
                 <span className={style.letter2}></span>
                  <Nav></Nav>
 
-                <br />
+        
               
                 
 

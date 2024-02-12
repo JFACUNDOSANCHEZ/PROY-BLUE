@@ -146,7 +146,7 @@ export const allUsers =(token)=>{
 
 export const postP = (data, navigate) => {
   Swal.fire({
-    title: 'Eliminando...',
+    title: 'Publicando...',
     text: 'Espere por favor',
     onBeforeOpen: () => {
         Swal.showLoading();
@@ -222,8 +222,15 @@ export const findName = (name) => {
 
   return async (dispatch) => {
     try {
+      const token = localStorage.getItem('token');
       const endpoint = `getDNI?name=${name}`
-      const { data } = await axios.get(endpoint)
+      const { data } = await axios.get(endpoint, {
+        headers: {
+          Authorization: `Bearer ${token}`
+        }
+      })
+
+
       console.log(name);
       console.log(data.length);
       dispatch({

@@ -28,7 +28,7 @@ const Cards = ({ passegers, usuario }) => {
         
     }
     
-    const [dataInput, setDataInput] = useState({})
+    const [dataInput, setDataInput] = useState(null)
     
     const handleData = (e) => {
         const valor = e.target.value;
@@ -46,20 +46,17 @@ const Cards = ({ passegers, usuario }) => {
     const [pasajeroIdToDelete, setPasajeroIdToDelete] = useState(null);
   
     const handleDeleteClick = (id) => {
-      // Mostrar el cuadro de diálogo de confirmación
       setPasajeroIdToDelete(id);
       setConfirmDelete(true);
     }
   
     const handleConfirmDelete = () => {
-      // Realizar la eliminación solo si el usuario confirma
       dispatch(deleteData(pasajeroIdToDelete));
       setPasajeroIdToDelete(null);
       setConfirmDelete(false);
     }
   
     const handleCancelDelete = () => {
-      // Cancelar la eliminación y cerrar el cuadro de diálogo
       setPasajeroIdToDelete(null);
       setConfirmDelete(false);
     }
@@ -73,8 +70,12 @@ const Cards = ({ passegers, usuario }) => {
 
         setEditId(edit ? null : pasajero.id);
         setDataInput({ ...pasajero })
-        dispatch(updateData(dataInput, pasajero.id))
-        setDataInput({});
+
+if (dataInput) {
+    
+    dispatch(updateData(dataInput, pasajero.id))
+    setDataInput(null);
+}
 
     };
     console.log(editId);
@@ -118,7 +119,7 @@ const Cards = ({ passegers, usuario }) => {
                     <table className={style.userTable}>
                         <thead>
                         <tr className={style.tableHeaderRow}>
-                                <th className={style.imge}>img</th>
+                                <th className={style.imge}>Foto</th>
                                 <th className={style.motitd}>Nombre Apellido</th>
                                 <th className={style.Dnitd}>DNI / Pasaporte</th>
                                 <th className={style.Dnitd}>Nacionalidad</th>
@@ -164,6 +165,7 @@ const Cards = ({ passegers, usuario }) => {
                                                 name="name"
                                                 value={dataInput.name}
                                                 onChange={handleData}
+                                                className={style.input}
                                             />
                                         ) : (
                                             pas?.name
@@ -174,6 +176,7 @@ const Cards = ({ passegers, usuario }) => {
                                                 name="dni"
                                                 value={dataInput.dni}
                                                 onChange={handleData}
+                                                className={style.input}
                                             />
                                         ) : (
                                             pas?.dni
@@ -186,6 +189,7 @@ const Cards = ({ passegers, usuario }) => {
                                                     name="name"
                                                     value={dataInput.nacionalidad}
                                                     onChange={handleData}
+                                                    className={style.input}
                                                 />
                                             ) : (
                                                 pas?.nacionalidad
@@ -197,6 +201,7 @@ const Cards = ({ passegers, usuario }) => {
                                                 name="motivo"
                                                 value={dataInput.motivo}
                                                 onChange={handleData}
+                                                className={style.input}
                                             />
                                         ) : (
                                             pas?.motivo

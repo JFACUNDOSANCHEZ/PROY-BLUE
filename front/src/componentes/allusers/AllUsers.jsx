@@ -33,7 +33,7 @@ const AllUsers = () => {
   const Users = useSelector(state => state.users);
   
   const soli = Users.filter((u)=>{return u.activo === "pendiente"})
-  // Aplica los filtros según el estado actual
+
   let users;
   if (filter === 'Solicitud') {
     users = Users.filter((u) => u.activo === "pendiente");
@@ -44,21 +44,21 @@ const AllUsers = () => {
   } else {
     users = Users;
   }
-  
-  // Aplica el filtro de búsqueda si se ha ingresado algún texto en el campo de búsqueda
+
+
   users = pass ? users.filter((u) => {
     const nombreMatch = u.nombreCompleto.toLowerCase().includes(pass.toLowerCase());
     const correoMatch = u.correoElectronico.toLowerCase().includes(pass.toLowerCase());
     return nombreMatch || correoMatch;
   }) : users;
 
-  // Maneja el cambio en el campo de búsqueda
+
   const handleFind = (event) => {
     const name = event.target.value;
     setPass(name);
   };
 
-  // Maneja el cambio en el filtro
+
   const handleFilter = (filtro) => {
     setFilter(filtro);
   };
@@ -99,7 +99,7 @@ const AllUsers = () => {
               <th className={styles.users}>Users</th>
               <th className={styles.estado}>Estado</th>
               <th className={styles.rol}>Rol</th>
-              <th className={styles.rol}>Email</th>
+              <th className={styles.correo}>Email</th>
               <th className={styles.rol}>Fecha de alta</th>
               <th className={styles.rol}>Cancelar / Activar usuario</th>
               <th className={styles.rol}>Cambiar rol</th>
@@ -119,7 +119,7 @@ const AllUsers = () => {
                   styles.pendiente
                 }>
                    {user?.activo === "true" ? 'Activo' : user?.activo === "false" ? 'Inactivo' : 'Pendiente'}</td>
-                <td>{user?.nivel === '3' ? 'Administrador' : user?.nivel === '2' ? 'Usuario' : 'Usuario'}</td>
+                <td >{user?.nivel === '3' ? 'Administrador' : user?.nivel === '2' ? 'Usuario' : 'Usuario'}</td>
                 <td>{user?.correoElectronico}</td>
                 <td>{fechaFormateada} <br /> {horaFormateada}hs</td>
                

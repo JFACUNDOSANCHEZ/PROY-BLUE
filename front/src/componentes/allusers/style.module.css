@@ -54,17 +54,17 @@
   margin-right: 10px; /* Agrega espacio entre el campo de búsqueda y los botones */
 }
 .estado{
-  width: 13%;
+  width: 19%;
 }
 .rol{
-  width: 10%;
+  width: 15%;
 }
 
 .correo{
   width: 23%;
 }
 .users{
-  width: 13%;
+  width: 19%;
 }
 .button {
   background-color: #6e7676;
@@ -156,7 +156,7 @@
   font-family: "IBM Plex Mono", monospace;
   font-size: 1.3rem;
   font-style: normal;
-  font-weight: 600; /* Esto establece el grosor de la fuente a semibold */
+ /* Esto establece el grosor de la fuente a semibold */
   line-height: normal;
   margin-left: 4rem;
 }
@@ -197,10 +197,14 @@
   margin-top: 10px; 
   margin-left: 1rem;
 }
+.tabla{
+  width: 25rem;
+}
 
 .tableHeaderRow {
   background-color: #888888;
   color: white;
+  height: 30px;
 }
 
 .userTable td, .userTable th {

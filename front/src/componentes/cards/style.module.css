@@ -6,6 +6,9 @@
  width: 10%;
    /* Ajusta el ancho de la tabla según sea necesario */
 }
+.input{
+  width: 100%;
+}
 .overla {
   position: fixed;
   top: 0;

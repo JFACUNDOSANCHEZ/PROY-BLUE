@@ -78,9 +78,10 @@ return (
           <div className={RegisterStyle.inputWrapper}>
          
           <input
+          className={RegisterStyle.input}
         type="text"
         id="codeInput"
-        placeholder="Ingrese el código"
+        placeholder="Ingrese el código de 6 digitos"
         value={code}
         onChange={handleCodeChange} // Llama al manejador de cambio cuando el usuario ingresa el código
         required

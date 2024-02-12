@@ -91,10 +91,10 @@
     height: 42px;
     display: flex;
     align-items: center;
-
+margin-left: 33%;
     background-color: #245738b5;
     color: white;
-    border-radius: 14px;
+    border-radius: 34px;
     font-size: 1.3rem;
 
  
@@ -165,13 +165,21 @@
 
   .landingContainer {
     background-image: url("https://images.unsplash.com/photo-1649071192707-3fad9884e23b?q=80&w=2071&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D");
-    background-size: cover;
-    background-position: center;
-    min-height: 100vh; /* Altura mínima de la ventana gráfica visible */
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    align-items: flex-start;
+  background-size: cover;
+  background-position: center;
+  padding: 0 6px;
+  align-self: flex-start;
+  flex-shrink: 0;
+  display: block;
+  height: 100%;
+  white-space: nowrap;
+  min-height: 100vh;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  overflow: hidden;
 }
 
 
