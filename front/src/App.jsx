@@ -13,7 +13,7 @@ import UserPerfil from './componentes/user/UserPerfil';
 import AllUsers from './componentes/allusers/AllUsers';
 import PasForUser from './componentes/pasForUser/PasForUser';
 import Info from './componentes/info/Info';
-import RegisterInfo from './componentes/RegisterInfo/RegisterInfo';
+import RegisterInfo from './componentes/registerInfo/RegisterInfo';
 axios.defaults.baseURL = 'https://proy-blu-black.onrender.com/'
 
 function App() {
