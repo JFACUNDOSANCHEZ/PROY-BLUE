@@ -35,8 +35,11 @@ const dispatch = useDispatch()
     };
     useEffect(() => {
  console.log('dentro del useefect' + codigo, user);
-      dispatch(postConfirm(codigo, user));
-    }, []);
+ if (code && user) {
+  
+   dispatch(postConfirm(codigo, user));
+  }
+}, [code, user]);
 
   const handleSubmit=()=>{
     if (code === codigo) {
