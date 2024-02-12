@@ -20,6 +20,7 @@ const Home = () => {
         try {
             
             const tokenString = localStorage.getItem('token');
+          
             if (tokenString) {
                 const token = JSON.parse(tokenString);
                 dispatch(allPasseger(token));
@@ -28,6 +29,7 @@ const Home = () => {
                 const decodedToken = jwtDecode(token);
                 setNivel(decodedToken.nivel);
             } else {
+          navigate('/')
                 throw new Error('El token no está presente en el objeto respuesta');
             }
         } catch (error) {

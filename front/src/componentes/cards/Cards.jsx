@@ -13,7 +13,7 @@ import { Link } from "react-router-dom"
 const Cards = ({ passegers, usuario }) => {
 
     const [pagina, setPagina] = useState(1);
-    const [porPagina, setPorPagina] = useState(5)
+    const [porPagina, setPorPagina] = useState(10)
     const maximo = Math.ceil(passegers.length / porPagina);
     console.log(passegers);
     
@@ -195,7 +195,7 @@ if (dataInput) {
                                                 pas?.nacionalidad
                                             )}
                                         </td>
-                                        {!ojo ? <td> - - </td> : <td> {edit && editId === pas?.id ? (
+                                        {!ojo ? <td>  <img onClick={handleOjo} width={'30px'} src="https://cdn-icons-png.flaticon.com/512/94/94674.png" alt="oj" /></td> : <td> {edit && editId === pas?.id ? (
                                             <input
                                                 type="text"
                                                 name="motivo"
