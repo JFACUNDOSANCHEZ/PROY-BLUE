@@ -116,6 +116,7 @@ const Register = () => {
         <form onSubmit={handleRegister} >
   
           <div>
+            <br />
             <span>Nombre completo:</span>
             <br />
             <input

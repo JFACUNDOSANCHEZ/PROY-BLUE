@@ -30,7 +30,7 @@ return (
             <div className={`${styles.flipCardInner} ${estado ? styles.flipped : ''}`}>
               <div className={`${styles.cardContainer} ${styles.flipCardFront}`}>
                 <Login />
-                
+                <br /><br />
             <button onClick={handleEstado} className={styles.goog}>
               {!estado ? 
               
@@ -46,6 +46,7 @@ return (
               <div className={`${styles.cardContainer} ${styles.flipCardBack}`}>
                 <Register />
          
+                <br /><br />
             <button onClick={handleEstado} className={styles.goog}>
               {!estado ? 
               

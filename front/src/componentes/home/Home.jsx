@@ -38,8 +38,16 @@ const Home = () => {
     }, []);
     console.log(nivel);
 
-
-    const passegers = useSelector((state) => state.passeger)
+let passegers
+   passegers = useSelector((state) => state.passeger)
+   passegers.sort((a, b) => {
+        // Convertir las fechas a objetos Date para compararlas
+        const dateA = new Date(a.updatedAt);
+        const dateB = new Date(b.updatedAt);
+        
+        // Comparar las fechas y devolver el resultado de la comparación
+        return dateB - dateA;
+      });
     console.log(passegers);
 
     const usuario = useSelector(state => state.user)
