@@ -15,7 +15,7 @@ import countryList from 'country-list';
 const Cards = ({ passegers, usuario }) => {
 
     const [pagina, setPagina] = useState(1);
-    const [porPagina, setPorPagina] = useState(10)
+    const [porPagina, setPorPagina] = useState(13)
     const maximo = Math.ceil(passegers.length / porPagina);
     console.log(passegers);
     
@@ -260,8 +260,11 @@ setEdit(!edit)
                                                      className={style.viewButton}
                                                      onClick={handleCancel}
                                                      >
+                                                        {
+                                                            editId === pas.id ? 'cancelar' : ''
+                                                        }
 
-                                                         cancelar
+                                                         
                                                      </button> 
                                                        } 
 
@@ -269,7 +272,7 @@ setEdit(!edit)
     </div>
                                                         <br />
                                                         <div>
-                                                            <button className={style.viewButton} onClick={() => { handleEdit(pas) }}>{!edit ? 'Editar' : 'Guardar'}   </button>
+                                                            <button className={style.viewButton} onClick={() => { handleEdit(pas) }}>{!edit ? 'Editar' : editId === pas.id ? 'Guardar' : ''}   </button>
                                                         </div>
                                                     </>
                                                 ) : (
