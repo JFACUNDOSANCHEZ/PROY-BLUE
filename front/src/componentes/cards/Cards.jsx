@@ -163,7 +163,7 @@ const Cards = ({ passegers, usuario }) => {
                                     </div>
                                 </th>
                                 <th className={style.Dnitd}>Fecha Hora</th>
-                                <th className={style.motitd}></th>
+                                <th ></th>
 
                             </tr>
                         </thead>
@@ -247,7 +247,7 @@ const Cards = ({ passegers, usuario }) => {
                                             usuario.nivel == 3 || usuario.id == pas.userId ? (
                                                 <>
                                                     <td>
-                                                        <div className={style.d}>
+                                                        <div className={style.nada}>
                                                             {!edit ?
                                                                 <button className={style.viewButton} onClick={() => handleDeleteClick(pas.id)}>Eliminar pasajero</button>
                                                                 :
@@ -267,7 +267,7 @@ const Cards = ({ passegers, usuario }) => {
 
                                                         </div>
                                                         <br />
-                                                        <div>
+                                                        <div  className={style.nada}>
                                                             <button className={style.viewButton} onClick={() => { handleEdit(pas) }}>{!edit ? 'Editar' : editId === pas.id ? 'Guardar' : ''}   </button>
                                                         </div>
                                                     </td>

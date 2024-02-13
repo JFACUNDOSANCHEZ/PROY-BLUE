@@ -26,7 +26,7 @@
   z-index: 1000; /* Asegura que esté en la parte superior */
 }
 .nada{
-  
+  width: 10%;
 }
 .divPr {
   display: flex;
