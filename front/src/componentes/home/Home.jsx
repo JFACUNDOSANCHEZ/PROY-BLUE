@@ -15,12 +15,12 @@ const Home = () => {
     const dispatch = useDispatch();
     const navigate = useNavigate();
     const [nivel, setNivel] = useState('');
-    
+
     useEffect(() => {
         try {
-            
+
             const tokenString = localStorage.getItem('token');
-          
+
             if (tokenString) {
                 const token = JSON.parse(tokenString);
                 dispatch(allPasseger(token));
@@ -29,7 +29,7 @@ const Home = () => {
                 const decodedToken = jwtDecode(token);
                 setNivel(decodedToken.nivel);
             } else {
-          navigate('/')
+                navigate('/')
                 throw new Error('El token no está presente en el objeto respuesta');
             }
         } catch (error) {
@@ -41,7 +41,7 @@ const Home = () => {
 
     const passegers = useSelector((state) => state.passeger)
     console.log(passegers);
-    
+
     const usuario = useSelector(state => state.user)
     console.log(usuario);
 
@@ -54,36 +54,26 @@ const Home = () => {
         <div className={style.contentContainer} >
 
             <div className={style.navBar}>
-                <span className={style.letter2}></span>
-
-                 <Nav></Nav>
-
-        
-                 <div>
-       <br /><br /><br /><br /><br /><br />
-     </div>
-                
-
-                <div className={style.divPreguntas}>
-      
 
 
-           
-              
-                
-                
+                <Nav></Nav>
 
-                 
+
+                <div>
+
+                    <Searchbar></Searchbar>
                 </div>
-           
-     
+
+
+
+
 
                 <div className={style.contentCards}>
 
                     <Cards passegers={passegers} usuario={usuario} ></Cards>
                 </div>
             </div>
-<Footer></Footer>
+            <Footer></Footer>
 
 
 

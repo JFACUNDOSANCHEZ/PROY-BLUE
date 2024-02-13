@@ -105,17 +105,17 @@ if (dataInput) {
 
                 <div className={style.contentTable}>
                     <div className={style.tableHeader}>
-                    <div>
+                    <div className={style.divAgregar}>
        
-
-     </div>
-                    </div>
                     <Link to={'/form'}>
                         <button className={style.divPr}>
 
                         Agrega pasajero
                         </button>
                         </Link>
+
+     </div>
+                    </div>
                     <div className={style.pag}>
                         <Paginacion pagina={pagina} setPagina={setPagina} maximo={maximo} />
                     </div>

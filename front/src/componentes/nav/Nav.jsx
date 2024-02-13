@@ -62,18 +62,10 @@ const Nav = () => {
 
 
             </div>
-            {
-
-                pathname === '/home' ?
-                    <Searchbar></Searchbar>
-                    : ''
-            }
-            {
-
-                pathname === '/home' ?
-                    <p>Bienvenido {rol = usuario?.nivel === '2' ? 'Usuario' : usuario?.nivel === '3' ? 'Admin' : ''} {usuario.nombreCompleto}</p>
-                    : ''
-            }
+        
+     
+                    <p className={style.bien}>Bienvenido {rol = usuario?.nivel === '2' ? 'Usuario' : usuario?.nivel === '3' ? 'Admin' : ''} {usuario.nombreCompleto}</p>
+                 
             <div className={style.userContainer}>
 
 
