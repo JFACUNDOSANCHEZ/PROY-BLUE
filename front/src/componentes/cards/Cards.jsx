@@ -235,12 +235,12 @@ setEdit(!edit)
                                             )}
                                         </td>
                                         {!ojo ? <td>  <img onClick={handleOjo} width={'30px'} src="https://cdn-icons-png.flaticon.com/512/94/94674.png" alt="oj" /></td> : <td> {edit && editId === pas?.id ? (
-                                            <input
+                                    <textarea
                                                 type="text"
                                                 name="motivo"
                                                 value={dataInput.motivo}
                                                 onChange={handleData}
-                                                className={style.input}
+                                                className={style.thInputMotivo}
                                             />
                                         ) : (
                                             pas?.motivo

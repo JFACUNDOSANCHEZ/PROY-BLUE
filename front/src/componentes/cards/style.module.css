@@ -106,8 +106,14 @@ width: 100%;
     justify-content: center;
     align-items: center;
   }
-.thMotivo{
-width: 20rem;
+.thInputMotivo{
+  width: 100%; /* Ancho completo */
+  height: 50px; /* Altura inicial */
+  resize: vertical; /* Permitir redimensionamiento vertical */
+  overflow-y: auto; /* Agregar barra de desplazamiento vertical si es necesario */
+  padding: 10px; /* Agregar espacio alrededor del texto */
+  font-size: 16px; /* Tamaño de fuente */
+  border: 1px solid #ccc; /* Borde */
 }
 .img-container {
   position: relative;
