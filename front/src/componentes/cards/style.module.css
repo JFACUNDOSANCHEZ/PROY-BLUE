@@ -9,6 +9,10 @@
 .input{
   width: 100%;
 }
+.hover:hover {
+  
+  background-color: #87998db8; /* Cambia esto al color que desees */
+}
 .overla {
   position: fixed;
   top: 0;
@@ -86,6 +90,10 @@
   
   background-color:#273930; 
   color: rgb(232, 232, 232);
+}
+.selectContainer{
+width: 100%;
+
 }
 .overlay {
     position: fixed;

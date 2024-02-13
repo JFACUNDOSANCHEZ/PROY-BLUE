@@ -9,6 +9,8 @@ import { useDispatch } from "react-redux"
 import { detail, updateData, deleteData, allPasseger } from "../../redux/actions"
 import Paginacion from "../paginacion/Paginacion"
 import { Link } from "react-router-dom"
+import countryList from 'country-list';
+
 
 const Cards = ({ passegers, usuario }) => {
 
@@ -29,7 +31,7 @@ const Cards = ({ passegers, usuario }) => {
     }
     
     const [dataInput, setDataInput] = useState(null)
-    
+    console.log(dataInput);
     const handleData = (e) => {
         const valor = e.target.value;
         const clave = e.target.name;
@@ -39,6 +41,15 @@ const Cards = ({ passegers, usuario }) => {
             [clave]: valor,
         }));
     };
+        
+    const handleSelect = (e) => {
+        const valor = e.target.value;
+        setDataInput((prevDataInput) => ({
+          ...prevDataInput,
+          nacionalidad: valor, // Aquí usamos directamente el nombre 'nacionalidad'
+        }));
+      };
+    
     const [confirmDelete, setConfirmDelete] = useState(false);
     useEffect(()=>{
         dispatch(allPasseger())
@@ -66,18 +77,25 @@ const Cards = ({ passegers, usuario }) => {
     const handleEdit = (pasajero) => {
         console.log(edit);
         console.log(pasajero);
-        setEdit(!edit);
 
-        setEditId(edit ? null : pasajero.id);
-        setDataInput({ ...pasajero })
 
-if (dataInput) {
     
-    dispatch(updateData(dataInput, pasajero.id))
-    setDataInput(null);
+    setEdit(!edit);
+    
+    setEditId(edit ? null : pasajero.id);
+    setDataInput({ ...pasajero })
+    
+    if (dataInput) {
+        
+        dispatch(updateData(dataInput, pasajero.id))
+        setDataInput(null);
+    }
+    
 }
-
-    };
+   const handleCancel =()=>{
+    setDataInput(null)
+setEdit(!edit)
+   }
     console.log(editId);
     const [zoom, setZoom] = useState(false)
     const handleZoom = (img) => {
@@ -92,7 +110,10 @@ if (dataInput) {
         setZoom(null)
 
     }
+    const nationalities = countryList.getNames();
 
+
+    
     return (
         <div className={style.homeContainer}>
 
@@ -155,7 +176,7 @@ if (dataInput) {
                                 return (
 
 
-                                    <tr key={pas?.id}>
+                                    <tr key={pas?.id} className={style.hover}>
                                         <td>
 
                                             <img src={pas.img} alt="z1" onClick={() => { handleZoom(pas.img) }} className={style.img} />
@@ -186,14 +207,29 @@ if (dataInput) {
                                         )}</td>
                                     
                                         <td>
+                                            
                                             {edit && editId === pas?.id ? (
-                                                <input
-                                                    type="text"
-                                                    name="name"
-                                                    value={dataInput.nacionalidad}
-                                                    onChange={handleData}
-                                                    className={style.input}
-                                                />
+                                                  <select
+                                                
+                                                  name="nacionalidad"
+                                                  value={dataInput.nacionalidad}
+                                                  onChange={handleData}
+                                                  className={style.selectContainer}
+                                                >
+                                                  {countryList.getNames().map((country, index) => (
+                                                    <option key={index} value={country}   className={style.selectOption}>
+                                                      {country}
+                                                    </option>
+                                                  ))}
+                                                </select>
+                                                // <input
+                                                //     type="text"
+                                                //     name="name"
+                                                //     value={dataInput.nacionalidad}
+                                                //     onChange={handleData}
+                                                //     className={style.input}
+                                                // />
+
                                             ) : (
                                                 pas?.nacionalidad
                                             )}
@@ -209,14 +245,25 @@ if (dataInput) {
                                         ) : (
                                             pas?.motivo
                                         )}</td>}
-                                        <td>{fechaFormateada} </td>
+                                        <td>{fechaFormateada} {horaFormateada} </td>
 
                                         <td>
                                             {
                                                 usuario.nivel == 3 || usuario.id == pas.userId ? (
                                                     <>
                                                       <div className={style.d}>
+                                                      {!edit ? 
                                                       <button className={style.viewButton} onClick={() => handleDeleteClick(pas.id)}>Eliminar pasajero</button>
+                                                       : 
+                                                       
+                                                     <button
+                                                     className={style.viewButton}
+                                                     onClick={handleCancel}
+                                                     >
+
+                                                         cancelar
+                                                     </button> 
+                                                       } 
 
  
     </div>
