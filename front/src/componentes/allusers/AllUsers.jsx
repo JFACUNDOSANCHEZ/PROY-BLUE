@@ -17,7 +17,7 @@ const AllUsers = () => {
   const [pass, setPass] = useState("");
   const [filter, setFilter] = useState('Todos');
   const [pagina, setPagina] = useState(1);
-  const [porPagina, setPorPagina] = useState(10)
+  const [porPagina, setPorPagina] = useState(12)
   const [confirmDelete, setConfirmDelete] = useState(false);
 const [edit, setEdit]= useState(null)
 
@@ -135,8 +135,12 @@ console.log(edit);
               <th className={styles.rol}>Fecha de alta</th>
               <th className={styles.rol}></th>
               <th className={styles.rol}></th>
+              {
+!edit ? 
+'' 
+: 
               <th className={styles.rol}>   {/* Espacio para los botones*/}</th>
-        
+            }
             </tr>
           </thead>
           <tbody>
