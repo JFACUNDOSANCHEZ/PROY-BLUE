@@ -1,5 +1,5 @@
 import { useDispatch, useSelector } from "react-redux";
-import {  findUserName, user, allUsers, userPut } from "../../redux/actions";
+import {  findUserName, user, allUsers, userPut, deleteUser } from "../../redux/actions";
 import { useEffect, useState } from "react";
 import styles from './style.module.css';
 import PasForUser from "../pasForUser/PasForUser";
@@ -34,7 +34,6 @@ const AllUsers = () => {
   const Users = useSelector(state => state.users);
   
   const soli = Users.filter((u)=>{return u.activo === "pendiente"})
-
   let users;
   if (filter === 'Solicitud') {
     users = Users.filter((u) => u.activo === "pendiente");
@@ -45,32 +44,39 @@ const AllUsers = () => {
   } else {
     users = Users;
   }
-
-
+  
+  
   users = pass ? users.filter((u) => {
     const nombreMatch = u.nombreCompleto.toLowerCase().includes(pass.toLowerCase());
     const correoMatch = u.correoElectronico.toLowerCase().includes(pass.toLowerCase());
     return nombreMatch || correoMatch;
   }) : users;
-
-
+  
+  
   const handleFind = (event) => {
     const name = event.target.value;
     setPass(name);
   };
-
-
+  
+  
   const handleFilter = (filtro) => {
     setFilter(filtro);
   };
   const [pagina, setPagina] = useState(1);
   const [porPagina, setPorPagina] = useState(10)
   const maximo = Math.ceil(users.length / porPagina);
+  const [confirmDelete, setConfirmDelete] = useState(false);
+
+  const handleDeletUser =(id)=>{
+    if (confirmDelete) {
+      dispatch(deleteUser(id));
+      setConfirmDelete(false); // Resetear el estado de confirmación
+    }
+  }
   
-  
-    return (
+  return (
     <div className={styles.homeContainer}>
-      <Nav></Nav>
+      {/* <Nav></Nav> */}
       <div className={styles.navBar}>
       </div>
       <div className={styles.contetTitle}>
@@ -94,6 +100,7 @@ const AllUsers = () => {
           
       
         </div>
+            <Paginacion pagina={pagina} setPagina={setPagina} maximo={maximo} />
         <table className={styles.userTable}>
           <thead>
             <tr className={styles.tableHeaderRow}>
@@ -104,6 +111,7 @@ const AllUsers = () => {
               <th className={styles.rol}>Fecha de alta</th>
               <th className={styles.rol}>Cancelar / Activar usuario</th>
               <th className={styles.rol}>Cambiar rol</th>
+              <th className={styles.rol}>   {/* Espacio para los botones*/}</th>
               <th className={styles.rol}>   {/* Espacio para los botones*/}</th>
             </tr>
           </thead>
@@ -137,7 +145,25 @@ const AllUsers = () => {
                     <option value="2">Usuario</option>
                     <option value="3">Administrador</option>
                   </select>
+               
                 </td>
+                <td>
+
+                <button
+  className={styles.viewButton}
+  onClick={() => setConfirmDelete(true)} 
+>Eliminar pasajero</button>
+
+                </td>
+  {confirmDelete && (
+  <div className={styles.overla}>
+  <div className={styles.overlayContent}>
+  <p>¿Estás seguro de que quieres eliminar este pasajero?</p>
+  <button onClick={() => handleDeletUser(user.id)}>Sí</button>
+  <button onClick={() => setConfirmDelete(false)}>Cancelar</button>
+  </div>
+  </div>
+  )}
                 <td>
 <Link to={`/pasforuser/${user?.id}`}>
                   <button className={styles.viewButton}   >Ver Publicaciónes</button>
@@ -147,8 +173,8 @@ const AllUsers = () => {
             })}
           </tbody>
         </table>
+        
       </div>
-<Paginacion pagina={pagina} setPagina={setPagina} maximo={maximo} />
 <Footer></Footer>
     </div>
   );

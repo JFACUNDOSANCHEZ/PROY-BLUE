@@ -304,7 +304,51 @@ export const findUserName = (name) => {
   }
 }
 
-
+export const deleteUser =(id) => {
+  Swal.fire({
+    title: 'Eliminando...',
+    text: 'Espere por favor',
+    onBeforeOpen: () => {
+        Swal.showLoading();
+    },
+    onClose: () => {
+        // Aquí puedes realizar la operación asincrónica, por ejemplo, una petición AJAX
+        setTimeout(() => {
+            // Simulando una operación que toma tiempo (puedes reemplazar esto con tu lógica real)
+            Swal.hideLoading();
+            Swal.fire({
+                title: 'Operación completada',
+                text: 'La operación ha finalizado con éxito.',
+                icon: 'success',
+                confirmButtonText: '¡Entendido!'
+            });
+        }, 2000); // Simulación de una operación que tarda 2 segundos
+    }
+   
+});
+  const endpoint = `user/${id}`
+  return async (dispatch) => {
+    try {
+      const { data } = await axios.delete(endpoint)
+      dispatch({
+        type: 'delet',
+        payload: data,
+      })
+       window.location.reload();
+      Swal.fire({
+        icon: 'success',
+        title: `¡Eliminado con exitoso!`,
+        text: 'completo el registro con exito.',
+       });
+    } catch (error) {
+      dispatch({
+        type: 'error',
+        payload: error.message,
+      });
+    }
+    window.location.reload()
+  }
+}
 export const deleteData =(id) => {
   Swal.fire({
     title: 'Eliminando...',

@@ -225,14 +225,7 @@ pathname === '/home' ?
                                                         </option>
                                                     ))}
                                                 </select>
-                                                // <input
-                                                //     type="text"
-                                                //     name="name"
-                                                //     value={dataInput.nacionalidad}
-                                                //     onChange={handleData}
-                                                //     className={style.input}
-                                                // />
-
+             
                                             ) : (
                                                 pas?.nacionalidad
                                             )}
