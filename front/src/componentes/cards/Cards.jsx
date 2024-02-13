@@ -10,7 +10,7 @@ import { detail, updateData, deleteData, allPasseger } from "../../redux/actions
 import Paginacion from "../paginacion/Paginacion"
 import { Link } from "react-router-dom"
 import countryList from 'country-list';
-
+import { useLocation } from "react-router-dom"
 
 const Cards = ({ passegers, usuario }) => {
 
@@ -18,58 +18,58 @@ const Cards = ({ passegers, usuario }) => {
     const [porPagina, setPorPagina] = useState(13)
     const maximo = Math.ceil(passegers.length / porPagina);
     console.log(passegers);
-    
+
     const noEncontrado = useSelector((state) => state.noEncontrado)
-    
-    
+
+
     const dispatch = useDispatch()
     const [ojo, setOjo] = useState(null)
-    
+
     const handleOjo = () => {
         setOjo(!ojo)
-        
+
     }
-    
+
     const [dataInput, setDataInput] = useState(null)
     console.log(dataInput);
     const handleData = (e) => {
         const valor = e.target.value;
         const clave = e.target.name;
-        
+
         setDataInput((prevDataInput) => ({
             ...prevDataInput,
             [clave]: valor,
         }));
     };
-        
+
     const handleSelect = (e) => {
         const valor = e.target.value;
         setDataInput((prevDataInput) => ({
-          ...prevDataInput,
-          nacionalidad: valor, // Aquí usamos directamente el nombre 'nacionalidad'
+            ...prevDataInput,
+            nacionalidad: valor, // Aquí usamos directamente el nombre 'nacionalidad'
         }));
-      };
-    
+    };
+
     const [confirmDelete, setConfirmDelete] = useState(false);
-    useEffect(()=>{
+    useEffect(() => {
         dispatch(allPasseger())
-    },[confirmDelete])
+    }, [confirmDelete])
     const [pasajeroIdToDelete, setPasajeroIdToDelete] = useState(null);
-  
+
     const handleDeleteClick = (id) => {
-      setPasajeroIdToDelete(id);
-      setConfirmDelete(true);
+        setPasajeroIdToDelete(id);
+        setConfirmDelete(true);
     }
-  
+
     const handleConfirmDelete = () => {
-      dispatch(deleteData(pasajeroIdToDelete));
-      setPasajeroIdToDelete(null);
-      setConfirmDelete(false);
+        dispatch(deleteData(pasajeroIdToDelete));
+        setPasajeroIdToDelete(null);
+        setConfirmDelete(false);
     }
-  
+
     const handleCancelDelete = () => {
-      setPasajeroIdToDelete(null);
-      setConfirmDelete(false);
+        setPasajeroIdToDelete(null);
+        setConfirmDelete(false);
     }
     const [edit, setEdit] = useState(null)
     const [editId, setEditId] = useState('')
@@ -79,23 +79,23 @@ const Cards = ({ passegers, usuario }) => {
         console.log(pasajero);
 
 
-    
-    setEdit(!edit);
-    
-    setEditId(edit ? null : pasajero.id);
-    setDataInput({ ...pasajero })
-    
-    if (dataInput) {
-        
-        dispatch(updateData(dataInput, pasajero.id))
-        setDataInput(null);
+
+        setEdit(!edit);
+
+        setEditId(edit ? null : pasajero.id);
+        setDataInput({ ...pasajero })
+
+        if (dataInput) {
+
+            dispatch(updateData(dataInput, pasajero.id))
+            setDataInput(null);
+        }
+
     }
-    
-}
-   const handleCancel =()=>{
-    setDataInput(null)
-setEdit(!edit)
-   }
+    const handleCancel = () => {
+        setDataInput(null)
+        setEdit(!edit)
+    }
     console.log(editId);
     const [zoom, setZoom] = useState(false)
     const handleZoom = (img) => {
@@ -112,8 +112,8 @@ setEdit(!edit)
     }
     const nationalities = countryList.getNames();
 
+const {pathname} = useLocation()
 
-    
     return (
         <div className={style.homeContainer}>
 
@@ -126,23 +126,26 @@ setEdit(!edit)
 
                 <div className={style.contentTable}>
                     <div className={style.tableHeader}>
-                    <div className={style.divAgregar}>
-       
-                    <Link to={'/form'}>
-                        <button className={style.divPr}>
+                        <div className={style.divAgregar}>
+{
+pathname === '/home' ? 
+                            <Link to={'/form'}>
+                                <button className={style.divPr}>
 
-                        Agrega pasajero
-                        </button>
-                        </Link>
+                                    Agrega pasajero
+                                </button>
+                            </Link>
+: ''
+}
 
-     </div>
+                        </div>
                     </div>
                     <div className={style.pag}>
                         <Paginacion pagina={pagina} setPagina={setPagina} maximo={maximo} />
                     </div>
                     <table className={style.userTable}>
                         <thead>
-                        <tr className={style.tableHeaderRow}>
+                            <tr className={style.tableHeaderRow}>
                                 <th className={style.imge}>Foto</th>
                                 <th className={style.motitd}>Nombre Apellido</th>
                                 <th className={style.Dnitd}>DNI / Pasaporte</th>
@@ -150,16 +153,16 @@ setEdit(!edit)
 
 
                                 <th className={style.thMotivo}>
-    <div style={{ display: 'flex', alignItems: 'center' }}>
-        <span style={{ marginRight: '5px' }}>Motivo</span>
-        {!ojo ? (
-            <img onClick={handleOjo} width={'30px'} src="https://cdn-icons-png.flaticon.com/512/94/94674.png" alt="oj" />
-        ) : (
-            <img onClick={handleOjo} width={'30px'} src="https://cdn-icons-png.flaticon.com/512/15/15031.png" alt="jo" />
-        )}
-    </div>
-</th>
-                               <th className={style.Dnitd}>Fecha</th>
+                                    <div style={{ display: 'flex', alignItems: 'center' }}>
+                                        <span style={{ marginRight: '5px' }}>Motivo</span>
+                                        {!ojo ? (
+                                            <img onClick={handleOjo} width={'30px'} src="https://cdn-icons-png.flaticon.com/512/94/94674.png" alt="oj" />
+                                        ) : (
+                                            <img onClick={handleOjo} width={'30px'} src="https://cdn-icons-png.flaticon.com/512/15/15031.png" alt="jo" />
+                                        )}
+                                    </div>
+                                </th>
+                                <th className={style.Dnitd}>Fecha Hora</th>
                                 <th className={style.motitd}></th>
 
                             </tr>
@@ -176,7 +179,7 @@ setEdit(!edit)
                                 return (
 
 
-                                    <tr key={pas?.id} className={style.hover}>
+                                    <tr   key={pas?.id} className={style.hover}>
                                         <td>
 
                                             <img src={pas.img} alt="z1" onClick={() => { handleZoom(pas.img) }} className={style.img} />
@@ -205,22 +208,22 @@ setEdit(!edit)
                                         ) : (
                                             pas?.dni
                                         )}</td>
-                                    
+
                                         <td>
-                                            
+
                                             {edit && editId === pas?.id ? (
-                                                  <select
-                                                
-                                                  name="nacionalidad"
-                                                  value={dataInput.nacionalidad}
-                                                  onChange={handleData}
-                                                  className={style.selectContainer}
+                                                <select
+
+                                                    name="nacionalidad"
+                                                    value={dataInput.nacionalidad}
+                                                    onChange={handleData}
+                                                    className={style.selectContainer}
                                                 >
-                                                  {countryList.getNames().map((country, index) => (
-                                                    <option key={index} value={country}   className={style.selectOption}>
-                                                      {country}
-                                                    </option>
-                                                  ))}
+                                                    {countryList.getNames().map((country, index) => (
+                                                        <option key={index} value={country} className={style.selectOption}>
+                                                            {country}
+                                                        </option>
+                                                    ))}
                                                 </select>
                                                 // <input
                                                 //     type="text"
@@ -235,7 +238,7 @@ setEdit(!edit)
                                             )}
                                         </td>
                                         {!ojo ? <td>  <img onClick={handleOjo} width={'30px'} src="https://cdn-icons-png.flaticon.com/512/94/94674.png" alt="oj" /></td> : <td> {edit && editId === pas?.id ? (
-                                    <textarea
+                                            <textarea
                                                 type="text"
                                                 name="motivo"
                                                 value={dataInput.motivo}
@@ -245,31 +248,31 @@ setEdit(!edit)
                                         ) : (
                                             pas?.motivo
                                         )}</td>}
-                                        <td>{fechaFormateada} {horaFormateada} </td>
+                                        <td>{fechaFormateada} <br /> {horaFormateada} </td>
 
                                         <td>
                                             {
                                                 usuario.nivel == 3 || usuario.id == pas.userId ? (
                                                     <>
-                                                      <div className={style.d}>
-                                                      {!edit ? 
-                                                      <button className={style.viewButton} onClick={() => handleDeleteClick(pas.id)}>Eliminar pasajero</button>
-                                                       : 
-                                                       
-                                                     <button
-                                                     className={style.viewButton}
-                                                     onClick={handleCancel}
-                                                     >
-                                                        {
-                                                            editId === pas.id ? 'cancelar' : ''
-                                                        }
+                                                        <div className={style.d}>
+                                                            {!edit ?
+                                                                <button className={style.viewButton} onClick={() => handleDeleteClick(pas.id)}>Eliminar pasajero</button>
+                                                                :
 
-                                                         
-                                                     </button> 
-                                                       } 
+                                                                <button
+                                                                    className={style.viewButton}
+                                                                    onClick={handleCancel}
+                                                                >
+                                                                    {
+                                                                        editId === pas.id ? 'cancelar' : ''
+                                                                    }
 
- 
-    </div>
+
+                                                                </button>
+                                                            }
+
+
+                                                        </div>
                                                         <br />
                                                         <div>
                                                             <button className={style.viewButton} onClick={() => { handleEdit(pas) }}>{!edit ? 'Editar' : editId === pas.id ? 'Guardar' : ''}   </button>
@@ -294,14 +297,14 @@ setEdit(!edit)
                 </div>
             }
             {confirmDelete && (
-        <div className={style.overla}>
-        <div className={style.overlayContent}>
-          <p>¿Estás seguro de que deseas eliminar este pasajero?</p>
-          <button onClick={handleConfirmDelete}>Confirmar</button>
-          <button onClick={handleCancelDelete}>Cancelar</button>
-        </div>
-      </div>
-      )}
+                <div className={style.overla}>
+                    <div className={style.overlayContent}>
+                        <p>¿Estás seguro de que deseas eliminar este pasajero?</p>
+                        <button onClick={handleConfirmDelete}>Confirmar</button>
+                        <button onClick={handleCancelDelete}>Cancelar</button>
+                    </div>
+                </div>
+            )}
             {zoom &&
                 <div className={style.overlay} >
 

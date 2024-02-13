@@ -112,7 +112,7 @@ const AllUsers = () => {
               const fecha = new Date(user?.createdAt);
               const fechaFormateada = fecha.toLocaleDateString();
               const horaFormateada = fecha.toLocaleTimeString();
-              return <tr key={user.id}>
+              return <tr key={user.id} className={styles.hover}>
                 <td>{user?.nombreCompleto}</td>
                 <td className={
                   user.activo === "true"? styles.activo : 

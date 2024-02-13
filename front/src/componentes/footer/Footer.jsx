@@ -19,9 +19,9 @@ const Footer = () => {
             <div className={styles.githubNames}>
             <h2>Contact</h2>
                 <ul className={styles.contactList}>
-                    <li><a >zeus@gmail.com</a></li>
-                    <li><a >+54 2945 123456</a></li>
-                    <li><a >avenida siempre viva calle 123</a></li>
+                    <li><a > zeus_sistemas@gmail.com</a></li>
+                    <li><a > +54 2945 416727</a></li>
+                    <li><a >bluseguridad24@gmail.com</a></li>
                 </ul>
             </div>
             <div className={styles.contact}>
@@ -30,7 +30,7 @@ const Footer = () => {
             <div className={styles.socialMedia}>
                 <h2>Social Media</h2>
                 <ul className={styles.socialMediaList}>
-                    <a href="https://www.facebook.com/"  target="_blank" rel="noopener noreferrer">
+                    {/* <a href="https://www.facebook.com/"  target="_blank" rel="noopener noreferrer">
                         <li>🥟</li>
                     </a>
                     <a href="https://www.instagram.com/" target="_blank" rel="noopener noreferrer">
@@ -38,7 +38,7 @@ const Footer = () => {
                     </a>
                     <a href="https://twitter.com/" target="_blank" rel="noopener noreferrer">
                     <li>🥬</li>
-                    </a>
+                    </a> */}
                 </ul>
             </div>
         </div>

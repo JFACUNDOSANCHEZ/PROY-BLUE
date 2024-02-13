@@ -11,6 +11,10 @@
   float: left;
 
 }
+.hover:hover {
+  
+  background-color: #999c9ab8; /* Cambia esto al color que desees */
+}
 .activo {
   color: green; /* Color verde para usuarios activos */
 }
