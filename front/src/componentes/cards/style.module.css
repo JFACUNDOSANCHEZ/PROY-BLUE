@@ -25,6 +25,9 @@
   align-items: center;
   z-index: 1000; /* Asegura que esté en la parte superior */
 }
+.nada{
+  
+}
 .divPr {
   display: flex;
   justify-content: center;

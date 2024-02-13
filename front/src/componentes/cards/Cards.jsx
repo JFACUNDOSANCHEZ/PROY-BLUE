@@ -112,7 +112,7 @@ const Cards = ({ passegers, usuario }) => {
     }
     const nationalities = countryList.getNames();
 
-const {pathname} = useLocation()
+    const { pathname } = useLocation()
 
     return (
         <div className={style.homeContainer}>
@@ -127,16 +127,16 @@ const {pathname} = useLocation()
                 <div className={style.contentTable}>
                     <div className={style.tableHeader}>
                         <div className={style.divAgregar}>
-{
-pathname === '/home' ? 
-                            <Link to={'/form'}>
-                                <button className={style.divPr}>
+                            {
+                                pathname === '/home' ?
+                                    <Link to={'/form'}>
+                                        <button className={style.divPr}>
 
-                                    Agrega pasajero
-                                </button>
-                            </Link>
-: ''
-}
+                                            Agrega pasajero
+                                        </button>
+                                    </Link>
+                                    : ''
+                            }
 
                         </div>
                     </div>
@@ -152,7 +152,7 @@ pathname === '/home' ?
                                 <th className={style.Dnitd}>Nacionalidad</th>
 
 
-                                <th className={style.thMotivo}>
+                                <th className={style}>
                                     <div style={{ display: 'flex', alignItems: 'center' }}>
                                         <span style={{ marginRight: '5px' }}>Motivo</span>
                                         {!ojo ? (
@@ -179,7 +179,7 @@ pathname === '/home' ?
                                 return (
 
 
-                                    <tr   key={pas?.id} className={style.hover}>
+                                    <tr key={pas?.id} className={style.hover}>
                                         <td>
 
                                             <img src={pas.img} alt="z1" onClick={() => { handleZoom(pas.img) }} className={style.img} />
@@ -225,7 +225,7 @@ pathname === '/home' ?
                                                         </option>
                                                     ))}
                                                 </select>
-             
+
                                             ) : (
                                                 pas?.nacionalidad
                                             )}
@@ -241,12 +241,12 @@ pathname === '/home' ?
                                         ) : (
                                             pas?.motivo
                                         )}</td>}
-                                        <td>{fechaFormateada} <br /> {horaFormateada} </td>
+                                        <td>{fechaFormateada} <br /> {horaFormateada}hs </td>
 
-                                        <td>
-                                            {
-                                                usuario.nivel == 3 || usuario.id == pas.userId ? (
-                                                    <>
+                                        {
+                                            usuario.nivel == 3 || usuario.id == pas.userId ? (
+                                                <>
+                                                    <td>
                                                         <div className={style.d}>
                                                             {!edit ?
                                                                 <button className={style.viewButton} onClick={() => handleDeleteClick(pas.id)}>Eliminar pasajero</button>
@@ -270,14 +270,14 @@ pathname === '/home' ?
                                                         <div>
                                                             <button className={style.viewButton} onClick={() => { handleEdit(pas) }}>{!edit ? 'Editar' : editId === pas.id ? 'Guardar' : ''}   </button>
                                                         </div>
-                                                    </>
-                                                ) : (
-                                                    <div></div>
-                                                )
-                                            }
-                                            <br />
+                                                    </td>
+                                                </>
+                                            ) : (
+                                                <td className={style.nada}></td>
+                                            )
+                                        }
 
-                                        </td>
+
 
                                     </tr>
                                 );
