@@ -29,9 +29,11 @@ const Info =()=>{
         </ul>
         </div>
         <br /><br /><br /><br />
+        <div className={styles.container}>
         <Link to={'/home'}>
 <button className={styles.buton}>Comenzar</button>
         </Link>
+        </div>
         </div>
     )
 }

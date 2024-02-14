@@ -1,18 +1,25 @@
 .descriptionContainer {
-display: flex;
-justify-content: center;
-margin-top: 5%;
-  }
-  .descriptionContainer p {
- font-size: 2rem;
- text-align: center;
-      }
+  display: flex;
+  justify-content: center;
+  align-items: center; /* Alinea verticalmente */
+  margin-top: 5%;
+}
+
+.descriptionContainer p {
+  font-size: 2rem;
+  text-align: center;
+}
 .featureList{
   list-style-type: none;
   padding: 0; 
+  display: column;
+  justify-content: center;
+  align-items: center;
+
+
       }    
 .buton{
-margin-left: 46%;
+
 width: 14rem;
 height: 2rem;
 border-radius: 30px;
@@ -20,11 +27,13 @@ background-color: rgb(50, 138, 50);
 font-size: 1.4
 rem;
 }
-  
-  .descriptionContainer img {
-width: 100px;
-margin-left: 50%;
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 
-    
-      }
-      
+.descriptionContainer img {
+  width: 100px;
+  margin-left: 45%;
+}
