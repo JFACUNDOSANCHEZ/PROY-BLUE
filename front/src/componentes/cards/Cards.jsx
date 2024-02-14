@@ -267,7 +267,7 @@ const Cards = ({ passegers, usuario }) => {
 
                                                         </div>
                                                         <br />
-                                                        <div  className={style.nada}>
+                                                        <div >
                                                             <button className={style.viewButton} onClick={() => { handleEdit(pas) }}>{!edit ? 'Editar' : editId === pas.id ? 'Guardar' : ''}   </button>
                                                         </div>
                                                     </td>
