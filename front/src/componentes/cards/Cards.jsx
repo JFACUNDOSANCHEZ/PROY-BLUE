@@ -152,7 +152,7 @@ const Cards = ({ passegers, usuario }) => {
                                 <th className={style.Dnitd}>Nacionalidad</th>
 
 
-                                <th className={style}>
+                                <th className={style.motivo}>
                                     <div style={{ display: 'flex', alignItems: 'center' }}>
                                         <span style={{ marginRight: '5px' }}>Motivo</span>
                                         {!ojo ? (
@@ -244,7 +244,7 @@ const Cards = ({ passegers, usuario }) => {
                                         <td>{fechaFormateada} <br /> {horaFormateada}hs </td>
 
                                         {
-                                            usuario.nivel == 3 || usuario.id == pas.userId ? (
+                                            usuario?.nivel == 3 || usuario?.id == pas?.userId ? (
                                                 <>
                                                     <td>
                                                         <div className={style.nada}>
@@ -267,7 +267,7 @@ const Cards = ({ passegers, usuario }) => {
 
                                                         </div>
                                                         <br />
-                                                        <div >
+                                                        <div className={style.nada}>
                                                             <button className={style.viewButton} onClick={() => { handleEdit(pas) }}>{!edit ? 'Editar' : editId === pas.id ? 'Guardar' : ''}   </button>
                                                         </div>
                                                     </td>
