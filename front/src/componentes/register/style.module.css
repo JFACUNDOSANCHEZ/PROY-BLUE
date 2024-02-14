@@ -18,10 +18,10 @@
   display: flex;
   height: 100%;
   width: 80%;
-  background-color: #d8d8d867;
+  background-color: hsla(0, 0%, 100%, 0.655);
   margin: 0rem;
   border-radius: 3rem;
-color: rgb(236, 233, 233);
+color: rgb(0, 0, 0);
   box-shadow: 0 2px rgba(0, 0, 0, 0.418);
 }
 .imgLogin {

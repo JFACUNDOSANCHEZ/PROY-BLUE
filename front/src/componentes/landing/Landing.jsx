@@ -22,11 +22,11 @@ return (
   <>
     <div className={styles.landingContainer}>
       <div className={styles.contentContainer}>
-      <h1 className={styles.ELh1}>Welcome to<br />BLU</h1>
         <div className={styles.loginRegisterContainer}>
          
             
           <div className={styles.flipCard}>
+      <h1 className={styles.ELh1}>Welcome to<br />BLU</h1>
             <div className={`${styles.flipCardInner} ${estado ? styles.flipped : ''}`}>
               <div className={`${styles.cardContainer} ${styles.flipCardFront}`}>
                 <Login />
