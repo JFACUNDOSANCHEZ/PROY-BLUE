@@ -18,17 +18,16 @@ const AllUsers = () => {
   const [filter, setFilter] = useState('Todos');
   const [pagina, setPagina] = useState(1);
   const [porPagina, setPorPagina] = useState(12)
-  const [confirmDelete, setConfirmDelete] = useState(false);
-const [edit, setEdit]= useState(null)
-
-
-
+  const [edit, setEdit]= useState(null)
+  
+  
+  
   useEffect(() => {
     dispatch(allUsers())
     dispatch(allPasseger())
   }, []);
-
-
+  
+  
   const handleChange = (id) => (e) => {
     const activo = e.target.value === 'T' ? "true" : "false";
     const data = { activo: activo }
@@ -45,17 +44,17 @@ const [edit, setEdit]= useState(null)
   let userIdS = []
   const passegers = useSelector(state => state.allpasseger)
   passegers.forEach(p => userIdS.push(parseInt(p.userId)))
-
+  
   // const userIds = passengers.map(passenger => passenger.userId);
   // console.log('aca tenemos a ' + userIDS );
   const Users = useSelector(state => state.users);
   const soli = Users.filter((u) => { return u.activo === "pendiente" })
-
-
-
-
+  
+  
+  
+  
   let users;
-
+  
   if (filter === 'Solicitud') {
     users = Users.filter((u) => u.activo === "pendiente");
   } else if (filter === 'Activo') {
@@ -66,37 +65,45 @@ const [edit, setEdit]= useState(null)
     users = Users;
   }
   const maximo = Math.ceil(users.length / porPagina);
-
-
+  
+  
   users = pass ? users.filter((u) => {
     const nombreMatch = u.nombreCompleto.toLowerCase().includes(pass.toLowerCase());
     const correoMatch = u.correoElectronico.toLowerCase().includes(pass.toLowerCase());
     return nombreMatch || correoMatch;
   }) : users;
-
-
+  
+  
   const handleFind = (event) => {
     const name = event.target.value;
     setPass(name);
   };
-
-
+  
+  
   const handleFilter = (filtro) => {
     setFilter(filtro);
   };
+  const [confirmDelete, setConfirmDelete] = useState(false);
+const [userDeletID, setUserDeletID ] = useState(false)
 
+  
   const handleDeletUser = (id) => {
-    if (confirmDelete) {
-      dispatch(deleteUser(id));
-      setConfirmDelete(false); // Resetear el estado de confirmación
-    }
+    setUserDeletID(id)
+    setConfirmDelete(true); 
+
   }
   
+  const handleConfirm =()=>{
+    if (userDeletID !== null) {
+    dispatch(deleteUser(userDeletID));
+    setUserDeletID(null)
+    setConfirmDelete(false); 
+  }}
   const handleEdit=()=>{
-setEdit(!edit)
-
+    setEdit(!edit)
+    
   }
-console.log(edit);
+  console.log(edit);
   return (
     <div className={styles.homeContainer}>
       <Nav></Nav>
@@ -205,7 +212,7 @@ console.log(edit);
 
                     <button
                     className={styles.viewButton}
-                    onClick={() => setConfirmDelete(true)}
+                    onClick={() => handleDeletUser(user.id)}
                     >Eliminar pasajero</button>
                   }
                 </td>
@@ -214,7 +221,7 @@ console.log(edit);
                   <div className={styles.overla}>
                     <div className={styles.overlayContent}>
                       <p>¿Estás seguro de que quieres eliminar este pasajero?</p>
-                      <button onClick={() => handleDeletUser(user.id)}>Sí</button>
+                      <button onClick={handleConfirm}>Sí</button>
                       <button onClick={() => setConfirmDelete(false)}>Cancelar</button>
                     </div>
                   </div>
