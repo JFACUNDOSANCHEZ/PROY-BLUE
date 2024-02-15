@@ -1,5 +1,5 @@
 import { useDispatch, useSelector } from "react-redux";
-import { userID } from "../../redux/actions";
+import { userID, setUser } from "../../redux/actions";
 import style from './style.module.css';
 import Searchbar from "../searchBar/SearchBar";
 
@@ -20,7 +20,9 @@ const Nav = () => {
         try {
 
             const tokenString = localStorage.getItem('token');
-            if (tokenString) {
+           
+           console.log(tokenString); 
+           if (tokenString) {
                 const token = JSON.parse(tokenString);
                 console.log(token);
                 const decodedToken = jwtDecode(token);
@@ -44,7 +46,8 @@ const Nav = () => {
 
     const handleLogout = () => {
         dispatch(setUser(null))
-        localStorage.removeItem('user');
+        localStorage.removeItem('token');
+
     }
 
 

@@ -81,7 +81,8 @@ const reducer = (state = inicialState, actions) => {
 
         case 'getPosible':
             return { ...state, getPosible: actions.payload }
-
+            case 'setUser':
+                return { ...state, user: null }
 
 
         case 'users':

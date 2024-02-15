@@ -4,14 +4,14 @@ import { useEffect, useState } from "react";
 import styles from './style.module.css';
 import PasForUser from "../pasForUser/PasForUser";
 import Nav from "../nav/Nav";
-import { Link } from "react-router-dom";
+import { Link,useNavigate } from "react-router-dom";
 import Paginacion from "../paginacion/Paginacion"
 import Footer from '../footer/Footer'
 
 
 const AllUsers = () => {
 
-
+const navigate= useNavigate()
   const dispatch = useDispatch();
   const [selectedUsers, setSelectedUsers] = useState({});
   const [pass, setPass] = useState("");
@@ -21,6 +21,34 @@ const AllUsers = () => {
   const [edit, setEdit]= useState(null)
   
   
+
+  useEffect(() => {
+    const token = localStorage.getItem('token');
+    console.log(token);
+    if (!token) {
+        navigate('/');
+      const decodedToken = jwtDecode(token);
+      console.log(decodedToken);
+    if (!decodedToken.nivel) {
+    switch (decodedToken.nivel) {
+    case "1":
+
+    break;
+    case "2":
+      navigate('/');
+
+    break;
+    case "3":
+    navigate('/');
+    break;
+    default:
+    navigate('/');
+    break;
+    }
+    }
+    }},[])
+
+
   
   useEffect(() => {
     dispatch(allUsers())

@@ -16,6 +16,34 @@ const Home = () => {
     const navigate = useNavigate();
     const [nivel, setNivel] = useState('');
 
+
+    useEffect(() => {
+        const token = localStorage.getItem('token');
+        console.log(token);
+        if (!token) {
+            navigate('/');
+          const decodedToken = jwtDecode(token);
+          console.log(decodedToken);
+        if (!decodedToken.nivel) {
+        switch (decodedToken.nivel) {
+        case "1":
+    
+        break;
+        case "2":
+          navigate('/');
+    
+        break;
+        case "3":
+        navigate('/');
+        break;
+        default:
+        navigate('/');
+        break;
+        }
+        }
+        }
+        console.log(token);
+      }, []);
     useEffect(() => {
         try {
 
@@ -23,10 +51,10 @@ const Home = () => {
 
             if (tokenString) {
                 const token = JSON.parse(tokenString);
+                const decodedToken = jwtDecode(token);
                 dispatch(allPasseger(token));
                 dispatch(userID(decodedToken.usuarioId, token));
                 console.log(token);
-                const decodedToken = jwtDecode(token);
                 setNivel(decodedToken.nivel);
             } else {
                 navigate('/')

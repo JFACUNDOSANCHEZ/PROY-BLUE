@@ -12,7 +12,11 @@ import { useDispatch, useSelector } from 'react-redux';
 const Landing = () => {
    const [estado , setEstado] = useState(null)
     const dispatch = useDispatch();
+useEffect(()=>{
 
+  localStorage.removeItem('token');
+
+},[])
 
 const handleEstado =()=> {
 setEstado(!estado)
@@ -25,8 +29,13 @@ return (
         <div className={styles.loginRegisterContainer}>
          
             
+            <div>
           <div className={styles.flipCard}>
-      <h1 className={styles.ELh1}>Welcome to<br />BLU</h1>
+
+      <h1 className={styles.ELh1}>Bienvenido a <strong>
+         BLU.
+        </strong>
+         </h1>
             <div className={`${styles.flipCardInner} ${estado ? styles.flipped : ''}`}>
               <div className={`${styles.cardContainer} ${styles.flipCardFront}`}>
                 <Login />
@@ -34,8 +43,8 @@ return (
             <button onClick={handleEstado} className={styles.goog}>
               {!estado ? 
               
-
-               <p>
+              
+              <p>
 
                  Aún no tienes cuenta? 
                </p> 
@@ -50,8 +59,8 @@ return (
             <button onClick={handleEstado} className={styles.goog}>
               {!estado ? 
               
-
-               <p>
+              
+              <p>
 
                  Aún no tienes cuenta? 
                </p> 
@@ -68,6 +77,7 @@ return (
         
 
       
+              </div>
         </div>
       </div>
     </>

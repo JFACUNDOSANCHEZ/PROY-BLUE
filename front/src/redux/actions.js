@@ -304,6 +304,21 @@ export const findUserName = (name) => {
   }
 }
 
+export const setUser = () => {
+
+  return (dispatch) => {
+    try {
+      dispatch({
+        type: 'setUser',
+      })
+    } catch (error) {
+      dispatch({
+        type: 'error',
+        payload: error.message,
+      });
+    }
+  }
+}
 export const deleteUser =(id) => {
   Swal.fire({
     title: 'Eliminando...',
