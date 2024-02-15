@@ -15,7 +15,7 @@ import { useLocation } from "react-router-dom"
 const Cards = ({ passegers, usuario }) => {
 
     const [pagina, setPagina] = useState(1);
-    const [porPagina, setPorPagina] = useState(13)
+    const [porPagina, setPorPagina] = useState(20)
     const maximo = Math.ceil(passegers.length / porPagina);
     console.log(passegers);
 

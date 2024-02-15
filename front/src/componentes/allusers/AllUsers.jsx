@@ -240,7 +240,7 @@ const [userDeletID, setUserDeletID ] = useState(false)
         </table>
 
       </div>
-      <Footer></Footer>
+  
     </div>
   );
 };
