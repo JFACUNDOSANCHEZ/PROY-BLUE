@@ -82,7 +82,7 @@ const Nav = () => {
                             {!usuario ? (
                                 <>
                                     <Link to="/" className={style.menuItem}>Iniciar Sesión</Link>
-                                    <Link to="/register" className={style.menuItem}> Registrarse</Link>
+                                    <Link to="/" className={style.menuItem}> Registrarse</Link>
                                 </>
                             )
                                 : (
