@@ -2,7 +2,7 @@
   display: flex;
   justify-content: space-between;
   width: 80%;
-  /* Ajusta según sea necesario */
+
 }
 
 .loginRegisterContainer {
@@ -10,168 +10,72 @@
   /* Ajusta según sea necesario */
 }
 
-.flipCard {
-  position: absolute;
-  width: 29rem;
-  height: 55px;
-  top: 0%;
+
+
+.buton {
   left: 50%;
   right: 50%;
-  transform: translateX(-50%);
+  width: 6rem;
+  height: 3rem;
   display: flex;
-  flex-direction: column;
+  justify-content: center;
   align-items: center;
-  text-align: center;
-  border-radius: 0.72731rem;
-  perspective: 100rem;
-  /* Ajusta la perspectiva de la carta */
-}
-.flipCard p{
-  color: #ffffff;
-  text-align: center;
-}
-
-.flipCardInner {
-  width: 100%;
-  height: 50%;
-  transition: transform 0.5s;
-  transform-style: preserve-3d;
-  
-}
-
-.flipCardInner.flipped {
-  transform: rotateY(180deg);
-  /* Gira la carta 180 grados al cambiar de estado */
-}
-
-.flipCardFront,
-.flipCardBack {
-  width: 90%;
-  height: 90%;
-  position: absolute;
-  backface-visibility: hidden;
-  
-  /* Oculta la cara trasera */
-}
-
-.flipCardBack {
-  transform: rotateY(180deg);
-  /* Gira la cara trasera de la carta 180 grados */
-}
-
-.cardContainer {
-  /* Color de fondo transparente */
-  border-radius: 10px;
-  /* Bordes redondeados */
-  
-  /* Espaciado interno */
-}
-
-
-
-.featureList {
-  list-style-type: none;
-  padding: 0;
-  /* box-shadow: 0 4px 8px rgba(0, 0, 0, 0.466); */
-}
-
-.featureList li {
-  margin-bottom: 20px;
-  /* Ajusta según sea necesario para el espacio entre elementos */
-  border-bottom: 1px solid #ddd;
-  padding-bottom: 10px;
-  
+  margin-left:   0%;
+  background-color: #17292c;
+  color: rgb(255, 241, 241);
+  border-radius: 34px;
   font-size: 1rem;
 }
 
-.goog {
-  height: 42px;
-  left: 50%;
-  right: 50%;
-  display: flex;
-  align-items: center;
-  margin-left: 20%;
-  background-color: #336647;
-  color: rgb(255, 241, 241);
-  border-radius: 34px;
-  font-size: 1.3rem;
-}
-
-.featureList strong {
-  font-size: 1em;
-  color: #f8fcff;
-  /* Color de texto azul (puedes ajustar según tu preferencia) */
-}
-
-.featureList p {
-  font-size: 1em;
-  color: #ffffff;
-  text-align: left;
-  font-family: 'Lato', sans-serif;
-  /* Reemplaza 'TuTipoDeLetra' con el nombre de tu tipo de letra preferido */
-}
 
 .ELh1 {
   align-items: center;
-  color: #e7e7e7;
-  font-size: 3rem;
-  margin-bottom: 110px;
-left: 50%;
-right: 50;
+  color: #ffffff;
+  font-size: 4rem;
   font-family: 'Arial', sans-serif;
-  
 }
 
-.descriptionContainer h2 {
-  color: rgb(255, 255, 255);
-  font-size: 2em;
-  margin-bottom: 110px;
-  margin-right: 1em;
+.h2{
+  font-family: 'Arial', sans-serif;
+  color: rgb(164, 164, 164);
 }
 
-.icono {
-  width: 50px;
-  /* Ajusta según sea necesario */
-  height: 50px;
-  /* Ajusta según sea necesario */
-  
-  background-color: transparent;
-  border: none;
+
+.app-container {
+  position: relative;
 }
 
-.descriptionContainer p {
-  font-size: 1.2em;
-
-}
-
-.descriptionContainer {
-  text-align: start;
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
   width: 100%;
-  text-align: center;
-  margin-top: 10%;
-
-  font-family: 'Open Sans', sans-serif;
-  border-radius: 10px;
-  /* box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); */
-
-  top: 5%;
-  width: 45%;
-  /* Ajusta según sea necesario */
-  left: 1rem;
-  position: absolute;
-
-  /* background-color: #d8d8d8a3; */
-
-  border-radius: 1rem;
-  /* box-shadow: 0 2px rgba(0, 0, 0, 0.418); */
-
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5); /* Fondo semitransparente */
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
+.modal-content {
+  background-color: white;
+  padding: 20px;
+  border-radius: 8px;
+  /* box-shadow: 0 0 10px rgba(0, 0, 0, 0.3); */
+}
 
+.close {
+  font-size: 4rem;
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  cursor: pointer;
+  color: white;
+}
 
 .landingContainer {
   
-  background-image: url("https://images.unsplash.com/photo-1508780709619-79562169bc64?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D");
+  background-image: url("https://images.unsplash.com/photo-1649185885081-91f76cb326bb?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D");
   background-size: cover;
   background-position: center;
   background-attachment: fixed;
@@ -179,6 +83,7 @@ right: 50;
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
-  align-items: flex-start;
+  align-items: center;
+  justify-content: center;
 }
 

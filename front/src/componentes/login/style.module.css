@@ -23,7 +23,7 @@
 
   border-radius: 3rem;
 
-  box-shadow: 0 2px rgba(0, 0, 0, 0.418);
+  /* box-shadow: 0 2px rgba(0, 0, 0, 0.418); */
 }
 .imgLogin {
   height: 85%;
@@ -54,7 +54,7 @@
   height: 40px;
   margin-top: 0.8rem;
   cursor: pointer;
-  box-shadow: 0 2px rgba(0, 0, 0, 0.418);
+  /* box-shadow: 0 2px rgba(0, 0, 0, 0.418); */
   
 }
 

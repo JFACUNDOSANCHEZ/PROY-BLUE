@@ -22,7 +22,7 @@
   margin: 0rem;
   border-radius: 3rem;
 color: rgb(0, 0, 0);
-  box-shadow: 0 2px rgba(0, 0, 0, 0.418);
+  /* box-shadow: 0 2px rgba(0, 0, 0, 0.418); */
 }
 .imgLogin {
   height: 85%;

@@ -22,31 +22,29 @@ const navigate= useNavigate()
   
   
 
-  useEffect(() => {
-    const token = localStorage.getItem('token');
-    console.log(token);
-    if (!token) {
-        navigate('/');
-      const decodedToken = jwtDecode(token);
-      console.log(decodedToken);
-    if (!decodedToken.nivel) {
-    switch (decodedToken.nivel) {
-    case "1":
-
-    break;
-    case "2":
-      navigate('/');
-
-    break;
-    case "3":
-    navigate('/');
-    break;
-    default:
-    navigate('/');
-    break;
-    }
-    }
-    }},[])
+ useEffect(() => {
+   const token = localStorage.getItem('token');
+   console.log(token);
+   if (!token) {
+       navigate('/');
+     const decodedToken = jwtDecode(token);
+     console.log(decodedToken);
+   if (!decodedToken.nivel) {
+   switch (decodedToken.nivel) {
+   case "1":
+   break;
+   case "2":
+     navigate('/');
+   break;
+   case "3":
+   navigate('/');
+   break;
+   default:
+   navigate('/');
+   break;
+   }
+   }
+   }},[])
 
 
   

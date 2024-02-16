@@ -10,77 +10,51 @@ import { useDispatch, useSelector } from 'react-redux';
 
 
 const Landing = () => {
-   const [estado , setEstado] = useState(null)
-    const dispatch = useDispatch();
-useEffect(()=>{
 
-  localStorage.removeItem('token');
+  const dispatch = useDispatch();
+  useEffect(() => {
 
-},[])
+    localStorage.removeItem('token');
 
-const handleEstado =()=> {
-setEstado(!estado)
+  }, [])
 
-}
-return (
-  <>
+  const [showModal, setShowModal] = useState(false);
+
+  const toggleModal = () => {
+    setShowModal(!showModal);
+  };
+
+
+  const [showModalRegister, setShowModalRegister] = useState(false);
+
+  const toggleModalRegister = () => {
+    setShowModalRegister(!showModalRegister);
+  };
+  return (
+    <>
     <div className={styles.landingContainer}>
-      <div className={styles.contentContainer}>
-        <div className={styles.loginRegisterContainer}>
-         
-            
-            <div>
-          <div className={styles.flipCard}>
-
-      <h1 className={styles.ELh1}>Bienvenido a <strong>
-         BLU.
-        </strong>
-         </h1>
-            <div className={`${styles.flipCardInner} ${estado ? styles.flipped : ''}`}>
-              <div className={`${styles.cardContainer} ${styles.flipCardFront}`}>
-                <Login />
-                <br /><br />
-            <button onClick={handleEstado} className={styles.goog}>
-              {!estado ? 
-              
-              
-              <p>
-
-                 Aún no tienes cuenta? 
-               </p> 
-              
-              : <p>Ir al Login</p>}
-            </button>
-              </div>
-              <div className={`${styles.cardContainer} ${styles.flipCardBack}`}>
-                <Register />
-         
-                <br /><br />
-            <button onClick={handleEstado} className={styles.goog}>
-              {!estado ? 
-              
-              
-              <p>
-
-                 Aún no tienes cuenta? 
-               </p> 
-              
-              : <p>Ir al Login</p>}
-            </button>
-              </div>
-            </div>
+      <h1 className={styles.ELh1}><strong>BLU.</strong></h1>
+      <h2 className={styles.h2}>Seguridad en tus manos</h2>
+      <button onClick={toggleModal} className={styles.buton}>Login</button>
+      <button onClick={toggleModalRegister} className={styles.buton}>Registro</button>
+      {showModal && (
+        <div className={styles['modal-overlay']}>
+          <div className={styles['modal-content']}>
+            <Login />
+            <span className={styles.close} onClick={toggleModal}>×</span>
           </div>
-
-          </div>
-     
-      
-        
-
-      
-              </div>
         </div>
-      </div>
-    </>
+      )}
+      {showModalRegister && (
+        <div className={styles['modal-overlay']}>
+          <div className={styles['modal-content']}>
+            <Register />
+            <span className={styles.close} onClick={toggleModalRegister}>×</span>
+          </div>
+        </div>
+      )}
+    </div>
+  </>
   );
 };
 
