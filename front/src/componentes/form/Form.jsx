@@ -167,7 +167,7 @@ const navigate = useNavigate()
           <div className={style.formGroup}>
             <h3>Apellido y Nombre: </h3>
             <input 
-            placeholder="Pepe Argento"
+            placeholder="Pedro Argento"
              className={style.dni} 
              type="text"
               name="name" onChange={handleChange} value={form.name} />
