@@ -163,7 +163,7 @@ width: 100%;
 }
 
 .contetTitle{
-  margin: 7rem;
+  margin: 1rem;
   text-align: center; 
 }
 
@@ -242,7 +242,7 @@ width: 100%;
   
   display: flex;
   justify-content: space-between;
-  padding: 10px;
+  
   color: #ffffff;
   text-align: center;
   font-family: "IBM Plex Mono", monospace;
@@ -283,7 +283,7 @@ width: 100%;
   margin-top: 10px; 
   margin-left: 1rem;
     border: none; /* Elimina los bordes en las celdas */
-  padding: 8px;
+
 }
 
 

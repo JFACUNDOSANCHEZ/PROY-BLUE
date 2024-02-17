@@ -115,7 +115,7 @@ const navigate = useNavigate()
         console.log(result);
       } else {
         // Si no hay un archivo nuevo, podrías usar el valor actual de img o proporcionar un valor predeterminado
-        result = form.img || 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRkrLqEKuEDoPVnaHf0u81pB0UrOvynZFDquA&usqp=CAU';
+        result = form.img || 'https://firebasestorage.googleapis.com/v0/b/blu-p-51f37.appspot.com/o/3e3e0831-7a27-4414-be40-ef8e57a0adda?alt=media&token=ac15bbb8-5acd-4ab4-8fc1-836f9bc8efcc';
       }
 
       const data = { ...form, uId: usuario.id, img: result}
@@ -181,9 +181,15 @@ const navigate = useNavigate()
           </div>
 
           <div className={style.formGroup}>
-            <h3>Motivo / Descripcion: </h3>
-            <input placeholder="Agregar una breve descripcion sobre el huesped" type="text" name="motivo" onChange={handleChange} value={form.motivo} className={style.largeInput} />
-          </div>
+  <h3>Motivo / Descripción: </h3>
+  <textarea 
+    placeholder="Agregar una breve descripción sobre el huésped" 
+    name="motivo" 
+    onChange={handleChange} 
+    value={form.motivo} 
+    className={style.largeTextarea} 
+  />
+</div>
 
           <button type="submit" className={style.button}>CARGAR DATOS</button>
         </form>

@@ -9,6 +9,16 @@
   left: 50%;
   transform: translate(-50%, -50%);
 }
+.largeTextarea {
+  width: 95%;
+  height: 150px; /* Altura deseada */
+  padding: 10px;
+  resize: vertical; /* Permite que el textarea sea redimensionable verticalmente */
+  border: 1px solid #ccc; /* Añade un borde para darle apariencia de input */
+  border-radius: 4px;
+  font-size: 16px;
+  line-height: 1.5;
+}
 .nav{
   margin-top: 0;
 }
