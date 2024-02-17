@@ -64,7 +64,7 @@ const PasForUser = () => {
         <Cards passegers={passxUser} usuario={usuario} />
       ) : (
         <div className={style.divNoencontrado}>
-          El usuario no ah cargado pasajeros...
+          El usuario no ha cargado pasajeros...
         </div>
       )}
     </div>
