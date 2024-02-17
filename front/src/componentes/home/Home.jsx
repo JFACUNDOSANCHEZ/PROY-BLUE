@@ -64,7 +64,7 @@ const Home = () => {
             console.error('Error al obtener datos:', error);
         }
     }, []);
-    console.log(nivel);
+  
 
 let passegers
    passegers = useSelector((state) => state.passeger)
@@ -76,10 +76,10 @@ let passegers
         // Comparar las fechas y devolver el resultado de la comparación
         return dateB - dateA;
       });
-    console.log(passegers);
+    
 
     const usuario = useSelector(state => state.user)
-    console.log(usuario);
+
 
 
 

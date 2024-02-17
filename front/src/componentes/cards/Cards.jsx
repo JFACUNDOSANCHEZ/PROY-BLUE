@@ -17,7 +17,7 @@ const Cards = ({ passegers, usuario }) => {
     const [pagina, setPagina] = useState(1);
     const [porPagina, setPorPagina] = useState(20)
     const maximo = Math.ceil(passegers.length / porPagina);
-    console.log(passegers);
+    
 
     const noEncontrado = useSelector((state) => state.noEncontrado)
 
@@ -31,7 +31,7 @@ const Cards = ({ passegers, usuario }) => {
     }
 
     const [dataInput, setDataInput] = useState(null)
-    console.log(dataInput);
+
     const handleData = (e) => {
         const valor = e.target.value;
         const clave = e.target.name;

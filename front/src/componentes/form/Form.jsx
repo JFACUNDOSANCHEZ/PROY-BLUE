@@ -16,7 +16,6 @@ const Form = () => {
 
   const nationalities = countryList.getNames();
 
-console.log(nationalities);
 
 
 
@@ -92,7 +91,7 @@ const navigate = useNavigate()
   }
 
   const usuario = useSelector(state => state.user)
-  console.log(usuario);
+ 
 
 
 
@@ -125,7 +124,6 @@ const navigate = useNavigate()
 
   }
 
-  console.log(form);
 
 
   return (

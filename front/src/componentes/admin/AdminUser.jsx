@@ -54,7 +54,7 @@ const AdminUser = () => {
 
 
   const posiblesUsers = useSelector(state => state.posibleUser);
-  console.log(users);
+  
   return (
     <div>
             

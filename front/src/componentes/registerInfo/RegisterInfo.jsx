@@ -30,7 +30,7 @@ const dispatch = useDispatch()
     };
     
     const usuario  = JSON.parse(localStorage.getItem('user'));
-    console.log(usuario);
+    
     const handleSendCode = () => {
       const code = Math.random().toString(36).substring(2, 8); // Genera un código de 6 caracteres alfanuméricos
       setCodigo(code)
@@ -65,10 +65,9 @@ const dispatch = useDispatch()
   }
 
 
-  console.log(codigo);
+
 
 const codig = useSelector((state)=> state.codigo)
-    console.log(codig);
 return (
     <div className={RegisterStyle.container}>
       <div className={RegisterStyle.content}>
