@@ -26,14 +26,14 @@ const Info =()=>{
          <br /> <br />
             <p>Trabaja de manera colaborativa con tu comunidad para mantener la lista actualizada.</p>
           </li>
-        </ul>
-        </div>
-        <br /><br /><br /><br />
         <div className={styles.container}>
         <Link to={'/home'}>
 <button className={styles.buton}>Comenzar</button>
         </Link>
         </div>
+        </ul>
+        </div>
+        <br /><br /><br /><br />
         </div>
     )
 }

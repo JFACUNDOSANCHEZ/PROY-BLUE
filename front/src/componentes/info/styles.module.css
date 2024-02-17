@@ -10,6 +10,7 @@
   text-align: center;
 }
 .featureList{
+
   list-style-type: none;
   padding: 0; 
   display: column;
@@ -19,11 +20,12 @@
 
       }    
 .buton{
-
+  border: none;
+color: white;
 width: 14rem;
 height: 2rem;
 border-radius: 30px;
-background-color: rgb(50, 138, 50);
+background-color: rgb(36, 99, 36);
 font-size: 1.4
 rem;
 }
