@@ -1,7 +1,6 @@
-import Card from "../card/Card"
+
 import style from './style.module.css'
-import hm from '../../../public/hm.svg'
-import ne from '../../../public/ne.svg'
+
 import { useSelector } from "react-redux/es/hooks/useSelector"
 import { useEffect, useState } from "react"
 import SearchBar from "../searchBar/SearchBar"

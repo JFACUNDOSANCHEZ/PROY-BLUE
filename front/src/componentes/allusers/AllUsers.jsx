@@ -1,17 +1,14 @@
 import { useDispatch, useSelector } from "react-redux";
-import { findUserName, user, allUsers, userPut, deleteUser, allPasseger } from "../../redux/actions";
+import {  allUsers, userPut, deleteUser, allPasseger } from "../../redux/actions";
 import { useEffect, useState } from "react";
 import styles from './style.module.css';
-import PasForUser from "../pasForUser/PasForUser";
 import Nav from "../nav/Nav";
-import { Link,useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 import Paginacion from "../paginacion/Paginacion"
-import Footer from '../footer/Footer'
+
 
 
 const AllUsers = () => {
-
-const navigate= useNavigate()
   const dispatch = useDispatch();
   const [selectedUsers, setSelectedUsers] = useState({});
   const [pass, setPass] = useState("");
@@ -19,34 +16,9 @@ const navigate= useNavigate()
   const [pagina, setPagina] = useState(1);
   const [porPagina, setPorPagina] = useState(12)
   const [edit, setEdit]= useState(null)
+  const [confirmDelete, setConfirmDelete] = useState(false);
+  const [userDeletID, setUserDeletID ] = useState(false)
   
-  
-
- useEffect(() => {
-   const token = localStorage.getItem('token');
-   console.log(token);
-   if (!token) {
-       navigate('/');
-     const decodedToken = jwtDecode(token);
-     console.log(decodedToken);
-   if (!decodedToken.nivel) {
-   switch (decodedToken.nivel) {
-   case "1":
-   break;
-   case "2":
-     navigate('/');
-   break;
-   case "3":
-   navigate('/');
-   break;
-   default:
-   navigate('/');
-   break;
-   }
-   }
-   }},[])
-
-
   
   useEffect(() => {
     dispatch(allUsers())
@@ -70,18 +42,10 @@ const navigate= useNavigate()
   let userIdS = []
   const passegers = useSelector(state => state.allpasseger)
   passegers.forEach(p => userIdS.push(parseInt(p.userId)))
-  
-  // const userIds = passengers.map(passenger => passenger.userId);
-  // console.log('aca tenemos a ' + userIDS );
   const Users = useSelector(state => state.users);
   const soli = Users.filter((u) => { return u.activo === "pendiente" })
-  
-  
-  
-  
   let users;
-  
-  if (filter === 'Solicitud') {
+    if (filter === 'Solicitud') {
     users = Users.filter((u) => u.activo === "pendiente");
   } else if (filter === 'Activo') {
     users = Users.filter((u) => u.activo === 'true');
@@ -99,27 +63,18 @@ const navigate= useNavigate()
     return nombreMatch || correoMatch;
   }) : users;
   
-  
   const handleFind = (event) => {
     const name = event.target.value;
     setPass(name);
-  };
-  
-  
+  };  
   const handleFilter = (filtro) => {
     setFilter(filtro);
   };
-  const [confirmDelete, setConfirmDelete] = useState(false);
-const [userDeletID, setUserDeletID ] = useState(false)
-
-  
   const handleDeletUser = (id) => {
     setUserDeletID(id)
     setConfirmDelete(true); 
-
   }
-  
-  const handleConfirm =()=>{
+    const handleConfirm =()=>{
     if (userDeletID !== null) {
     dispatch(deleteUser(userDeletID));
     setUserDeletID(null)
@@ -127,9 +82,7 @@ const [userDeletID, setUserDeletID ] = useState(false)
   }}
   const handleEdit=()=>{
     setEdit(!edit)
-    
   }
-  console.log(edit);
   return (
     <div className={styles.homeContainer}>
       <Nav></Nav>
@@ -139,7 +92,6 @@ const [userDeletID, setUserDeletID ] = useState(false)
         <h1 className={styles.title}>Admin DashBoard</h1>
       </div>
       <h2>Tabla de Usuarios</h2>
-
       <div className={styles.contentTable}>
         <div className={styles.tableHeader}>
           <div className={styles.searchBox}>
@@ -154,8 +106,6 @@ const [userDeletID, setUserDeletID ] = useState(false)
             type="search"
             placeholder="Busca por el nombre o mail.."
           />
-
-
         </div>
         <Paginacion pagina={pagina} setPagina={setPagina} maximo={maximo} />
         <table className={styles.userTable}>
@@ -169,10 +119,7 @@ const [userDeletID, setUserDeletID ] = useState(false)
               <th className={styles.rol}></th>
               <th className={styles.rol}></th>
               {
-!edit ? 
-'' 
-: 
-              <th className={styles.rol}>   {/* Espacio para los botones*/}</th>
+!edit ? '' :  <th className={styles.rol}>   {/* Espacio para los botones*/}</th>
             }
             </tr>
           </thead>
@@ -182,13 +129,7 @@ const [userDeletID, setUserDeletID ] = useState(false)
               const fechaFormateada = fecha.toLocaleDateString();
               const horaFormateada = fecha.toLocaleTimeString();
 
-
-
-
               return <tr key={user.id} className={styles.hover}>
-
-
-
                 <td>{user?.nombreCompleto}</td>
                 <td className={
                   user.activo === "true" ? styles.activo :
@@ -203,8 +144,7 @@ const [userDeletID, setUserDeletID ] = useState(false)
                                 <option>--</option>
                                 <option value="F">Cancelar usuario</option>
                                 <option value="T">Activar usuario</option>
-                              </select>
-                  
+                              </select>   
                 }
                 </td>
                 <td >
@@ -212,30 +152,20 @@ const [userDeletID, setUserDeletID ] = useState(false)
 !edit ? 
                   
                   user?.nivel === '3' ? 'Administrador' : user?.nivel === '2' ? 'Usuario' : 'Usuario'
-                  :
-                  
-                  
+                  :      
                   <select onChange={(e) => handleLevelChange(e, user?.id)} className={styles.select}>
                     <option  >--</option>
-
                     <option value="2">Usuario</option>
                     <option value="3">Administrador</option>
                   </select>
-                  
-                }
+                  }
                   </td>
                 <td>{user?.correoElectronico}</td>
                 <td>{fechaFormateada} <br /> {horaFormateada}hs</td>
-
                 {
-!edit ? 
-            ''
-                :
+!edit ? ''  :
                 <td>
-                  {userIdS.includes(user?.id) ?
-                    ''
-                    :
-
+                  {userIdS.includes(user?.id) ?  ''  :
                     <button
                     className={styles.viewButton}
                     onClick={() => handleDeletUser(user.id)}
@@ -264,9 +194,7 @@ const [userDeletID, setUserDeletID ] = useState(false)
             })}
           </tbody>
         </table>
-
       </div>
-  
     </div>
   );
 };

@@ -1,19 +1,13 @@
 import { useState, useEffect } from "react"
-import validation from "./validation";
-import { allPasseger, confirmacion, login } from "../../redux/actions";
+
+import { allPasseger, login } from "../../redux/actions";
 import { useDispatch, useSelector } from 'react-redux'
 import { useNavigate } from 'react-router-dom';
 import style from './style.module.css'
-import { Link } from "react-router-dom";
-import { jwtDecode } from "jwt-decode";
 import { initializeApp } from "firebase/app";
 import { getAnalytics } from "firebase/analytics";
 import { GoogleAuthProvider, getAuth, signInWithPopup, } from "firebase/auth";
-import GoogleButton from 'react-google-button';
 import { getStorage, uploadBytes, getDownloadURL, ref } from "firebase/storage";
-import { v4 } from 'uuid'
-import Nav from "../nav/Nav";
-import Swal from 'sweetalert2'
 
 
 
@@ -97,16 +91,16 @@ const Login = () => {
     })
   }
 
-  console.log(dataUser);
+ 
   const token = useSelector(state => state.token);
-console.log(token);
-  // Verifica que el token tenga un valor antes de guardarlo
+
+  
   if (token) {
     localStorage.setItem('token', JSON.stringify(token));
 dispatch(allPasseger(token))
   }
 
-  console.log(token);
+  
 
 
   const handleSubmit = async (event) => {
@@ -186,7 +180,7 @@ dispatch(allPasseger(token))
               Iniciar con Google
             </button>
             <br />
-            {/* <p className={style.olvido}>¿Has olvidado tu contraseña?</p> */}
+  
 
 
           </div>

@@ -1,33 +1,26 @@
 import { useDispatch, useSelector } from "react-redux";
 import { userID, setUser } from "../../redux/actions";
 import style from './style.module.css';
-import Searchbar from "../searchBar/SearchBar";
-
 import { useEffect, useState } from "react";
 import { useNavigate, useLocation } from 'react-router-dom';
 import { jwtDecode } from "jwt-decode";
-
 import { Link } from "react-router-dom";
 
 const Nav = () => {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
     const { pathname } = useLocation()
-
     const [nivel, setNivel] = useState('');
     const dispatch = useDispatch();
     const navigate = useNavigate();
     useEffect(() => {
         try {
-
             const tokenString = localStorage.getItem('token');
-           
-           console.log(tokenString); 
-           if (tokenString) {
+            console.log(tokenString);
+            if (tokenString) {
                 const token = JSON.parse(tokenString);
                 console.log(token);
                 const decodedToken = jwtDecode(token);
                 setNivel(decodedToken.nivel);
-
                 dispatch(userID(decodedToken.usuarioId));
             } else {
                 throw new Error('El token no está presente en el objeto respuesta');
@@ -41,40 +34,23 @@ const Nav = () => {
         setIsMenuOpen(!isMenuOpen);
     };
 
-
-
-
     const handleLogout = () => {
         dispatch(setUser(null))
         localStorage.removeItem('token');
-
     }
-
-
 
     let rol
     const usuario = useSelector(state => state.user);
     return (
-
         <div className={style.navBarContainer}>
-
             <div className={style.logoContainer}>
                 <Link to={'/home'}>
                     <img src="https://i.pinimg.com/originals/f4/7f/d1/f47fd1fdc887f5cec9f3f2318c3c8313.png" alt="8" title="Home" width={'45rem'} />
                 </Link>
-
-
             </div>
-        
-     
-                    <p className={style.bien}>Bienvenido {rol = usuario?.nivel === '2' ? 'Usuario' : usuario?.nivel === '3' ? 'Admin' : ''} {usuario?.nombreCompleto}</p>
-                 
+            <p className={style.bien}>Bienvenido {rol = usuario?.nivel === '2' ? 'Usuario' : usuario?.nivel === '3' ? 'Admin' : ''} {usuario?.nombreCompleto}</p>
             <div className={style.userContainer}>
-
-
-
                 <Link to="#" className={style.customUserIcon} onClick={handleMenuToggle}>               <img
-
                     src='https://static.vecteezy.com/system/resources/previews/020/911/737/non_2x/user-profile-icon-profile-avatar-user-icon-male-icon-face-icon-profile-icon-free-png.png'
                     alt="co" width='56px'
                     className='{style.img}' title=" Mi Perfil"
@@ -111,13 +87,6 @@ const Nav = () => {
                     </div>
                 )}
             </div>
-
-
-
-
-
-
-
         </div >
 
     )

@@ -4,17 +4,13 @@ import style from './style.module.css'
 
 const Paginacion = ({ pagina, setPagina, maximo }
 ) => {
-
     const [input, setInput] = useState(1);
     const max = Math.floor(maximo)
-
     useEffect(() => {
-
         if (parseInt(input) > max) {
             setInput(1)
             setPagina(1)
         }
-
     }, [input, max])
 
     const nextPage = () => {
@@ -29,8 +25,6 @@ const Paginacion = ({ pagina, setPagina, maximo }
         }
       };
     
-
-
     const onchange = (event) => {
         const inpt = event.target.value
         setInput(inpt)
@@ -42,15 +36,11 @@ const Paginacion = ({ pagina, setPagina, maximo }
         } else setPagina(parseInt(inpt))
     }
 
-
-
-
-
     return (
         <div className={style.paginationContainer}>
         <div className={style.paginationControls}>
           <button className={style.leftButton} onClick={previewPage}>◀</button>
-          <input
+         <input
             onChange={onchange}
             className={style.input}
             name='page'
@@ -61,9 +51,6 @@ const Paginacion = ({ pagina, setPagina, maximo }
         </div>
       </div>
     )
-
-
-
 }
 
 export default Paginacion

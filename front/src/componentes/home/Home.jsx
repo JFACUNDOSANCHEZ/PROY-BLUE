@@ -6,7 +6,6 @@ import Cards from "../cards/Cards";
 import { useEffect, useState } from "react";
 import { useNavigate } from 'react-router-dom';
 import { jwtDecode } from "jwt-decode";
-import { Link } from "react-router-dom";
 import Nav from "../nav/Nav";
 import Footer from "../footer/Footer";
 
@@ -19,36 +18,21 @@ const Home = () => {
 
     useEffect(() => {
         const token = localStorage.getItem('token');
-        console.log(token);
         if (!token) {
             navigate('/');
           const decodedToken = jwtDecode(token);
           console.log(decodedToken);
         if (!decodedToken.nivel) {
         switch (decodedToken.nivel) {
-        case "1":
-    
-        break;
-        case "2":
-          navigate('/');
-    
-        break;
-        case "3":
-        navigate('/');
-        break;
         default:
         navigate('/');
         break;
-        }
-        }
-        }
-        console.log(token);
+        }}}
+      
       }, []);
     useEffect(() => {
         try {
-
             const tokenString = localStorage.getItem('token');
-
             if (tokenString) {
                 const token = JSON.parse(tokenString);
                 const decodedToken = jwtDecode(token);
@@ -64,59 +48,30 @@ const Home = () => {
             console.error('Error al obtener datos:', error);
         }
     }, []);
-  
 
 let passegers
    passegers = useSelector((state) => state.passeger)
    passegers.sort((a, b) => {
-        // Convertir las fechas a objetos Date para compararlas
         const dateA = new Date(a.updatedAt);
         const dateB = new Date(b.updatedAt);
-        
-        // Comparar las fechas y devolver el resultado de la comparación
         return dateB - dateA;
       });
     
-
     const usuario = useSelector(state => state.user)
-
-
-
-
-
-
 
     return (
         <div className={style.contentContainer} >
-
             <div className={style.navBar}>
-
-
                 <Nav></Nav>
-
-
                 <div>
-
                     <Searchbar></Searchbar>
                 </div>
-
-
-
-
-
                 <div className={style.contentCards}>
-
-                    <Cards passegers={passegers} usuario={usuario} ></Cards>
+                   <Cards passegers={passegers} usuario={usuario} ></Cards>
                 </div>
             </div>
             <Footer></Footer>
-
-
-
         </div>
-
     )
-
 }
-
 export default Home

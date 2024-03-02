@@ -17,27 +17,21 @@ const dispatch = useDispatch()
     const [code, setCode] =useState('')
     const [codigo, setCodigo]= useState('')
     useEffect(()=>{
-      
-      const code = Math.random().toString(36).substring(2, 8); // Genera un código de 6 caracteres alfanuméricos
+      const code = Math.random().toString(36).substring(2, 8); 
       setCodigo(code)
-      
     },[])
     
     const handleCodeChange = (event) => {
       const { value } = event.target;
-      setCode(value); // Actualiza el estado code con el nuevo valor ingresado por el usuario
-      
+      setCode(value);      
     };
     
     const usuario  = JSON.parse(localStorage.getItem('user'));
-    
     const handleSendCode = () => {
-      const code = Math.random().toString(36).substring(2, 8); // Genera un código de 6 caracteres alfanuméricos
+      const code = Math.random().toString(36).substring(2, 8); 
       setCodigo(code)
       if (code && usuario.correoElectronico) {
-       
           dispatch(postConfirm(code,  usuario.correoElectronico));
-      
         }
   };
 
@@ -61,12 +55,7 @@ const dispatch = useDispatch()
         text: 'El codigo no es correcto',
       });
     }
-
   }
-
-
-
-
 const codig = useSelector((state)=> state.codigo)
 return (
     <div className={RegisterStyle.container}>
@@ -87,15 +76,11 @@ return (
         id="codeInput"
         placeholder="Ingrese el código de 6 digitos"
         value={code}
-        onChange={handleCodeChange} // Llama al manejador de cambio cuando el usuario ingresa el código
+        onChange={handleCodeChange} 
         required
-        maxLength={6} // Limita la longitud máxima del código a 6 caracteres
+        maxLength={6} 
       />
-      
-          </div>
-         
-         
-         
+          </div>      
           <button type="submit" className={RegisterStyle.button}>
             Confirmar
           </button>
